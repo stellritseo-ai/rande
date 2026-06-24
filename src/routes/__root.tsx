@@ -10,6 +10,7 @@ import {
 import { useEffect, type ReactNode } from "react";
 
 import appCss from "../styles.css?url";
+import favIcon from "../assets/fav.png";
 import { reportLovableError } from "../lib/lovable-error-reporting";
 
 function NotFoundComponent() {
@@ -77,19 +78,20 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "Voltline Electrical Contractors | Licensed Electricians" },
+      { title: "R&E Electrical Contractor Corp | Licensed Electricians" },
       { name: "description", content: "Licensed and insured electrical contractors delivering residential, commercial, and industrial services with 15+ years of expert craftsmanship." },
-      { name: "author", content: "Voltline Electrical" },
-      { property: "og:title", content: "Voltline Electrical Contractors" },
+      { name: "author", content: "R&E Electrical Contractor Corp" },
+      { property: "og:title", content: "R&E Electrical Contractor Corp" },
       { property: "og:description", content: "Powering homes & businesses with expert electrical solutions." },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary" },
       { name: "twitter:site", content: "@Lovable" },
     ],
     links: [
+      { rel: "icon", href: favIcon, type: "image/png" },
       { rel: "preconnect", href: "https://fonts.googleapis.com" },
       { rel: "preconnect", href: "https://fonts.gstatic.com", crossOrigin: "anonymous" },
-      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Poppins:wght@600;700;800;900&display=swap" },
+      { rel: "stylesheet", href: "https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" },
       {
         rel: "stylesheet",
         href: appCss,

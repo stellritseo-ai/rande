@@ -1,73 +1,263 @@
-import { Link } from "@tanstack/react-router";
-import { Facebook, Instagram, Linkedin, Mail, MapPin, Phone, Zap } from "lucide-react";
+import { motion } from "framer-motion";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  ArrowRight,
+} from "lucide-react";
+import logoImg from "@/assets/logo.png";
+
+// Inline SVG Social Icons for maximum reliability
+const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M18 2h-3a5 5 0 0 0-5 5v3H7v4h3v8h4v-8h3l1-4h-4V7a1 1 0 0 1 1-1h3z" />
+  </svg>
+);
+
+const InstagramIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <rect x="2" y="2" width="20" height="20" rx="5" ry="5" />
+    <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z" />
+    <line x1="17.5" y1="6.5" x2="17.51" y2="6.5" />
+  </svg>
+);
+
+const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
+  <svg viewBox="0 0 24 24" width="20" height="20" stroke="currentColor" strokeWidth="2" fill="none" strokeLinecap="round" strokeLinejoin="round" {...props}>
+    <path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z" />
+    <rect x="2" y="9" width="4" height="12" />
+    <circle cx="4" cy="4" r="2" />
+  </svg>
+);
+
+const socials = [
+  { icon: FacebookIcon, href: "#", label: "Facebook" },
+  { icon: InstagramIcon, href: "#", label: "Instagram" },
+  { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
+];
+
+const quickLinks = [
+  { label: "Home", href: "#hero" },
+  { label: "About Us", href: "#welcome" },
+  { label: "Our Services", href: "#services" },
+  { label: "Featured Projects", href: "#projects" },
+  { label: "Client Reviews", href: "#reviews" },
+  { label: "Apply For a Job", href: "/contact" },
+  { label: "Get In Touch", href: "#get-in-touch" },
+];
+
+const servicesLinks = [
+  { label: "Residential Electrical", href: "#services" },
+  { label: "Commercial Electrical", href: "#services" },
+  { label: "Industrial Electrical", href: "#services" },
+  { label: "Panel Upgrades", href: "#services" },
+  { label: "EV Charger Installation", href: "#services" },
+  { label: "Generator Services", href: "#services" },
+];
 
 export function Footer() {
   return (
-    <footer className="relative overflow-hidden bg-secondary text-white">
-      <div
-        aria-hidden
-        className="pointer-events-none absolute -top-24 -right-24 h-96 w-96 rounded-full bg-primary/20 blur-3xl"
-      />
-      <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8 pt-20 pb-10">
-        <div className="grid gap-12 lg:grid-cols-5">
-          <div className="lg:col-span-2">
-            <Link to="/" className="flex items-center gap-2">
-              <span className="grid h-10 w-10 place-items-center rounded-xl bg-primary">
-                <Zap className="h-5 w-5" strokeWidth={2.5} />
-              </span>
-              <span className="font-display text-2xl font-extrabold">Voltline</span>
-            </Link>
-            <p className="mt-4 max-w-sm text-sm leading-relaxed text-white/70">
-              Licensed, insured, and trusted electrical contractors powering homes and
-              businesses across South Florida with safety-first craftsmanship.
+    <footer className="relative bg-[#050b1a] text-white overflow-hidden border-t border-slate-900">
+      {/* Background patterns */}
+      <div className="absolute inset-0 bg-grid opacity-[0.02] pointer-events-none" />
+
+      {/* Decorative Blur Blobs */}
+      <div className="absolute -top-40 left-1/4 w-[400px] h-[400px] bg-[#FF6B00]/10 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
+      <div className="absolute -bottom-40 right-10 w-[350px] h-[350px] bg-orange-500/5 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
+
+      <div className="relative mx-auto w-[90%] max-w-7xl py-20 lg:py-24 z-10 text-left">
+        <div className="grid grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
+
+          {/* Logo & Description */}
+          <div className="col-span-2 lg:col-span-4">
+            <div className="flex items-center">
+              <img
+                src={logoImg}
+                alt="R&E Electrical Contractor Corp Logo"
+                className="h-14 w-auto object-contain brightness-0 invert"
+              />
+            </div>
+
+            <p className="mt-6 text-sm text-slate-400 leading-relaxed max-w-sm font-semibold">
+              Licensed, insured, and trusted electrical contractors powering homes and businesses across South Florida with safety-first craftsmanship.
             </p>
-            <div className="mt-6 flex gap-3">
-              {[Facebook, Instagram, Linkedin].map((Icon, i) => (
-                <a
+
+            {/* Socials row */}
+            <div className="mt-8 flex gap-3 select-none">
+              {socials.map(({ icon: Icon, href, label }, i) => (
+                <motion.a
                   key={i}
-                  href="#"
-                  className="grid h-10 w-10 place-items-center rounded-full border border-white/15 text-white/80 transition hover:border-primary hover:text-primary"
+                  whileHover={{ y: -4, scale: 1.05, backgroundColor: "rgba(255, 107, 0, 0.15)", borderColor: "rgba(255, 107, 0, 0.3)" }}
+                  whileTap={{ scale: 0.95 }}
+                  href={href}
+                  aria-label={label}
+                  className="grid place-items-center h-10 w-10 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-white transition-colors shadow-sm"
                 >
-                  <Icon className="h-4 w-4" />
-                </a>
+                  <Icon className="h-5 w-5" />
+                </motion.a>
               ))}
+            </div>
+
+            {/* Trust Badges */}
+            <div className="mt-8 flex flex-wrap gap-2 select-none">
+              <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                License #EC13009876
+              </div>
+              <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Licensed &amp; Insured
+              </div>
+              <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
+                <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
+                Miami-Dade Service
+              </div>
             </div>
           </div>
 
-          <FooterCol title="Services" links={["Residential", "Commercial", "Industrial", "EV Chargers", "Generators", "Panel Upgrades"]} />
-          <FooterCol title="Service Areas" links={["Miami", "Coral Gables", "Brickell", "Doral", "Aventura", "Fort Lauderdale"]} />
+          {/* Quick Links Column */}
+          <Col title="Quick Links" items={quickLinks} />
 
-          <div>
-            <h4 className="font-display text-sm font-bold uppercase tracking-wider text-white">Contact</h4>
-            <ul className="mt-5 space-y-3 text-sm text-white/70">
-              <li className="flex gap-3"><Phone className="h-4 w-4 mt-0.5 text-primary" /> (305) 555-1234</li>
-              <li className="flex gap-3"><Mail className="h-4 w-4 mt-0.5 text-primary" /> hello@voltline.com</li>
-              <li className="flex gap-3"><MapPin className="h-4 w-4 mt-0.5 text-primary" /> 1450 Brickell Ave<br/>Miami, FL 33131</li>
-            </ul>
+          {/* Services Column */}
+          <Col title="Our Services" items={servicesLinks} />
+
+          {/* Contact & Hours Column (4-span grid layout subsplit) */}
+          <div className="col-span-2 lg:col-span-4 grid grid-cols-1 sm:grid-cols-2 gap-8 lg:gap-6">
+
+            {/* Contact Details */}
+            <div>
+              <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-6">
+                Contact Us
+              </div>
+              <ul className="space-y-4.5 text-sm">
+                <li>
+                  <a
+                    href="tel:+17863075933"
+                    className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
+                  >
+                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#FF6B00] group-hover:bg-[#FF6B00]/10 group-hover:border-[#FF6B00]/30 transition-all shrink-0">
+                      <Phone className="h-4 w-4 group-hover:rotate-12 transition-transform" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Phone</span>
+                      <span className="font-semibold text-white tracking-tight mt-0.5">(786) 307-5933</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="mailto:Williams@electricalcontractorcorp.com"
+                    className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
+                  >
+                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#FF6B00] group-hover:bg-[#FF6B00]/10 group-hover:border-[#FF6B00]/30 transition-all shrink-0">
+                      <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Email</span>
+                      <span className="font-semibold text-white tracking-tight mt-0.5 text-wrap break-all">Williams@electricalcontractorcorp.com</span>
+                    </div>
+                  </a>
+                </li>
+                <li>
+                  <a
+                    href="https://maps.google.com/?q=18730+NW+77+TH+CT,+Hialeah+FL+33015"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
+                  >
+                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#FF6B00] group-hover:bg-[#FF6B00]/10 group-hover:border-[#FF6B00]/30 transition-all shrink-0">
+                      <MapPin className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />
+                    </div>
+                    <div className="flex flex-col">
+                      <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Office</span>
+                      <span className="font-semibold text-white tracking-tight mt-0.5 leading-snug">
+                        18730 NW 77 TH CT<br />
+                        Hialeah FL 33015
+                      </span>
+                    </div>
+                  </a>
+                </li>
+              </ul>
+            </div>
+
+            {/* Hours Info */}
+            <div>
+              <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-6">
+                Service Hours
+              </div>
+              <div className="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-5">
+                <span className="text-[#FF6B00] font-black uppercase tracking-wider block mb-3 text-[10px] flex items-center gap-2">
+                  <span className="relative flex h-2 w-2">
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6B00] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF6B00]"></span>
+                  </span>
+                  Emergency Line Active
+                </span>
+                <p className="text-xs text-slate-400 leading-relaxed font-semibold">
+                  We are available 24/7 for emergency dispatches across Miami &amp; South Florida.<br /><br />
+                  <span className="text-white block font-bold mb-1">Standard Office:</span>
+                  Mon–Sat: 7am–7pm<br />
+                  Sun: Closed
+                </p>
+              </div>
+            </div>
+
           </div>
         </div>
 
-        <div className="mt-14 flex flex-col items-center justify-between gap-4 border-t border-white/10 pt-6 text-xs text-white/50 sm:flex-row">
-          <p>© {new Date().getFullYear()} Voltline Electrical Contractors. All rights reserved.</p>
-          <div className="flex gap-6">
-            <a href="#" className="hover:text-white">Privacy Policy</a>
-            <a href="#" className="hover:text-white">Terms of Service</a>
-            <a href="#" className="hover:text-white">License #EC13009876</a>
+        {/* Bottom Copy/Trademark Row with Back to Top trigger */}
+        <div className="mt-16 pt-8 border-t border-slate-900 flex flex-wrap items-center justify-between gap-6">
+          <p className="text-xs text-slate-500 font-semibold">
+            © 2026 R&amp;E Electrical Contractor Corp. All rights reserved. Design by{" "}
+            <a 
+              href="https://stellrit.com" 
+              target="_blank" 
+              rel="noopener noreferrer" 
+              className="text-slate-400 hover:text-[#FF6B00] transition-colors"
+            >
+              StellR IT LLC
+            </a>
+          </p>
+
+          <div className="flex items-center gap-6">
+            <p className="text-xs text-slate-500 font-semibold hidden sm:block">
+              License #EC13009876 · Licensed, Bonded &amp; Insured
+            </p>
+
+            <motion.button
+              onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
+              whileHover={{ y: -3 }}
+              whileTap={{ scale: 0.95 }}
+              className="text-xs text-slate-400 hover:text-white transition-colors font-bold flex items-center gap-2 cursor-pointer select-none"
+            >
+              <span>Back to Top</span>
+              <ArrowRight className="h-4 w-4 -rotate-90 text-[#FF6B00]" />
+            </motion.button>
           </div>
         </div>
+
       </div>
     </footer>
   );
 }
 
-function FooterCol({ title, links }: { title: string; links: string[] }) {
+function Col({ title, items }: { title: string; items: { label: string; href: string }[] }) {
   return (
-    <div>
-      <h4 className="font-display text-sm font-bold uppercase tracking-wider text-white">{title}</h4>
-      <ul className="mt-5 space-y-2.5 text-sm text-white/70">
-        {links.map((l) => (
-          <li key={l}>
-            <a href="#" className="transition hover:text-primary">{l}</a>
+    <div className="col-span-1 lg:col-span-2">
+      <div className="text-xs uppercase tracking-widest text-slate-400 font-bold mb-6">
+        {title}
+      </div>
+      <ul className="space-y-4">
+        {items.map(({ label, href }) => (
+          <li key={label}>
+            <motion.a
+              whileHover={{ x: 4, color: "#FF6B00" }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+              href={href}
+              className="text-sm text-slate-400 hover:text-white transition-colors block font-semibold"
+            >
+              {label}
+            </motion.a>
           </li>
         ))}
       </ul>

@@ -16,6 +16,16 @@ import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ContactRouteImport } from './routes/contact'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesWiringRewiringRouteImport } from './routes/services/wiring-rewiring'
+import { Route as ServicesSecuritySystemsRouteImport } from './routes/services/security-systems'
+import { Route as ServicesResidentialRouteImport } from './routes/services/residential'
+import { Route as ServicesPanelUpgradesRouteImport } from './routes/services/panel-upgrades'
+import { Route as ServicesIndustrialRouteImport } from './routes/services/industrial'
+import { Route as ServicesGeneratorRouteImport } from './routes/services/generator'
+import { Route as ServicesEvChargerRouteImport } from './routes/services/ev-charger'
+import { Route as ServicesEmergencyRouteImport } from './routes/services/emergency'
+import { Route as ServicesCommercialRouteImport } from './routes/services/commercial'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
@@ -52,6 +62,56 @@ const IndexRoute = IndexRouteImport.update({
   path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesWiringRewiringRoute = ServicesWiringRewiringRouteImport.update({
+  id: '/wiring-rewiring',
+  path: '/wiring-rewiring',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesSecuritySystemsRoute = ServicesSecuritySystemsRouteImport.update({
+  id: '/security-systems',
+  path: '/security-systems',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesResidentialRoute = ServicesResidentialRouteImport.update({
+  id: '/residential',
+  path: '/residential',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesPanelUpgradesRoute = ServicesPanelUpgradesRouteImport.update({
+  id: '/panel-upgrades',
+  path: '/panel-upgrades',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesIndustrialRoute = ServicesIndustrialRouteImport.update({
+  id: '/industrial',
+  path: '/industrial',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesGeneratorRoute = ServicesGeneratorRouteImport.update({
+  id: '/generator',
+  path: '/generator',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesEvChargerRoute = ServicesEvChargerRouteImport.update({
+  id: '/ev-charger',
+  path: '/ev-charger',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesEmergencyRoute = ServicesEmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesCommercialRoute = ServicesCommercialRouteImport.update({
+  id: '/commercial',
+  path: '/commercial',
+  getParentRoute: () => ServicesRoute,
+} as any)
 
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
@@ -59,8 +119,18 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/commercial': typeof ServicesCommercialRoute
+  '/services/emergency': typeof ServicesEmergencyRoute
+  '/services/ev-charger': typeof ServicesEvChargerRoute
+  '/services/generator': typeof ServicesGeneratorRoute
+  '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
+  '/services/residential': typeof ServicesResidentialRoute
+  '/services/security-systems': typeof ServicesSecuritySystemsRoute
+  '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
@@ -68,8 +138,17 @@ export interface FileRoutesByTo {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
-  '/services': typeof ServicesRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/commercial': typeof ServicesCommercialRoute
+  '/services/emergency': typeof ServicesEmergencyRoute
+  '/services/ev-charger': typeof ServicesEvChargerRoute
+  '/services/generator': typeof ServicesGeneratorRoute
+  '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
+  '/services/residential': typeof ServicesResidentialRoute
+  '/services/security-systems': typeof ServicesSecuritySystemsRoute
+  '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
+  '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
   __root__: typeof rootRouteImport
@@ -78,8 +157,18 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
-  '/services': typeof ServicesRoute
+  '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/services/commercial': typeof ServicesCommercialRoute
+  '/services/emergency': typeof ServicesEmergencyRoute
+  '/services/ev-charger': typeof ServicesEvChargerRoute
+  '/services/generator': typeof ServicesGeneratorRoute
+  '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
+  '/services/residential': typeof ServicesResidentialRoute
+  '/services/security-systems': typeof ServicesSecuritySystemsRoute
+  '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
+  '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
   fileRoutesByFullPath: FileRoutesByFullPath
@@ -91,6 +180,16 @@ export interface FileRouteTypes {
     | '/reviews'
     | '/services'
     | '/sitemap.xml'
+    | '/services/commercial'
+    | '/services/emergency'
+    | '/services/ev-charger'
+    | '/services/generator'
+    | '/services/industrial'
+    | '/services/panel-upgrades'
+    | '/services/residential'
+    | '/services/security-systems'
+    | '/services/wiring-rewiring'
+    | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
@@ -98,8 +197,17 @@ export interface FileRouteTypes {
     | '/contact'
     | '/projects'
     | '/reviews'
-    | '/services'
     | '/sitemap.xml'
+    | '/services/commercial'
+    | '/services/emergency'
+    | '/services/ev-charger'
+    | '/services/generator'
+    | '/services/industrial'
+    | '/services/panel-upgrades'
+    | '/services/residential'
+    | '/services/security-systems'
+    | '/services/wiring-rewiring'
+    | '/services'
   id:
     | '__root__'
     | '/'
@@ -109,6 +217,16 @@ export interface FileRouteTypes {
     | '/reviews'
     | '/services'
     | '/sitemap.xml'
+    | '/services/commercial'
+    | '/services/emergency'
+    | '/services/ev-charger'
+    | '/services/generator'
+    | '/services/industrial'
+    | '/services/panel-upgrades'
+    | '/services/residential'
+    | '/services/security-systems'
+    | '/services/wiring-rewiring'
+    | '/services/'
   fileRoutesById: FileRoutesById
 }
 export interface RootRouteChildren {
@@ -117,7 +235,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ProjectsRoute: typeof ProjectsRoute
   ReviewsRoute: typeof ReviewsRoute
-  ServicesRoute: typeof ServicesRoute
+  ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
 }
 
@@ -172,8 +290,108 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/wiring-rewiring': {
+      id: '/services/wiring-rewiring'
+      path: '/wiring-rewiring'
+      fullPath: '/services/wiring-rewiring'
+      preLoaderRoute: typeof ServicesWiringRewiringRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/security-systems': {
+      id: '/services/security-systems'
+      path: '/security-systems'
+      fullPath: '/services/security-systems'
+      preLoaderRoute: typeof ServicesSecuritySystemsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/residential': {
+      id: '/services/residential'
+      path: '/residential'
+      fullPath: '/services/residential'
+      preLoaderRoute: typeof ServicesResidentialRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/panel-upgrades': {
+      id: '/services/panel-upgrades'
+      path: '/panel-upgrades'
+      fullPath: '/services/panel-upgrades'
+      preLoaderRoute: typeof ServicesPanelUpgradesRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/industrial': {
+      id: '/services/industrial'
+      path: '/industrial'
+      fullPath: '/services/industrial'
+      preLoaderRoute: typeof ServicesIndustrialRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/generator': {
+      id: '/services/generator'
+      path: '/generator'
+      fullPath: '/services/generator'
+      preLoaderRoute: typeof ServicesGeneratorRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/ev-charger': {
+      id: '/services/ev-charger'
+      path: '/ev-charger'
+      fullPath: '/services/ev-charger'
+      preLoaderRoute: typeof ServicesEvChargerRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/emergency': {
+      id: '/services/emergency'
+      path: '/emergency'
+      fullPath: '/services/emergency'
+      preLoaderRoute: typeof ServicesEmergencyRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/commercial': {
+      id: '/services/commercial'
+      path: '/commercial'
+      fullPath: '/services/commercial'
+      preLoaderRoute: typeof ServicesCommercialRouteImport
+      parentRoute: typeof ServicesRoute
+    }
   }
 }
+
+interface ServicesRouteChildren {
+  ServicesCommercialRoute: typeof ServicesCommercialRoute
+  ServicesEmergencyRoute: typeof ServicesEmergencyRoute
+  ServicesEvChargerRoute: typeof ServicesEvChargerRoute
+  ServicesGeneratorRoute: typeof ServicesGeneratorRoute
+  ServicesIndustrialRoute: typeof ServicesIndustrialRoute
+  ServicesPanelUpgradesRoute: typeof ServicesPanelUpgradesRoute
+  ServicesResidentialRoute: typeof ServicesResidentialRoute
+  ServicesSecuritySystemsRoute: typeof ServicesSecuritySystemsRoute
+  ServicesWiringRewiringRoute: typeof ServicesWiringRewiringRoute
+  ServicesIndexRoute: typeof ServicesIndexRoute
+}
+
+const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesCommercialRoute: ServicesCommercialRoute,
+  ServicesEmergencyRoute: ServicesEmergencyRoute,
+  ServicesEvChargerRoute: ServicesEvChargerRoute,
+  ServicesGeneratorRoute: ServicesGeneratorRoute,
+  ServicesIndustrialRoute: ServicesIndustrialRoute,
+  ServicesPanelUpgradesRoute: ServicesPanelUpgradesRoute,
+  ServicesResidentialRoute: ServicesResidentialRoute,
+  ServicesSecuritySystemsRoute: ServicesSecuritySystemsRoute,
+  ServicesWiringRewiringRoute: ServicesWiringRewiringRoute,
+  ServicesIndexRoute: ServicesIndexRoute,
+}
+
+const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
+  ServicesRouteChildren,
+)
 
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
@@ -181,9 +399,19 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ProjectsRoute: ProjectsRoute,
   ReviewsRoute: ReviewsRoute,
-  ServicesRoute: ServicesRoute,
+  ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

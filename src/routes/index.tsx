@@ -1,23 +1,27 @@
 import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
-import { Hero } from "@/components/site/sections/Hero";
-import { TrustBar } from "@/components/site/sections/TrustBar";
-import { About } from "@/components/site/sections/About";
-import { Services } from "@/components/site/sections/Services";
-import { WhyChooseUs } from "@/components/site/sections/WhyChooseUs";
-import { Projects } from "@/components/site/sections/Projects";
-import { Testimonials } from "@/components/site/sections/Testimonials";
-import { Process } from "@/components/site/sections/Process";
-import { EmergencyCTA } from "@/components/site/sections/EmergencyCTA";
-import { Estimate } from "@/components/site/sections/Estimate";
+import { Hero } from "@/components/site/Hero";
+import { TrustBar } from "@/components/site/TrustBar";
+import { Welcome } from "@/components/site/Welcome";
+import { Services } from "@/components/site/Services";
+import { WhyChooseUs } from "@/components/site/WhyChooseUs";
+import { Projects } from "@/components/site/Projects";
+import { Testimonials } from "@/components/site/Testimonials";
+import { ContactIllustrationSection } from "@/components/site/ContactIllustrationSection";
+import { ServiceArea } from "@/components/site/ServiceArea";
+import { GetInTouch } from "@/components/site/GetInTouch";
+import { Process } from "@/components/site/Process";
+import { EmergencyCTA } from "@/components/site/EmergencyCTA";
+// import { Estimate } from "@/components/site/Estimate";
+// import { CTASection } from "@/components/site/CTASection";
 import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Voltline | Premium Electrical Contractors in Miami" },
-      { name: "description", content: "Licensed, insured electricians delivering residential, commercial, and industrial electrical solutions across South Florida." },
-      { property: "og:title", content: "Voltline | Premium Electrical Contractors" },
+      { title: "R&E Electrical Contractor Corp | Premium Electrical Contractors in Florida" },
+      { name: "description", content: "Licensed, insured electricians delivering residential, commercial, and industrial electrical solutions across the state of Florida." },
+      { property: "og:title", content: "R&E Electrical Contractor Corp | Premium Electrical Contractors" },
       { property: "og:description", content: "Powering homes and businesses with expert electrical solutions." },
     ],
   }),
@@ -29,14 +33,18 @@ function Index() {
     <SiteLayout>
       <Hero />
       <TrustBar />
-      <About />
+      <Welcome />
       <Services />
+      <EmergencyCTA />
+      <Process />
       <WhyChooseUs />
       <Projects />
       <Testimonials />
-      <Process />
-      <EmergencyCTA />
-      <Estimate />
+      <ContactIllustrationSection />
+      <ServiceArea />
+      <GetInTouch />
+      {/* <Estimate /> */}
+      {/* <CTASection /> */}
       <Toaster />
     </SiteLayout>
   );

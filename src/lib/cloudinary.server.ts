@@ -1,21 +1,28 @@
 import { v2 as cloudinary } from "cloudinary";
 
-const cloud_name = process.env.CLOUDINARY_CLOUD_NAME;
-const api_key = process.env.CLOUDINARY_API_KEY;
-const api_secret = process.env.CLOUDINARY_API_SECRET;
+let configured = false;
 
-if (!cloud_name || !api_key || !api_secret) {
-  throw new Error("Missing Cloudinary environment configuration variables!");
+function ensureConfigured() {
+  if (configured) return;
+  const cloud_name = process.env.CLOUDINARY_CLOUD_NAME;
+  const api_key = process.env.CLOUDINARY_API_KEY;
+  const api_secret = process.env.CLOUDINARY_API_SECRET;
+
+  if (!cloud_name || !api_key || !api_secret) {
+    throw new Error("Missing Cloudinary environment configuration variables!");
+  }
+
+  cloudinary.config({
+    cloud_name,
+    api_key,
+    api_secret,
+    secure: true
+  });
+  configured = true;
 }
 
-cloudinary.config({
-  cloud_name,
-  api_key,
-  api_secret,
-  secure: true
-});
-
 export async function uploadToCloudinary(fileStr: string, folder = "electrical") {
+  ensureConfigured();
   const result = await cloudinary.uploader.upload(fileStr, {
     folder,
     resource_type: "auto"
@@ -24,6 +31,7 @@ export async function uploadToCloudinary(fileStr: string, folder = "electrical")
 }
 
 export async function deleteFromCloudinary(url: string) {
+  ensureConfigured();
   const parts = url.split("/");
   const fileName = parts[parts.length - 1];
   const publicId = fileName.split(".")[0];

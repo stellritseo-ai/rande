@@ -1,17 +1,17 @@
 import { MongoClient, ObjectId } from "mongodb";
 import { hashPassword } from "./crypto.server.js";
 
-const MONGODB_URI = process.env.MONGODB_URI;
-if (!MONGODB_URI) {
-  throw new Error("MONGODB_URI environment variable is missing!");
-}
 const DB_NAME = "electrical";
 
 let client: MongoClient | null = null;
 
 async function getClient(): Promise<MongoClient> {
   if (!client) {
-    const newClient = new MongoClient(MONGODB_URI, {
+    const uri = process.env.MONGODB_URI;
+    if (!uri) {
+      throw new Error("MONGODB_URI environment variable is missing!");
+    }
+    const newClient = new MongoClient(uri, {
       connectTimeoutMS: 5000,
       socketTimeoutMS: 15000,
     });

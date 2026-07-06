@@ -1,5 +1,5 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Battery, Bolt, Building2, Cable, Home, Plug, ShieldAlert, Wrench, Zap } from "lucide-react";
+import { ArrowRight, Battery, Bolt, Building2, Cable, Home, Plug, ShieldAlert, Video, Wrench, Zap } from "lucide-react";
 import resImg from "@/assets/service-residential.jpg";
 import comImg from "@/assets/service-commercial.jpg";
 import indImg from "@/assets/service-industrial.jpg";

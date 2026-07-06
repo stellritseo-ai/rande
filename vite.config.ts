@@ -14,6 +14,9 @@ export default defineConfig({
   },
   nitro: {
     preset: "vercel",
+    externals: {
+      traceInclude: ["mongodb", "cloudinary"],
+    },
   },
   vite: {
     plugins: [

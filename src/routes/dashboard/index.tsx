@@ -118,7 +118,7 @@ const formatChatTime = (timestamp: string) => {
 export const Route = createFileRoute("/dashboard/")({
   head: () => ({
     meta: [
-      { title: "R&E Electrical Office — Dashboard" },
+      { title: "ACC Construction Office — Dashboard" },
       { name: "description", content: "Business operations management portal." }
     ],
   }),
@@ -167,6 +167,9 @@ function DashboardPage() {
   const [galleryFilter, setGalleryFilter] = useState("all");
   const [selectedGalleryIds, setSelectedGalleryIds] = useState<Set<string>>(new Set());
   const [isBulkDeleteMode, setIsBulkDeleteMode] = useState(false);
+  const [galleryTitle, setGalleryTitle] = useState("");
+  const [galleryLocation, setGalleryLocation] = useState("");
+  const [galleryTag, setGalleryTag] = useState("");
 
   // Portal Security States
   const [portalUsers, setPortalUsers] = useState<PortalUser[]>([]);
@@ -213,15 +216,15 @@ function DashboardPage() {
   const [isViewingEmail, setIsViewingEmail] = useState(false);
 
   // Portal & Site Config States
-  const [alertEmail, setAlertEmail] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_alertEmail") : null) || "Williams@electricalcontractorcorp.com");
-  const [officePhone, setOfficePhone] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_officePhone") : null) || "(786) 307-5933");
-  const [smsTemplate, setSmsTemplate] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_smsTemplate") : null) || "Hi {Name}, thank you for contacting R&E Electrical Contractor Corp! An electrician will contact you during the {Time} to discuss your {Type} project.");
-  const [emailAlert, setEmailAlert] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_emailAlert") !== "false" : true));
-  const [smsAlert, setSmsAlert] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_smsAlert") !== "false" : true));
-  const [maintenanceMode, setMaintenanceMode] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_maintenanceMode") === "true" : false));
-  const [weekdays, setWeekdays] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_weekdays") : null) || "8:00 AM - 5:00 PM");
-  const [saturdays, setSaturdays] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_saturdays") : null) || "8:00 AM - 5:00 PM");
-  const [sundays, setSundays] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_sundays") : null) || "Closed (Emergency 24/7)");
+  const [alertEmail, setAlertEmail] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("accconstruction_settings_alertEmail") : null) || "leonholley45@gmail.com");
+  const [officePhone, setOfficePhone] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("accconstruction_settings_officePhone") : null) || "(720) 298-7777");
+  const [smsTemplate, setSmsTemplate] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("accconstruction_settings_smsTemplate") : null) || "Hi {Name}, thank you for contacting ACC Construction LLC! A construction specialist will contact you during the {Time} to discuss your {Type} project.");
+  const [emailAlert, setEmailAlert] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("accconstruction_settings_emailAlert") !== "false" : true));
+  const [smsAlert, setSmsAlert] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("accconstruction_settings_smsAlert") !== "false" : true));
+  const [maintenanceMode, setMaintenanceMode] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("accconstruction_settings_maintenanceMode") === "true" : false));
+  const [weekdays, setWeekdays] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("accconstruction_settings_weekdays") : null) || "8:00 AM - 5:00 PM");
+  const [saturdays, setSaturdays] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("accconstruction_settings_saturdays") : null) || "8:00 AM - 5:00 PM");
+  const [sundays, setSundays] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("accconstruction_settings_sundays") : null) || "Closed (Emergency 24/7)");
 
   const [confirmConfig, setConfirmConfig] = useState<{
     title: string;
@@ -242,7 +245,7 @@ function DashboardPage() {
   // Check auth
   useEffect(() => {
     const checkAuth = async () => {
-      const token = localStorage.getItem("electrical-session-token");
+      const token = localStorage.getItem("accconstruction-session-token");
       if (!token) {
         setIsAuthenticated(false);
         navigate({ to: "/dashboard/login" });
@@ -260,7 +263,7 @@ function DashboardPage() {
           setCurrentUser(activeUser);
           setUpdateUsername(activeUser.username);
         } else {
-          localStorage.removeItem("electrical-session-token");
+          localStorage.removeItem("accconstruction-session-token");
           setIsAuthenticated(false);
           navigate({ to: "/dashboard/login" });
         }
@@ -403,15 +406,15 @@ function DashboardPage() {
     const genPct = total > 0 ? Math.round((generator / total) * 100) : 10;
 
     return [
-      { label: "Commercial", val: `${commercialPct}%`, pct: commercialPct, color: "bg-copper" },
-      { label: "Residential", val: `${residentialPct}%`, pct: residentialPct, color: "bg-copper/70" },
-      { label: "EV Charger", val: `${evPct}%`, pct: evPct, color: "bg-copper/50" },
-      { label: "Generator", val: `${genPct}%`, pct: genPct, color: "bg-copper/30" }
+      { label: "Commercial", val: `${commercialPct}%`, pct: commercialPct, color: "bg-[#008A22]" },
+      { label: "Residential", val: `${residentialPct}%`, pct: residentialPct, color: "bg-[#008A22]/70" },
+      { label: "EV Charger", val: `${evPct}%`, pct: evPct, color: "bg-[#008A22]/50" },
+      { label: "Generator", val: `${genPct}%`, pct: genPct, color: "bg-[#008A22]/30" }
     ];
   }, [leads]);
 
   const handleLogout = () => {
-    localStorage.removeItem("electrical-session-token");
+    localStorage.removeItem("accconstruction-session-token");
     setIsAuthenticated(false);
     navigate({ to: "/dashboard/login" });
   };
@@ -766,7 +769,11 @@ function DashboardPage() {
         setGalleryUploadProgress(Math.floor(segmentStart));
 
         // Upload File directly
-        const updated = await uploadGalleryPhoto(file, uploadCategory);
+        const updated = await uploadGalleryPhoto(file, uploadCategory, {
+          title: galleryTitle.trim() || undefined,
+          location: galleryLocation.trim() || undefined,
+          tag: galleryTag.trim() || undefined
+        });
         currentPhotosList = updated;
 
         setGalleryUploadProgress(Math.floor(segmentEnd));
@@ -776,6 +783,9 @@ function DashboardPage() {
       setIsUploadingGallery(false);
       setGalleryUploadProgress(0);
       setSelectedGalleryFiles([]);
+      setGalleryTitle("");
+      setGalleryLocation("");
+      setGalleryTag("");
       toast.success(`Successfully uploaded ${filesCount} photos.`);
     } catch (err) {
       setIsUploadingGallery(false);
@@ -843,7 +853,7 @@ function DashboardPage() {
     return (
       <div className="min-h-screen flex items-center justify-center bg-[#f8f9fa] text-slate-800 font-inter">
         <div className="text-center space-y-4">
-          <div className="w-8 h-8 border-4 border-copper border-t-transparent rounded-full animate-spin mx-auto"></div>
+          <div className="w-8 h-8 border-4 border-[#008A22] border-t-transparent rounded-full animate-spin mx-auto"></div>
           <p className="text-xs uppercase font-bold tracking-widest text-slate-400">Loading Workspace...</p>
         </div>
       </div>
@@ -851,7 +861,7 @@ function DashboardPage() {
   }
 
   return (
-    <div className="min-h-screen bg-[#f8f9fa] flex font-inter text-[#1a1f36] antialiased selection:bg-copper selection:text-white">
+    <div className="min-h-screen bg-[#f8f9fa] flex font-inter text-[#1a1f36] antialiased selection:bg-[#008A22] selection:text-white">
 
       {/* Left Sidebar Navigation */}
       <aside className="w-64 sm:w-72 bg-white border-r border-[#e3e6f0] flex flex-col justify-between p-5 sticky top-0 h-screen z-40">
@@ -860,7 +870,7 @@ function DashboardPage() {
           {/* Header branding */}
           <div className="flex items-center justify-between pb-2">
             <div className="flex items-center gap-2">
-              <img src={logo} alt="R&E Electrical Office" className="h-12 w-auto object-contain" />
+              <img src={logo} alt="ACC Construction Office" className="h-12 w-auto object-contain" />
             </div>
             <button className="text-[#a0aec0] hover:text-[#4f566b]">
               <ChevronDown className="w-3.5 h-3.5" />
@@ -892,14 +902,14 @@ function DashboardPage() {
                     }`}
                 >
                   <span className="flex items-center gap-3 relative z-10">
-                    <Icon className={`w-4 h-4 transition-transform duration-300 group-hover:scale-110 ${isActive ? "text-copper" : "text-slate-400 group-hover:text-copper"}`} />
+                    <Icon className={`w-4 h-4 transition-transform duration-300 group-hover:scale-110 ${isActive ? "text-[#008A22]" : "text-slate-400 group-hover:text-[#008A22]"}`} />
                     {tab.label}
                   </span>
                   {tab.badge && (
                     <span className="w-1.5 h-1.5 bg-rose-500 rounded-full shrink-0 animate-pulse relative z-10" />
                   )}
                   {isActive && (
-                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-copper rounded-r-md" />
+                    <span className="absolute left-0 top-1/2 -translate-y-1/2 w-1 h-5 bg-[#008A22] rounded-r-md" />
                   )}
                 </button>
               );
@@ -908,12 +918,12 @@ function DashboardPage() {
 
           {/* Sync status card */}
           <div className="bg-slate-50 border border-slate-100 rounded-2xl p-4 space-y-3">
-            <div className="flex items-center gap-1.5 text-copper">
+            <div className="flex items-center gap-1.5 text-[#008A22]">
               <Info className="w-4 h-4 shrink-0" />
               <span className="text-[10px] font-black uppercase tracking-wider">Sync Active</span>
             </div>
             <p className="text-[11px] text-slate-500 font-medium leading-relaxed">
-              Real-time synchronization active with South Florida permit indices.
+              Real-time synchronization active with Colorado permit indices.
             </p>
             <div className="space-y-1">
               <div className="flex items-center justify-between text-[9px] font-bold text-slate-400">
@@ -921,7 +931,7 @@ function DashboardPage() {
                 <span>15/30 Limit</span>
               </div>
               <div className="h-1.5 w-full bg-slate-200 rounded-full overflow-hidden">
-                <div className="h-full bg-copper rounded-full" style={{ width: "50%" }}></div>
+                <div className="h-full bg-[#008A22] rounded-full" style={{ width: "50%" }}></div>
               </div>
             </div>
             <button className="w-full bg-[#1a1f36] hover:bg-[#1a1f36]/90 text-white py-2 rounded-xl text-[10px] font-bold uppercase tracking-wider transition">
@@ -973,7 +983,7 @@ function DashboardPage() {
                 placeholder="Search Anything"
                 value={searchTerm}
                 onChange={(e) => setSearchTerm(e.target.value)}
-                className="pl-9 pr-4 py-2 border border-slate-200 rounded-xl text-xs text-slate-700 placeholder-slate-400 bg-slate-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper w-48 transition"
+                className="pl-9 pr-4 py-2 border border-slate-200 rounded-xl text-xs text-slate-700 placeholder-slate-400 bg-slate-50 focus:bg-white focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] w-48 transition"
               />
             </div>
 
@@ -1006,7 +1016,7 @@ function DashboardPage() {
                     <span className="text-[10px] font-bold text-slate-400 uppercase tracking-widest block">
                       Total Leads
                     </span>
-                    <div className="w-8 h-8 rounded-full bg-copper/5 border border-copper/10 text-copper flex items-center justify-center shadow-sm">
+                    <div className="w-8 h-8 rounded-full bg-[#008A22]/5 border border-[#008A22]/10 text-[#008A22] flex items-center justify-center shadow-sm">
                       <Briefcase className="w-4 h-4" />
                     </div>
                   </div>
@@ -1136,7 +1146,7 @@ function DashboardPage() {
                         <RechartsTooltip content={<CustomChartTooltip />} />
                         <Bar dataKey="revenue" fill="#e2e8f0" radius={[4, 4, 0, 0]} name="Lead volume">
                           {analytics.timelineChart.map((entry, index) => (
-                            <Cell key={`cell-${index}`} fill={index === 5 ? "#FF6B00" : "#e2e8f0"} />
+                            <Cell key={`cell-${index}`} fill={index === 5 ? "#008A22" : "#e2e8f0"} />
                           ))}
                         </Bar>
                       </BarChart>
@@ -1166,15 +1176,15 @@ function DashboardPage() {
                       ]}>
                         <defs>
                           <linearGradient id="colorValue" x1="0" y1="0" x2="0" y2="1">
-                            <stop offset="5%" stopColor="#FF6B00" stopOpacity={0.25} />
-                            <stop offset="95%" stopColor="#FF6B00" stopOpacity={0} />
+                            <stop offset="5%" stopColor="#008A22" stopOpacity={0.25} />
+                            <stop offset="95%" stopColor="#008A22" stopOpacity={0} />
                           </linearGradient>
                         </defs>
                         <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#f0f0f0" />
                         <XAxis dataKey="name" stroke="#a0aec0" fontSize={10} tickLine={false} />
                         <YAxis stroke="#a0aec0" fontSize={10} tickLine={false} />
                         <RechartsTooltip content={<CustomChartTooltip />} />
-                        <Area type="monotone" dataKey="value" stroke="#FF6B00" strokeWidth={2} fillOpacity={1} fill="url(#colorValue)" name="Progress rate (%)" />
+                        <Area type="monotone" dataKey="value" stroke="#008A22" strokeWidth={2} fillOpacity={1} fill="url(#colorValue)" name="Progress rate (%)" />
                       </AreaChart>
                     </ResponsiveContainer>
                   </div>
@@ -1202,7 +1212,7 @@ function DashboardPage() {
                         <XAxis dataKey="name" stroke="#a0aec0" fontSize={10} tickLine={false} />
                         <YAxis stroke="#a0aec0" fontSize={10} tickLine={false} />
                         <RechartsTooltip content={<CustomChartTooltip />} />
-                        <Line type="monotone" dataKey="revenue" stroke="#FF6B00" strokeWidth={2} dot={{ r: 4 }} name="Contract Value" />
+                        <Line type="monotone" dataKey="revenue" stroke="#008A22" strokeWidth={2} dot={{ r: 4 }} name="Contract Value" />
                         <Line type="monotone" dataKey="cost" stroke="#4f566b" strokeWidth={2} dot={{ r: 4 }} name="Operational Cost" />
                       </LineChart>
                     </ResponsiveContainer>
@@ -1245,7 +1255,7 @@ function DashboardPage() {
               <div className="bg-white rounded-2xl border border-slate-200/80 shadow-sm overflow-hidden text-left">
                 <div className="p-5 border-b border-slate-100 flex flex-col sm:flex-row gap-4 items-center justify-between">
                   <div>
-                    <h3 className="text-sm font-extrabold text-slate-800 uppercase tracking-wide">Electrical Leads & Jobs Status</h3>
+                    <h3 className="text-sm font-extrabold text-slate-800 uppercase tracking-wide">Construction Leads & Jobs Status</h3>
                   </div>
 
                   <div className="flex gap-2 w-full sm:w-auto">
@@ -1261,7 +1271,7 @@ function DashboardPage() {
                     </div>
                     <button
                       onClick={() => setIsAddingLead(true)}
-                      className="bg-copper hover:bg-copper-deep text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md shadow-copper/10 transition shrink-0 cursor-pointer"
+                      className="bg-[#008A22] hover:bg-[#008A22]-deep text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shadow-md shadow-[#008A22]/10 transition shrink-0 cursor-pointer"
                     >
                       <Plus className="w-3.5 h-3.5" /> Add Lead
                     </button>
@@ -1292,11 +1302,11 @@ function DashboardPage() {
                               {lead.status.replace("_", " ")}
                             </span>
                           </td>
-                          <td className="p-4 text-slate-650 font-medium">{lead.address?.split(",")?.[0] || "Miami"}</td>
+                          <td className="p-4 text-slate-650 font-medium">{lead.address?.split(",")?.[0] || "Denver"}</td>
                           <td className="p-4 pr-6 text-right space-x-1.5">
                             <button
                               onClick={() => handleEditLead(lead)}
-                              className="p-1.5 bg-slate-50 hover:bg-copper/10 hover:text-copper border border-slate-200 rounded-lg text-slate-500 transition inline-flex items-center"
+                              className="p-1.5 bg-slate-50 hover:bg-[#008A22]/10 hover:text-[#008A22] border border-slate-200 rounded-lg text-slate-500 transition inline-flex items-center"
                             >
                               <Edit2 className="w-3 h-3" />
                             </button>
@@ -1329,7 +1339,7 @@ function DashboardPage() {
                     placeholder="Search leads by name, email..."
                     value={searchTerm}
                     onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-xl text-xs focus:ring-1 focus:ring-copper focus:border-copper focus:outline-none"
+                    className="w-full pl-10 pr-4 py-2 border border-slate-200 rounded-xl text-xs focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] focus:outline-none"
                   />
                 </div>
 
@@ -1365,7 +1375,7 @@ function DashboardPage() {
                   </select>
                   <button
                     onClick={() => setIsAddingLead(true)}
-                    className="bg-copper hover:bg-copper-deep text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shrink-0 shadow-md shadow-copper/10 transition cursor-pointer"
+                    className="bg-[#008A22] hover:bg-[#008A22]-deep text-white px-4 py-2 rounded-xl text-xs font-bold flex items-center gap-1.5 shrink-0 shadow-md shadow-[#008A22]/10 transition cursor-pointer"
                   >
                     <Plus className="w-4 h-4" /> Add Lead
                   </button>
@@ -1396,7 +1406,7 @@ function DashboardPage() {
                             <div className="text-xs text-slate-400 mt-0.5">{lead.email}</div>
                           </td>
                           <td className="p-4 text-slate-650 font-medium">
-                            {lead.address?.split(",")?.slice(-3, -2)?.[0]?.trim() || "Miami"}
+                            {lead.address?.split(",")?.slice(-3, -2)?.[0]?.trim() || "Denver"}
                           </td>
                           <td className="p-4 font-semibold text-slate-850">
                             <span className="capitalize">{lead.projectType.replace("-", " ")}</span>
@@ -1417,7 +1427,7 @@ function DashboardPage() {
                           <td className="p-4 pr-6 text-right space-x-1.5 whitespace-nowrap">
                             <button
                               onClick={() => handleEditLead(lead)}
-                              className="p-1.5 bg-slate-50 hover:bg-copper/10 hover:text-copper border border-slate-200 rounded-lg text-slate-500 transition inline-flex items-center"
+                              className="p-1.5 bg-slate-50 hover:bg-[#008A22]/10 hover:text-[#008A22] border border-slate-200 rounded-lg text-slate-500 transition inline-flex items-center"
                             >
                               <Edit2 className="w-3.5 h-3.5" />
                             </button>
@@ -1448,7 +1458,7 @@ function DashboardPage() {
                 </div>
                 <button
                   onClick={() => setIsAddingReview(true)}
-                  className="bg-copper hover:bg-copper-deep text-white px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-1.5 shrink-0 shadow transition cursor-pointer"
+                  className="bg-[#008A22] hover:bg-[#008A22]-deep text-white px-4 py-2.5 rounded-xl text-sm font-bold flex items-center gap-1.5 shrink-0 shadow transition cursor-pointer"
                 >
                   <Plus className="w-4 h-4" /> Add Review
                 </button>
@@ -1464,7 +1474,7 @@ function DashboardPage() {
                           <p className="text-xs text-slate-450 font-semibold mt-0.5">{rev.author} · {rev.location}</p>
                         </div>
                         <div className="flex items-center gap-1 shrink-0">
-                          <div className="flex items-center gap-0.5 text-copper">
+                          <div className="flex items-center gap-0.5 text-[#008A22]">
                             {Array.from({ length: rev.rating }).map((_, i) => (
                               <Star key={i} className="w-3.5 h-3.5 fill-current" />
                             ))}
@@ -1484,7 +1494,7 @@ function DashboardPage() {
 
                       {rev.replyText && (
                         <div className="mt-3 bg-slate-50 border border-slate-100 rounded-xl p-3.5 text-sm leading-relaxed text-slate-700">
-                          <span className="font-black text-xs uppercase tracking-wider text-copper block mb-0.5">R&E Electrical Response</span>
+                          <span className="font-black text-xs uppercase tracking-wider text-[#008A22] block mb-0.5">ACC Construction Response</span>
                           "{rev.replyText}"
                         </div>
                       )}
@@ -1562,7 +1572,7 @@ function DashboardPage() {
                                 setSelectedEmail(email);
                                 setIsViewingEmail(true);
                               }}
-                              className="p-1.5 bg-slate-50 hover:bg-copper/10 border border-slate-200 rounded-lg text-slate-500 transition inline-flex items-center"
+                              className="p-1.5 bg-slate-50 hover:bg-[#008A22]/10 border border-slate-200 rounded-lg text-slate-500 transition inline-flex items-center"
                             >
                               <Eye className="w-3.5 h-3.5" />
                             </button>
@@ -1595,7 +1605,7 @@ function DashboardPage() {
                     <button
                       key={session.id}
                       onClick={() => handleSelectChat(session.id)}
-                      className={`w-full text-left p-4 flex items-center justify-between transition group/chat ${activeSessionId === session.id ? "bg-slate-50 border-l-4 border-copper" : "hover:bg-slate-50/50"
+                      className={`w-full text-left p-4 flex items-center justify-between transition group/chat ${activeSessionId === session.id ? "bg-slate-50 border-l-4 border-[#008A22]" : "hover:bg-slate-50/50"
                         }`}
                     >
                       <div className="truncate pr-2">
@@ -1632,7 +1642,7 @@ function DashboardPage() {
                       <div>
                         <h4 className="font-bold text-sm text-slate-800 leading-none">{activeChatSession.clientName}</h4>
                         <p className="text-xs text-slate-400 font-medium leading-none mt-1.5 flex flex-wrap gap-2 items-center">
-                          <span className="bg-copper/10 text-copper px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">{activeChatSession.clientCity}</span>
+                          <span className="bg-[#008A22]/10 text-[#008A22] px-2 py-0.5 rounded text-[10px] font-bold uppercase tracking-wider">{activeChatSession.clientCity}</span>
                           <span>· Visitor Session</span>
                           {activeChatSession.clientPhone && (
                             <>
@@ -1654,7 +1664,7 @@ function DashboardPage() {
                           >
                             <div
                               className={`max-w-[70%] rounded-2xl px-4 py-2.5 text-sm shadow-sm ${isAdmin
-                                ? "bg-copper text-white rounded-tr-none"
+                                ? "bg-[#008A22] text-white rounded-tr-none"
                                 : "bg-white text-slate-800 rounded-tl-none border border-slate-200"
                                 }`}
                             >
@@ -1676,12 +1686,12 @@ function DashboardPage() {
                         placeholder="Type admin response message..."
                         value={adminReplyText}
                         onChange={(e) => setAdminReplyText(e.target.value)}
-                        className="flex-1 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper"
+                        className="flex-1 border border-slate-200 rounded-xl px-4 py-2.5 text-sm focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22]"
                       />
                       <button
                         type="submit"
                         disabled={!adminReplyText.trim()}
-                        className="bg-copper hover:bg-copper-deep text-white px-4 py-2.5 rounded-xl transition shadow flex items-center justify-center shrink-0 disabled:opacity-50 cursor-pointer"
+                        className="bg-[#008A22] hover:bg-[#008A22]-deep text-white px-4 py-2.5 rounded-xl transition shadow flex items-center justify-center shrink-0 disabled:opacity-50 cursor-pointer"
                       >
                         <Send className="w-3.5 h-3.5" />
                       </button>
@@ -1786,7 +1796,7 @@ function DashboardPage() {
               {/* Upload Controls Box */}
               <div className="bg-white p-6 rounded-2xl border border-slate-200 shadow-sm space-y-4">
                 <h4 className="text-sm font-bold text-slate-800 flex items-center gap-1.5">
-                  <Plus className="w-4 h-4 text-copper" /> Upload New Project Media
+                  <Plus className="w-4 h-4 text-[#008A22]" /> Upload New Project Media
                 </h4>
 
                 {/* 1. Category Selector */}
@@ -1799,13 +1809,47 @@ function DashboardPage() {
                         type="button"
                         onClick={() => setUploadCategory(cat.toLowerCase())}
                         className={`px-4 py-2 rounded-xl text-xs font-bold transition border ${uploadCategory === cat.toLowerCase()
-                          ? "bg-copper/5 border-copper text-copper"
+                          ? "bg-[#008A22]/5 border-[#008A22] text-[#008A22]"
                           : "bg-white border-slate-200 text-slate-600 hover:border-slate-300"
                           }`}
                       >
                         {cat}
                       </button>
                     ))}
+                  </div>
+                </div>
+
+                {/* 1.5. Custom Metadata Details */}
+                <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-2">
+                  <div className="space-y-2">
+                    <label className="text-[10px] text-slate-450 font-bold uppercase tracking-wider block">Project Title (Optional)</label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Modern Kitchen Remodeling"
+                      value={galleryTitle}
+                      onChange={(e) => setGalleryTitle(e.target.value)}
+                      className="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-slate-800 placeholder-slate-400"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] text-slate-450 font-bold uppercase tracking-wider block">Location (Optional)</label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Denver, CO"
+                      value={galleryLocation}
+                      onChange={(e) => setGalleryLocation(e.target.value)}
+                      className="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-slate-800 placeholder-slate-400"
+                    />
+                  </div>
+                  <div className="space-y-2">
+                    <label className="text-[10px] text-slate-450 font-bold uppercase tracking-wider block">Custom Tag (Optional)</label>
+                    <input
+                      type="text"
+                      placeholder="e.g. Kitchen Renovation"
+                      value={galleryTag}
+                      onChange={(e) => setGalleryTag(e.target.value)}
+                      className="w-full text-xs px-3.5 py-2.5 bg-slate-50 border border-slate-200 rounded-xl focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-slate-800 placeholder-slate-400"
+                    />
                   </div>
                 </div>
 
@@ -1854,7 +1898,7 @@ function DashboardPage() {
                       type="button"
                       onClick={handleUploadGallery}
                       disabled={selectedGalleryFiles.length === 0 || isUploadingGallery}
-                      className="w-full bg-copper hover:bg-copper-deep disabled:bg-slate-100 disabled:text-slate-400 text-white py-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 shadow"
+                      className="w-full bg-[#008A22] hover:bg-[#008A22]-deep disabled:bg-slate-100 disabled:text-slate-400 text-white py-3 rounded-xl text-xs font-bold transition flex items-center justify-center gap-2 shadow"
                     >
                       <Upload className="w-4 h-4" />
                       {isUploadingGallery
@@ -1873,7 +1917,7 @@ function DashboardPage() {
                     </div>
                     <div className="w-full bg-slate-100 rounded-full h-2 overflow-hidden border border-slate-200">
                       <div
-                        className="bg-copper h-full transition-all duration-150 rounded-full"
+                        className="bg-[#008A22] h-full transition-all duration-150 rounded-full"
                         style={{ width: `${galleryUploadProgress}%` }}
                       />
                     </div>
@@ -1983,6 +2027,17 @@ function DashboardPage() {
                           </div>
                         )}
 
+                        {/* Title, location, and tag overlay */}
+                        <div className="absolute bottom-0 left-0 right-0 p-2 bg-gradient-to-t from-black/85 via-black/50 to-transparent text-white select-none pointer-events-none z-10 opacity-0 group-hover:opacity-100 transition-opacity duration-200 text-left">
+                          {photo.title && (
+                            <p className="text-[10px] font-black leading-tight truncate">{photo.title}</p>
+                          )}
+                          <div className="flex items-center justify-between text-[8px] text-slate-300 mt-0.5">
+                            <span className="truncate">{photo.location || "Denver, CO"}</span>
+                            <span className="bg-[#008A22] text-white font-black px-1.5 py-0.5 rounded text-[7px] uppercase tracking-wider shrink-0">{photo.tag || (photo.category ? photo.category.charAt(0).toUpperCase() + photo.category.slice(1) : "Service")}</span>
+                          </div>
+                        </div>
+
                         {/* Checkbox overlay in bulk mode */}
                         {isBulkDeleteMode && (
                           <div className={`absolute top-2 right-2 w-6 h-6 rounded-full border-2 flex items-center justify-center z-20 transition-all ${
@@ -2051,7 +2106,7 @@ function DashboardPage() {
                         required
                         value={alertEmail}
                         onChange={(e) => setAlertEmail(e.target.value)}
-                        className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 pl-4 pr-10 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper text-sm font-semibold text-slate-800"
+                        className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 pl-4 pr-10 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-sm font-semibold text-slate-800"
                       />
                       <Mail className="absolute right-4 top-1/2 -translate-y-1/2 w-4 h-4 text-emerald-600" />
                     </div>
@@ -2064,7 +2119,7 @@ function DashboardPage() {
                       required
                       value={officePhone}
                       onChange={(e) => setOfficePhone(e.target.value)}
-                      className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper text-sm font-semibold text-slate-800"
+                      className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-sm font-semibold text-slate-800"
                     />
                   </div>
                 </div>
@@ -2077,7 +2132,7 @@ function DashboardPage() {
                     required
                     value={smsTemplate}
                     onChange={(e) => setSmsTemplate(e.target.value)}
-                    className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper text-sm font-medium text-slate-800 resize-none leading-relaxed"
+                    className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-sm font-medium text-slate-800 resize-none leading-relaxed"
                   />
                   <span className="text-[10px] text-slate-400 font-medium block mt-1">Variables auto-populated: {'{Name}'}, {'{Time}'}, {'{Type}'}</span>
                 </div>
@@ -2135,7 +2190,7 @@ function DashboardPage() {
                       onClick={async () => {
                         const newVal = !maintenanceMode;
                         setMaintenanceMode(newVal);
-                        localStorage.setItem("electrical_settings_maintenanceMode", String(newVal));
+                        localStorage.setItem("accconstruction_settings_maintenanceMode", String(newVal));
                         try {
                           await saveSiteSettings({ maintenanceMode: newVal });
                         } catch {
@@ -2167,7 +2222,7 @@ function DashboardPage() {
                         required
                         value={weekdays}
                         onChange={(e) => setWeekdays(e.target.value)}
-                        className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper text-xs font-semibold text-slate-800"
+                        className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-xs font-semibold text-slate-800"
                       />
                     </div>
 
@@ -2178,7 +2233,7 @@ function DashboardPage() {
                         required
                         value={saturdays}
                         onChange={(e) => setSaturdays(e.target.value)}
-                        className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper text-xs font-semibold text-slate-800"
+                        className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-xs font-semibold text-slate-800"
                       />
                     </div>
 
@@ -2189,7 +2244,7 @@ function DashboardPage() {
                         required
                         value={sundays}
                         onChange={(e) => setSundays(e.target.value)}
-                        className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper text-xs font-semibold text-slate-800"
+                        className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-xs font-semibold text-slate-800"
                       />
                     </div>
                   </div>
@@ -2237,7 +2292,7 @@ function DashboardPage() {
                           required
                           value={updateUsername}
                           onChange={(e) => setUpdateUsername(e.target.value)}
-                          className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper font-semibold text-slate-800 text-xs"
+                          className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] font-semibold text-slate-800 text-xs"
                         />
                       </div>
 
@@ -2248,7 +2303,7 @@ function DashboardPage() {
                           value={currentPassword}
                           onChange={(e) => setCurrentPassword(e.target.value)}
                           placeholder="Required to change password"
-                          className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper text-xs"
+                          className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-xs"
                         />
                       </div>
 
@@ -2259,7 +2314,7 @@ function DashboardPage() {
                           value={updatePassword}
                           onChange={(e) => setUpdatePassword(e.target.value)}
                           placeholder="••••••••"
-                          className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper text-xs"
+                          className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] text-xs"
                         />
                       </div>
 
@@ -2288,8 +2343,8 @@ function DashboardPage() {
                             required
                             value={addUsername}
                             onChange={(e) => setAddUsername(e.target.value)}
-                            placeholder="e.g. electrical-assistant"
-                            className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper font-medium"
+                            placeholder="e.g. construction-assistant"
+                            className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] font-medium"
                           />
                         </div>
 
@@ -2301,7 +2356,7 @@ function DashboardPage() {
                             value={addPassword}
                             onChange={(e) => setAddPassword(e.target.value)}
                             placeholder="Enter secure password"
-                            className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper font-medium"
+                            className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-2.5 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] font-medium"
                           />
                         </div>
                       </div>
@@ -2311,7 +2366,7 @@ function DashboardPage() {
                         <select
                           value={addRole}
                           onChange={(e) => setAddRole(e.target.value as any)}
-                          className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-copper text-xs font-medium text-slate-800"
+                          className="w-full bg-[#fdfdfd] border border-slate-200 rounded-xl py-3 px-4 focus:outline-none focus:ring-1 focus:ring-[#008A22] text-xs font-medium text-slate-800"
                         >
                           <option value="viewer">Viewer (Read-Only Portal Access)</option>
                           <option value="editor">Editor (CRUD/Write Access)</option>
@@ -2427,7 +2482,7 @@ function DashboardPage() {
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-slate-800">{selectedEmail.name}</h3>
-                  <p className="text-[10px] text-copper font-bold uppercase tracking-wider mt-0.5">Web Email Inquiry</p>
+                  <p className="text-[10px] text-[#008A22] font-bold uppercase tracking-wider mt-0.5">Web Email Inquiry</p>
                 </div>
                 <button
                   onClick={() => { setIsViewingEmail(false); setSelectedEmail(null); }}
@@ -2441,11 +2496,11 @@ function DashboardPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide block">Email Address</span>
-                  <a href={`mailto:${selectedEmail.email}`} className="font-semibold text-copper hover:underline mt-0.5 block text-sm">{selectedEmail.email}</a>
+                  <a href={`mailto:${selectedEmail.email}`} className="font-semibold text-[#008A22] hover:underline mt-0.5 block text-sm">{selectedEmail.email}</a>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide block">Phone Number</span>
-                  <a href={`tel:${selectedEmail.phone}`} className="font-semibold text-copper hover:underline mt-0.5 block text-sm">{selectedEmail.phone || "N/A"}</a>
+                  <a href={`tel:${selectedEmail.phone}`} className="font-semibold text-[#008A22] hover:underline mt-0.5 block text-sm">{selectedEmail.phone || "N/A"}</a>
                 </div>
                 <div className="col-span-2">
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide block">Service Requested</span>
@@ -2482,7 +2537,7 @@ function DashboardPage() {
               <div className="flex items-center justify-between border-b border-slate-100 pb-4">
                 <div>
                   <h3 className="text-lg font-bold text-slate-800">{selectedLead.name}</h3>
-                  <p className="text-[10px] text-copper font-bold uppercase tracking-wider mt-0.5">Lead Details Profile</p>
+                  <p className="text-[10px] text-[#008A22] font-bold uppercase tracking-wider mt-0.5">Lead Details Profile</p>
                 </div>
                 <button
                   onClick={() => { setIsEditingLead(false); setSelectedLead(null); }}
@@ -2496,11 +2551,11 @@ function DashboardPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div>
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide block">Email Address</span>
-                  <a href={`mailto:${selectedLead.email}`} className="font-semibold text-copper hover:underline mt-0.5 block">{selectedLead.email}</a>
+                  <a href={`mailto:${selectedLead.email}`} className="font-semibold text-[#008A22] hover:underline mt-0.5 block">{selectedLead.email}</a>
                 </div>
                 <div>
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide block">Phone Number</span>
-                  <a href={`tel:${selectedLead.phone}`} className="font-semibold text-copper hover:underline mt-0.5 block">{selectedLead.phone}</a>
+                  <a href={`tel:${selectedLead.phone}`} className="font-semibold text-[#008A22] hover:underline mt-0.5 block">{selectedLead.phone}</a>
                 </div>
                 <div className="col-span-2">
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide block">Property Address</span>
@@ -2529,7 +2584,7 @@ function DashboardPage() {
                   <select
                     value={editStatus}
                     onChange={(e) => setEditStatus(e.target.value as Lead["status"])}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs focus:ring-1 focus:ring-copper focus:border-copper focus:outline-none font-semibold text-slate-800"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] focus:outline-none font-semibold text-slate-800"
                   >
                     <option value="new">New Lead</option>
                     <option value="contacted">Contacted</option>
@@ -2546,7 +2601,7 @@ function DashboardPage() {
                     type="number"
                     value={editEstimatedValue}
                     onChange={(e) => setEditEstimatedValue(Number(e.target.value))}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs focus:ring-1 focus:ring-copper focus:border-copper focus:outline-none font-semibold text-slate-800"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] focus:outline-none font-semibold text-slate-800"
                   />
                 </div>
 
@@ -2557,7 +2612,7 @@ function DashboardPage() {
                     value={editNotes}
                     onChange={(e) => setEditNotes(e.target.value)}
                     placeholder="Add details about estimates, phone calls, or scheduled on-site inspections..."
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs focus:ring-1 focus:ring-copper focus:border-copper focus:outline-none font-medium text-slate-800"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl px-3 py-2.5 text-xs focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] focus:outline-none font-medium text-slate-800"
                   />
                 </div>
               </div>
@@ -2566,7 +2621,7 @@ function DashboardPage() {
               <div className="border-t border-slate-100 pt-4 space-y-3">
                 <div className="flex items-center justify-between">
                   <h4 className="text-xs font-black uppercase tracking-wider text-slate-700">Project Site Photos</h4>
-                  <label className="bg-slate-50 hover:bg-copper/10 hover:text-copper border border-slate-200 hover:border-copper/25 px-3 py-1.5 rounded-lg text-[10px] font-bold flex items-center gap-1.5 cursor-pointer transition">
+                  <label className="bg-slate-50 hover:bg-[#008A22]/10 hover:text-[#008A22] border border-slate-200 hover:border-[#008A22]/25 px-3 py-1.5 rounded-lg text-[10px] font-bold flex items-center gap-1.5 cursor-pointer transition">
                     <Upload className="w-3.5 h-3.5" /> Upload File
                     <input
                       type="file"
@@ -2612,7 +2667,7 @@ function DashboardPage() {
               </button>
               <button
                 onClick={handleSaveLeadDetails}
-                className="w-1/2 bg-copper hover:bg-copper-deep text-white rounded-xl py-3 font-bold shadow-lg shadow-copper/10 transition cursor-pointer"
+                className="w-1/2 bg-[#008A22] hover:bg-[#008A22]-deep text-white rounded-xl py-3 font-bold shadow-lg shadow-[#008A22]/10 transition cursor-pointer"
               >
                 Save Changes
               </button>
@@ -2625,7 +2680,7 @@ function DashboardPage() {
       {isAddingLead && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden border border-slate-200 animate-in zoom-in-95 duration-200 text-xs text-left">
-            <div className="bg-gradient-to-r from-copper to-[#975033] p-4 text-white flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#008A22] to-[#10B981] p-4 text-white flex items-center justify-between">
               <h3 className="font-bold text-sm leading-tight">Create New Business Lead</h3>
               <button
                 onClick={() => setIsAddingLead(false)}
@@ -2645,7 +2700,7 @@ function DashboardPage() {
                     value={newLeadName}
                     onChange={(e) => setNewLeadName(e.target.value)}
                     placeholder="e.g. John Doe"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22]"
                   />
                 </div>
                 <div className="space-y-1">
@@ -2654,7 +2709,7 @@ function DashboardPage() {
                     type="number"
                     value={newLeadVal}
                     onChange={(e) => setNewLeadVal(Number(e.target.value))}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22]"
                   />
                 </div>
                 <div className="space-y-1">
@@ -2664,8 +2719,8 @@ function DashboardPage() {
                     required
                     value={newLeadPhone}
                     onChange={(e) => setNewLeadPhone(e.target.value)}
-                    placeholder="(786) 307-5933"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper"
+                    placeholder="(720) 298-7777"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22]"
                   />
                 </div>
                 <div className="space-y-1">
@@ -2676,7 +2731,7 @@ function DashboardPage() {
                     value={newLeadEmail}
                     onChange={(e) => setNewLeadEmail(e.target.value)}
                     placeholder="client@domain.com"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22]"
                   />
                 </div>
                 <div className="col-span-2 space-y-1">
@@ -2686,8 +2741,8 @@ function DashboardPage() {
                     required
                     value={newLeadAddress}
                     onChange={(e) => setNewLeadAddress(e.target.value)}
-                    placeholder="e.g. 104 Oak Dr, Miami, FL 33149"
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper"
+                    placeholder="e.g. 104 Oak Dr, Denver, CO 33149"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22]"
                   />
                 </div>
                 <div className="col-span-2 space-y-1">
@@ -2695,7 +2750,7 @@ function DashboardPage() {
                   <select
                     value={newLeadType}
                     onChange={(e) => setNewLeadType(e.target.value)}
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper font-semibold text-slate-800"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22] font-semibold text-slate-800"
                   >
                     <option value="panel-upgrades">Panel Upgrade</option>
                     <option value="ev-charger">EV Charger</option>
@@ -2715,7 +2770,7 @@ function DashboardPage() {
                     value={newLeadDesc}
                     onChange={(e) => setNewLeadDesc(e.target.value)}
                     placeholder="Describe the requested work details..."
-                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper"
+                    className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22]"
                   />
                 </div>
               </div>
@@ -2730,7 +2785,7 @@ function DashboardPage() {
                 </button>
                 <button
                   type="submit"
-                  className="w-1/2 bg-copper hover:bg-copper-deep text-white rounded-xl py-3 font-bold shadow-lg shadow-copper/10 transition cursor-pointer"
+                  className="w-1/2 bg-[#008A22] hover:bg-[#008A22]-deep text-white rounded-xl py-3 font-bold shadow-lg shadow-[#008A22]/10 transition cursor-pointer"
                 >
                   Create Lead
                 </button>
@@ -2744,7 +2799,7 @@ function DashboardPage() {
       {selectedReview && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-white rounded-2xl w-full max-w-md shadow-2xl overflow-hidden border border-slate-200 animate-in zoom-in-95 duration-200 text-xs text-left">
-            <div className="bg-gradient-to-r from-copper to-[#975033] p-4 text-white flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#008A22] to-[#10B981] p-4 text-white flex items-center justify-between">
               <h3 className="font-bold text-sm leading-tight">Reply to Review</h3>
               <button
                 onClick={() => setSelectedReview(null)}
@@ -2766,7 +2821,7 @@ function DashboardPage() {
                   value={reviewReplyText}
                   onChange={(e) => setReviewReplyText(e.target.value)}
                   placeholder="Write a response showing appreciation or addressing project highlights..."
-                  className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper"
+                  className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22]"
                 />
               </div>
 
@@ -2780,7 +2835,7 @@ function DashboardPage() {
                 </button>
                 <button
                   onClick={handleSaveReviewReply}
-                  className="w-1/2 bg-copper hover:bg-copper-deep text-white rounded-xl py-3 font-bold shadow-lg shadow-copper/10 transition cursor-pointer"
+                  className="w-1/2 bg-[#008A22] hover:bg-[#008A22]-deep text-white rounded-xl py-3 font-bold shadow-lg shadow-[#008A22]/10 transition cursor-pointer"
                 >
                   Submit Response
                 </button>
@@ -2794,7 +2849,7 @@ function DashboardPage() {
       {isAddingReview && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/50 backdrop-blur-sm animate-in fade-in duration-200">
           <div className="bg-white rounded-2xl w-full max-w-lg shadow-2xl overflow-hidden border border-slate-200 animate-in zoom-in-95 duration-200 text-xs text-left">
-            <div className="bg-gradient-to-r from-copper to-[#975033] p-4 text-white flex items-center justify-between">
+            <div className="bg-gradient-to-r from-[#008A22] to-[#10B981] p-4 text-white flex items-center justify-between">
               <h3 className="font-bold text-sm leading-tight">Add New Review</h3>
               <button onClick={() => setIsAddingReview(false)} className="text-white/80 hover:text-white p-1 rounded-full hover:bg-white/10">
                 <X className="w-4 h-4" />
@@ -2804,30 +2859,30 @@ function DashboardPage() {
               <div className="grid grid-cols-2 gap-4">
                 <div className="space-y-1">
                   <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Client Name</label>
-                  <input type="text" required value={newReviewAuthor} onChange={(e) => setNewReviewAuthor(e.target.value)} placeholder="e.g. John Doe" className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper" />
+                  <input type="text" required value={newReviewAuthor} onChange={(e) => setNewReviewAuthor(e.target.value)} placeholder="e.g. John Doe" className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22]" />
                 </div>
                 <div className="space-y-1">
                   <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Location</label>
-                  <input type="text" value={newReviewLocation} onChange={(e) => setNewReviewLocation(e.target.value)} placeholder="e.g. Miami, FL" className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper" />
+                  <input type="text" value={newReviewLocation} onChange={(e) => setNewReviewLocation(e.target.value)} placeholder="e.g. Denver, CO" className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22]" />
                 </div>
                 <div className="col-span-2 space-y-1">
                   <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Review Title</label>
-                  <input type="text" value={newReviewTitle} onChange={(e) => setNewReviewTitle(e.target.value)} placeholder="e.g. Amazing EV Charger Install" className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper focus:border-copper" />
+                  <input type="text" value={newReviewTitle} onChange={(e) => setNewReviewTitle(e.target.value)} placeholder="e.g. Amazing EV Charger Install" className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] focus:border-[#008A22]" />
                 </div>
                 <div className="col-span-2 space-y-1">
                   <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Review Text</label>
-                  <textarea rows={3} required value={newReviewText} onChange={(e) => setNewReviewText(e.target.value)} placeholder="Client review content..." className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper resize-none" />
+                  <textarea rows={3} required value={newReviewText} onChange={(e) => setNewReviewText(e.target.value)} placeholder="Client review content..." className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] resize-none" />
                 </div>
                 <div className="space-y-1">
                   <label className="text-[10px] text-slate-400 font-bold uppercase tracking-wider block">Star Rating</label>
-                  <select value={newReviewRating} onChange={(e) => setNewReviewRating(Number(e.target.value))} className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-copper font-semibold text-slate-800">
+                  <select value={newReviewRating} onChange={(e) => setNewReviewRating(Number(e.target.value))} className="w-full bg-slate-50 border border-slate-200 rounded-xl py-2.5 px-3 focus:outline-none focus:ring-1 focus:ring-[#008A22] font-semibold text-slate-800">
                     {[5, 4, 3, 2, 1].map(r => <option key={r} value={r}>{r} Stars</option>)}
                   </select>
                 </div>
               </div>
               <div className="flex gap-3 pt-2">
                 <button type="button" onClick={() => setIsAddingReview(false)} className="w-1/2 border border-slate-200 rounded-xl py-3 font-bold hover:bg-slate-50 transition cursor-pointer">Cancel</button>
-                <button type="submit" className="w-1/2 bg-copper hover:bg-copper-deep text-white rounded-xl py-3 font-bold shadow-lg shadow-copper/10 transition cursor-pointer">Add Review</button>
+                <button type="submit" className="w-1/2 bg-[#008A22] hover:bg-[#008A22]-deep text-white rounded-xl py-3 font-bold shadow-lg shadow-[#008A22]/10 transition cursor-pointer">Add Review</button>
               </div>
             </form>
           </div>

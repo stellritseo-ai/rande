@@ -1,5 +1,5 @@
 import { useState, useEffect, useCallback, useMemo } from "react";
-import { MapPin, ArrowRight, Zap, Building2, Home, Factory, X, ZoomIn } from "lucide-react";
+import { MapPin, ArrowRight, Wrench, Building2, Home, Factory, X, ZoomIn } from "lucide-react";
 import p1 from "@/assets/project-1.jpg";
 import p2 from "@/assets/project-2.jpg";
 import p3 from "@/assets/project-3.jpg";
@@ -13,7 +13,7 @@ import { Link } from "@tanstack/react-router";
 import { getGalleryPhotos } from "@/lib/leads-store";
 
 const catIcons = {
-  All: Zap,
+  All: Wrench,
   Residential: Home,
   Commercial: Building2,
   Industrial: Factory,
@@ -22,96 +22,101 @@ const catIcons = {
 export function Projects({ isLanding = false }: { isLanding?: boolean }) {
   const { t } = useLanguage();
   const [dbPhotos, setDbPhotos] = useState<any[]>([]);
+  const [loaded, setLoaded] = useState(false);
 
   useEffect(() => {
     getGalleryPhotos().then(photos => {
-      if (Array.isArray(photos) && photos.length > 0) {
+      if (Array.isArray(photos)) {
         setDbPhotos(photos);
       }
+      setLoaded(true);
     }).catch(err => {
       console.warn("Failed to load database gallery photos, using static seeds:", err);
+      setLoaded(true);
     });
   }, []);
 
   const fallbackAll = [
     {
       img: p1,
-      title: t("Luxury Home Lighting System", "Sistema de Iluminación de Lujo para el Hogar"),
+      title: t("Luxury Kitchen Remodeling", "Remodelación de Cocina de Lujo"),
       cat: "Residential",
-      loc: "Coral Gables, FL",
+      loc: "Colorado Springs, CO",
       year: "2024",
-      tag: t("Smart Lighting", "Iluminación Inteligente"),
+      tag: t("Remodeling", "Remodelación"),
       featured: true,
     },
     {
       img: p2,
-      title: t("Corporate Atrium Installation", "Instalación de Atrio Corporativo"),
-      cat: "Commercial",
-      loc: "Brickell, FL",
+      title: t("Paver Driveway Installation", "Instalación de Entrada de Adoquines"),
+      cat: "Residential",
+      loc: "Denver, CO",
       year: "2024",
-      tag: t("Panel Upgrade", "Actualización de Panel"),
+      tag: t("Paving & Driveway", "Pavimento y Entrada"),
       featured: false,
     },
     {
       img: p3,
-      title: t("Warehouse High-Bay LED Retrofit", "Actualización LED de Gran Altura para Almacén"),
-      cat: "Industrial",
-      loc: "Doral, FL",
+      title: t("Concrete Foundation Slabs", "Losas de Cimiento de Concreto"),
+      cat: "Commercial",
+      loc: "Aurora, CO",
       year: "2023",
-      tag: t("Industrial LED", "LED Industrial"),
+      tag: t("Foundation & Slabs", "Cimientos y Losas"),
       featured: true,
     },
     {
       img: p4,
-      title: t("Restaurant Ambient Lighting", "Iluminación Ambiental para Restaurante"),
-      cat: "Commercial",
-      loc: "Wynwood, FL",
+      title: t("Complete Home Addition", "Adición Completa de Vivienda"),
+      cat: "Residential",
+      loc: "Fort Collins, CO",
       year: "2024",
-      tag: t("Ambient Design", "Diseño de Ambiente"),
+      tag: t("Home Additions", "Adiciones de Casa"),
       featured: false,
     },
     {
       img: p5,
-      title: t("Office Build-Out Wiring", "Cableado de Construcción de Oficinas"),
+      title: t("Commercial Retail Build-Out", "Remodelación de Local Comercial"),
       cat: "Commercial",
-      loc: "Aventura, FL",
+      loc: "Lakewood, CO",
       year: "2023",
-      tag: t("Full Rewire", "Re-cableado Completo"),
+      tag: t("Commercial Build-Out", "Remodelación Comercial"),
       featured: false,
     },
     {
       img: p6,
-      title: t("Fleet EV Charging Station", "Estación de Carga EV para Flota"),
-      cat: "Residential",
-      loc: "Pinecrest, FL",
+      title: t("Modern Sidewalk & Curb Construction", "Construcción Moderna de Aceras y Bordillos"),
+      cat: "Commercial",
+      loc: "Thornton, CO",
       year: "2024",
-      tag: t("EV Charger", "Cargador EV"),
+      tag: t("Concrete & Pathways", "Concreto y Aceras"),
       featured: false,
     },
     {
       img: p7,
-      title: t("Whole-Home Generator Install", "Instalación de Generador para Todo el Hogar"),
+      title: t("Home Improvements & Structural Repairs", "Mejoras del Hogar y Reparaciones Estructurales"),
       cat: "Residential",
-      loc: "Miami Beach, FL",
+      loc: "Denver, CO",
       year: "2023",
-      tag: t("Generator", "Generador"),
+      tag: t("Home Improvements", "Mejoras para el Hogar"),
       featured: false,
     },
   ];
 
-  const all = dbPhotos.length > 0 ? dbPhotos.map((photo, index) => {
-    const rawCat = photo.category || "residential";
-    const cat = rawCat.charAt(0).toUpperCase() + rawCat.slice(1);
-    return {
-      img: photo.url,
-      title: photo.title || `${cat} Electrical Installation`,
-      cat,
-      loc: photo.location || "Miami, FL",
-      year: photo.uploadedAt ? new Date(photo.uploadedAt).getFullYear().toString() : "2024",
-      tag: photo.tag || `${cat} Service`,
-      featured: index % 3 === 0,
-    };
-  }) : fallbackAll;
+  const all = loaded
+    ? dbPhotos.map((photo, index) => {
+        const rawCat = photo.category || "residential";
+        const cat = rawCat.charAt(0).toUpperCase() + rawCat.slice(1);
+        return {
+          img: photo.url,
+          title: photo.title || `${cat} Construction Project`,
+          cat,
+          loc: photo.location || "Denver, CO",
+          year: photo.uploadedAt ? new Date(photo.uploadedAt).getFullYear().toString() : "2024",
+          tag: photo.tag || `${cat} Service`,
+          featured: index % 3 === 0,
+        };
+      })
+    : fallbackAll;
 
   const catLabels = {
     All: t("All", "Todos"),
@@ -166,17 +171,17 @@ export function Projects({ isLanding = false }: { isLanding?: boolean }) {
         <div className="flex flex-col lg:flex-row lg:items-end justify-between gap-8 mb-14">
           <div className="max-w-2xl">
             {/* Eyebrow */}
-            <div className="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#FF6B00] mb-5 shadow-sm">
-              <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] animate-pulse" />
+            <div className="inline-flex items-center gap-2 bg-white border border-slate-200 rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-widest text-[#008A22] mb-5 shadow-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-[#008A22] animate-pulse" />
               {t("Featured Projects", "Proyectos Destacados")}
             </div>
-
+ 
             <h2 
               className="text-slate-900 tracking-tight leading-[1.1]"
               style={{ textTransform: "capitalize", fontWeight: 800, fontSize: "40px", marginTop: "-11px", marginBottom: "8px" }}
             >
               {t("Work we're ", "Trabajo del cual estamos ")}
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#E05E00]">
+              <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#008A22] to-[#006e1b]">
                 {t("proud of", "orgullosos")}
               </span>
             </h2>
@@ -184,7 +189,7 @@ export function Projects({ isLanding = false }: { isLanding?: boolean }) {
               className="text-slate-500 text-base leading-relaxed"
               style={{ marginBottom: "-25px" }}
             >
-              {t("A hand-picked selection of recent electrical installations across Miami & South Florida — residential, commercial, and industrial.", "Una selección cuidadosamente elegida de instalaciones eléctricas recientes en todo Miami y el sur de Florida: residenciales, comerciales e industriales.")}
+              {t("A hand-picked selection of recent construction and remodeling projects across Denver & Colorado — residential, commercial, and concrete.", "Una selección cuidadosamente elegida de proyectos de construcción y remodelación recientes en todo Denver y el Colorado: residenciales, comerciales y de concreto.")}
             </p>
           </div>
 
@@ -200,7 +205,7 @@ export function Projects({ isLanding = false }: { isLanding?: boolean }) {
         {/* ── Filter Tabs ─────────────────────────────── */}
         <div className="flex flex-wrap gap-2.5 mb-10">
           {dynamicCats.map((c) => {
-            const Icon = catIcons[c as keyof typeof catIcons] || Zap;
+            const Icon = catIcons[c as keyof typeof catIcons] || Wrench;
             return (
               <button
                 key={c}
@@ -208,8 +213,8 @@ export function Projects({ isLanding = false }: { isLanding?: boolean }) {
                 className={cn(
                   "inline-flex items-center gap-2 rounded-full px-5 py-2.5 text-[13px] font-bold transition-all duration-200 border cursor-pointer",
                   active === c
-                    ? "bg-[#FF6B00] text-white border-[#FF6B00] shadow-[0_4px_14px_rgba(255,107,0,0.3)]"
-                    : "bg-white text-slate-600 border-slate-200 hover:border-[#FF6B00] hover:text-[#FF6B00] shadow-sm"
+                    ? "bg-[#008A22] text-white border-[#008A22] shadow-[0_4px_14px_rgba(0,138,34,0.3)]"
+                    : "bg-white text-slate-600 border-slate-200 hover:border-[#008A22] hover:text-[#008A22] shadow-sm"
                 )}
               >
                 <Icon className="h-3.5 w-3.5" />
@@ -220,75 +225,85 @@ export function Projects({ isLanding = false }: { isLanding?: boolean }) {
         </div>
 
         {/* ── Projects Grid ───────────────────────────── */}
-        <div className={isLanding ? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"}>
-          {displayItems.map((p, idx) => (
-            <article
-              key={idx}
-              onClick={() => openLightbox(p)}
-              className={cn(
-                "group relative overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in",
-                isLanding 
-                  ? "aspect-[4/3] w-full"
-                  : p.featured ? "sm:col-span-1 lg:row-span-2" : ""
-              )}
-            >
-              {/* Image */}
-              <div className={cn(
-                "overflow-hidden w-full h-full",
-                isLanding ? "h-full" : p.featured ? "h-[420px] lg:h-full lg:min-h-[520px]" : "h-[240px] sm:h-[260px]"
-              )}>
-                <img
-                  src={p.img}
-                  alt={p.title}
-                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
-                  loading={idx < 5 ? "eager" : "lazy"}
-                />
-              </div>
-
-              {/* Gradient overlay */}
-              <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent opacity-95 group-hover:opacity-100 transition-opacity duration-300" />
-
-              {/* Top badges */}
-              <div className="absolute top-2.5 left-2.5 right-2.5 flex items-start justify-between gap-1">
-                <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/10 text-white text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
-                  {p.tag}
-                </span>
-                {!isLanding && (
-                  <span className="bg-[#FF6B00] text-white text-[10px] font-black px-2.5 py-1 rounded-full">
-                    {p.year}
-                  </span>
+        {loaded && displayItems.length === 0 ? (
+          <div className="text-center py-16 bg-white border border-slate-200/60 rounded-3xl shadow-sm max-w-lg mx-auto">
+            <Wrench className="h-10 w-10 text-slate-300 mx-auto mb-3.5 stroke-[1.5]" />
+            <h3 className="font-extrabold text-slate-800 text-lg leading-snug">{t("No projects showcased yet", "No hay proyectos mostrados aún")}</h3>
+            <p className="text-slate-400 text-xs mt-1.5 px-6 leading-relaxed max-w-sm mx-auto">
+              {t("Upload new project photos from the management dashboard to populate this gallery.", "Suba fotos de nuevos proyectos desde el panel de administración para poblar esta galería.")}
+            </p>
+          </div>
+        ) : (
+          <div className={isLanding ? "grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4" : "grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5"}>
+            {displayItems.map((p, idx) => (
+              <article
+                key={idx}
+                onClick={() => openLightbox(p)}
+                className={cn(
+                  "group relative overflow-hidden rounded-2xl bg-white border border-slate-100 shadow-sm hover:shadow-xl transition-all duration-500 cursor-zoom-in",
+                  isLanding 
+                    ? "aspect-[4/3] w-full"
+                    : p.featured ? "sm:col-span-1 lg:row-span-2" : ""
                 )}
-              </div>
-
-              {/* Bottom content */}
-              <div className="absolute bottom-0 left-0 right-0 p-3.5">
-                {/* Category pill */}
-                <span className="inline-flex items-center bg-[#FF6B00] text-white text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full mb-1.5">
-                  {catLabels[p.cat as keyof typeof catLabels] || p.cat}
-                </span>
-
-                <h3 className={cn(
-                  "font-extrabold text-white leading-tight mb-1 truncate",
-                  isLanding ? "text-xs sm:text-sm" : "text-base sm:text-lg"
+              >
+                {/* Image */}
+                <div className={cn(
+                  "overflow-hidden w-full h-full",
+                  isLanding ? "h-full" : p.featured ? "h-[420px] lg:h-full lg:min-h-[520px]" : "h-[240px] sm:h-[260px]"
                 )}>
-                  {p.title}
-                </h3>
+                  <img
+                    src={p.img}
+                    alt={p.title}
+                    className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700 ease-out"
+                    loading={idx < 5 ? "eager" : "lazy"}
+                  />
+                </div>
 
-                <div className="flex items-center justify-between">
-                  <div className="flex items-center gap-1 text-white/75 text-[10px] sm:text-xs font-medium truncate">
-                    <MapPin className="h-3 w-3 shrink-0" />
-                    {p.loc}
-                  </div>
+                {/* Gradient overlay */}
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/90 via-slate-900/30 to-transparent opacity-95 group-hover:opacity-100 transition-opacity duration-300" />
+
+                {/* Top badges */}
+                <div className="absolute top-2.5 left-2.5 right-2.5 flex items-start justify-between gap-1">
+                  <span className="inline-flex items-center bg-white/10 backdrop-blur-sm border border-white/10 text-white text-[8px] font-bold uppercase tracking-wider px-2 py-0.5 rounded-full">
+                    {p.tag}
+                  </span>
                   {!isLanding && (
-                    <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
-                      <ZoomIn className="h-3.5 w-3.5" />
-                    </div>
+                    <span className="bg-[#008A22] text-white text-[10px] font-black px-2.5 py-1 rounded-full">
+                      {p.year}
+                    </span>
                   )}
                 </div>
-              </div>
-            </article>
-          ))}
-        </div>
+   
+                {/* Bottom content */}
+                <div className="absolute bottom-0 left-0 right-0 p-3.5">
+                  {/* Category pill */}
+                  <span className="inline-flex items-center bg-[#008A22] text-white text-[8px] font-black uppercase tracking-wider px-2 py-0.5 rounded-full mb-1.5">
+                    {catLabels[p.cat as keyof typeof catLabels] || p.cat}
+                  </span>
+
+                  <h3 className={cn(
+                    "font-extrabold text-white leading-tight mb-1 truncate",
+                    isLanding ? "text-xs sm:text-sm" : "text-base sm:text-lg"
+                  )}>
+                    {p.title}
+                  </h3>
+
+                  <div className="flex items-center justify-between">
+                    <div className="flex items-center gap-1 text-white/75 text-[10px] sm:text-xs font-medium truncate">
+                      <MapPin className="h-3 w-3 shrink-0" />
+                      {p.loc}
+                    </div>
+                    {!isLanding && (
+                      <div className="flex items-center justify-center w-8 h-8 rounded-full bg-white/10 border border-white/20 text-white opacity-0 group-hover:opacity-100 transition-all duration-300">
+                        <ZoomIn className="h-3.5 w-3.5" />
+                      </div>
+                    )}
+                  </div>
+                </div>
+              </article>
+            ))}
+          </div>
+        )}
 
       </div>
 
@@ -327,13 +342,13 @@ export function Projects({ isLanding = false }: { isLanding?: boolean }) {
             {/* Info bar */}
             <div className="bg-white px-6 py-4 flex items-center justify-between gap-4 shrink-0">
               <div className="flex items-center gap-3 min-w-0">
-                <span className="bg-[#FF6B00] text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shrink-0">
+                <span className="bg-[#008A22] text-white text-[10px] font-black uppercase tracking-wider px-3 py-1 rounded-full shrink-0">
                   {catLabels[lightbox.cat as keyof typeof catLabels] || lightbox.cat}
                 </span>
                 <div className="min-w-0">
                   <p className="font-extrabold text-slate-900 text-sm sm:text-base leading-tight truncate">{lightbox.title}</p>
                   <p className="flex items-center gap-1 text-xs text-slate-500 mt-0.5">
-                    <MapPin className="h-3.5 w-3.5 text-[#FF6B00] shrink-0" />
+                    <MapPin className="h-3.5 w-3.5 text-[#008A22] shrink-0" />
                     {lightbox.loc}
                   </p>
                 </div>

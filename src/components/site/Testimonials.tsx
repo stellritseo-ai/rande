@@ -46,7 +46,7 @@ function TestimonialCard({ review, isGrid = false }: { review: Review; isGrid?: 
 
         {review.replyText && (
           <div className="mt-3 bg-slate-50 border border-slate-100 p-3.5 rounded-xl text-left text-xs">
-            <p className="font-extrabold text-[#FF6B00] uppercase tracking-wider text-[10px]">R&E Electrical Response</p>
+            <p className="font-extrabold text-[#008A22] uppercase tracking-wider text-[10px]">ACC Construction Response</p>
             <p className="text-slate-600 font-medium leading-relaxed mt-1">"{review.replyText}"</p>
           </div>
         )}
@@ -154,15 +154,15 @@ export function Testimonials({ isGrid = false }: { isGrid?: boolean }) {
 
   const fallbackReviews: Review[] = [
     {
-      text: t("The electrical panel upgrade they did for our home was outstanding. Professional, clean, and finished ahead of schedule. Zero issues since.", "La actualización del panel eléctrico que hicieron para nuestro hogar fue excelente. Profesional, limpia y terminada antes de lo previsto. Cero problemas desde entonces."),
+      text: t("The home addition and remodeling they did for our home was outstanding. Professional, clean, and finished ahead of schedule. Zero issues since.", "La adición y remodelación de la casa que hicieron para nuestro hogar fue excelente. Profesional, limpia y terminada antes de lo previsto. Cero problemas desde entonces."),
       name: "Marcus T.",
-      role: t("Homeowner, Miami", "Propietario, Miami"),
+      role: t("Homeowner, Denver", "Propietario, Denver"),
       rating: 5,
       initials: "MT",
       avatarColor: "#1D4ED8",
     },
     {
-      text: t("Called them for an emergency at 11pm — they arrived within 45 minutes. Fixed the issue fast. Truly 24/7 service.", "Los llamé por una emergencia a las 11:00 pm; llegaron en 45 minutos. Solucionaron el problema rápido. Realmente un servicio 24/7."),
+      text: t("Called them for a quick quote and site assessment — they arrived the next day. Fixed the structural issue fast. Truly professional service.", "Los llamé para una cotización rápida y evaluación del sitio; llegaron al día siguiente. Solucionaron el problema estructural rápido. Servicio realmente profesional."),
       name: "Priya S.",
       role: t("Business Owner", "Propietario de Negocio"),
       rating: 5,
@@ -170,7 +170,7 @@ export function Testimonials({ isGrid = false }: { isGrid?: boolean }) {
       avatarColor: "#7C3AED",
     },
     {
-      text: t("They installed 12 EV chargers across our fleet parking lot. Flawless execution. I'll never use another electrician again.", "Instalaron 12 cargadores EV en el estacionamiento de nuestra flota. Ejecución impecable. Nunca volveré a usar a otro electricista."),
+      text: t("They paved our entire concrete driveway and walkways. Flawless execution. I'll never use another contractor again.", "Pavimentaron toda nuestra entrada de concreto y caminos. Ejecución impecable. Nunca volveré a usar a otro contratista."),
       name: "Jared W.",
       role: t("Fleet Manager", "Gerente de Flota"),
       rating: 5,
@@ -178,7 +178,7 @@ export function Testimonials({ isGrid = false }: { isGrid?: boolean }) {
       avatarColor: "#065F46",
     },
     {
-      text: t("Best electrical contractor in Miami. They wired our entire office renovation — on time, on budget, and zero punch list items.", "El mejor contratista eléctrico en Miami. Cablearon toda la renovación de nuestra oficina: a tiempo, dentro del presupuesto y sin detalles pendientes."),
+      text: t("Best general contractor in Denver. They executed our entire office renovation — on time, on budget, and zero punch list items.", "El mejor contratista general en Denver. Realizaron toda la renovación de nuestra oficina: a tiempo, dentro del presupuesto y sin detalles pendientes."),
       name: "Diana L.",
       role: t("Office Manager", "Administradora de Oficina"),
       rating: 5,
@@ -186,7 +186,7 @@ export function Testimonials({ isGrid = false }: { isGrid?: boolean }) {
       avatarColor: "#B45309",
     },
     {
-      text: t("Smart home integration was seamless. They set up Lutron controls, automated lighting scenes, and a whole-home surge protector.", "La integración de la casa inteligente fue perfecta. Configuraron controles Lutron, escenas de iluminación automatizadas y un protector de sobretensión para todo el hogar."),
+      text: t("The driveway pavers installation was seamless. They set up borders, matched our aesthetic, and completed the work quickly.", "La instalación de los adoquines de la entrada fue perfecta. Configuraron los bordes, combinaron con nuestra estética y completaron el trabajo rápidamente."),
       name: "Kenji M.",
       role: t("Homeowner", "Propietario"),
       rating: 5,
@@ -252,7 +252,7 @@ export function Testimonials({ isGrid = false }: { isGrid?: boolean }) {
           "mx-auto max-w-xl text-[#000] text-sm sm:text-base leading-relaxed",
           isGrid ? "mb-0" : "-mb-[35px]"
         )}>
-          {t("Real experiences from real clients across Miami & South Florida. See why homeowners and businesses choose us every time.", "Experiencias reales de clientes reales en todo Miami y el sur de Florida. Vea por qué los propietarios e inquilinos nos eligen siempre.")}
+          {t("Real experiences from real clients across Denver & Colorado. See why homeowners and businesses choose us every time.", "Experiencias reales de clientes reales en todo Denver y el Colorado. Vea por qué los propietarios e inquilinos nos eligen siempre.")}
         </p>
       </div>
 

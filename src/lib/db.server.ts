@@ -1,7 +1,7 @@
 import { MongoClient, ObjectId } from "mongodb";
 import { hashPassword } from "./crypto.server.js";
 
-const DB_NAME = "electrical";
+const DB_NAME = "accconstruction";
 
 let client: MongoClient | null = null;
 
@@ -225,17 +225,24 @@ export async function dbGetGalleryPhotos(initialSeeds: any[]): Promise<any[]> {
   // Clean up any legacy localhost photos from gallery
   await galleryCol.deleteMany({ url: { $regex: "localhost" } });
 
-  const count = await galleryCol.countDocuments();
+  // Force re-seeding if we have any of the old electrician seeds or old 1-photo seed
+  const hasElectricianSeeds = await galleryCol.findOne({ title: "Luxury Home Lighting System" });
+  const hasOnlyOldSeed = (await galleryCol.countDocuments()) === 1 && (await galleryCol.findOne({ id: "photo-1" }))?.url === "https://images.unsplash.com/photo-1621905251189-08b45d6a269e";
   
-  // Force re-seeding if we only have the old 1-photo seed
-  const hasOnlyOldSeed = count === 1 && (await galleryCol.findOne({ id: "photo-1" }))?.url === "https://images.unsplash.com/photo-1621905251189-08b45d6a269e";
-  if (hasOnlyOldSeed) {
+  const settingsCol = db.collection("settings");
+
+  if (hasElectricianSeeds || hasOnlyOldSeed) {
     await galleryCol.deleteMany({});
+    // Reset seeded flag to force re-seeding with construction seeds
+    await settingsCol.updateOne({}, { $set: { gallerySeeded: false } });
   }
 
+  const settings = await settingsCol.findOne({});
   const updatedCount = await galleryCol.countDocuments();
-  if (updatedCount === 0 && initialSeeds.length > 0) {
+  
+  if (updatedCount === 0 && (!settings || !settings.gallerySeeded) && initialSeeds.length > 0) {
     await galleryCol.insertMany(initialSeeds);
+    await settingsCol.updateOne({}, { $set: { gallerySeeded: true } }, { upsert: true });
     return initialSeeds;
   }
   const docs = await galleryCol.find({}).toArray();

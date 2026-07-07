@@ -17,13 +17,13 @@ function AboutPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://www.accconstructionllc.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "About Us",
-        "item": "https://www.randeelectrical.com/about"
+        "item": "https://www.accconstructionllc.com/about"
       }
     ]
   };
@@ -36,8 +36,8 @@ function AboutPage() {
       />
       <PageHeader
         eyebrow={t("About Us", "Sobre Nosotros")}
-        title={t("Built on craft. Powered by trust.", "Construido sobre mano de obra. Impulsado por la confianza.")}
-        subtitle={t("A family-owned team of master electricians serving Florida since 2009.", "Un equipo familiar de maestros electricistas que sirve a Florida desde 2009.")}
+        title={t("Who We Are", "Quiénes Somos")}
+        subtitle={t("For over 25 years, ACC Construction LLC has stood for reliability, skill, and absolute integrity in Colorado.", "Durante más de 25 años, ACC Construction LLC ha sido sinónimo de confiabilidad, habilidad y absoluta integridad en Colorado.")}
       />
       <About />
       <WhyChooseUs />
@@ -50,13 +50,13 @@ function AboutPage() {
 export const Route = createFileRoute("/about")({
   head: () => ({
     meta: [
-      { title: "About R&E Electrical Contractor Corp | Florida Master Electricians" },
-      { name: "description", content: "Family-owned electrical contractors with 17+ years powering Florida homes and businesses safely and beautifully." },
-      { property: "og:title", content: "About R&E Electrical Contractor Corp" },
-      { property: "og:description", content: "Florida's trusted licensed electrical contractors." },
+      { title: "About ACC Construction LLC | Wheat Ridge's General Contractor" },
+      { name: "description", content: "Learn more about ACC Construction LLC. For over 25 years, we have provided licensed, insured, and bonded general contracting services across Colorado." },
+      { property: "og:title", content: "About ACC Construction LLC | Colorado General Contractor" },
+      { property: "og:description", content: "Wheat Ridge's licensed, insured, and bonded general contractor with 25+ years of experience." },
     ],
     links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/about" }
+      { rel: "canonical", href: "https://www.accconstructionllc.com/about" }
     ],
   }),
   component: AboutPage,

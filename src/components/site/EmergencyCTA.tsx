@@ -35,13 +35,13 @@ export function EmergencyCTA() {
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
               transition={{ duration: 0.5 }}
-              className="inline-flex items-center gap-2 rounded-full bg-red-500/10 border border-red-500/30 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white shadow-sm"
+              className="inline-flex items-center gap-2 rounded-full bg-[#008A22]/10 border border-[#008A22]/30 px-4 py-1.5 text-xs font-semibold uppercase tracking-widest text-white shadow-sm"
             >
               <span className="relative flex h-2 w-2">
-                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-red-500 opacity-75"></span>
-                <span className="relative inline-flex rounded-full h-2 w-2 bg-red-500"></span>
+                <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#008A22] opacity-75"></span>
+                <span className="relative inline-flex rounded-full h-2 w-2 bg-[#008A22]"></span>
               </span>
-              {t("Emergency Dispatch Active", "Despacho de Emergencia Activo")}
+              {t("ACC Support Active", "Soporte de ACC Activo")}
             </motion.div>
 
             <motion.h2
@@ -51,7 +51,7 @@ export function EmergencyCTA() {
               transition={{ duration: 0.6, delay: 0.1 }}
               className="text-[26px] sm:text-3xl lg:text-[34px] font-extrabold capitalize tracking-tight leading-tight text-white"
             >
-              {t("Need immediate electrical assistance?", "¿Necesita asistencia eléctrica inmediata?")}
+              {t("Ready to start your next construction project?", "¿Listo para comenzar su próximo proyecto de construcción?")}
             </motion.h2>
 
             <motion.p
@@ -61,7 +61,7 @@ export function EmergencyCTA() {
               transition={{ duration: 0.6, delay: 0.2 }}
               className="text-base text-white/80 max-w-xl leading-relaxed"
             >
-              {t("Power outage? Burning smell? Sparking outlets? Don't wait and risk electrical fires or injury. Our certified master electricians are on call 24/7 with fully equipped response trucks.", "¿Corte de energía? ¿Olor a quemado? ¿Tomacorrientes con chispas? No espere y se arriesgue a incendios eléctricos o lesiones. Nuestros electricistas certificados están de guardia 24/7 con camiones de respuesta totalmente equipados.")}
+              {t("Home remodeling? Driveway paving? Foundation slabs or extensions? ACC Construction LLC delivers licensed craftsmanship with unmatched quality. Contact us today to discuss your project plans.", "¿Remodelación de casas? ¿Entradas de adoquines? ¿Cimientos o adiciones? ACC Construction LLC ofrece mano de obra con licencia y calidad inigualable. Contáctenos hoy para discutir sus planes de proyecto.")}
             </motion.p>
 
             <motion.ul
@@ -72,31 +72,31 @@ export function EmergencyCTA() {
               className="grid grid-cols-2 gap-3 pt-2 w-full max-w-sm"
             >
               <li className="flex items-center gap-3 text-white/90">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FF6B00]/20 text-[#FF6B00] shrink-0">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#008A22]/20 text-[#008A22] shrink-0">
                   <Clock className="h-3.5 w-3.5" />
                 </div>
                 <span className="text-sm font-medium">
-                  {t("24/7 Emergency Response", "Respuesta de Emergencia 24/7")}
+                  {t("Prompt Timelines", "Plazos de Proyecto Rápidos")}
                 </span>
               </li>
               <li className="flex items-center gap-3 text-white/90">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FF6B00]/20 text-[#FF6B00] shrink-0">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#008A22]/20 text-[#008A22] shrink-0">
                   <Zap className="h-3.5 w-3.5" />
                 </div>
                 <span className="text-sm font-medium">
-                  {t("30 Min Average Arrival", "Llegada Promedio en 30 Minutos")}
+                  {t("Premium Craftsmanship", "Mano de Obra Premium")}
                 </span>
               </li>
               <li className="flex items-center gap-3 text-white/90">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FF6B00]/20 text-[#FF6B00] shrink-0">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#008A22]/20 text-[#008A22] shrink-0">
                   <ShieldCheck className="h-3.5 w-3.5" />
                 </div>
                 <span className="text-sm font-medium">
-                  {t("Licensed & Insured Pros", "Profesionales Autorizados y Asegurados")}
+                  {t("Licensed Colorado GC", "Contratista con Licencia")}
                 </span>
               </li>
               <li className="flex items-center gap-3 text-white/90">
-                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#FF6B00]/20 text-[#FF6B00] shrink-0">
+                <div className="flex h-6 w-6 items-center justify-center rounded-full bg-[#008A22]/20 text-[#008A22] shrink-0">
                   <CheckCircle2 className="h-3.5 w-3.5" />
                 </div>
                 <span className="text-sm font-medium">
@@ -121,11 +121,11 @@ export function EmergencyCTA() {
           >
             <div className="relative group w-full max-w-full sm:max-w-sm">
               {/* Outer pulsing ring background effect */}
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-red-500 to-orange-500 rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-[#008A22] to-[#10B981] rounded-2xl blur opacity-30 group-hover:opacity-60 transition duration-1000 group-hover:duration-200"></div>
 
               <a
-                href="tel:(786)307-5933"
-                className="relative flex items-center justify-between gap-4 rounded-2xl bg-gradient-to-r from-red-600 to-[#d62828] p-5 sm:p-6 font-semibold text-white shadow-2xl hover:brightness-110 transition-all duration-300 w-full"
+                href="tel:(720)298-7777"
+                className="relative flex items-center justify-between gap-4 rounded-2xl bg-gradient-to-r from-[#008A22] to-[#006e1b] p-5 sm:p-6 font-semibold text-white shadow-2xl hover:brightness-110 transition-all duration-300 w-full"
               >
                 <div className="flex items-center gap-4">
                   <span className="relative grid place-items-center h-12 w-12 rounded-full bg-white/10 ring-4 ring-white/5 pulse-ring shrink-0">
@@ -133,10 +133,10 @@ export function EmergencyCTA() {
                   </span>
                   <div className="text-left">
                     <span className="block text-[10px] uppercase tracking-widest text-white/80 font-bold">
-                      {t("Emergency Hotline", "Línea Directa de Emergencia")}
+                      {t("Office Hotline", "Línea Directa de Oficina")}
                     </span>
                     <span className="block text-xl sm:text-2xl font-display font-black leading-tight tracking-tight mt-0.5">
-                      (786) 307-5933
+                      (720) 298-7777
                     </span>
                   </div>
                 </div>
@@ -146,7 +146,7 @@ export function EmergencyCTA() {
             {/* Micro-trust glass badge */}
             <div className="flex items-center gap-2 rounded-xl bg-white/5 border border-white/10 px-4 py-2.5 text-xs text-white/70 w-full max-w-sm justify-center lg:justify-start">
               <span className="h-2 w-2 rounded-full bg-emerald-500 animate-pulse" />
-              <span>{t("Electricians are active & ready to dispatch in Miami", "Los electricistas están activos y listos para despachar en Miami")}</span>
+              <span>{t("Contractors are active & ready to support in Colorado", "Los contratistas están activos y listos para ayudar en el Colorado")}</span>
             </div>
           </motion.div>
         </div>

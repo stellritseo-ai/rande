@@ -7,19 +7,15 @@ import { Counter } from "./Counter";
 import { Button } from "@/components/ui/button";
 import { useLanguage } from "@/hooks/useLanguage";
 
-const TinyLightningIcon = () => (
-  <svg className="w-3.5 h-3.5 text-[#FF6B00] fill-[#FF6B00] shrink-0" viewBox="0 0 24 24">
-    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
+const TinyShieldIcon = () => (
+  <svg className="w-3.5 h-3.5 text-[#008A22] fill-[#008A22]/20 shrink-0" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
+    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
   </svg>
 );
 
-const PointingHandIcon = () => (
-  <svg className="w-5 h-5 text-[#FF6B00] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5} strokeLinecap="round" strokeLinejoin="round">
-    <path d="M3 10h4v8H3z" />
-    <path d="M7 10c0-1.5 1.5-2 2.5-2s1.5 1.5 1.5 2.5V12" />
-    <path d="M11 10h10a1.5 1.5 0 0 1 0 3H11" />
-    <path d="M11 13h8a1.5 1.5 0 0 1 0 3H11" />
-    <path d="M11 16h6a1.5 1.5 0 0 1 0 3H11" />
+const GreenCheckIcon = () => (
+  <svg className="w-5 h-5 text-[#008A22] shrink-0 mt-0.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2.5} strokeLinecap="round" strokeLinejoin="round">
+    <polyline points="20 6 9 17 4 12" />
   </svg>
 );
 
@@ -27,10 +23,10 @@ export function Welcome() {
   const { t } = useLanguage();
 
   const checklistPoints = [
-    t("New construction and residential remodeling", "Construcción nueva y remodelación residencial"),
-    t("New construction and commercial remodeling such as buildings", "Construcción nueva y remodelación comercial como edificios"),
-    t("Restaurants, offices, shopping centers, hotels, clinics (with electrical permits)", "Restaurantes, oficinas, centros comerciales, hoteles, clínicas (con permisos eléctricos)"),
-    t("Service Area: Entire state of Florida", "Área de Servicio: Todo el estado de Florida"),
+    t("Residential remodeling and custom home improvements", "Remodelación residencial y mejoras personalizadas para el hogar"),
+    t("Paver driveways, concrete sidewalks and pathway pouring", "Entradas de adoquines, aceras de concreto y vertido de caminos"),
+    t("Full structural concrete foundations and retaining slabs", "Cimientos de concreto estructural completos y losas de retención"),
+    t("Service Area: Serving Denver-Dade, Lakewood, and Colorado", "Área de Servicio: Sirviendo a Denver-Dade, Lakewood y el Sur de Colorado"),
   ];
 
   return (
@@ -43,41 +39,41 @@ export function Welcome() {
           {/* Left Column: Copy & Checklist */}
           <div className="animate-fade-up flex flex-col items-start text-left">
             <div className="flex items-center gap-1 text-[11px] font-black uppercase tracking-widest text-[#0F172A]">
-              <TinyLightningIcon /> {t("About Us", "Sobre Nosotros")} <TinyLightningIcon />
+              <TinyShieldIcon /> {t("About Us", "Sobre Nosotros")} <TinyShieldIcon />
             </div>
             <h2 className="mt-4 font-display text-[26px] sm:text-[30px] lg:text-[33px] leading-[1.35] font-extrabold text-[#0F172A]">
-              {t("Best Electrical Company In", "La Mejor Compañía Eléctrica en")}<br className="hidden md:inline" /> {t("Miami. Residential & Commercial ", "Miami. Servicio Residencial y Comercial ")}
-              <span className="text-[#FF6B00]">{t("Electrical", "Eléctrico")}</span> {t("Service", " ")}
+              {t("Best General Contractor In", "La Mejor Compañía de Contratista General en")}<br className="hidden md:inline" /> {t("Denver. Residential & Commercial ", "Denver. Servicio Residencial y Comercial de ")}
+              <span className="text-[#008A22]">{t("Construction", "Construcción")}</span>
             </h2>
             <p className="font-medium text-black mt-[13px] mb-[-15px] text-[14px] sm:text-[15px] leading-relaxed sm:leading-[32px]">
-              {t("We have been offering a wide range of electrical services to residential, commercial and industrial customers across Miami, FL and its surrounding areas since 2009. We provide a high quality service no matter the size of the project.", "Hemos estado ofreciendo una amplia gama de servicios eléctricos a clientes residenciales, comerciales e industriales en Miami, FL y sus áreas circundantes desde 2009. Brindamos un servicio de alta calidad sin importar el tamaño del proyecto.")}
+              {t("ACC Construction LLC is a premier general contractor serving Colorado. We are dedicated to providing the highest quality construction, remodeling, and home improvement services. With over 25 years of experience, we have built a reputation for excellence, integrity, and reliable craftsmanship. No matter the scale of your project, our team is equipped to deliver exceptional results from design to completion.", "ACC Construction LLC es un contratista general de primer nivel que sirve al Colorado. Nos dedicamos a brindar servicios de construcción, remodelación y mejoras para el hogar de la más alta calidad. Con más de 25 años de experiencia, hemos construido una reputación de excelencia, integridad y mano de obra confiable. No importa la escala de su proyecto, nuestro equipo está equipado para brindar resultados excepcionales desde el diseño hasta la finalización.")}
             </p>
 
             <ul className="mt-6 space-y-4">
               {checklistPoints.map((point) => (
                 <li key={point} className="flex items-start gap-3.5 text-slate-800 font-bold text-sm leading-snug">
-                  <PointingHandIcon />
+                  <GreenCheckIcon />
                   <span>{point}</span>
                 </li>
               ))}
             </ul>
 
-            <Button asChild variant="hero" size="lg" className="mt-8 font-extrabold rounded-full px-8 bg-[#FF6B00] hover:bg-[#E05E00] shadow-[0_10px_25px_-5px_rgba(255,107,0,0.4)]">
+            <Button asChild variant="hero" size="lg" className="mt-8 font-extrabold rounded-full px-8 bg-[#008A22] hover:bg-[#006e1b] shadow-[0_10px_25px_-5px_rgba(0,138,34,0.4)]">
               <Link to="/about">
                 {t("Read More", "Leer Más")} <span className="ml-1 text-sm font-black">≫</span>
               </Link>
             </Button>
           </div>
 
-          {/* Middle Column: Lightning Bolt Image – hidden on mobile/tablet */}
+          {/* Middle Column: Square Image Frame – hidden on mobile/tablet */}
           <div
-            className="group relative hidden lg:flex justify-center items-center h-[560px] w-full shrink-0 lg:translate-x-[80px] transition-all duration-700 ease-out hover:scale-105 filter drop-shadow-[0_20px_30px_rgba(15,23,42,0.18)] hover:drop-shadow-[0_30px_50px_rgba(255,107,0,0.25)]"
+            className="group relative hidden lg:flex justify-center items-center w-[320px] h-[320px] aspect-square shrink-0 lg:translate-x-[30px] transition-all duration-700 ease-out hover:scale-105 hover:drop-shadow-[0_30px_50px_rgba(0,138,34,0.25)]"
           >
-            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#FF6B00]/10 blur-3xl -z-10 animate-pulse transition-all duration-1000 ease-out group-hover:scale-125 group-hover:bg-[#FF6B00]/20" />
+            <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-64 h-64 rounded-full bg-[#008A22]/10 blur-3xl -z-10 animate-pulse transition-all duration-1000 ease-out group-hover:scale-125 group-hover:bg-[#008A22]/20" />
             <img
               src={welcomeImg}
-              alt="Professional electrician working on breaker panel board"
-              className="w-full h-full object-contain object-center animate-welcome-float transition-all duration-700 ease-out group-hover:brightness-105"
+              alt="Professional builder working on home framing"
+              className="w-full h-full object-cover object-center animate-welcome-float transition-all duration-700 ease-out group-hover:brightness-105"
             />
           </div>
 
@@ -90,13 +86,13 @@ export function Welcome() {
               </div>
               <div className="flex flex-col text-left">
                 <span className="font-display text-3xl lg:text-5xl font-black text-[#0F172A] leading-none">
-                  <Counter end={600} suffix="+" />
+                  <Counter end={5000} suffix="+" />
                 </span>
                 <span className="text-xs lg:text-sm font-extrabold text-[#0F172A] tracking-tight leading-tight mt-1.5 lg:mt-2.5">
-                  {t("Successful Projects", "Proyectos Exitosos")}
+                  {t("Projects Completed", "Proyectos Completados")}
                 </span>
                 <span className="text-[10px] lg:text-[11px] font-semibold text-gray-400 mt-0.5 lg:mt-1">
-                  {t("Amazing Project Done", "Proyectos Realizados")}
+                  {t("Successful Builds Done", "Obras Exitosas Realizadas")}
                 </span>
               </div>
             </div>
@@ -106,13 +102,13 @@ export function Welcome() {
               <div className="w-10 h-10 lg:w-14 lg:h-14 shrink-0" />
               <div className="flex flex-col text-left">
                 <span className="font-display text-3xl lg:text-5xl font-black text-[#0F172A] leading-none">
-                  <Counter end={17} suffix="+" />
+                  <Counter end={25} suffix="+" />
                 </span>
                 <span className="text-xs lg:text-sm font-extrabold text-[#0F172A] tracking-tight leading-tight mt-1.5 lg:mt-2.5">
                   {t("Years Of Experience", "Años de Experiencia")}
                 </span>
                 <span className="text-[10px] lg:text-[11px] font-semibold text-gray-400 mt-0.5 lg:mt-1">
-                  {t("Quality Electrical Services", "Servicios de Calidad")}
+                  {t("Quality Construction Services", "Servicios de Construcción de Calidad")}
                 </span>
               </div>
             </div>
@@ -124,13 +120,13 @@ export function Welcome() {
               </div>
               <div className="flex flex-col text-left">
                 <span className="font-display text-3xl lg:text-5xl font-black text-[#0F172A] leading-none">
-                  <Counter end={50} suffix="+" />
+                  <Counter end={13} suffix="+" />
                 </span>
                 <span className="text-xs lg:text-sm font-extrabold text-[#0F172A] tracking-tight leading-tight mt-1.5 lg:mt-2.5">
-                  {t("Experienced Staff", "Personal Experto")}
+                  {t("Expert Workers", "Trabajadores Expertos")}
                 </span>
                 <span className="text-[10px] lg:text-[11px] font-semibold text-gray-400 mt-0.5 lg:mt-1">
-                  {t("Expert Electrician", "Electricistas Expertos")}
+                  {t("Professional Builders", "Constructores Profesionales")}
                 </span>
               </div>
             </div>

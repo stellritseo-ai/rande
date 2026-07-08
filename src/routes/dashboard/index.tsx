@@ -329,7 +329,7 @@ function DashboardPage() {
 
     socket.on("new-chat-message", (msg: { sessionId: string; id: string; sender: "client" | "admin"; text: string; timestamp: string }) => {
       setChatSessions((prev) => {
-        return prev.map((session) => {
+        const updated = prev.map((session) => {
           if (session.id === msg.sessionId) {
             const exists = session.messages.some((m) => m.id === msg.id);
             const messages = exists ? session.messages : [...session.messages, {
@@ -349,6 +349,7 @@ function DashboardPage() {
           }
           return session;
         });
+        return [...updated].sort((a, b) => new Date(b.lastMessageTime).getTime() - new Date(a.lastMessageTime).getTime());
       });
 
       if (msg.sender === "client" && (msg.sessionId !== activeSessionId || activeTab !== "chat")) {
@@ -709,7 +710,7 @@ function DashboardPage() {
     try {
       const updated = await sendChatMessage(activeSessionId, "admin", adminReplyText);
       if (updated) {
-        setChatSessions(prev => prev.map(s => s.id === activeSessionId ? updated : s));
+        setChatSessions(prev => [...prev.map(s => s.id === activeSessionId ? updated : s)].sort((a, b) => new Date(b.lastMessageTime).getTime() - new Date(a.lastMessageTime).getTime()));
         setAdminReplyText("");
         
         const lastMsg = updated.messages[updated.messages.length - 1];
@@ -1543,7 +1544,7 @@ function DashboardPage() {
                       </tr>
                     </thead>
                     <tbody className="divide-y divide-slate-150 text-sm">
-                      {webEmails.map((email) => (
+                      {[...webEmails].sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime()).map((email) => (
                         <tr
                           key={email.id}
                           className="hover:bg-slate-50/70 transition cursor-pointer"
@@ -1601,7 +1602,7 @@ function DashboardPage() {
                   <h4 className="font-bold text-xs uppercase tracking-wider text-slate-700">Active Sessions</h4>
                 </div>
                 <div className="flex-1 overflow-y-auto divide-y divide-slate-100">
-                  {chatSessions.map((session) => (
+                  {[...chatSessions].sort((a, b) => new Date(b.lastMessageTime).getTime() - new Date(a.lastMessageTime).getTime()).map((session) => (
                     <button
                       key={session.id}
                       onClick={() => handleSelectChat(session.id)}

@@ -37,7 +37,7 @@ export function CTASection() {
       });
 
       // 2. Email backup
-      await fetch("https://formsubmit.co/ajax/stellritinc@gmail.com", {
+      await fetch("https://formsubmit.co/ajax/Williams@electricalcontractorcorp.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

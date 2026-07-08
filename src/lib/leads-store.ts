@@ -488,11 +488,13 @@ export const deleteReview = async (id: string): Promise<Review[]> => {
 export const getChatSessions = async (): Promise<ChatSession[]> => {
   try {
     const chats = await apiCall<ChatSession[]>("/api/chats?t=" + Date.now(), "GET");
-    setStorageItem("accconstruction-chats", chats);
-    return chats;
+    const sorted = chats.sort((a, b) => new Date(b.lastMessageTime).getTime() - new Date(a.lastMessageTime).getTime());
+    setStorageItem("accconstruction-chats", sorted);
+    return sorted;
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage chats:", err);
-    return getStorageItem<ChatSession[]>("accconstruction-chats", INITIAL_CHATS);
+    const chats = getStorageItem<ChatSession[]>("accconstruction-chats", INITIAL_CHATS);
+    return chats.sort((a, b) => new Date(b.lastMessageTime).getTime() - new Date(a.lastMessageTime).getTime());
   }
 };
 
@@ -590,11 +592,13 @@ export const deleteChatSession = async (id: string): Promise<ChatSession[]> => {
 export const getWebEmails = async (): Promise<WebEmail[]> => {
   try {
     const emails = await apiCall<WebEmail[]>("/api/emails", "GET");
-    setStorageItem("accconstruction-emails", emails);
-    return emails;
+    const sorted = emails.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
+    setStorageItem("accconstruction-emails", sorted);
+    return sorted;
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage emails:", err);
-    return getStorageItem<WebEmail[]>("accconstruction-emails", INITIAL_EMAILS);
+    const emails = getStorageItem<WebEmail[]>("accconstruction-emails", INITIAL_EMAILS);
+    return emails.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   }
 };
 

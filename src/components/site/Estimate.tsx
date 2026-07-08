@@ -36,7 +36,7 @@ export function Estimate() {
       });
 
       // 2. Email backup forwarding
-      const response = await fetch("https://formsubmit.co/ajax/stellritinc@gmail.com", {
+      const response = await fetch("https://formsubmit.co/ajax/Williams@electricalcontractorcorp.com", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

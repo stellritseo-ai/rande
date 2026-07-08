@@ -172,7 +172,7 @@ export async function dbGetWebEmails(initialSeeds: any[]): Promise<any[]> {
     await emailsCol.insertMany(initialSeeds);
     return initialSeeds;
   }
-  const docs = await emailsCol.find({}).toArray();
+  const docs = await emailsCol.find({}).sort({ createdAt: -1 }).toArray();
   return docs.map(mapDoc);
 }
 
@@ -207,7 +207,7 @@ export async function dbGetChatSessions(initialSeeds: any[]): Promise<any[]> {
     await chatsCol.insertMany(initialSeeds);
     return initialSeeds;
   }
-  const docs = await chatsCol.find({}).toArray();
+  const docs = await chatsCol.find({}).sort({ lastMessageTime: -1 }).toArray();
   return docs.map(mapDoc);
 }
 

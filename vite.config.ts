@@ -49,6 +49,7 @@ export default defineConfig({
                   methods: ["GET", "POST"]
                 }
               });
+              (global as any).io = io;
 
               io.on("connection", (socket) => {
                 socket.on("join-session", (sessionId) => {

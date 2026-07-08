@@ -366,3 +366,53 @@ export async function dbSaveSettings(settings: any): Promise<any> {
   const doc = await settingsCol.findOne({ id: "site_config" });
   return mapDoc(doc);
 }
+
+// ── NOTIFICATIONS ──
+export async function dbGetNotifications(): Promise<any[]> {
+  const db = await getDb();
+  const notificationsCol = db.collection("notifications");
+  const docs = await notificationsCol.find({}).sort({ createdAt: -1 }).toArray();
+  return docs.map(mapDoc);
+}
+
+export async function dbAddNotification(notification: any): Promise<any> {
+  const db = await getDb();
+  const notificationsCol = db.collection("notifications");
+  const doc = {
+    ...notification,
+    id: notification.id || "notif-" + Math.random().toString(36).substr(2, 9),
+    read: false,
+    createdAt: notification.createdAt || new Date().toISOString()
+  };
+  const result = await notificationsCol.insertOne(doc);
+  return { ...doc, id: doc.id || String(result.insertedId) };
+}
+
+export async function dbMarkNotificationRead(id: string, read: boolean = true): Promise<any[]> {
+  const db = await getDb();
+  const notificationsCol = db.collection("notifications");
+  await notificationsCol.updateOne({ id }, { $set: { read } });
+  return await dbGetNotifications();
+}
+
+export async function dbMarkAllNotificationsRead(): Promise<any[]> {
+  const db = await getDb();
+  const notificationsCol = db.collection("notifications");
+  await notificationsCol.updateMany({}, { $set: { read: true } });
+  return await dbGetNotifications();
+}
+
+export async function dbDeleteNotification(id: string): Promise<any[]> {
+  const db = await getDb();
+  const notificationsCol = db.collection("notifications");
+  await notificationsCol.deleteOne({ id });
+  return await dbGetNotifications();
+}
+
+export async function dbClearAllNotifications(): Promise<any[]> {
+  const db = await getDb();
+  const notificationsCol = db.collection("notifications");
+  await notificationsCol.deleteMany({});
+  return [];
+}
+

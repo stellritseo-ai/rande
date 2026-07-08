@@ -92,12 +92,17 @@ import {
   verifyAdminToken,
   getSiteSettings,
   saveSiteSettings,
+  getNotifications,
+  markNotificationRead,
+  markAllNotificationsRead,
+  clearAllNotifications,
   Lead,
   Review,
   WebEmail,
   ChatSession,
   GalleryPhoto,
-  PortalUser
+  PortalUser,
+  DashboardNotification
 } from "@/lib/leads-store";
 import { toast } from "sonner";
 import logo from "@/assets/logo.png";
@@ -155,6 +160,8 @@ function DashboardPage() {
   const [webEmails, setWebEmails] = useState<WebEmail[]>([]);
   const [chatSessions, setChatSessions] = useState<ChatSession[]>([]);
   const [activeSessionId, setActiveSessionId] = useState<string | null>(null);
+  const [notifications, setNotifications] = useState<DashboardNotification[]>([]);
+  const [showNotificationsPopover, setShowNotificationsPopover] = useState(false);
   const [adminReplyText, setAdminReplyText] = useState("");
   const [galleryPhotos, setGalleryPhotos] = useState<GalleryPhoto[]>([]);
   const [lightboxPhoto, setLightboxPhoto] = useState<string | null>(null);
@@ -273,7 +280,7 @@ function DashboardPage() {
     checkAuth();
   }, [navigate]);
 
-  // Load active tab data
+   // Load active tab data
   useEffect(() => {
     if (isAuthenticated) {
       getLeads().then(setLeads);
@@ -281,6 +288,7 @@ function DashboardPage() {
       getWebEmails().then(setWebEmails);
       getChatSessions().then(setChatSessions);
       getGalleryPhotos().then(setGalleryPhotos);
+      getNotifications().then(setNotifications);
       getSiteSettings().then(settings => {
         if (settings) {
           setAlertEmail(settings.alertEmail || "");
@@ -321,6 +329,7 @@ function DashboardPage() {
 
     socket.on("session-created", (data: { sessionId: string; clientName: string }) => {
       getChatSessions().then(setChatSessions);
+      getNotifications().then(setNotifications);
       toast.info(`New chat session started by ${data.clientName}`);
     });
 
@@ -356,6 +365,36 @@ function DashboardPage() {
       }
     });
 
+    socket.on("new-notification", (notification: DashboardNotification) => {
+      setNotifications((prev) => {
+        if (prev.some((n) => n.id === notification.id)) return prev;
+        return [notification, ...prev];
+      });
+
+      // Show toast alert based on notification type
+      if (notification.type === "form_submission") {
+        toast.message(notification.title, {
+          description: notification.message,
+          action: {
+            label: "View Email",
+            onClick: () => {
+              setActiveTab("emails");
+            }
+          }
+        });
+      } else if (notification.type === "chat_start") {
+        toast.info(notification.title, {
+          description: notification.message,
+          action: {
+            label: "Open Chat",
+            onClick: () => {
+              setActiveTab("chat");
+            }
+          }
+        });
+      }
+    });
+
     return () => {
       socket.disconnect();
     };
@@ -375,6 +414,21 @@ function DashboardPage() {
 
     return () => clearInterval(interval);
   }, [isAuthenticated, activeTab]);
+
+  // Fallback notifications polling for production/serverless
+  useEffect(() => {
+    if (!isAuthenticated) return;
+
+    const interval = setInterval(() => {
+      getNotifications().then((notifs) => {
+        if (Array.isArray(notifs)) {
+          setNotifications(notifs);
+        }
+      });
+    }, 10000);
+
+    return () => clearInterval(interval);
+  }, [isAuthenticated]);
 
   const activeChatSession = useMemo(() => {
     return chatSessions.find((s) => s.id === activeSessionId) || null;
@@ -984,10 +1038,122 @@ function DashboardPage() {
                 <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full" />
               )}
             </button>
-            <button className="p-2 text-slate-400 hover:text-slate-600 relative">
-              <Bell className="w-4 h-4" />
-              <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full" />
-            </button>
+            <div className="relative">
+              <button
+                onClick={() => setShowNotificationsPopover(!showNotificationsPopover)}
+                className="p-2 text-slate-400 hover:text-slate-600 relative rounded-xl hover:bg-slate-50 transition cursor-pointer"
+              >
+                <Bell className="w-4 h-4" />
+                {notifications.some(n => !n.read) && (
+                  <span className="absolute top-1.5 right-1.5 w-1.5 h-1.5 bg-rose-500 rounded-full animate-pulse" />
+                )}
+              </button>
+
+              {/* Notification Popover */}
+              {showNotificationsPopover && (
+                <>
+                  <div
+                    className="fixed inset-0 z-40"
+                    onClick={() => setShowNotificationsPopover(false)}
+                  />
+                  <div className="absolute right-0 mt-2 w-80 sm:w-96 bg-white border border-[#e3e6f0] rounded-2xl shadow-xl z-50 overflow-hidden animate-in fade-in slide-in-from-top-2 duration-200">
+                    {/* Popover Header */}
+                    <div className="px-4 py-3 bg-[#faf7f5] border-b border-[#e3e6f0] flex items-center justify-between">
+                      <span className="text-xs font-bold text-slate-800 uppercase tracking-wider">
+                        Notifications ({notifications.filter(n => !n.read).length})
+                      </span>
+                      <div className="flex gap-2">
+                        {notifications.length > 0 && (
+                          <>
+                            <button
+                              onClick={async () => {
+                                const updated = await markAllNotificationsRead();
+                                setNotifications(updated);
+                              }}
+                              className="text-[10px] text-copper hover:underline font-bold cursor-pointer"
+                            >
+                              Mark all read
+                            </button>
+                            <span className="text-slate-300">|</span>
+                            <button
+                              onClick={async () => {
+                                const updated = await clearAllNotifications();
+                                setNotifications(updated);
+                              }}
+                              className="text-[10px] text-slate-400 hover:text-rose-500 font-bold transition cursor-pointer"
+                            >
+                              Clear all
+                            </button>
+                          </>
+                        )}
+                      </div>
+                    </div>
+
+                    {/* Popover Content */}
+                    <div className="max-h-80 overflow-y-auto divide-y divide-slate-100">
+                      {notifications.length === 0 ? (
+                        <div className="px-4 py-8 text-center text-slate-400 text-xs font-medium">
+                          No notifications yet.
+                        </div>
+                      ) : (
+                        notifications.map((n) => {
+                          const isChat = n.type === "chat_start";
+                          const Icon = isChat ? MessageCircle : Mail;
+                          return (
+                            <div
+                              key={n.id}
+                              className={`p-4 flex gap-3 transition-colors duration-150 hover:bg-slate-50 relative group ${!n.read ? "bg-amber-50/20" : ""}`}
+                            >
+                              <div className={`w-8 h-8 rounded-full flex items-center justify-center shrink-0 ${isChat ? "bg-blue-50 text-blue-600 border border-blue-100" : "bg-[#faf7f5] text-copper border border-[#faf7f5]"}`}>
+                                <Icon className="w-4 h-4" />
+                              </div>
+                              <div className="flex-1 min-w-0 text-left">
+                                <div className="flex items-start justify-between gap-1">
+                                  <p className={`text-xs font-bold ${!n.read ? "text-slate-800" : "text-slate-600"}`}>
+                                    {n.title}
+                                  </p>
+                                  <span className="text-[9px] text-slate-400 font-semibold uppercase tracking-wider shrink-0 mt-0.5">
+                                    {new Date(n.createdAt).toLocaleTimeString([], { hour: '2-digit', minute: '2-digit' })}
+                                  </span>
+                                </div>
+                                <p className="text-[11px] text-slate-500 mt-1 leading-normal font-medium truncate">
+                                  {n.message}
+                                </p>
+                                <div className="flex items-center gap-3 mt-2">
+                                  <button
+                                    onClick={() => {
+                                      setShowNotificationsPopover(false);
+                                      setActiveTab(isChat ? "chat" : "emails");
+                                    }}
+                                    className="text-[10px] text-copper hover:underline font-bold cursor-pointer"
+                                  >
+                                    View details
+                                  </button>
+                                  {!n.read && (
+                                    <button
+                                      onClick={async () => {
+                                        const updated = await markNotificationRead(n.id);
+                                        setNotifications(updated);
+                                      }}
+                                      className="text-[10px] text-slate-400 hover:text-slate-600 font-bold cursor-pointer"
+                                    >
+                                      Mark read
+                                    </button>
+                                  )}
+                                </div>
+                              </div>
+                              {!n.read && (
+                                <span className="absolute right-3 bottom-3 w-1.5 h-1.5 bg-rose-500 rounded-full shrink-0" />
+                              )}
+                            </div>
+                          );
+                        })
+                      )}
+                    </div>
+                  </div>
+                </>
+              )}
+            </div>
           </div>
         </header>
 

@@ -1001,3 +1001,52 @@ export const saveSiteSettings = async (settings: Partial<SiteSettings>): Promise
     return getSiteSettings();
   }
 };
+
+// ── NOTIFICATIONS ──
+export interface DashboardNotification {
+  id: string;
+  type: "chat_start" | "chat_message" | "form_submission";
+  title: string;
+  message: string;
+  link: string;
+  read: boolean;
+  createdAt: string;
+  metadata?: any;
+}
+
+export const getNotifications = async (): Promise<DashboardNotification[]> => {
+  try {
+    return await apiCall<DashboardNotification[]>("/api/notifications", "GET");
+  } catch (err) {
+    console.warn("Error getting notifications:", err);
+    return [];
+  }
+};
+
+export const markNotificationRead = async (id: string): Promise<DashboardNotification[]> => {
+  try {
+    return await apiCall<DashboardNotification[]>("/api/notifications", "POST", { action: "read", id });
+  } catch (err) {
+    console.warn("Error marking notification read:", err);
+    return [];
+  }
+};
+
+export const markAllNotificationsRead = async (): Promise<DashboardNotification[]> => {
+  try {
+    return await apiCall<DashboardNotification[]>("/api/notifications", "POST", { action: "read-all" });
+  } catch (err) {
+    console.warn("Error marking all read:", err);
+    return [];
+  }
+};
+
+export const clearAllNotifications = async (): Promise<DashboardNotification[]> => {
+  try {
+    return await apiCall<DashboardNotification[]>("/api/notifications", "POST", { action: "clear-all" });
+  } catch (err) {
+    console.warn("Error clearing notifications:", err);
+    return [];
+  }
+};
+

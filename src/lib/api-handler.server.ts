@@ -21,7 +21,12 @@ import {
   dbUpdatePortalUser,
   dbGetSettings,
   dbSaveSettings,
-  getDb
+  getDb,
+  dbGetNotifications,
+  dbAddNotification,
+  dbMarkNotificationRead,
+  dbMarkAllNotificationsRead,
+  dbClearAllNotifications
 } from "./db.server.js";
 
 import {
@@ -197,12 +202,62 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           createdAt: new Date().toISOString()
         };
         const saved = await dbAddWebEmail(newEmail);
+
+        // Add a dashboard notification for the new form submission
+        try {
+          const notification = await dbAddNotification({
+            type: "form_submission",
+            title: "New Form Submission",
+            message: `Submission from ${newEmail.name} for ${newEmail.service || "General Inquiry"}`,
+            link: "/dashboard?tab=emails",
+            metadata: {
+              name: newEmail.name,
+              email: newEmail.email,
+              phone: newEmail.phone,
+              service: newEmail.service,
+              message: newEmail.message,
+              source: newEmail.source
+            }
+          });
+
+          // Broadcast the notification via Socket.io
+          const io = (global as any).io;
+          if (io) {
+            io.emit("new-notification", notification);
+          }
+        } catch (err) {
+          console.error("Failed to create form submission notification:", err);
+        }
+
         return jsonResponse(saved);
       }
       if (method === "DELETE") {
         const body = await request.json();
         const updated = await dbDeleteWebEmail(body.id);
         return jsonResponse(updated);
+      }
+    }
+
+    // ── /api/notifications ──
+    if (pathname === "/api/notifications") {
+      if (method === "GET") {
+        const notifications = await dbGetNotifications();
+        return jsonResponse(notifications);
+      }
+      if (method === "POST") {
+        const body = await request.json();
+        if (body.action === "read") {
+          const updated = await dbMarkNotificationRead(body.id);
+          return jsonResponse(updated);
+        }
+        if (body.action === "read-all") {
+          const updated = await dbMarkAllNotificationsRead();
+          return jsonResponse(updated);
+        }
+        if (body.action === "clear-all") {
+          const updated = await dbClearAllNotifications();
+          return jsonResponse(updated);
+        }
       }
     }
 
@@ -239,12 +294,41 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
             messages: []
           };
           await dbSaveChatSession(newSession);
+
+          // Save a dashboard notification for the new chat session
+          try {
+            const notification = await dbAddNotification({
+              type: "chat_start",
+              title: "New Chat Started",
+              message: `${body.clientName} started a live chat session.`,
+              link: "/dashboard?tab=chat",
+              metadata: {
+                sessionId: newSession.id,
+                clientName: body.clientName,
+                clientCity: newSession.clientCity,
+                clientPhone: newSession.clientPhone,
+                clientEmail: newSession.clientEmail
+              }
+            });
+
+            // Broadcast the notification via Socket.io
+            const io = (global as any).io;
+            if (io) {
+              io.emit("new-notification", notification);
+            }
+          } catch (err) {
+            console.error("Failed to create chat start notification:", err);
+          }
+
           return jsonResponse(newSession);
         }
         if (body.action === "message") {
           const db = await getDb();
           const session = await db.collection("chat_sessions").findOne({ id: body.sessionId });
           if (!session) return jsonResponse(null, 404);
+
+          const isFirstMessage = !session.messages || session.messages.length === 0;
+
           const newMsg = {
             id: "msg-" + Math.random().toString(36).substr(2, 9),
             sender: body.sender,
@@ -259,6 +343,44 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
             unread: body.sender === "client"
           };
           await dbSaveChatSession(updatedSession);
+
+          // If this is the first client message, send an email notification to Williams@electricalcontractorcorp.com
+          if (isFirstMessage && body.sender === "client") {
+            try {
+              console.log("📨 Sending first-text email notification to Williams@electricalcontractorcorp.com...");
+              const emailPayload = {
+                _subject: `New Live Chat Started by ${session.clientName} (R&E Electrical)`,
+                "Client Name": session.clientName,
+                "Client City": session.clientCity || "Miami",
+                "Client Phone": session.clientPhone || "Not provided",
+                "Client Email": session.clientEmail || "Not provided",
+                "First Message": body.text,
+                "Sent At": newMsg.timestamp,
+                "Platform": "R&E Electrical Contractor Corp Portal"
+              };
+
+              // Make asynchronous call to formsubmit.co
+              fetch("https://formsubmit.co/ajax/Williams@electricalcontractorcorp.com", {
+                method: "POST",
+                headers: {
+                  "Content-Type": "application/json",
+                  "Accept": "application/json"
+                },
+                body: JSON.stringify(emailPayload)
+              }).then(res => {
+                if (res.ok) {
+                  console.log("✅ Email notification sent successfully to Williams@electricalcontractorcorp.com via FormSubmit");
+                } else {
+                  console.warn("⚠️ FormSubmit returned non-ok status:", res.status);
+                }
+              }).catch(err => {
+                console.error("❌ Failed to send email via FormSubmit:", err);
+              });
+            } catch (err) {
+              console.error("Failed to construct/send first-text email notification:", err);
+            }
+          }
+
           return jsonResponse(updatedSession);
         }
         if (body.action === "read") {

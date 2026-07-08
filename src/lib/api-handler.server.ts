@@ -118,7 +118,7 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
       const leadsCol = db.collection("leads");
 
       if (method === "POST") {
-        const url = await uploadToCloudinary(body.base64Photo, "accconstruction/leads");
+        const url = await uploadToCloudinary(body.base64Photo, "electrical/leads");
         await leadsCol.updateOne({ id: body.leadId }, { $push: { photos: url } } as any);
       } else if (method === "DELETE") {
         const lead = await leadsCol.findOne({ id: body.leadId });
@@ -146,7 +146,7 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
         const body = await request.json();
         const photos: string[] = [];
         if (body.newReviewPhoto) {
-          const url = await uploadToCloudinary(body.newReviewPhoto, "accconstruction/reviews");
+          const url = await uploadToCloudinary(body.newReviewPhoto, "electrical/reviews");
           photos.push(url);
         }
         const newReview = {
@@ -230,7 +230,7 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           const newSession = {
             id: "session-" + Math.random().toString(36).substr(2, 9),
             clientName: body.clientName,
-            clientCity: body.clientCity || "Denver",
+            clientCity: body.clientCity || "Miami",
             clientEmail: body.clientEmail,
             clientPhone: body.clientPhone,
             lastMessage: "Chat session initialized",
@@ -277,65 +277,65 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
         const photos = await dbGetGalleryPhotos([
           {
             id: "photo-1",
-            url: "https://images.unsplash.com/photo-1556911220-e15b29be8c8f?auto=format&fit=crop&w=1200&q=80",
+            url: "https://images.unsplash.com/photo-1565538810844-1e119411121f",
             category: "residential",
-            title: "Luxury Kitchen Remodeling",
-            location: "Colorado Springs, CO",
-            tag: "Remodeling",
+            title: "Luxury Home Lighting System",
+            location: "Coral Gables, FL",
+            tag: "Smart Lighting",
             uploadedAt: new Date().toISOString()
           },
           {
             id: "photo-2",
-            url: "https://images.unsplash.com/photo-1584622650111-993a426fbf0a?auto=format&fit=crop&w=1200&q=80",
-            category: "residential",
-            title: "Paver Driveway Installation",
-            location: "Denver, CO",
-            tag: "Paving & Driveway",
+            url: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e",
+            category: "commercial",
+            title: "Corporate Atrium Installation",
+            location: "Brickell, FL",
+            tag: "Panel Upgrade",
             uploadedAt: new Date().toISOString()
           },
           {
             id: "photo-3",
-            url: "https://images.unsplash.com/photo-1541888946425-d81bb19240f5?auto=format&fit=crop&w=1200&q=80",
-            category: "commercial",
-            title: "Concrete Foundation Slabs",
-            location: "Aurora, CO",
-            tag: "Foundation & Slabs",
+            url: "https://images.unsplash.com/photo-1581092160607-ee22621dd758",
+            category: "industrial",
+            title: "Warehouse High-Bay LED Retrofit",
+            location: "Doral, FL",
+            tag: "Industrial LED",
             uploadedAt: new Date().toISOString()
           },
           {
             id: "photo-4",
-            url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd?auto=format&fit=crop&w=1200&q=80",
-            category: "residential",
-            title: "Complete Home Addition",
-            location: "Fort Collins, CO",
-            tag: "Home Additions",
+            url: "https://images.unsplash.com/photo-1554118811-1e0d58224f24",
+            category: "commercial",
+            title: "Restaurant Ambient Lighting",
+            location: "Wynwood, FL",
+            tag: "Ambient Design",
             uploadedAt: new Date().toISOString()
           },
           {
             id: "photo-5",
-            url: "https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?auto=format&fit=crop&w=1200&q=80",
+            url: "https://images.unsplash.com/photo-1504307651254-35680f356dfd",
             category: "commercial",
-            title: "Commercial Retail Build-Out",
-            location: "Lakewood, CO",
-            tag: "Commercial Build-Out",
+            title: "Office Build-Out Wiring",
+            location: "Aventura, FL",
+            tag: "Full Rewire",
             uploadedAt: new Date().toISOString()
           },
           {
             id: "photo-6",
-            url: "https://images.unsplash.com/photo-1565008447742-97f6f38c985c?auto=format&fit=crop&w=1200&q=80",
-            category: "commercial",
-            title: "Modern Sidewalk & Curb Construction",
-            location: "Thornton, CO",
-            tag: "Concrete & Pathways",
+            url: "https://images.unsplash.com/photo-1563720223185-11003d516935",
+            category: "residential",
+            title: "Fleet EV Charging Station",
+            location: "Pinecrest, FL",
+            tag: "EV Charger",
             uploadedAt: new Date().toISOString()
           },
           {
             id: "photo-7",
-            url: "https://images.unsplash.com/photo-1581094288338-2314dddb7ecc?auto=format&fit=crop&w=1200&q=80",
+            url: "https://images.unsplash.com/photo-1620714223084-8fcacc6dfd8d",
             category: "residential",
-            title: "Home Improvements & Structural Repairs",
-            location: "Denver, CO",
-            tag: "Home Improvements",
+            title: "Whole-Home Generator Install",
+            location: "Miami Beach, FL",
+            tag: "Generator",
             uploadedAt: new Date().toISOString()
           }
         ]);
@@ -345,7 +345,7 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
         const body = await request.json();
         let url = body.url;
         if (!url && body.base64Photo) {
-          url = await uploadToCloudinary(body.base64Photo, "accconstruction/gallery");
+          url = await uploadToCloudinary(body.base64Photo, "electrical/gallery");
         }
         if (!url) {
           return jsonResponse({ error: "Missing image content or URL" }, 400);
@@ -354,9 +354,6 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           id: "photo-" + Math.random().toString(36).substr(2, 9),
           url,
           category: body.category || "residential",
-          title: body.title,
-          location: body.location,
-          tag: body.tag,
           uploadedAt: new Date().toISOString()
         };
         const updated = await dbAddGalleryPhoto(newPhoto);
@@ -442,15 +439,15 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
     // ── /api/settings ──
     if (pathname === "/api/settings") {
       const defaultSettings = {
-        alertEmail: "leonholley45@gmail.com",
-        officePhone: "(720) 298-7777",
-        smsTemplate: "Hi {Name}, thank you for contacting ACC Construction LLC! A construction specialist will contact you during the {Time} to discuss your {Type} project.",
+        alertEmail: "Williams@electricalcontractorcorp.com",
+        officePhone: "(786) 307-5933",
+        smsTemplate: "Hi {Name}, thank you for contacting R&E Electrical Contractor Corp! An electrician will contact you during the {Time} to discuss your {Type} project.",
         emailAlert: true,
         smsAlert: true,
         maintenanceMode: false,
-        weekdays: "7:00 AM - 7:00 PM",
-        saturdays: "7:00 AM - 7:00 PM",
-        sundays: "Closed"
+        weekdays: "8:00 AM - 5:00 PM",
+        saturdays: "8:00 AM - 5:00 PM",
+        sundays: "Closed (Emergency 24/7)"
       };
 
       if (method === "GET") {
@@ -467,7 +464,7 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
     // ── /api/sign-upload ──
     if (pathname === "/api/sign-upload" && method === "POST") {
       const body = await request.json();
-      const folder = body.folder || "accconstruction/gallery";
+      const folder = body.folder || "electrical/gallery";
       const timestamp = Math.round(Date.now() / 1000);
       const apiSecret = process.env.CLOUDINARY_API_SECRET;
       const cloudName = process.env.CLOUDINARY_CLOUD_NAME;

@@ -8,8 +8,8 @@ import logo from "@/assets/logo.png";
 export const Route = createFileRoute("/dashboard/login")({
   head: () => ({
     meta: [
-      { title: "ACC Construction Office — Portal Access" },
-      { name: "description", content: "Authenticate to access ACC Construction LLC business console." }
+      { title: "R&E Electrical Office — Portal Access" },
+      { name: "description", content: "Authenticate to access R&E Electrical Contractor Corp business console." }
     ],
   }),
   component: LoginPage,
@@ -26,7 +26,7 @@ function LoginPage() {
   // Check if already authenticated on mount
   useEffect(() => {
     const checkToken = async () => {
-      const token = localStorage.getItem("accconstruction-session-token");
+      const token = localStorage.getItem("electrical-session-token");
       if (token) {
         try {
           const res = await verifyAdminToken(token);
@@ -68,9 +68,9 @@ function LoginPage() {
 
   if (checkingSession) {
     return (
-      <div className="min-h-screen bg-[#0F172A] flex flex-col items-center justify-center text-white font-sans">
+      <div className="min-h-screen bg-[#0d0704] flex flex-col items-center justify-center text-white font-sans">
         <div className="relative flex flex-col items-center gap-3">
-          <div className="h-10 w-10 rounded-full border-2 border-[#008A22] border-t-transparent animate-spin"></div>
+          <div className="h-10 w-10 rounded-full border-2 border-copper border-t-transparent animate-spin"></div>
           <p className="text-xs text-white/40 font-bold tracking-widest uppercase mt-4">Verifying session...</p>
         </div>
       </div>
@@ -79,10 +79,10 @@ function LoginPage() {
 
   return (
     <div 
-      className="min-h-screen bg-[#0F172A] flex flex-col items-center justify-center p-4 relative font-sans text-white/95 selection:bg-[#008A22] selection:text-white"
+      className="min-h-screen bg-[#0d0704] flex flex-col items-center justify-center p-4 relative font-sans text-white/95 selection:bg-copper selection:text-white"
     >
       {/* Background ambient glows */}
-      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] rounded-full bg-[#008A22]/5 blur-[140px] pointer-events-none -z-10" />
+      <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[30rem] h-[30rem] rounded-full bg-copper/5 blur-[140px] pointer-events-none -z-10" />
 
       {/* Back to main website link */}
       <div className="absolute top-6 left-6">
@@ -95,12 +95,12 @@ function LoginPage() {
       </div>
 
       <div
-        className="w-full max-w-md bg-gradient-to-b from-slate-900/80 to-slate-950/90 backdrop-blur-md border border-white/5 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] p-8 sm:p-10 flex flex-col items-center text-center relative z-10 hover:border-[#008A22]/20 transition-all duration-300"
+        className="w-full max-w-md bg-gradient-to-b from-[#18100b]/80 to-[#120804]/90 backdrop-blur-md border border-white/5 rounded-2xl shadow-[0_8px_32px_0_rgba(0,0,0,0.4)] p-8 sm:p-10 flex flex-col items-center text-center relative z-10 hover:border-copper/20 transition-all duration-300"
       >
         {/* Logo and Branding */}
         <div className="flex flex-col items-center gap-2 mb-8">
-          <img src={logo} alt="ACC Construction Logo" className="h-12 w-auto opacity-90 object-contain mb-2 select-none bg-white rounded p-0.5" />
-          <h2 className="text-xs font-extrabold uppercase tracking-[0.2em] text-[#008A22] select-none">ACC Construction Office</h2>
+          <img src={logo} alt="R&E Electrical Logo" className="h-12 w-auto opacity-90 object-contain mb-2 select-none bg-white rounded p-0.5" />
+          <h2 className="text-xs font-extrabold uppercase tracking-[0.2em] text-copper select-none">R&E Electrical Office</h2>
           <h1 className="text-2xl font-bold font-serif text-white tracking-tight mt-1">Admin Portal</h1>
           <p className="text-[11px] text-white/50 font-medium max-w-xs mt-1 leading-relaxed">
             Access secure management controls, analytics, lead logs, and site reviews.
@@ -129,7 +129,7 @@ function LoginPage() {
                 value={username}
                 onChange={(e) => setUsername(e.target.value)}
                 placeholder="Enter username"
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-3 pl-10 pr-4 text-xs text-white placeholder-white/20 focus:border-[#008A22] focus:ring-0 focus:outline-none transition-all duration-300"
+                className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-3 pl-10 pr-4 text-xs text-white placeholder-white/20 focus:border-copper focus:ring-0 focus:outline-none transition-all duration-300"
               />
               <User className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/30" />
             </div>
@@ -145,7 +145,7 @@ function LoginPage() {
                 value={password}
                 onChange={(e) => setPassword(e.target.value)}
                 placeholder="••••••••"
-                className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-3 pl-10 pr-4 text-xs text-white placeholder-white/20 focus:border-[#008A22] focus:ring-0 focus:outline-none transition-all duration-300"
+                className="w-full bg-white/[0.02] border border-white/10 rounded-xl py-3 pl-10 pr-4 text-xs text-white placeholder-white/20 focus:border-copper focus:ring-0 focus:outline-none transition-all duration-300"
               />
               <Lock className="absolute left-3.5 top-1/2 -translate-y-1/2 h-4 w-4 text-white/30" />
             </div>
@@ -155,7 +155,7 @@ function LoginPage() {
           <button
             type="submit"
             disabled={isSubmitting}
-            className="w-full bg-[#008A22] hover:bg-[#006e1b] text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-[#008A22]/15 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] select-none cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-80 disabled:pointer-events-none mt-2"
+            className="w-full bg-copper hover:bg-copper-deep text-white text-xs font-bold uppercase tracking-widest py-3.5 rounded-xl transition-all duration-300 shadow-lg shadow-copper/15 hover:-translate-y-0.5 active:translate-y-0 active:scale-[0.99] select-none cursor-pointer flex items-center justify-center gap-2 group disabled:opacity-80 disabled:pointer-events-none mt-2"
           >
             {isSubmitting ? (
               <span className="flex items-center gap-2">
@@ -164,7 +164,7 @@ function LoginPage() {
               </span>
             ) : (
               <>
-                <span>Enter ACC Construction Office</span>
+                <span>Enter R&E Electrical Office</span>
                 <ArrowRight className="h-3.5 w-3.5 group-hover:translate-x-1 transition-transform duration-300" />
               </>
             )}
@@ -174,7 +174,7 @@ function LoginPage() {
 
       {/* Footer bar */}
       <div className="absolute bottom-6 text-center text-[9px] text-white/30 font-semibold tracking-wider uppercase">
-        © 2026 ACC Construction LLC · Admin Authentication Portal
+        © 2026 R&E Electrical Contractor Corp · Admin Authentication Portal
       </div>
     </div>
   );

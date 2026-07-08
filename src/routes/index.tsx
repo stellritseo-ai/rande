@@ -19,14 +19,14 @@ import { Toaster } from "@/components/ui/sonner";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Licensed General Contractor Denver & Colorado | ACC Construction LLC" },
-      { name: "description", content: "Looking for a reliable general contractor in Denver or Colorado? ACC Construction LLC is licensed & insured. Call (720) 298-7777 for professional home remodeling, driveways, foundation, and home addition services." },
-      { name: "keywords", content: "general contractor denver, home remodel denver, driveway contractor colorado, foundation pouring colorado, home additions, concrete sidewalks colorado" },
-      { property: "og:title", content: "Licensed General Contractor Denver & Colorado | ACC Construction" },
-      { property: "og:description", content: "ACC Construction LLC: Professional home remodeling, driveway installation, foundation work, and general contractor services in Colorado." },
+      { title: "Licensed Electrician Miami & South Florida | R&E Electrical" },
+      { name: "description", content: "Need a reliable electrician in Miami or South Florida? R&E Electrical Contractor Corp is licensed & insured. Call (786) 307-5933 for 24/7 emergency service, commercial wiring, panel upgrades, and EV charger installs." },
+      { name: "keywords", content: "miami electrician, emergency electrician miami, residential electrician broward, commercial electrician south florida, panel upgrade miami, ev charger install miami, generator services florida" },
+      { property: "og:title", content: "Licensed Electrician Miami & South Florida | R&E Electrical" },
+      { property: "og:description", content: "R&E Electrical Contractor Corp: 24/7 electrical repairs, commercial projects, panel upgrades, and Level 2 EV charging setup in Florida." },
     ],
     links: [
-      { rel: "canonical", href: "https://www.accconstructionllc.com/" }
+      { rel: "canonical", href: "https://www.randeelectrical.com/" }
     ],
   }),
   component: Index,
@@ -35,37 +35,37 @@ export const Route = createFileRoute("/")({
 function Index() {
   const schema = {
     "@context": "https://schema.org",
-    "@type": "GeneralContractor",
-    "name": "ACC Construction LLC",
-    "image": "https://www.accconstructionllc.com/assets/logo.png",
-    "@id": "https://www.accconstructionllc.com/#organization",
-    "url": "https://www.accconstructionllc.com",
-    "telephone": "+17202987777",
-    "priceRange": "$$$",
+    "@type": "Electrician",
+    "name": "R&E Electrical Contractor Corp",
+    "image": "https://www.randeelectrical.com/assets/logo.png",
+    "@id": "https://www.randeelectrical.com/#organization",
+    "url": "https://www.randeelectrical.com",
+    "telephone": "+17863075933",
+    "priceRange": "$$",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "",
-      "addressLocality": "Wheat Ridge",
-      "addressRegion": "CO",
-      "postalCode": "80033",
+      "streetAddress": "Serving Miami-Dade and Broward Counties",
+      "addressLocality": "Miami",
+      "addressRegion": "FL",
+      "postalCode": "33101",
       "addressCountry": "US"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "39.7747",
-      "longitude": "-105.1093"
+      "latitude": "25.7617",
+      "longitude": "-80.1918"
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
       "dayOfWeek": [
-        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"
+        "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday", "Sunday"
       ],
-      "opens": "07:00",
-      "closes": "19:00"
+      "opens": "00:00",
+      "closes": "23:59"
     },
     "sameAs": [
-      "https://www.facebook.com/accconstructionllc",
-      "https://www.instagram.com/accconstructionllc/"
+      "https://www.facebook.com/electricalcontractorcrop",
+      "https://www.instagram.com/randeelectricalcontractorcrop/"
     ]
   };
 

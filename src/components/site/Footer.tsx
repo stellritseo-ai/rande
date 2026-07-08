@@ -33,8 +33,8 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
 );
 
 const socials = [
-  { icon: FacebookIcon, href: "https://www.facebook.com/accconstructionllc", label: "Facebook" },
-  { icon: InstagramIcon, href: "https://www.instagram.com/accconstructionllc/", label: "Instagram" },
+  { icon: FacebookIcon, href: "https://www.facebook.com/electricalcontractorcrop", label: "Facebook" },
+  { icon: InstagramIcon, href: "https://www.instagram.com/randeelectricalcontractorcrop/", label: "Instagram" },
   { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
 ];
 
@@ -47,20 +47,18 @@ export function Footer() {
     { label: t("Our Services", "Nuestros Servicios"), href: "/services" },
     { label: t("Featured Projects", "Proyectos Destacados"), href: "/projects" },
     { label: t("Client Reviews", "Opiniones de Clientes"), href: "/reviews" },
+    { label: t("Apply For a Job", "Postularse para un Trabajo"), href: "/careers" },
     { label: t("Get In Touch", "Ponerse en Contacto"), href: "/contact" },
   ];
 
   const servicesLinks = [
-    { label: t("Driveways", "Entradas de Autos"), href: "/services/driveway" },
-    { label: t("Patios", "Patios"), href: "/services/patios" },
-    { label: t("Sidewalks", "Aceras"), href: "/services/sidewalk" },
-    { label: t("Remodeling", "Remodelación"), href: "/services/remodeling" },
-    { label: t("Interior/Exterior", "Interior/Exterior"), href: "/services/interior-exterior" },
-    { label: t("Additions", "Adiciones"), href: "/services/home-additions" },
-    { label: t("Home Improvements", "Mejoras para el Hogar"), href: "/services/home-improvements" },
-    { label: t("Foundations", "Cimientos"), href: "/services/foundation" },
-    { label: t("Decks", "Terrazas de Madera"), href: "/services/decks" },
-    { label: t("Fencing", "Cercas"), href: "/services/fencing" },
+    { label: t("Residential Electrical", "Electricidad Residencial"), href: "/services/residential" },
+    { label: t("Commercial Electrical", "Electricidad Comercial"), href: "/services/commercial" },
+    { label: t("Industrial Electrical", "Electricidad Industrial"), href: "/services/industrial" },
+    { label: t("CCTV Camera Installation", "Instalación de Cámaras CCTV"), href: "/services/cctv-camera" },
+    { label: t("Panel Upgrades", "Actualizaciones de Panel"), href: "/services/panel-upgrades" },
+    { label: t("EV Charger Installation", "Instalación de Cargador EV"), href: "/services/ev-charger" },
+    { label: t("Generator Services", "Servicios de Generadores"), href: "/services/generator" },
   ];
 
   return (
@@ -69,8 +67,8 @@ export function Footer() {
       <div className="absolute inset-0 bg-grid opacity-[0.02] pointer-events-none" />
 
       {/* Decorative Blur Blobs */}
-      <div className="absolute -top-40 left-1/4 w-[400px] h-[400px] bg-[#008A22]/10 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
-      <div className="absolute -bottom-40 right-10 w-[350px] h-[350px] bg-green-500/5 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
+      <div className="absolute -top-40 left-1/4 w-[400px] h-[400px] bg-[#FF6B00]/10 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '8s' }} />
+      <div className="absolute -bottom-40 right-10 w-[350px] h-[350px] bg-orange-500/5 rounded-full blur-3xl pointer-events-none animate-pulse" style={{ animationDuration: '10s' }} />
 
       <div className="relative mx-auto w-[90%] max-w-7xl py-20 lg:py-24 z-10 text-left">
         <div className="grid grid-cols-2 lg:grid-cols-12 gap-12 lg:gap-10">
@@ -80,21 +78,21 @@ export function Footer() {
             <Link to="/" className="flex items-center">
               <img
                 src={logoImg}
-                alt="ACC Construction LLC Logo"
+                alt="R&E Electrical Contractor Corp Logo"
                 className="h-14 w-auto object-contain brightness-0 invert"
               />
             </Link>
- 
+
             <p className="mt-6 text-sm text-slate-400 leading-relaxed max-w-sm font-semibold">
-              {t("Licensed, insured, and trusted general contractors serving Colorado with top-tier construction, home remodeling, driveways, concrete, and home improvements.", "Contratistas generales autorizados, asegurados y de confianza que brindan servicios al Colorado con construcción de primer nivel, remodelación de viviendas, entradas para autos, concreto y mejoras para el hogar.")}
+              {t("Licensed, insured, and trusted electrical contractors powering homes and businesses across South Florida with safety-first craftsmanship.", "Contratistas eléctricos autorizados, asegurados y de confianza que brindan energía a hogares y empresas en todo el sur de Florida con mano de obra que prioriza la seguridad.")}
             </p>
- 
+
             {/* Socials row */}
             <div className="mt-8 flex gap-3 select-none">
               {socials.map(({ icon: Icon, href, label }, i) => (
                 <motion.a
                   key={i}
-                  whileHover={{ y: -4, scale: 1.05, backgroundColor: "rgba(0, 138, 34, 0.15)", borderColor: "rgba(0, 138, 34, 0.3)" }}
+                  whileHover={{ y: -4, scale: 1.05, backgroundColor: "rgba(255, 107, 0, 0.15)", borderColor: "rgba(255, 107, 0, 0.3)" }}
                   whileTap={{ scale: 0.95 }}
                   href={href}
                   aria-label={label}
@@ -109,7 +107,7 @@ export function Footer() {
             <div className="mt-8 flex flex-wrap gap-2 select-none">
               <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                License #CGC1530932
+                License #EC13009876
               </div>
               <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
@@ -117,7 +115,7 @@ export function Footer() {
               </div>
               <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                {t("Colorado Service", "Servicio en el Sur de Colorado")}
+                {t("Miami-Dade Service", "Servicio en Miami-Dade")}
               </div>
             </div>
           </div>
@@ -139,47 +137,47 @@ export function Footer() {
               <ul className="space-y-4.5 text-sm">
                 <li>
                   <a
-                    href="tel:+17202987777"
+                    href="tel:+17863075933"
                     className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
                   >
-                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#008A22] group-hover:bg-[#008A22]/10 group-hover:border-[#008A22]/30 transition-all shrink-0">
+                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#FF6B00] group-hover:bg-[#FF6B00]/10 group-hover:border-[#FF6B00]/30 transition-all shrink-0">
                       <Phone className="h-4 w-4 group-hover:rotate-12 transition-transform" />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Phone</span>
-                      <span className="font-semibold text-white tracking-tight mt-0.5">(720) 298-7777</span>
+                      <span className="font-semibold text-white tracking-tight mt-0.5">(786) 307-5933</span>
                     </div>
                   </a>
                 </li>
                 <li>
                   <a
-                    href="mailto:leonholley45@gmail.com"
+                    href="mailto:Williams@electricalcontractorcorp.com"
                     className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
                   >
-                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#008A22] group-hover:bg-[#008A22]/10 group-hover:border-[#008A22]/30 transition-all shrink-0">
+                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#FF6B00] group-hover:bg-[#FF6B00]/10 group-hover:border-[#FF6B00]/30 transition-all shrink-0">
                       <Mail className="h-4 w-4 group-hover:scale-110 transition-transform" />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">Email</span>
-                      <span className="font-semibold text-white tracking-tight mt-0.5 text-wrap break-all">leonholley45@gmail.com</span>
+                      <span className="font-semibold text-white tracking-tight mt-0.5 text-wrap break-all">Williams@electricalcontractorcorp.com</span>
                     </div>
                   </a>
                 </li>
                 <li>
                   <a
-                    href="https://maps.google.com/?q=Wheat+Ridge,+Colorado"
+                    href="https://maps.google.com/?q=18730+NW+77+TH+CT,+Hialeah+FL+33015"
                     target="_blank"
                     rel="noopener noreferrer"
                     className="flex items-start gap-3 text-slate-400 hover:text-white transition-colors group"
                   >
-                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#008A22] group-hover:bg-[#008A22]/10 group-hover:border-[#008A22]/30 transition-all shrink-0">
+                    <div className="h-9 w-9 rounded-lg bg-slate-900/50 border border-slate-800 flex items-center justify-center text-[#FF6B00] group-hover:bg-[#FF6B00]/10 group-hover:border-[#FF6B00]/30 transition-all shrink-0">
                       <MapPin className="h-4 w-4 group-hover:-translate-y-0.5 transition-transform" />
                     </div>
                     <div className="flex flex-col">
                       <span className="text-[10px] uppercase font-bold text-slate-500 tracking-wider">{t("Office", "Oficina")}</span>
                       <span className="font-semibold text-white tracking-tight mt-0.5 leading-snug">
-                        Wheat Ridge,<br />
-                        Colorado
+                        18730 NW 77 TH CT<br />
+                        Hialeah FL 33015
                       </span>
                     </div>
                   </a>
@@ -193,15 +191,15 @@ export function Footer() {
                 {t("Service Hours", "Horario de Servicio")}
               </div>
               <div className="bg-slate-900/30 border border-slate-800/80 rounded-2xl p-5">
-                <span className="text-[#008A22] font-black uppercase tracking-wider block mb-3 text-[10px] flex items-center gap-2">
+                <span className="text-[#FF6B00] font-black uppercase tracking-wider block mb-3 text-[10px] flex items-center gap-2">
                   <span className="relative flex h-2 w-2">
-                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#008A22] opacity-75"></span>
-                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#008A22]"></span>
+                    <span className="animate-ping absolute inline-flex h-full w-full rounded-full bg-[#FF6B00] opacity-75"></span>
+                    <span className="relative inline-flex rounded-full h-2 w-2 bg-[#FF6B00]"></span>
                   </span>
-                  {t("Support Line Active", "Línea de Soporte Activa")}
+                  {t("Emergency Line Active", "Línea de Emergencia Activa")}
                 </span>
                 <p className="text-xs text-slate-400 leading-relaxed font-semibold">
-                  {t("We are available during operational hours to answer queries and plan on-site estimates.", "Estamos disponibles durante las horas operativas para responder consultas y planificar presupuestos en el sitio.")}<br /><br />
+                  {t("We are available 24/7 for emergency dispatches across Miami & South Florida.", "Estamos disponibles 24/7 para despachos de emergencia en todo Miami y el sur de Florida.")}<br /><br />
                   <span className="text-white block font-bold mb-1">{t("Standard Office:", "Oficina Estándar:")}</span>
                   {t("Mon–Sat: 7am–7pm", "Lun–Sáb: 7am–7pm")}<br />
                   {t("Sun: Closed", "Dom: Cerrado")}
@@ -215,22 +213,22 @@ export function Footer() {
         {/* Bottom Copy/Trademark Row with Back to Top trigger */}
         <div className="mt-16 pt-8 border-t border-slate-900 flex flex-wrap items-center justify-between gap-6">
           <p className="text-xs text-slate-500 font-semibold">
-            © 2026 ACC Construction LLC. {t("All rights reserved. Design by", "Todos los derechos reservados. Diseño por")}{" "}
+            © 2026 R&amp;E Electrical Contractor Corp. {t("All rights reserved. Design by", "Todos los derechos reservados. Diseño por")}{" "}
             <a 
               href="https://stellrit.com" 
               target="_blank" 
               rel="noopener noreferrer" 
-              className="text-slate-400 hover:text-[#008A22] transition-colors"
+              className="text-slate-400 hover:text-[#FF6B00] transition-colors"
             >
               StellR IT LLC
             </a>
           </p>
- 
+
           <div className="flex items-center gap-6">
             <p className="text-xs text-slate-500 font-semibold hidden sm:block">
-              License #CGC1530932 · {t("Licensed & Insured", "Con Licencia y Seguro")}
+              License #EC13009876 · {t("Licensed, Bonded & Insured", "Con Licencia, Fianza y Seguro")}
             </p>
- 
+
             <motion.button
               onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
               whileHover={{ y: -3 }}
@@ -238,7 +236,7 @@ export function Footer() {
               className="text-xs text-slate-400 hover:text-white transition-colors font-bold flex items-center gap-2 cursor-pointer select-none"
             >
               <span>{t("Back to Top", "Volver Arriba")}</span>
-              <ArrowRight className="h-4 w-4 -rotate-90 text-[#008A22]" />
+              <ArrowRight className="h-4 w-4 -rotate-90 text-[#FF6B00]" />
             </motion.button>
           </div>
         </div>
@@ -260,10 +258,10 @@ function Col({ title, items }: { title: string; items: { label: string; href: st
             {href.startsWith("/") ? (
               <Link
                 to={href}
-                className="text-sm text-slate-400 hover:text-white transition-colors block font-semibold hover:text-[#008A22]"
+                className="text-sm text-slate-400 hover:text-white transition-colors block font-semibold hover:text-[#FF6B00]"
               >
                 <motion.span
-                  whileHover={{ x: 4, color: "#008A22" }}
+                  whileHover={{ x: 4, color: "#FF6B00" }}
                   transition={{ type: "spring", stiffness: 300, damping: 20 }}
                   className="block"
                 >
@@ -272,7 +270,7 @@ function Col({ title, items }: { title: string; items: { label: string; href: st
               </Link>
             ) : (
               <motion.a
-                whileHover={{ x: 4, color: "#008A22" }}
+                whileHover={{ x: 4, color: "#FF6B00" }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
                 href={href}
                 className="text-sm text-slate-400 hover:text-white transition-colors block font-semibold"

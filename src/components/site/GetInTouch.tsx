@@ -11,9 +11,9 @@ import {
   ShieldCheck,
 } from "lucide-react";
 
-const TinyShieldIcon = () => (
-  <svg className="w-3.5 h-3.5 text-[#008A22] fill-[#008A22]/20 shrink-0" viewBox="0 0 24 24" stroke="currentColor" strokeWidth="2">
-    <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z" />
+const TinyLightningIcon = () => (
+  <svg className="w-3.5 h-3.5 text-[#FF6B00] fill-[#FF6B00] shrink-0" viewBox="0 0 24 24">
+    <path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z" />
   </svg>
 );
 
@@ -63,7 +63,7 @@ export function GetInTouch() {
         setSubmitted(true);
       }
     } catch (err) {
-      // Fallback on failure
+      // Fallback fallback on failure
       setSubmitted(true);
     } finally {
       setSubmitting(false);
@@ -75,14 +75,14 @@ export function GetInTouch() {
       <div className="absolute inset-0 bg-[radial-gradient(#e2e8f0_1px,transparent_1px)] [background-size:24px_24px] opacity-30 pointer-events-none" />
       <div className="mx-auto w-[90%] max-w-7xl relative z-10">
         <div className="text-center max-w-2xl mx-auto mb-12">
-          <span className="inline-flex items-center gap-2 bg-[#008A22]/10 border border-[#008A22]/20 text-[#008A22] rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider mb-5">
-            <TinyShieldIcon /> Get In Touch <TinyShieldIcon />
+          <span className="inline-flex items-center gap-2 bg-[#FF6B00]/10 border border-[#FF6B00]/20 text-[#FF6B00] rounded-full px-4 py-1.5 text-xs font-bold uppercase tracking-wider mb-5">
+            <TinyLightningIcon /> Get In Touch <TinyLightningIcon />
           </span>
           <h2 className="text-3xl lg:text-[40px] font-extrabold text-[#0F172A] leading-tight mt-[-10px] mb-[5px] tracking-tight capitalize">
-            Get your <span className="text-[#008A22]">free quote</span> today.
+            Get your <span className="text-[#FF6B00]">free estimate</span> today.
           </h2>
           <p className="text-sm sm:text-base text-slate-500 font-medium leading-relaxed max-w-lg mx-auto">
-            Tell us about your construction, remodeling or driveway paving project details — replies within one hour.
+            Tell us about your electrical service needs or project details — replies within one hour.
           </p>
         </div>
 
@@ -93,54 +93,54 @@ export function GetInTouch() {
             whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ type: "spring", stiffness: 150, damping: 20 }}
-            className="lg:col-span-5 relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F172A] via-[#0A2411] to-[#008A22] text-white p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
+            className="lg:col-span-5 relative overflow-hidden rounded-3xl bg-gradient-to-br from-[#0F172A] via-[#1E293B] to-[#FF6B00] text-white p-8 lg:p-10 shadow-lg hover:shadow-xl transition-all duration-300 flex flex-col justify-between"
           >
             <div className="absolute inset-0 bg-grid opacity-10 mix-blend-overlay pointer-events-none" />
-            <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-[#008A22]/25 blur-3xl pointer-events-none" />
+            <div className="absolute -bottom-32 -right-32 h-96 w-96 rounded-full bg-[#FF6B00]/25 blur-3xl pointer-events-none" />
 
             <div className="relative">
               <span className="inline-flex items-center gap-1.5 rounded-full bg-white/15 px-3 py-1 text-[10px] font-bold uppercase tracking-widest mb-6">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-400 animate-pulse" />
-                Colorado Office Live
+                Florida Dispatch Live
               </span>
               <h3 className="text-2xl font-display font-black uppercase tracking-wider">
                 Contact Details
               </h3>
               <p className="mt-3 text-sm text-white/80 font-medium leading-relaxed">
-                We are available to discuss your construction plans and provide comprehensive standard quote details.
+                We stand ready 24/7 for urgent electrical emergency mitigation and standard quote operations.
               </p>
 
               <ul className="mt-8 space-y-6">
                 <Item
                   icon={Phone}
-                  label="Office Phone"
-                  value="(720) 298-7777"
-                  href="tel:+17202987777"
+                  label="Emergency Dispatch"
+                  value="(786) 307-5933"
+                  href="tel:+17863075933"
                   isCall
                 />
                 <Item
                   icon={Mail}
                   label="Corporate Email"
-                  value="leonholley45@gmail.com"
-                  href="mailto:leonholley45@gmail.com"
+                  value="Williams@electricalcontractorcorp.com"
+                  href="mailto:Williams@electricalcontractorcorp.com"
                 />
                 <Item
                   icon={MapPin}
                   label="Corporate Office"
-                  value="Wheat Ridge, Colorado"
+                  value="18730 NW 77 TH CT, Hialeah FL 33015"
                 />
                 <Item
                   icon={Clock}
                   label="Operational Hours"
-                  value="Office Mon–Sat 7am–7pm · Sun Closed"
+                  value="24/7 Emergency · Office Mon–Sat 7am–7pm"
                 />
               </ul>
             </div>
 
             <div className="relative mt-10 pt-6 border-t border-white/10 flex items-center gap-3">
-              <ShieldCheck className="h-5 w-5 text-[#008A22] shrink-0" />
-              <span className="text-[10px] uppercase font-bold tracking-wider text-white/77">
-                Licensed &amp; Insured General Contractor (Licensed & Insured)
+              <ShieldCheck className="h-5 w-5 text-[#FF6B00] shrink-0" />
+              <span className="text-[10px] uppercase font-bold tracking-wider text-white/70">
+                Licensed &amp; Insured Electrical Contractor
               </span>
             </div>
           </motion.div>
@@ -168,7 +168,7 @@ export function GetInTouch() {
                     Request Received
                   </h3>
                   <p className="mt-3 text-sm text-slate-500 font-semibold max-w-sm">
-                    Thank you! An ACC Construction LLC specialist will contact you shortly to discuss your project.
+                    Thank you! An R&E Electrical Contractor Corp dispatch specialist will contact you in under 60 minutes.
                   </p>
                 </motion.div>
               ) : (
@@ -187,7 +187,7 @@ export function GetInTouch() {
                       label="Phone Number"
                       name="phone"
                       type="tel"
-                      placeholder="(720) 298-7777"
+                      placeholder="(786) 307-5933"
                       required
                     />
                     <Field
@@ -204,29 +204,26 @@ export function GetInTouch() {
                       <select
                         name="service"
                         required
-                        className="mt-2.5 w-full rounded-xl border border-slate-200/80 bg-slate-50/50 px-4 py-3.5 text-xs font-semibold text-slate-600 focus:outline-none focus:ring-4 focus:ring-[#008A22]/10 focus:border-[#008A22] focus:bg-white transition-all duration-300 cursor-pointer"
+                        className="mt-2.5 w-full rounded-xl border border-slate-200/80 bg-slate-50/50 px-4 py-3.5 text-xs font-semibold text-slate-600 focus:outline-none focus:ring-4 focus:ring-[#FF6B00]/10 focus:border-[#FF6B00] focus:bg-white transition-all duration-300 cursor-pointer"
                       >
-                        <option value="">Select construction service...</option>
-                        <option>Driveways</option>
-                        <option>Patios</option>
-                        <option>Sidewalks</option>
-                        <option>Remodeling</option>
-                        <option>Interior/Exterior</option>
-                        <option>Additions</option>
-                        <option>Home Improvements</option>
-                        <option>Foundations</option>
-                        <option>Decks</option>
-                        <option>Fencing</option>
+                        <option value="">Select electrical service...</option>
+                        <option>Residential Electrical</option>
+                        <option>Commercial Electrical</option>
+                        <option>Industrial Solutions</option>
+                        <option>Electrical Panel Upgrade</option>
+                        <option>EV Charger Installation</option>
+                        <option>Generator Installation</option>
+                        <option>Emergency Service &amp; Repair</option>
                       </select>
                     </div>
 
                     <div className="sm:col-span-2">
-                      <Label>Project Scope / Description</Label>
+                      <Label>Project Scope / Problem Description</Label>
                       <textarea
                         name="message"
                         rows={4}
-                        placeholder="Describe your project, desired scheduling, dimensions, or specific requirements..."
-                        className="mt-2.5 w-full rounded-xl border border-slate-200/80 bg-slate-50/50 px-4 py-3.5 text-xs font-semibold text-slate-600 focus:outline-none focus:ring-4 focus:ring-[#008A22]/10 focus:border-[#008A22] focus:bg-white transition-all duration-300 resize-none"
+                        placeholder="Describe the issue, fixtures, outlet problems, or scheduling needs..."
+                        className="mt-2.5 w-full rounded-xl border border-slate-200/80 bg-slate-50/50 px-4 py-3.5 text-xs font-semibold text-slate-600 focus:outline-none focus:ring-4 focus:ring-[#FF6B00]/10 focus:border-[#FF6B00] focus:bg-white transition-all duration-300 resize-none"
                       />
                     </div>
                   </div>
@@ -236,14 +233,14 @@ export function GetInTouch() {
                     whileTap={{ scale: 0.98 }}
                     type="submit"
                     disabled={submitting}
-                    className="group inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#008A22] hover:bg-[#006e1b] px-6 py-4.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_8px_24px_-4px_rgba(0,138,34,0.4)] hover:brightness-110 cursor-pointer transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed"
+                    className="group inline-flex w-full items-center justify-center gap-2.5 rounded-xl bg-[#FF6B00] hover:bg-[#E05E00] px-6 py-4.5 text-xs font-bold uppercase tracking-wider text-white shadow-[0_8px_24px_-4px_rgba(255,107,0,0.4)] hover:brightness-110 cursor-pointer transition-all duration-300 disabled:opacity-75 disabled:cursor-not-allowed"
                   >
                     <span>{submitting ? "Sending..." : "Send Service Request"}</span>
                     <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
                   </motion.button>
 
                   <p className="text-center text-[10px] text-slate-400 font-semibold">
-                    We secure your data. Info only used to contact you regarding your build details.
+                    We secure your data. Info only used to dispatch technician updates.
                   </p>
                 </form>
               )}
@@ -274,7 +271,7 @@ function Item({
         whileHover={{ scale: 1.05 }}
         className={`grid place-items-center h-10 w-10 rounded-xl text-white shrink-0 transition-all duration-300 ${
           isCall 
-            ? "bg-[#008A22] shadow-[0_0_12px_rgba(0,138,34,0.3)]" 
+            ? "bg-[#FF6B00] shadow-[0_0_12px_rgba(255,107,0,0.3)]" 
             : "bg-white/10 border border-white/10 hover:bg-white/15"
         }`}
       >
@@ -332,7 +329,7 @@ function Field({
         type={type}
         required={required}
         placeholder={placeholder}
-        className="mt-2.5 w-full rounded-xl border border-slate-200/80 bg-slate-50/50 px-4 py-3.5 text-xs font-semibold text-slate-600 focus:outline-none focus:ring-4 focus:ring-[#008A22]/10 focus:border-[#008A22] focus:bg-white transition-all duration-300"
+        className="mt-2.5 w-full rounded-xl border border-slate-200/80 bg-slate-50/50 px-4 py-3.5 text-xs font-semibold text-slate-600 focus:outline-none focus:ring-4 focus:ring-[#FF6B00]/10 focus:border-[#FF6B00] focus:bg-white transition-all duration-300"
       />
     </div>
   );

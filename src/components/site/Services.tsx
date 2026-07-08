@@ -1,15 +1,12 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Building2, Cable, Home, Wrench, Layers, Hammer, HardHat, Factory } from "lucide-react";
-import srvDriveway from "@/assets/service-driveway.jpg";
-import srvPatios from "@/assets/service-patios.jpg";
-import srvSidewalk from "@/assets/service-sidewalk.jpg";
-import srvRemodeling from "@/assets/service-remodeling.jpg";
-import srvInteriorExterior from "@/assets/service-interior-exterior.jpg";
-import srvAdditions from "@/assets/service-additions.jpg";
-import srvHomeImprovements from "@/assets/service-home-improvements.jpg";
-import srvFoundations from "@/assets/service-foundations.jpg";
-import srvDecks from "@/assets/service-decks.jpg";
-import srvFencing from "@/assets/service-fencing.jpg";
+import { ArrowRight, Battery, Bolt, Building2, Cable, Home, Plug, ShieldAlert, Video, Wrench, Zap } from "lucide-react";
+import resImg from "@/assets/service-residential.jpg";
+import comImg from "@/assets/service-commercial.jpg";
+import indImg from "@/assets/service-industrial.jpg";
+import panImg from "@/assets/service-panel.jpg";
+import evImg from "@/assets/service-ev.jpg";
+import genImg from "@/assets/service-generator.jpg";
+import cctvImg from "@/assets/service-cctv.png";
 import {
   Carousel,
   CarouselContent,
@@ -37,11 +34,11 @@ function CardContent({ s }: { s: { icon: any; title: string; desc: string; image
       {/* Gradient — stronger on hover */}
       <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent group-hover:from-black/95 group-hover:via-black/80 group-hover:to-black/20 transition-all duration-500" />
 
-      {/* Green accent line at bottom */}
-      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#008A22] via-[#10B981] to-[#008A22] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
+      {/* Orange accent line at bottom */}
+      <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#FF6B00] via-[#FF8533] to-[#FF6B00] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
 
       {/* Icon badge — top-left */}
-      <div className="absolute top-4 left-4 w-9 h-9 rounded-xl bg-[#008A22]/90 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1 group-hover:translate-y-0">
+      <div className="absolute top-4 left-4 w-9 h-9 rounded-xl bg-[#FF6B00]/90 backdrop-blur-sm border border-white/10 flex items-center justify-center text-white shadow-lg opacity-0 group-hover:opacity-100 transition-all duration-300 -translate-y-1 group-hover:translate-y-0">
         <Icon className="h-4 w-4" />
       </div>
 
@@ -60,9 +57,9 @@ function CardContent({ s }: { s: { icon: any; title: string; desc: string; image
               </p>
               <Link
                 to={s.to}
-                className="mt-3 inline-flex items-center gap-1.5 text-[#10B981] font-black text-[10px] uppercase tracking-widest group/link"
+                className="mt-3 inline-flex items-center gap-1.5 text-[#FF8533] font-black text-[10px] uppercase tracking-widest group/link"
               >
-                <span className="border-b border-[#10B981]/50 group-hover/link:border-[#10B981] transition-colors">
+                <span className="border-b border-[#FF8533]/50 group-hover/link:border-[#FF8533] transition-colors">
                   {t("Explore Service", "Explorar Servicio")}
                 </span>
                 <ArrowRight className="w-3 h-3 group-hover/link:translate-x-1 transition-transform duration-300" />
@@ -79,16 +76,16 @@ export function Services() {
   const { t } = useLanguage();
 
   const services = [
-    { icon: Layers,    title: t("Driveways", "Entradas de Autos"), desc: t("Custom driveway designs, high-durability paving slabs, stone walkways, and overlays.", "Diseños de entradas personalizados, losas de pavimento de alta durabilidad, senderos de piedra."), image: srvDriveway, to: "/services/driveway" },
-    { icon: Hammer,    title: t("Patios", "Patios"), desc: t("Premium stone, brick paver, and poured concrete patios built for relaxation and entertaining.", "Patios de adoquines de piedra, ladrillo y concreto vertido construidos para relajación."), image: srvPatios, to: "/services/patios" },
-    { icon: Cable,      title: t("Sidewalks", "Aceras"), desc: t("Professional concrete sidewalks, pathways, curbs, walkways, and commercial pathways.", "Aceras de concreto profesionales, senderos, bordillos, caminos peatonales y senderos comerciales."), image: srvSidewalk, to: "/services/sidewalk" },
-    { icon: Building2,  title: t("Remodeling", "Remodelación"), desc: t("Complete kitchen, bathroom, and structural interior renovations tailored to your vision.", "Renovaciones completas de cocina, baño y estructura interior adaptadas a su visión."), image: srvRemodeling, to: "/services/remodeling" },
-    { icon: Wrench,    title: t("Interior/Exterior", "Interior/Exterior"), desc: t("Drywall repairs, exterior siding, painting, trim carpentry, and outdoor upgrades.", "Reparaciones de paneles de yeso, revestimiento exterior, pintura y carpintería de molduras."), image: srvInteriorExterior, to: "/services/interior-exterior" },
-    { icon: Home,       title: t("Additions", "Adiciones"), desc: t("Expand your living space with custom guest houses, extra bedrooms, or secondary units.", "Amplíe su espacio habitable con casas de huéspedes personalizadas, dormitorios adicionales."), image: srvAdditions, to: "/services/home-additions" },
-    { icon: Hammer,    title: t("Home Improvements", "Mejoras para el Hogar"), desc: t("General handyman repairs, wall texturing, framing improvements, and local carpentry.", "Reparaciones generales, texturizado de paredes, mejoras de estructuras y carpintería local."), image: srvHomeImprovements, to: "/services/home-improvements" },
-    { icon: Layers,    title: t("Foundations", "Cimientos"), desc: t("Slabs, footings, high-strength concrete foundations, retaining walls, and structural work.", "Losas, zapatas, cimientos de concreto de alta resistencia, muros de contención y trabajo estructural."), image: srvFoundations, to: "/services/foundation" },
-    { icon: HardHat,    title: t("Decks", "Terrazas de Madera"), desc: t("Custom wood and composite decks built for optimal outdoor living and durability.", "Terrazas de madera y material compuesto personalizadas construidas para durar."), image: srvDecks, to: "/services/decks" },
-    { icon: Factory,    title: t("Fencing", "Cercas"), desc: t("Wood privacy, low-maintenance vinyl, chain link, and aluminum boundary fences.", "Cercas de privacidad de madera, vinilo de bajo mantenimiento, eslabones y aluminio."), image: srvFencing, to: "/services/fencing" },
+    { icon: Building2,   title: t("New Construction Electrical", "Electricidad de Nuevas Construcciones"), desc: t("Commercial & residential wiring, structural installations, and full system layouts.", "Cableado comercial y residencial, instalaciones estructurales y diseños completos de sistemas."), image: comImg, to: "/services/commercial" },
+    { icon: ShieldAlert, title: t("Fire Alarm Systems", "Sistemas de Alarma contra Incendios"),          desc: t("Safety-certified design, low-voltage wiring, code compliance, and testing.", "Diseño con certificación de seguridad, cableado de bajo voltaje, cumplimiento de códigos y pruebas."),   image: panImg, to: "/services/wiring-rewiring" },
+    { icon: Cable,       title: t("Internet & Security Cameras", "Internet y Cámaras de Seguridad"), desc: t("Structured Cat6 network cabling, IP surveillance setups, and smart locks.", "Cableado estructurado de red Cat6, configuraciones de vigilancia IP y cerraduras inteligentes."),   image: resImg, to: "/services/security-systems" },
+    { icon: Video,       title: t("CCTV Camera Install & Repair", "Instalación y Reparación de Cámaras CCTV"), desc: t("Premium HD surveillance, DVR configurations, IP setups, and diagnostics.", "Vigilancia HD premium, configuraciones de DVR, configuraciones IP y diagnósticos."), image: cctvImg, to: "/services/cctv-camera" },
+    { icon: Home,        title: t("Residential Electrical", "Electricidad Residencial"),      desc: t("Whole-home wiring, lighting setups, smart controls, and safety diagnostics.", "Cableado para todo el hogar, configuraciones de iluminación, controles inteligentes y diagnósticos de seguridad."), image: resImg, to: "/services/residential" },
+    { icon: Zap,         title: t("Panel Upgrades", "Actualizaciones de Panel"),              desc: t("Modernize circuit breaker panels to 200A or 400A service.", "Modernice los paneles de disyuntores a un servicio de 200A o 400A."),             image: panImg, to: "/services/panel-upgrades" },
+    { icon: Plug,        title: t("EV Charger Installation", "Instalación de Cargador EV"),     desc: t("Level 2 home chargers and commercial EV station installations.", "Cargadores domésticos de nivel 2 e instalaciones de estaciones de EV comerciales."),        image: evImg,  to: "/services/ev-charger" },
+    { icon: Battery,     title: t("Generator Installation", "Instalación de Generadores"),      desc: t("Whole-home emergency standby power setups with automatic transfer.", "Configuraciones de energía de reserva de emergencia para todo el hogar con transferencia automática."),    image: genImg, to: "/services/generator" },
+    { icon: Bolt,        title: t("Industrial Electrical", "Electricidad Industrial"),       desc: t("Heavy-duty power distribution, equipment hookups, and phase controls.", "Distribución de energía de servicio pesado, conexiones de equipos y controles de fase."), image: indImg, to: "/services/industrial" },
+    { icon: Wrench,      title: t("24/7 Emergency Service", "Servicio de Emergencia 24/7"),      desc: t("Rapid dispatch for power outages, sparking outlets, and hazards.", "Despacho rápido para cortes de energía, tomacorrientes con chispas y peligros."),      image: indImg, to: "/services/emergency" },
   ];
 
   const topItems   = services.slice(0, 3);
@@ -110,10 +107,10 @@ export function Services() {
             className="flex flex-col justify-center text-left"
           >
             {/* Eyebrow badge */}
-            <span className="inline-flex items-center gap-2 bg-[#008A22]/10 border border-[#008A22]/20 text-[#008A22] rounded-full px-5 py-1.5 text-[11px] font-black uppercase tracking-widest mb-5 w-fit">
-              <svg className="w-3 h-3 fill-[#008A22]" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+            <span className="inline-flex items-center gap-2 bg-[#FF6B00]/10 border border-[#FF6B00]/20 text-[#FF6B00] rounded-full px-5 py-1.5 text-[11px] font-black uppercase tracking-widest mb-5 w-fit">
+              <svg className="w-3 h-3 fill-[#FF6B00]" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
               {t("Our Services", "Nuestros Servicios")}
-              <svg className="w-3 h-3 fill-[#008A22]" viewBox="0 0 24 24"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+              <svg className="w-3 h-3 fill-[#FF6B00]" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </span>
 
             {/* Heading */}
@@ -121,26 +118,26 @@ export function Services() {
               className="text-neutral-900 tracking-tight leading-[1.2] font-extrabold"
               style={{ fontSize: "clamp(28px, 4vw, 42px)" }}
             >
-              {t("Premium ", "Servicios de ")}
-              <span className="text-[#008A22]">{t("Construction", "Construcción")}</span>{" "}
-              {t("Services", "Premium")}
+              {t("Full-Spectrum ", "Soluciones ")}
+              <span className="text-[#FF6B00]">{t("Electrical", "Eléctricas")}</span>{" "}
+              {t("Solutions", "Completas")}
             </h2>
 
             {/* Divider accent */}
             <div className="flex items-center gap-3 mt-5 mb-5">
-              <div className="h-[2px] w-10 bg-[#008A22] rounded-full" />
-              <div className="h-[2px] w-4 bg-[#008A22]/40 rounded-full" />
+              <div className="h-[2px] w-10 bg-[#FF6B00] rounded-full" />
+              <div className="h-[2px] w-4 bg-[#FF6B00]/40 rounded-full" />
             </div>
 
             <p className="text-slate-500 text-sm md:text-[15px] leading-[28px] font-medium max-w-[95%]">
-              {t("One licensed team for all your construction and home remodeling needs. High-quality craftsmanship with guaranteed safety and performance across Denver & Colorado.", "Un equipo autorizado para todas sus necesidades de construcción y remodelación de viviendas. Mano de obra de alta calidad con seguridad y rendimiento garantizados en todo Denver y el Colorado.")}
+              {t("One licensed team. Every job — from a single outlet to a 50,000 sqft facility. High-quality electrical work with guaranteed safety and performance across Miami & South Florida.", "Un equipo autorizado. Cada trabajo, desde un solo tomacorriente hasta una instalación de 50,000 pies cuadrados. Trabajo eléctrico de alta calidad con seguridad y rendimiento garantizados en todo Miami y el sur de Florida.")}
             </p>
 
             {/* Trust row */}
             <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[12px] font-bold text-slate-600">
-              {[t("Licensed & Insured", "Con Licencia y Seguro"), t("25+ Years Experience", "25+ Años de Experiencia"), t("Free Estimates", "Presupuestos Gratis")].map((itemText) => (
+              {[t("Licensed & Insured", "Con Licencia y Seguro"), t("24/7 Emergency", "Emergencia 24/7"), t("Free Estimates", "Presupuestos Gratis")].map((itemText) => (
                 <span key={itemText} className="flex items-center gap-1.5">
-                  <span className="w-1.5 h-1.5 rounded-full bg-[#008A22]" />
+                  <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
                   {itemText}
                 </span>
               ))}
@@ -149,7 +146,7 @@ export function Services() {
             <div className="mt-7">
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 bg-[#008A22] hover:bg-[#006e1b] text-white rounded-full px-7 py-3.5 text-[13px] font-black uppercase tracking-wider shadow-[0_10px_25px_-5px_rgba(0,138,34,0.35)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white rounded-full px-7 py-3.5 text-[13px] font-black uppercase tracking-wider shadow-[0_10px_25px_-5px_rgba(255,107,0,0.35)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
               >
                 {t("View All Services", "Ver Todos los Servicios")} <ArrowRight className="h-4 w-4" />
               </Link>

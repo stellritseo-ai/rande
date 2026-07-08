@@ -10,7 +10,7 @@ export const Route = createFileRoute("/sitemap.xml")({
   server: {
     handlers: {
       GET: async ({ request }) => {
-        const host = request.headers.get("host") || "www.accconstructionllc.com";
+        const host = request.headers.get("host") || "www.randeelectrical.com";
         const proto = request.headers.get("x-forwarded-proto") || "https";
         const BASE_URL = `${proto}://${host}`;
 
@@ -20,17 +20,17 @@ export const Route = createFileRoute("/sitemap.xml")({
           { path: "/services", changefreq: "monthly", priority: "0.9" },
           { path: "/projects", changefreq: "monthly", priority: "0.7" },
           { path: "/reviews", changefreq: "monthly", priority: "0.6" },
+          { path: "/careers", changefreq: "monthly", priority: "0.8" },
           { path: "/contact", changefreq: "monthly", priority: "0.8" },
-          { path: "/services/home-improvements", changefreq: "monthly", priority: "0.8" },
-          { path: "/services/driveway", changefreq: "monthly", priority: "0.8" },
-          { path: "/services/remodeling", changefreq: "monthly", priority: "0.8" },
-          { path: "/services/foundation", changefreq: "monthly", priority: "0.8" },
-          { path: "/services/home-additions", changefreq: "monthly", priority: "0.8" },
-          { path: "/services/sidewalk", changefreq: "monthly", priority: "0.8" },
-          { path: "/services/patios", changefreq: "monthly", priority: "0.8" },
-          { path: "/services/decks", changefreq: "monthly", priority: "0.8" },
-          { path: "/services/fencing", changefreq: "monthly", priority: "0.8" },
-          { path: "/services/interior-exterior", changefreq: "monthly", priority: "0.8" },
+          { path: "/services/commercial", changefreq: "monthly", priority: "0.8" },
+          { path: "/services/residential", changefreq: "monthly", priority: "0.8" },
+          { path: "/services/industrial", changefreq: "monthly", priority: "0.8" },
+          { path: "/services/emergency", changefreq: "weekly", priority: "0.9" },
+          { path: "/services/ev-charger", changefreq: "monthly", priority: "0.8" },
+          { path: "/services/generator", changefreq: "monthly", priority: "0.8" },
+          { path: "/services/panel-upgrades", changefreq: "monthly", priority: "0.8" },
+          { path: "/services/security-systems", changefreq: "monthly", priority: "0.8" },
+          { path: "/services/wiring-rewiring", changefreq: "monthly", priority: "0.8" },
         ];
 
         const urls = entries.map(

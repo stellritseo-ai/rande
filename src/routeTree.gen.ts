@@ -14,22 +14,21 @@ import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ContactRouteImport } from './routes/contact'
+import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as ServicesSidewalkRouteImport } from './routes/services/sidewalk'
+import { Route as ServicesWiringRewiringRouteImport } from './routes/services/wiring-rewiring'
+import { Route as ServicesSecuritySystemsRouteImport } from './routes/services/security-systems'
 import { Route as ServicesResidentialRouteImport } from './routes/services/residential'
-import { Route as ServicesRemodelingRouteImport } from './routes/services/remodeling'
-import { Route as ServicesPatiosRouteImport } from './routes/services/patios'
-import { Route as ServicesInteriorExteriorRouteImport } from './routes/services/interior-exterior'
-import { Route as ServicesHomeImprovementsRouteImport } from './routes/services/home-improvements'
-import { Route as ServicesHomeAdditionsRouteImport } from './routes/services/home-additions'
-import { Route as ServicesFoundationRouteImport } from './routes/services/foundation'
-import { Route as ServicesFencingRouteImport } from './routes/services/fencing'
-import { Route as ServicesDrivewayRouteImport } from './routes/services/driveway'
-import { Route as ServicesDecksRouteImport } from './routes/services/decks'
+import { Route as ServicesPanelUpgradesRouteImport } from './routes/services/panel-upgrades'
+import { Route as ServicesIndustrialRouteImport } from './routes/services/industrial'
+import { Route as ServicesGeneratorRouteImport } from './routes/services/generator'
+import { Route as ServicesEvChargerRouteImport } from './routes/services/ev-charger'
+import { Route as ServicesEmergencyRouteImport } from './routes/services/emergency'
 import { Route as ServicesCommercialRouteImport } from './routes/services/commercial'
+import { Route as ServicesCctvCameraRouteImport } from './routes/services/cctv-camera'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard/login'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -57,6 +56,11 @@ const ContactRoute = ContactRouteImport.update({
   path: '/contact',
   getParentRoute: () => rootRouteImport,
 } as any)
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const AboutRoute = AboutRouteImport.update({
   id: '/about',
   path: '/about',
@@ -77,9 +81,14 @@ const DashboardIndexRoute = DashboardIndexRouteImport.update({
   path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesSidewalkRoute = ServicesSidewalkRouteImport.update({
-  id: '/sidewalk',
-  path: '/sidewalk',
+const ServicesWiringRewiringRoute = ServicesWiringRewiringRouteImport.update({
+  id: '/wiring-rewiring',
+  path: '/wiring-rewiring',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesSecuritySystemsRoute = ServicesSecuritySystemsRouteImport.update({
+  id: '/security-systems',
+  path: '/security-systems',
   getParentRoute: () => ServicesRoute,
 } as any)
 const ServicesResidentialRoute = ServicesResidentialRouteImport.update({
@@ -87,56 +96,39 @@ const ServicesResidentialRoute = ServicesResidentialRouteImport.update({
   path: '/residential',
   getParentRoute: () => ServicesRoute,
 } as any)
-const ServicesRemodelingRoute = ServicesRemodelingRouteImport.update({
-  id: '/remodeling',
-  path: '/remodeling',
+const ServicesPanelUpgradesRoute = ServicesPanelUpgradesRouteImport.update({
+  id: '/panel-upgrades',
+  path: '/panel-upgrades',
   getParentRoute: () => ServicesRoute,
 } as any)
-const ServicesPatiosRoute = ServicesPatiosRouteImport.update({
-  id: '/patios',
-  path: '/patios',
+const ServicesIndustrialRoute = ServicesIndustrialRouteImport.update({
+  id: '/industrial',
+  path: '/industrial',
   getParentRoute: () => ServicesRoute,
 } as any)
-const ServicesInteriorExteriorRoute =
-  ServicesInteriorExteriorRouteImport.update({
-    id: '/interior-exterior',
-    path: '/interior-exterior',
-    getParentRoute: () => ServicesRoute,
-  } as any)
-const ServicesHomeImprovementsRoute =
-  ServicesHomeImprovementsRouteImport.update({
-    id: '/home-improvements',
-    path: '/home-improvements',
-    getParentRoute: () => ServicesRoute,
-  } as any)
-const ServicesHomeAdditionsRoute = ServicesHomeAdditionsRouteImport.update({
-  id: '/home-additions',
-  path: '/home-additions',
+const ServicesGeneratorRoute = ServicesGeneratorRouteImport.update({
+  id: '/generator',
+  path: '/generator',
   getParentRoute: () => ServicesRoute,
 } as any)
-const ServicesFoundationRoute = ServicesFoundationRouteImport.update({
-  id: '/foundation',
-  path: '/foundation',
+const ServicesEvChargerRoute = ServicesEvChargerRouteImport.update({
+  id: '/ev-charger',
+  path: '/ev-charger',
   getParentRoute: () => ServicesRoute,
 } as any)
-const ServicesFencingRoute = ServicesFencingRouteImport.update({
-  id: '/fencing',
-  path: '/fencing',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesDrivewayRoute = ServicesDrivewayRouteImport.update({
-  id: '/driveway',
-  path: '/driveway',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesDecksRoute = ServicesDecksRouteImport.update({
-  id: '/decks',
-  path: '/decks',
+const ServicesEmergencyRoute = ServicesEmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
   getParentRoute: () => ServicesRoute,
 } as any)
 const ServicesCommercialRoute = ServicesCommercialRouteImport.update({
   id: '/commercial',
   path: '/commercial',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesCctvCameraRoute = ServicesCctvCameraRouteImport.update({
+  id: '/cctv-camera',
+  path: '/cctv-camera',
   getParentRoute: () => ServicesRoute,
 } as any)
 const DashboardLoginRoute = DashboardLoginRouteImport.update({
@@ -148,47 +140,45 @@ const DashboardLoginRoute = DashboardLoginRouteImport.update({
 export interface FileRoutesByFullPath {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/services/cctv-camera': typeof ServicesCctvCameraRoute
   '/services/commercial': typeof ServicesCommercialRoute
-  '/services/decks': typeof ServicesDecksRoute
-  '/services/driveway': typeof ServicesDrivewayRoute
-  '/services/fencing': typeof ServicesFencingRoute
-  '/services/foundation': typeof ServicesFoundationRoute
-  '/services/home-additions': typeof ServicesHomeAdditionsRoute
-  '/services/home-improvements': typeof ServicesHomeImprovementsRoute
-  '/services/interior-exterior': typeof ServicesInteriorExteriorRoute
-  '/services/patios': typeof ServicesPatiosRoute
-  '/services/remodeling': typeof ServicesRemodelingRoute
+  '/services/emergency': typeof ServicesEmergencyRoute
+  '/services/ev-charger': typeof ServicesEvChargerRoute
+  '/services/generator': typeof ServicesGeneratorRoute
+  '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
   '/services/residential': typeof ServicesResidentialRoute
-  '/services/sidewalk': typeof ServicesSidewalkRoute
+  '/services/security-systems': typeof ServicesSecuritySystemsRoute
+  '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/services/cctv-camera': typeof ServicesCctvCameraRoute
   '/services/commercial': typeof ServicesCommercialRoute
-  '/services/decks': typeof ServicesDecksRoute
-  '/services/driveway': typeof ServicesDrivewayRoute
-  '/services/fencing': typeof ServicesFencingRoute
-  '/services/foundation': typeof ServicesFoundationRoute
-  '/services/home-additions': typeof ServicesHomeAdditionsRoute
-  '/services/home-improvements': typeof ServicesHomeImprovementsRoute
-  '/services/interior-exterior': typeof ServicesInteriorExteriorRoute
-  '/services/patios': typeof ServicesPatiosRoute
-  '/services/remodeling': typeof ServicesRemodelingRoute
+  '/services/emergency': typeof ServicesEmergencyRoute
+  '/services/ev-charger': typeof ServicesEvChargerRoute
+  '/services/generator': typeof ServicesGeneratorRoute
+  '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
   '/services/residential': typeof ServicesResidentialRoute
-  '/services/sidewalk': typeof ServicesSidewalkRoute
+  '/services/security-systems': typeof ServicesSecuritySystemsRoute
+  '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
   '/dashboard': typeof DashboardIndexRoute
   '/services': typeof ServicesIndexRoute
 }
@@ -196,24 +186,23 @@ export interface FileRoutesById {
   __root__: typeof rootRouteImport
   '/': typeof IndexRoute
   '/about': typeof AboutRoute
+  '/careers': typeof CareersRoute
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/services/cctv-camera': typeof ServicesCctvCameraRoute
   '/services/commercial': typeof ServicesCommercialRoute
-  '/services/decks': typeof ServicesDecksRoute
-  '/services/driveway': typeof ServicesDrivewayRoute
-  '/services/fencing': typeof ServicesFencingRoute
-  '/services/foundation': typeof ServicesFoundationRoute
-  '/services/home-additions': typeof ServicesHomeAdditionsRoute
-  '/services/home-improvements': typeof ServicesHomeImprovementsRoute
-  '/services/interior-exterior': typeof ServicesInteriorExteriorRoute
-  '/services/patios': typeof ServicesPatiosRoute
-  '/services/remodeling': typeof ServicesRemodelingRoute
+  '/services/emergency': typeof ServicesEmergencyRoute
+  '/services/ev-charger': typeof ServicesEvChargerRoute
+  '/services/generator': typeof ServicesGeneratorRoute
+  '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
   '/services/residential': typeof ServicesResidentialRoute
-  '/services/sidewalk': typeof ServicesSidewalkRoute
+  '/services/security-systems': typeof ServicesSecuritySystemsRoute
+  '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
   '/dashboard/': typeof DashboardIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
@@ -222,71 +211,68 @@ export interface FileRouteTypes {
   fullPaths:
     | '/'
     | '/about'
+    | '/careers'
     | '/contact'
     | '/projects'
     | '/reviews'
     | '/services'
     | '/sitemap.xml'
     | '/dashboard/login'
+    | '/services/cctv-camera'
     | '/services/commercial'
-    | '/services/decks'
-    | '/services/driveway'
-    | '/services/fencing'
-    | '/services/foundation'
-    | '/services/home-additions'
-    | '/services/home-improvements'
-    | '/services/interior-exterior'
-    | '/services/patios'
-    | '/services/remodeling'
+    | '/services/emergency'
+    | '/services/ev-charger'
+    | '/services/generator'
+    | '/services/industrial'
+    | '/services/panel-upgrades'
     | '/services/residential'
-    | '/services/sidewalk'
+    | '/services/security-systems'
+    | '/services/wiring-rewiring'
     | '/dashboard/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
     | '/'
     | '/about'
+    | '/careers'
     | '/contact'
     | '/projects'
     | '/reviews'
     | '/sitemap.xml'
     | '/dashboard/login'
+    | '/services/cctv-camera'
     | '/services/commercial'
-    | '/services/decks'
-    | '/services/driveway'
-    | '/services/fencing'
-    | '/services/foundation'
-    | '/services/home-additions'
-    | '/services/home-improvements'
-    | '/services/interior-exterior'
-    | '/services/patios'
-    | '/services/remodeling'
+    | '/services/emergency'
+    | '/services/ev-charger'
+    | '/services/generator'
+    | '/services/industrial'
+    | '/services/panel-upgrades'
     | '/services/residential'
-    | '/services/sidewalk'
+    | '/services/security-systems'
+    | '/services/wiring-rewiring'
     | '/dashboard'
     | '/services'
   id:
     | '__root__'
     | '/'
     | '/about'
+    | '/careers'
     | '/contact'
     | '/projects'
     | '/reviews'
     | '/services'
     | '/sitemap.xml'
     | '/dashboard/login'
+    | '/services/cctv-camera'
     | '/services/commercial'
-    | '/services/decks'
-    | '/services/driveway'
-    | '/services/fencing'
-    | '/services/foundation'
-    | '/services/home-additions'
-    | '/services/home-improvements'
-    | '/services/interior-exterior'
-    | '/services/patios'
-    | '/services/remodeling'
+    | '/services/emergency'
+    | '/services/ev-charger'
+    | '/services/generator'
+    | '/services/industrial'
+    | '/services/panel-upgrades'
     | '/services/residential'
-    | '/services/sidewalk'
+    | '/services/security-systems'
+    | '/services/wiring-rewiring'
     | '/dashboard/'
     | '/services/'
   fileRoutesById: FileRoutesById
@@ -294,6 +280,7 @@ export interface FileRouteTypes {
 export interface RootRouteChildren {
   IndexRoute: typeof IndexRoute
   AboutRoute: typeof AboutRoute
+  CareersRoute: typeof CareersRoute
   ContactRoute: typeof ContactRoute
   ProjectsRoute: typeof ProjectsRoute
   ReviewsRoute: typeof ReviewsRoute
@@ -340,6 +327,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ContactRouteImport
       parentRoute: typeof rootRouteImport
     }
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/about': {
       id: '/about'
       path: '/about'
@@ -368,11 +362,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/sidewalk': {
-      id: '/services/sidewalk'
-      path: '/sidewalk'
-      fullPath: '/services/sidewalk'
-      preLoaderRoute: typeof ServicesSidewalkRouteImport
+    '/services/wiring-rewiring': {
+      id: '/services/wiring-rewiring'
+      path: '/wiring-rewiring'
+      fullPath: '/services/wiring-rewiring'
+      preLoaderRoute: typeof ServicesWiringRewiringRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/security-systems': {
+      id: '/services/security-systems'
+      path: '/security-systems'
+      fullPath: '/services/security-systems'
+      preLoaderRoute: typeof ServicesSecuritySystemsRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/services/residential': {
@@ -382,67 +383,39 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesResidentialRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/remodeling': {
-      id: '/services/remodeling'
-      path: '/remodeling'
-      fullPath: '/services/remodeling'
-      preLoaderRoute: typeof ServicesRemodelingRouteImport
+    '/services/panel-upgrades': {
+      id: '/services/panel-upgrades'
+      path: '/panel-upgrades'
+      fullPath: '/services/panel-upgrades'
+      preLoaderRoute: typeof ServicesPanelUpgradesRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/patios': {
-      id: '/services/patios'
-      path: '/patios'
-      fullPath: '/services/patios'
-      preLoaderRoute: typeof ServicesPatiosRouteImport
+    '/services/industrial': {
+      id: '/services/industrial'
+      path: '/industrial'
+      fullPath: '/services/industrial'
+      preLoaderRoute: typeof ServicesIndustrialRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/interior-exterior': {
-      id: '/services/interior-exterior'
-      path: '/interior-exterior'
-      fullPath: '/services/interior-exterior'
-      preLoaderRoute: typeof ServicesInteriorExteriorRouteImport
+    '/services/generator': {
+      id: '/services/generator'
+      path: '/generator'
+      fullPath: '/services/generator'
+      preLoaderRoute: typeof ServicesGeneratorRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/home-improvements': {
-      id: '/services/home-improvements'
-      path: '/home-improvements'
-      fullPath: '/services/home-improvements'
-      preLoaderRoute: typeof ServicesHomeImprovementsRouteImport
+    '/services/ev-charger': {
+      id: '/services/ev-charger'
+      path: '/ev-charger'
+      fullPath: '/services/ev-charger'
+      preLoaderRoute: typeof ServicesEvChargerRouteImport
       parentRoute: typeof ServicesRoute
     }
-    '/services/home-additions': {
-      id: '/services/home-additions'
-      path: '/home-additions'
-      fullPath: '/services/home-additions'
-      preLoaderRoute: typeof ServicesHomeAdditionsRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/foundation': {
-      id: '/services/foundation'
-      path: '/foundation'
-      fullPath: '/services/foundation'
-      preLoaderRoute: typeof ServicesFoundationRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/fencing': {
-      id: '/services/fencing'
-      path: '/fencing'
-      fullPath: '/services/fencing'
-      preLoaderRoute: typeof ServicesFencingRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/driveway': {
-      id: '/services/driveway'
-      path: '/driveway'
-      fullPath: '/services/driveway'
-      preLoaderRoute: typeof ServicesDrivewayRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/decks': {
-      id: '/services/decks'
-      path: '/decks'
-      fullPath: '/services/decks'
-      preLoaderRoute: typeof ServicesDecksRouteImport
+    '/services/emergency': {
+      id: '/services/emergency'
+      path: '/emergency'
+      fullPath: '/services/emergency'
+      preLoaderRoute: typeof ServicesEmergencyRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/services/commercial': {
@@ -450,6 +423,13 @@ declare module '@tanstack/react-router' {
       path: '/commercial'
       fullPath: '/services/commercial'
       preLoaderRoute: typeof ServicesCommercialRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/cctv-camera': {
+      id: '/services/cctv-camera'
+      path: '/cctv-camera'
+      fullPath: '/services/cctv-camera'
+      preLoaderRoute: typeof ServicesCctvCameraRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/dashboard/login': {
@@ -463,34 +443,30 @@ declare module '@tanstack/react-router' {
 }
 
 interface ServicesRouteChildren {
+  ServicesCctvCameraRoute: typeof ServicesCctvCameraRoute
   ServicesCommercialRoute: typeof ServicesCommercialRoute
-  ServicesDecksRoute: typeof ServicesDecksRoute
-  ServicesDrivewayRoute: typeof ServicesDrivewayRoute
-  ServicesFencingRoute: typeof ServicesFencingRoute
-  ServicesFoundationRoute: typeof ServicesFoundationRoute
-  ServicesHomeAdditionsRoute: typeof ServicesHomeAdditionsRoute
-  ServicesHomeImprovementsRoute: typeof ServicesHomeImprovementsRoute
-  ServicesInteriorExteriorRoute: typeof ServicesInteriorExteriorRoute
-  ServicesPatiosRoute: typeof ServicesPatiosRoute
-  ServicesRemodelingRoute: typeof ServicesRemodelingRoute
+  ServicesEmergencyRoute: typeof ServicesEmergencyRoute
+  ServicesEvChargerRoute: typeof ServicesEvChargerRoute
+  ServicesGeneratorRoute: typeof ServicesGeneratorRoute
+  ServicesIndustrialRoute: typeof ServicesIndustrialRoute
+  ServicesPanelUpgradesRoute: typeof ServicesPanelUpgradesRoute
   ServicesResidentialRoute: typeof ServicesResidentialRoute
-  ServicesSidewalkRoute: typeof ServicesSidewalkRoute
+  ServicesSecuritySystemsRoute: typeof ServicesSecuritySystemsRoute
+  ServicesWiringRewiringRoute: typeof ServicesWiringRewiringRoute
   ServicesIndexRoute: typeof ServicesIndexRoute
 }
 
 const ServicesRouteChildren: ServicesRouteChildren = {
+  ServicesCctvCameraRoute: ServicesCctvCameraRoute,
   ServicesCommercialRoute: ServicesCommercialRoute,
-  ServicesDecksRoute: ServicesDecksRoute,
-  ServicesDrivewayRoute: ServicesDrivewayRoute,
-  ServicesFencingRoute: ServicesFencingRoute,
-  ServicesFoundationRoute: ServicesFoundationRoute,
-  ServicesHomeAdditionsRoute: ServicesHomeAdditionsRoute,
-  ServicesHomeImprovementsRoute: ServicesHomeImprovementsRoute,
-  ServicesInteriorExteriorRoute: ServicesInteriorExteriorRoute,
-  ServicesPatiosRoute: ServicesPatiosRoute,
-  ServicesRemodelingRoute: ServicesRemodelingRoute,
+  ServicesEmergencyRoute: ServicesEmergencyRoute,
+  ServicesEvChargerRoute: ServicesEvChargerRoute,
+  ServicesGeneratorRoute: ServicesGeneratorRoute,
+  ServicesIndustrialRoute: ServicesIndustrialRoute,
+  ServicesPanelUpgradesRoute: ServicesPanelUpgradesRoute,
   ServicesResidentialRoute: ServicesResidentialRoute,
-  ServicesSidewalkRoute: ServicesSidewalkRoute,
+  ServicesSecuritySystemsRoute: ServicesSecuritySystemsRoute,
+  ServicesWiringRewiringRoute: ServicesWiringRewiringRoute,
   ServicesIndexRoute: ServicesIndexRoute,
 }
 
@@ -501,6 +477,7 @@ const ServicesRouteWithChildren = ServicesRoute._addFileChildren(
 const rootRouteChildren: RootRouteChildren = {
   IndexRoute: IndexRoute,
   AboutRoute: AboutRoute,
+  CareersRoute: CareersRoute,
   ContactRoute: ContactRoute,
   ProjectsRoute: ProjectsRoute,
   ReviewsRoute: ReviewsRoute,

@@ -10,13 +10,13 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/commercial")({
   head: () => ({
     meta: [
-      { title: "Commercial General Contractor | ACC Construction LLC" },
-      { name: "description", content: "Licensed commercial contracting services, retail store build-outs, office renovations, structural concrete foundations, and pathway paving in Colorado." },
-      { property: "og:title", content: "Commercial Contracting | ACC Construction LLC" },
-      { property: "og:description", content: "Licensed commercial construction solutions for Colorado businesses." },
+      { title: "Commercial Electrical Services | R&E Electrical Contractor Corp" },
+      { name: "description", content: "Professional, licensed commercial electrical installations, office build-outs, tenant improvements, and retail lighting across South Florida." },
+      { property: "og:title", content: "Commercial Electrical Services | R&E Electrical" },
+      { property: "og:description", content: "Licensed commercial electrical solutions for South Florida businesses." },
     ],
     links: [
-      { rel: "canonical", href: "https://www.accconstructionllc.com/services/commercial" }
+      { rel: "canonical", href: "https://www.randeelectrical.com/services/commercial" }
     ],
   }),
   component: CommercialPage,
@@ -26,12 +26,14 @@ function CommercialPage() {
   const { t } = useLanguage();
 
   const serviceList = [
-    t("Office Build-Outs & Retail Renovations", "Remodelaciones de Oficinas y Tiendas Minoristas"),
-    t("Commercial Concrete Foundations", "Cimientos de Concreto Comercial"),
-    t("Driveway & Parking Lot Pavers", "Entradas y Estacionamientos de Adoquines"),
-    t("Concrete Sidewalks & Curbing", "Aceras y Bordillos de Concreto"),
-    t("Drywall Framing & Partition Walls", "Estructuras de Yeso y Paredes Divisorias"),
-    t("Commercial Structural Renovations", "Renovaciones Estructurales Comerciales"),
+    t("Office Build-Outs & Tenant Improvements", "Remodelaciones de Oficinas y Mejoras de Inquilinos"),
+    t("Retail Store LED Display & Accent Lighting", "Iluminación de Acento y Pantallas LED para Tiendas Minoristas"),
+    t("Commercial Panel Board Upgrades & Installations", "Instalaciones y Actualizaciones de Paneles Comerciales"),
+    t("Emergency Exit Lighting & Sign Systems", "Sistemas de Señalización e Iluminación de Salidas de Emergencia"),
+    t("Data & Low-Voltage Structured Cabling", "Cableado Estructurado de Datos y Bajo Voltaje"),
+    t("Preventative Maintenance & Safety Audits", "Auditorías de Seguridad y Mantenimiento Preventivo"),
+    t("Dedicated Circuits for High-Draw Equipment", "Circuitos Dedicados para Equipos de Alto Consumo"),
+    t("Commercial Surge Protection Solutions", "Soluciones de Protección de Sobretensión Comercial"),
   ];
 
   const faqs = [
@@ -41,11 +43,11 @@ function CommercialPage() {
     },
     {
       q: t("Are you fully insured for large commercial properties?", "¿Están totalmente asegurados para grandes propiedades comerciales?"),
-      a: t("Yes. ACC Construction LLC maintains $2M in general liability coverage, commercial auto insurance, and worker's compensation, satisfying the requirements of major landlords and corporate guidelines.", "Sí. ACC Construction LLC mantiene una cobertura de responsabilidad general de $2M, seguro de automóvil comercial y compensación laboral, satisfaciendo los requisitos de los principales propietarios y pautas corporativas.")
+      a: t("Yes. R&E Electrical Contractor Corp maintains $2M in general liability coverage, commercial auto insurance, and worker's compensation, satisfying the requirements of major landlords and corporate guidelines.", "Sí. R&E Electrical Contractor Corp mantiene una cobertura de responsabilidad general de $2M, seguro de automóvil comercial y compensación laboral, satisfaciendo los requisitos de los principales propietarios y pautas corporativas.")
     },
     {
-      q: t("Can you help with permits and municipal approvals?", "¿Pueden ayudar con los permisos y las aprobaciones municipales?"),
-      a: t("Absolutely. We manage the entire permitting workflow, coordinating with structural engineers, local building departments, and inspectors to ensure absolute compliance.", "Absolutamente. Gestionamos todo el flujo de trabajo de obtención de permisos, coordinando con ingenieros estructurales, departamentos de construcción locales e inspectores para garantizar el cumplimiento absoluto.")
+      q: t("Can you help bring our building up to NEC code compliance?", "¿Pueden ayudar a que nuestro edificio cumpla con el código NEC?"),
+      a: t("Absolutely. We conduct detailed audits and carry out all required remediations, from emergency egress lighting code issues to panel corrections, to keep you compliant with local fire marshal standards.", "Absolutamente. Realizamos auditorías detalladas y llevamos a cabo todas las remediaciones requeridas, desde problemas del código de iluminación de salida de emergencia hasta correcciones de paneles, para que cumpla con los estándares del mariscal de bomberos local.")
     }
   ];
 
@@ -57,19 +59,19 @@ function CommercialPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.accconstructionllc.com/"
+        "item": "https://www.randeelectrical.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://www.accconstructionllc.com/services"
+        "item": "https://www.randeelectrical.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
-        "name": "Commercial Contracting",
-        "item": "https://www.accconstructionllc.com/services/commercial"
+        "name": "Commercial Electrical",
+        "item": "https://www.randeelectrical.com/services/commercial"
       }
     ]
   };
@@ -77,20 +79,20 @@ function CommercialPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Commercial General Contractor Services",
-    "serviceType": "Commercial General Contractor Services",
+    "name": "Commercial Electrical Services",
+    "serviceType": "Commercial Electrical Services",
     "provider": {
       "@type": "LocalBusiness",
-      "name": "ACC Construction LLC",
-      "telephone": "+17202987777",
-      "image": "https://www.accconstructionllc.com/assets/logo.png",
+      "name": "R&E Electrical Contractor Corp",
+      "telephone": "+17863075933",
+      "image": "https://www.randeelectrical.com/assets/logo.png",
       "priceRange": "$$"
     },
     "areaServed": {
       "@type": "State",
-      "name": "Colorado"
+      "name": "Florida"
     },
-    "description": "Licensed commercial contracting services, retail store build-outs, office renovations, structural concrete foundations, and pathway paving in Colorado."
+    "description": "Professional, licensed commercial electrical installations, office build-outs, tenant improvements, and retail lighting across South Florida."
   };
 
   return (
@@ -105,8 +107,8 @@ function CommercialPage() {
       />
       <PageHeader
         eyebrow={t("Commercial Services", "Servicios Comerciales")}
-        title={t("Powering Your Commercial Builds", "Potenciando sus Construcciones Comerciales")}
-        subtitle={t("Minimize delays with our highly reliable, licensed commercial builders. From retail build-outs to structural foundations, we handle it all.", "Minimice los retrasos con nuestros constructores comerciales autorizados y altamente confiables. Desde remodelaciones de tiendas hasta cimientos estructurales, lo manejamos todo.")}
+        title={t("Powering Your Business Operations", "Energizando las Operaciones de su Negocio")}
+        subtitle={t("Minimize downtime with our highly reliable, licensed commercial electricians. From office wiring to advanced building automations, we handle it all.", "Minimice el tiempo de inactividad con nuestros electricistas comerciales autorizados y altamente confiables. Desde el cableado de oficinas hasta automatizaciones avanzadas de edificios, lo manejamos todo.")}
       />
 
       <section className="py-20 bg-background">
@@ -116,10 +118,10 @@ function CommercialPage() {
             <div className="space-y-10">
               <div>
                 <h2 className="font-display text-3xl font-extrabold text-secondary">
-                  {t("Robust Construction Solutions for Businesses", "Soluciones de Construcción Robustas para Empresas")}
+                  {t("Robust Electrical Solutions for Businesses", "Soluciones Eléctricas Robustas para Empresas")}
                 </h2>
                 <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                  {t("ACC Construction LLC works with property managers, developers, and business owners across Colorado to deliver safe, scalable, and code-compliant commercial solutions. Whether you are planning a modern retail layout, constructing structural concrete foundations, or installing premium paver pathways, our commercial crew is ready to execute.", "ACC Construction LLC trabaja con administradores de propiedades, desarrolladores y propietarios de empresas en todo el Colorado para ofrecer soluciones comerciales seguras, escalables y que cumplen con los códigos. Ya sea que esté planeando un diseño minorista moderno, construyendo cimientos de concreto estructurales o instalando senderos de adoquines premium, nuestro equipo comercial está listo para ejecutar.")}
+                  {t("R&E Electrical Contractor Corp works with property managers, general contractors, developers, and small business owners across South Florida to deliver safe, scalable, and code-compliant commercial solutions. Whether you are planning a modern open-office layout, retrofitting a retail store with energy-efficient LED, or installing redundant power solutions, our commercial crew is ready to execute.", "R&E Electrical Contractor Corp trabaja con administradores de propiedades, contratistas generales, desarrolladores y propietarios de pequeñas empresas en todo el sur de Florida para ofrecer soluciones comerciales seguras, escalables y que cumplen con los códigos. Ya sea que esté planeando un diseño moderno de oficina abierta, adaptando una tienda minorista con LED de bajo consumo o instalando soluciones de energía redundante, nuestro equipo comercial está listo para ejecutar.")}
                 </p>
               </div>
 
@@ -159,13 +161,13 @@ function CommercialPage() {
               <div className="relative overflow-hidden rounded-3xl border border-border">
                 <img
                   src={img}
-                  alt="Commercial construction installation"
+                  alt="Commercial electrical installation"
                   className="h-64 w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
                 <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <div className="text-xs font-bold uppercase tracking-wider text-primary">{t("ACC Construction Commercial", "ACC Construction Comercial")}</div>
-                  <div className="mt-1 font-display text-xl font-extrabold">{t("Office, Retail, & Building Renovations", "Servicios de Oficina, Comercio y Edificios")}</div>
+                  <div className="text-xs font-bold uppercase tracking-wider text-primary">{t("R&E Electrical Commercial", "R&E Electrical Comercial")}</div>
+                  <div className="mt-1 font-display text-xl font-extrabold">{t("Office, Retail, & Building Services", "Servicios de Oficina, Comercio y Edificios")}</div>
                 </div>
               </div>
 
@@ -173,7 +175,7 @@ function CommercialPage() {
               <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8 shadow-sm">
                 <h3 className="font-display text-2xl font-extrabold text-secondary">{t("Ready to get started?", "¿Listo para comenzar?")}</h3>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  {t("Request a commercial construction site audit. We will review your plans or systems and issue a transparent quote.", "Solicite una auditoría del sitio de construcción comercial. Revisaremos sus planos o sistemas y emitiremos una cotización transparente.")}
+                  {t("Book a commercial electrical site audit. We will review your plans or systems and issue a transparent quote.", "Reserve una auditoría del sitio eléctrico comercial. Revisaremos sus planos o sistemas y emitiremos una cotización transparente.")}
                 </p>
 
                 <div className="mt-6 space-y-3.5">
@@ -181,10 +183,10 @@ function CommercialPage() {
                     <Link to="/contact">{t("Request Proposal", "Solicitar Propuesta")}</Link>
                   </Button>
                   <a
-                    href="tel:+17202987777"
+                    href="tel:+17863075933"
                     className="flex items-center justify-center gap-2 rounded-full border border-border bg-white px-4 py-3 text-sm font-bold text-secondary hover:border-primary hover:text-primary transition"
                   >
-                    <Phone className="h-4 w-4" /> (720) 298-7777
+                    <Phone className="h-4 w-4" /> (786) 307-5933
                   </a>
                 </div>
 

@@ -8,10 +8,10 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/")({
   head: () => ({
     meta: [
-      { title: "General Contractor Services | ACC Construction LLC" },
-      { name: "description", content: "Residential and commercial general contracting, kitchen/bathroom remodeling, driveway pavers, structural concrete foundations, and home additions in Colorado." },
-      { property: "og:title", content: "Construction Services | ACC Construction LLC" },
-      { property: "og:description", content: "Premium general contracting and home remodeling services across Colorado." },
+      { title: "Electrical Services | R&E Electrical Contractor Corp" },
+      { name: "description", content: "Residential, commercial, industrial, EV chargers, generators, panel upgrades and emergency electrical services in Florida." },
+      { property: "og:title", content: "Electrical Services | R&E Electrical" },
+      { property: "og:description", content: "Full-spectrum electrical services across Florida." },
     ],
   }),
   component: ServicesIndex,
@@ -23,8 +23,8 @@ function ServicesIndex() {
     <>
       <PageHeader
         eyebrow={t("Services", "Servicios")}
-        title={t("Quality craftsmanship. Guaranteed results.", "Mano de obra de calidad. Resultados garantizados.")}
-        subtitle={t("One licensed team for every construction and remodeling need.", "Un equipo autorizado para cada necesidad de construcción y remodelación.")}
+        title={t("Every wire. Every watt.", "Cada cable. Cada vatio.")}
+        subtitle={t("One licensed team for every electrical need — residential to industrial.", "Un equipo autorizado para cada necesidad eléctrica, desde residencial hasta industrial.")}
       />
       <Services />
       <Process />

@@ -70,62 +70,62 @@
 
 :root {
   --radius: 1rem;
-  /* Brand palette: Forest Green #008A22, Deep Forest #0A2411, Mint #10B981, BG #F8FAFC, Text #111827 */
+  /* Brand palette: Electric Orange #FF6B00, Navy #0F172A, Blue #2563EB, BG #F8FAFC, Text #111827 */
   --background: oklch(0.984 0.005 247);            /* #F8FAFC */
   --foreground: oklch(0.205 0.02 264);             /* #111827 */
   --card: oklch(1 0 0);
   --card-foreground: oklch(0.205 0.02 264);
   --popover: oklch(1 0 0);
   --popover-foreground: oklch(0.205 0.02 264);
-  --primary: oklch(0.51 0.174 142.5);               /* brand green #008A22 */
+  --primary: oklch(0.71 0.205 47);                  /* electric orange #FF6B00 */
   --primary-foreground: oklch(1 0 0);
-  --secondary: oklch(0.15 0.02 142.5);              /* deep forest black #0A2411 */
+  --secondary: oklch(0.21 0.045 265);               /* navy #0F172A */
   --secondary-foreground: oklch(1 0 0);
   --muted: oklch(0.96 0.005 247);
   --muted-foreground: oklch(0.5 0.02 264);
-  --accent: oklch(0.75 0.15 142.5);                 /* soft mint green #10B981 */
+  --accent: oklch(0.58 0.21 265);                   /* electric blue #2563EB */
   --accent-foreground: oklch(1 0 0);
   --destructive: oklch(0.6 0.24 27);
   --destructive-foreground: oklch(1 0 0);
   --border: oklch(0.92 0.008 255);                  /* #E5E7EB */
   --input: oklch(0.92 0.008 255);
-  --ring: oklch(0.51 0.174 142.5);
-  --chart-1: oklch(0.51 0.174 142.5);
+  --ring: oklch(0.71 0.205 47);
+  --chart-1: oklch(0.646 0.222 41.116);
   --chart-2: oklch(0.6 0.118 184.704);
   --chart-3: oklch(0.398 0.07 227.392);
   --chart-4: oklch(0.828 0.189 84.429);
   --chart-5: oklch(0.769 0.188 70.08);
   --sidebar: oklch(0.984 0.003 247.858);
   --sidebar-foreground: oklch(0.129 0.042 264.695);
-  --sidebar-primary: oklch(0.51 0.174 142.5);
+  --sidebar-primary: oklch(0.71 0.205 47);
   --sidebar-primary-foreground: oklch(1 0 0);
   --sidebar-accent: oklch(0.968 0.007 247.896);
   --sidebar-accent-foreground: oklch(0.208 0.042 265.755);
   --sidebar-border: oklch(0.929 0.013 255.508);
-  --sidebar-ring: oklch(0.51 0.174 142.5);
- 
+  --sidebar-ring: oklch(0.704 0.04 256.788);
+
   /* Brand tokens */
-  --brand-orange: #008A22;
-  --brand-orange-soft: #10B981;
-  --brand-navy: #0A2411;
-  --brand-navy-2: #12381C;
-  --brand-blue: #10B981;
-  --gradient-orange: linear-gradient(135deg, #008A22 0%, #10B981 100%);
-  --gradient-navy: linear-gradient(135deg, #0A2411 0%, #12381C 60%, #0A2411 100%);
-  --gradient-hero-overlay: linear-gradient(120deg, rgba(10,36,17,0.92) 0%, rgba(10,36,17,0.55) 60%, rgba(10,36,17,0.35) 100%);
-  --shadow-elegant: 0 20px 50px -20px rgba(10, 36, 17, 0.25);
-  --shadow-glow: 0 0 60px -10px rgba(0, 138, 34, 0.55);
-  --shadow-card: 0 10px 30px -12px rgba(10, 36, 17, 0.18);
+  --brand-orange: #FF6B00;
+  --brand-orange-soft: #FF8A33;
+  --brand-navy: #0F172A;
+  --brand-navy-2: #1E293B;
+  --brand-blue: #2563EB;
+  --gradient-orange: linear-gradient(135deg, #FF6B00 0%, #FF9A3C 100%);
+  --gradient-navy: linear-gradient(135deg, #0F172A 0%, #1E293B 60%, #0F172A 100%);
+  --gradient-hero-overlay: linear-gradient(120deg, rgba(15,23,42,0.92) 0%, rgba(15,23,42,0.55) 60%, rgba(15,23,42,0.35) 100%);
+  --shadow-elegant: 0 20px 50px -20px rgba(15, 23, 42, 0.25);
+  --shadow-glow: 0 0 60px -10px rgba(255, 107, 0, 0.55);
+  --shadow-card: 0 10px 30px -12px rgba(15, 23, 42, 0.18);
   --font-display: "Inter", system-ui, sans-serif;
   --font-body: "Inter", system-ui, sans-serif;
- 
+
   /* Dashboard styling colors from Revitalize */
   --ivory: oklch(0.98 0.008 80);
   --charcoal: oklch(0.18 0.012 60);
   --charcoal-soft: oklch(0.26 0.012 60);
-  --copper: oklch(0.51 0.174 142.5);
-  --copper-soft: oklch(0.66 0.13 142.5);
-  --copper-deep: oklch(0.40 0.15 142.5);
+  --copper: oklch(0.66 0.13 45);
+  --copper-soft: oklch(0.75 0.09 45);
+  --copper-deep: oklch(0.55 0.15 45);
   --silver: oklch(0.78 0.006 80);
 }
 
@@ -209,7 +209,7 @@
 }
 
 @utility btn-glow {
-  box-shadow: 0 10px 30px -8px rgba(0, 138, 34, 0.55);
+  box-shadow: 0 10px 30px -8px rgba(255, 107, 0, 0.55);
 }
 
 @utility section-padding {
@@ -222,8 +222,8 @@
   50% { transform: translateY(-14px); }
 }
 @keyframes pulse-glow {
-  0%, 100% { box-shadow: 0 0 40px -10px rgba(0, 138, 34, 0.5); }
-  50% { box-shadow: 0 0 80px -10px rgba(0, 138, 34, 0.85); }
+  0%, 100% { box-shadow: 0 0 40px -10px rgba(255, 107, 0, 0.5); }
+  50% { box-shadow: 0 0 80px -10px rgba(255, 107, 0, 0.85); }
 }
 @keyframes fade-up {
   from { opacity: 0; transform: translateY(24px); }

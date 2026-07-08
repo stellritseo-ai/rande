@@ -82,7 +82,7 @@ export function Estimate() {
           <form onSubmit={onSubmit} className="rounded-3xl border border-border bg-white p-8 shadow-[var(--shadow-card)]">
             <div className="grid gap-5 sm:grid-cols-2">
               <Field label={t("Full Name", "Nombre Completo")} id="name"><Input id="name" required placeholder={t("Jane Smith", "Juan Pérez")} /></Field>
-              <Field label={t("Phone", "Teléfono")} id="phone"><Input id="phone" type="tel" required placeholder="(720) 298-7777" /></Field>
+              <Field label={t("Phone", "Teléfono")} id="phone"><Input id="phone" type="tel" required placeholder="(786) 307-5933" /></Field>
               <div className="sm:col-span-2">
                 <Field label={t("Email", "Correo Electrónico")} id="email"><Input id="email" type="email" required placeholder="jane@example.com" /></Field>
               </div>
@@ -91,16 +91,13 @@ export function Estimate() {
                   <Select value={service} onValueChange={setService}>
                     <SelectTrigger id="service" className="h-11"><SelectValue placeholder={t("Select a service", "Seleccione un servicio")} /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="driveway">{t("Driveways", "Entradas de Autos")}</SelectItem>
-                      <SelectItem value="patios">{t("Patios", "Patios")}</SelectItem>
-                      <SelectItem value="sidewalk">{t("Sidewalks", "Aceras")}</SelectItem>
-                      <SelectItem value="remodeling">{t("Remodeling", "Remodelación")}</SelectItem>
-                      <SelectItem value="interior-exterior">{t("Interior/Exterior", "Interior/Exterior")}</SelectItem>
-                      <SelectItem value="home-additions">{t("Additions", "Adiciones")}</SelectItem>
-                      <SelectItem value="home-improvements">{t("Home Improvements", "Mejoras para el Hogar")}</SelectItem>
-                      <SelectItem value="foundation">{t("Foundations", "Cimientos")}</SelectItem>
-                      <SelectItem value="decks">{t("Decks", "Terrazas de Madera")}</SelectItem>
-                      <SelectItem value="fencing">{t("Fencing", "Cercas")}</SelectItem>
+                      <SelectItem value="residential">{t("Residential Electrical", "Eléctrico Residencial")}</SelectItem>
+                      <SelectItem value="commercial">{t("Commercial Electrical", "Eléctrico Comercial")}</SelectItem>
+                      <SelectItem value="industrial">{t("Industrial Electrical", "Eléctrico Industrial")}</SelectItem>
+                      <SelectItem value="panel">{t("Panel Upgrade", "Actualización de Panel")}</SelectItem>
+                      <SelectItem value="ev">{t("EV Charger", "Cargador EV")}</SelectItem>
+                      <SelectItem value="generator">{t("Generator", "Generador")}</SelectItem>
+                      <SelectItem value="emergency">{t("Emergency Service", "Servicio de Emergencia")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </Field>
@@ -117,20 +114,19 @@ export function Estimate() {
           </form>
 
           <div className="flex flex-col gap-6">
-            <div className="overflow-hidden rounded-3xl border border-border shadow-[var(--shadow-card)] relative h-72">
+            <div className="overflow-hidden rounded-3xl border border-border shadow-[var(--shadow-card)]">
               <iframe
-                title="ACC Construction LLC Location"
-                className="absolute inset-0 w-full h-full"
+                title="R&E Electrical Contractor Corp Location"
+                className="h-72 w-full"
                 loading="lazy"
-                style={{ border: 0 }}
                 referrerPolicy="no-referrer-when-downgrade"
-                src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d49063.05536944167!2d-105.10931055!3d39.77465845!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876b8643274af203%3A0xb7b0aeced99d5e09!2sWheat%20Ridge%2C%20CO%2C%20USA!5e0!3m2!1sen!2snp!4v1783399129761!5m2!1sen!2snp"
+                src="https://www.openstreetmap.org/export/embed.html?bbox=-80.330%2C25.862%2C-80.318%2C25.872&layer=mapnik&marker=25.8677%2C-80.3243"
               />
             </div>
             <div className="grid gap-4 sm:grid-cols-2">
-              <InfoCard icon={Phone} title={t("Call Us", "Llámenos")} lines={["(720) 298-7777", t("24/7 Emergency", "Emergencia 24/7")]} />
-              <InfoCard icon={Mail} title={t("Email", "Correo")} lines={["leonholley45@gmail.com"]} />
-              <InfoCard icon={MapPin} title={t("Office", "Oficina")} lines={["Wheat Ridge", "Colorado"]} />
+              <InfoCard icon={Phone} title={t("Call Us", "Llámenos")} lines={["(786) 307-5933", t("24/7 Emergency", "Emergencia 24/7")]} />
+              <InfoCard icon={Mail} title={t("Email", "Correo")} lines={["Williams@electricalcontractorcorp.com"]} />
+              <InfoCard icon={MapPin} title={t("Office", "Oficina")} lines={["18730 NW 77 TH CT", "Hialeah, FL 33015"]} />
               <InfoCard icon={Clock} title={t("Hours", "Horarios")} lines={[t("Mon–Sat: 7am–7pm", "Lun–Sáb: 7am–7pm"), t("Sun: Emergency only", "Dom: Solo emergencias")]} />
             </div>
           </div>

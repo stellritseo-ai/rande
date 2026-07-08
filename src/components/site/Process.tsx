@@ -5,7 +5,9 @@ import {
   FileText,
   Wrench,
   BadgeCheck,
+  ArrowRight,
 } from "lucide-react";
+import { Link } from "@tanstack/react-router";
 import { useLanguage } from "@/hooks/useLanguage";
 
 export function Process() {
@@ -14,28 +16,28 @@ export function Process() {
   const steps = [
     {
       icon: CalendarCheck,
-      title: t("Schedule Consultation", "Programar Consulta"),
-      desc: t("Book online or call our office team to schedule a detailed on-site project walkthrough.", "Reserve en línea o llame a nuestra oficina para programar una visita detallada del proyecto en el sitio."),
+      title: t("Schedule Service", "Programar Servicio"),
+      desc: t("Book online in 60 seconds or call our 24/7 dispatcher for immediate dispatch.", "Reserve en línea en 60 segundos o llame a nuestro despachador 24/7 para un envío inmediato."),
     },
     {
       icon: Search,
-      title: t("Site Planning & Inspection", "Planificación e Inspección del Sitio"),
-      desc: t("We assess dimensions, structural feasibility, and layout requirements to plan your build correctly.", "Evaluamos dimensiones, viabilidad estructural y requisitos de diseño para planificar su construcción correctamente."),
+      title: t("Detailed Inspection", "Inspección Detallada"),
+      desc: t("Comprehensive diagnostic checks of panels, wiring, loads, and code compliance.", "Controles de diagnóstico integrales de paneles, cableado, cargas y cumplimiento de códigos."),
     },
     {
       icon: FileText,
-      title: t("Transparent Quote", "Cotización Transparente"),
-      desc: t("Get a detailed, itemized contract and project schedule. What we quote is what you pay.", "Obtenga un contrato detallado y desglosado y un calendario de proyecto. Lo que cotizamos es lo que paga."),
+      title: t("Transparent Estimate", "Presupuesto Transparente"),
+      desc: t("Upfront, itemized quote signed before any work begins. What we quote is what you pay.", "Cotización detallada por adelantado firmada antes de comenzar cualquier trabajo. Lo que cotizamos es lo que paga."),
     },
     {
       icon: Wrench,
-      title: t("Precision Construction", "Construcción de Precisión"),
-      desc: t("Our licensed tradesmen execute framing, concrete pouring, pavers, or remodeling work cleanly.", "Nuestros artesanos autorizados ejecutan carpintería, vertido de concreto, adoquines o remodelaciones con limpieza."),
+      title: t("Expert Installation", "Instalación Experta"),
+      desc: t("Licensed master electricians execute clean, code-compliant, and safe work.", "Electricistas maestros autorizados ejecutan trabajos limpios, seguros y que cumplen con los códigos."),
     },
     {
       icon: BadgeCheck,
-      title: t("Final Walkthrough", "Inspección Final"),
-      desc: t("Detailed structural inspection, site cleanup, and full craftsmanship warranty activation.", "Inspección estructural detallada, limpieza del sitio y activación de la garantía total de mano de obra."),
+      title: t("Safety & Sign-Off", "Seguridad y Aprobación"),
+      desc: t("Load testing, safety compliance sign-off, and full workmanship warranty activated.", "Prueba de carga, aprobación de cumplimiento de seguridad y garantía de mano de obra completa activada."),
     },
   ];
 
@@ -56,22 +58,22 @@ export function Process() {
         className="pointer-events-none absolute inset-0 opacity-[0.025]"
         style={{
           backgroundImage:
-            "radial-gradient(circle, #008A22 1px, transparent 1px)",
+            "radial-gradient(circle, #FF6B00 1px, transparent 1px)",
           backgroundSize: "32px 32px",
         }}
       />
 
       {/* CSS Animations */}
       <style>{`
-        @keyframes constructionFlow {
+        @keyframes electricFlow {
           0%   { stroke-dashoffset: 0; }
           100% { stroke-dashoffset: -30; }
         }
-        @keyframes builderFlow {
+        @keyframes sparkFlow {
           0%   { stroke-dashoffset: 0; }
           100% { stroke-dashoffset: 45; }
         }
-        @keyframes verticalConstructionFlow {
+        @keyframes verticalElectricFlow {
           0%   { background-position: 0 0; }
           100% { background-position: 0 -40px; }
         }
@@ -85,12 +87,12 @@ export function Process() {
         }
         .pulse-glow      { animation: pulseGlow 2s infinite ease-in-out; transform-origin: 17px 15px; }
         .pulse-glow-large{ animation: pulseGlowLarge 3s infinite ease-in-out; transform-origin: 17px 15px; }
-        .construction-flow   { stroke-dasharray: 6 6; animation: constructionFlow 0.5s infinite linear; }
-        .builder-flow      { stroke-dasharray: 12 24; animation: builderFlow 1.8s infinite linear; }
-        .mobile-construction-flow {
-          background: linear-gradient(to bottom, #008A22 0%, #008A22 30%, #e6f4ea 50%, #008A22 70%, #008A22 100%);
+        .electric-flow   { stroke-dasharray: 6 6; animation: electricFlow 0.5s infinite linear; }
+        .spark-flow      { stroke-dasharray: 12 24; animation: sparkFlow 1.8s infinite linear; }
+        .mobile-electric-flow {
+          background: linear-gradient(to bottom,#ff6b00 0%,#ff6b00 30%,#ffe2cc 50%,#ff6b00 70%,#ff6b00 100%);
           background-size: 100% 40px;
-          animation: verticalConstructionFlow 1.2s infinite linear;
+          animation: verticalElectricFlow 1.2s infinite linear;
         }
       `}</style>
 
@@ -105,8 +107,8 @@ export function Process() {
           transition={{ duration: 0.7, ease: "easeOut" }}
         >
           {/* Eyebrow */}
-          <span className="inline-flex items-center gap-2 bg-[#008A22]/10 border border-[#008A22]/20 text-[#008A22] rounded-full px-5 py-1.5 text-[11px] font-black uppercase tracking-widest mb-6">
-            <span className="w-1.5 h-1.5 rounded-full bg-[#008A22] animate-pulse" />
+          <span className="inline-flex items-center gap-2 bg-[#FF6B00]/10 border border-[#FF6B00]/20 text-[#FF6B00] rounded-full px-5 py-1.5 text-[11px] font-black uppercase tracking-widest mb-6">
+            <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00] animate-pulse" />
             {t("Step by Step Process", "Proceso Paso a Paso")}
           </span>
 
@@ -115,7 +117,7 @@ export function Process() {
             style={{ fontSize: "36px", marginTop: "-15px", marginBottom: "10px", fontWeight: 700 }}
           >
             {t("We Complete Every ", "Completamos Cada ")}
-            <span className="bg-gradient-to-r from-[#008A22] to-[#10B981] bg-clip-text text-transparent">
+            <span className="bg-gradient-to-r from-[#FF6B00] to-[#FF8C33] bg-clip-text text-transparent">
               {t("Step Carefully.", "Paso con Cuidado.")}
             </span>
           </h2>
@@ -124,7 +126,7 @@ export function Process() {
             className="text-sm sm:text-base text-slate-500 max-w-xl mx-auto font-medium leading-relaxed"
             style={{ marginBottom: "-50px" }}
           >
-            {t("Our proven methodology guarantees precision, safety, and clean, durable results — from your first consultation to final inspection.", "Nuestra metodología comprobada garantiza precisión, seguridad y resultados limpios y duraderos, desde su primera consulta hasta la inspección final.")}
+            {t("Our proven methodology guarantees precision, safety, and clean, code-compliant results — from your first call to final sign-off.", "Nuestra metodología comprobada garantiza precisión, seguridad y resultados limpios que cumplen con los códigos, desde su primera llamada hasta la firma final.")}
           </p>
         </motion.div>
 
@@ -136,16 +138,25 @@ export function Process() {
             fill="none"
             preserveAspectRatio="none"
           >
+            <defs>
+              <linearGradient id="pipeGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+                <stop offset="0%"   stopColor="#1E293B" />
+                <stop offset="40%"  stopColor="#475569" />
+                <stop offset="60%"  stopColor="#334155" />
+                <stop offset="100%" stopColor="#0F172A" />
+              </linearGradient>
+            </defs>
+
             {/* Drop shadow */}
             <path d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 920 310"
               stroke="#0f172a" strokeWidth="14" strokeLinecap="round" strokeLinejoin="round" opacity="0.07" />
             {/* Outer conduit */}
             <path d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 920 310"
               stroke="#334155" strokeWidth="10" strokeLinecap="round" strokeLinejoin="round" />
-            {/* Animated green core */}
+            {/* Animated orange core */}
             <motion.path
               d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 920 310"
-              stroke="#008A22" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"
+              stroke="#FF6B00" strokeWidth="6" strokeLinecap="round" strokeLinejoin="round"
               initial={{ pathLength: 0 }}
               whileInView={{ pathLength: 1 }}
               viewport={{ once: true, margin: "-100px" }}
@@ -153,8 +164,8 @@ export function Process() {
             />
             {/* Yellow spark flow */}
             <path d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 920 310"
-              stroke="#10B981" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"
-              opacity="0.8" className="builder-flow" />
+              stroke="#FFE600" strokeWidth="3.5" strokeLinecap="round" strokeLinejoin="round"
+              opacity="0.8" className="spark-flow" />
             {/* Glossy highlight */}
             <motion.path
               d="M 120 50 L 1025 50 A 70 70 0 0 1 1025 190 L 175 190 A 60 60 0 0 0 175 310 L 920 310"
@@ -166,34 +177,33 @@ export function Process() {
               transition={{ duration: 2.2, ease: "easeInOut" }}
             />
 
-            {/* Project Blueprint Clipboard at start */}
+            {/* Meter box at start */}
             <g transform="translate(45, 20)">
               <rect x="0" y="0" width="55" height="60" rx="8" fill="#334155" stroke="#1E293B" strokeWidth="2.5" />
-              <rect x="18" y="0" width="19" height="7" rx="1.5" fill="#64748B" stroke="#1E293B" strokeWidth="1.5" />
-              <rect x="6" y="12" width="43" height="42" rx="3" fill="#E2E8F0" />
-              <line x1="12" y1="20" x2="43" y2="20" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
-              <line x1="12" y1="28" x2="38" y2="28" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
-              <line x1="12" y1="36" x2="28" y2="36" stroke="#008A22" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 36 38 L 40 42 L 46 34" stroke="#008A22" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <rect x="4" y="4" width="47" height="20" rx="3" fill="#1E293B" />
+              <rect x="8" y="7" width="39" height="14" rx="1.5" fill="#090D16" />
+              <line x1="12" y1="14" x2="32" y2="14" stroke="#10B981" strokeWidth="2" strokeLinecap="round" />
+              <circle cx="39" cy="14" r="1.5" fill="#10B981" className="animate-pulse" />
+              <rect x="14" y="32" width="10" height="18" rx="1.5" fill="#0F172A" />
+              <rect x="16" y="29" width="6" height="10" rx="0.5" fill="#FF6B00" />
+              <path d="M 36 34 L 42 34 L 39 41 L 44 38 L 40 47" stroke="#FFE600" strokeWidth="1.8" strokeLinecap="round" fill="none" />
             </g>
             <rect x="100" y="40" width="8" height="20" rx="1" fill="#1E293B" />
             <rect x="108" y="46" width="12" height="8" fill="#475569" />
 
-            {/* Completed House with Checklist Badge at end */}
+            {/* Glowing bulb at end */}
             <g transform="translate(915, 260)">
-              {/* House roof */}
-              <path d="M 2 24 L 20 8 L 38 24 Z" fill="#475569" stroke="#334155" strokeWidth="2" strokeLinejoin="round" />
-              {/* House walls */}
-              <rect x="5" y="24" width="30" height="26" rx="2" fill="#334155" stroke="#1E293B" strokeWidth="2" />
-              {/* House door */}
-              <rect x="16" y="34" width="8" height="16" fill="#1E293B" />
-              {/* Window (warm yellow glow) */}
-              <rect x="8" y="28" width="5" height="5" rx="1" fill="#FFE600" opacity="0.8" className="pulse-glow" />
-              
-              {/* Glowing approval badge */}
-              <circle cx="34" cy="12" r="10" fill="#008A22" stroke="#FFFFFF" strokeWidth="1.5" className="pulse-glow" />
-              <path d="M 30 12 L 33 15 L 38 10" stroke="#FFFFFF" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round" fill="none" />
-              <circle cx="34" cy="12" r="18" fill="#10B981" opacity="0.08" className="pulse-glow-large" />
+              <rect x="0" y="44" width="8" height="14" rx="1" fill="#1E293B" />
+              <rect x="8" y="40" width="18" height="22" rx="2" fill="#64748B" stroke="#475569" strokeWidth="1.5" />
+              <line x1="8"  y1="46" x2="26" y2="46" stroke="#334155" strokeWidth="1.5" />
+              <line x1="8"  y1="52" x2="26" y2="52" stroke="#334155" strokeWidth="1.5" />
+              <line x1="8"  y1="58" x2="26" y2="58" stroke="#334155" strokeWidth="1.5" />
+              <path d="M 13 40 L 15 28 M 21 40 L 19 28" stroke="#94A3B8" strokeWidth="1" />
+              <path d="M 15 28 Q 17 22 19 28" stroke="#FF6B00" strokeWidth="2" strokeLinecap="round" fill="none" className="pulse-glow" />
+              <path d="M 5 32 C -5 32, -8 18, -3 8 C 2 -2, 32 -2, 37 8 C 42 18, 39 32, 29 32 Z"
+                fill="none" stroke="#E2E8F0" strokeWidth="2.5" />
+              <circle cx="17" cy="15" r="28" fill="#FF6B00" opacity="0.12" className="pulse-glow" />
+              <circle cx="17" cy="15" r="45" fill="#FF8C33" opacity="0.05" className="pulse-glow-large" />
             </g>
           </svg>
 
@@ -212,22 +222,22 @@ export function Process() {
                 style={{ left: pos.left, top: pos.top }}
               >
                 {/* Circle node */}
-                <div className="absolute -translate-x-1/2 -translate-y-1/2 w-[78px] h-[78px] rounded-full bg-white shadow-[0_10px_32px_rgba(15,23,42,0.08)] border border-slate-100 flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_20px_40px_-6px_rgba(0,138,34,0.25)] group-hover:border-[#008A22]/30">
+                <div className="absolute -translate-x-1/2 -translate-y-1/2 w-[78px] h-[78px] rounded-full bg-white shadow-[0_10px_32px_rgba(15,23,42,0.08)] border border-slate-100 flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-110 group-hover:shadow-[0_20px_40px_-6px_rgba(255,107,0,0.25)] group-hover:border-[#FF6B00]/30">
                   {/* Step number badge */}
-                  <div className="absolute -top-2.5 -right-1 w-5 h-5 rounded-full bg-[#008A22] flex items-center justify-center shadow-md border-2 border-white">
+                  <div className="absolute -top-2.5 -right-1 w-5 h-5 rounded-full bg-[#FF6B00] flex items-center justify-center shadow-md border-2 border-white">
                     <span className="text-white text-[9px] font-black leading-none">{i + 1}</span>
                   </div>
                   {/* Outer halo */}
-                  <div className="absolute -inset-3 rounded-full border border-[#008A22]/15 scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-400" />
+                  <div className="absolute -inset-3 rounded-full border border-[#FF6B00]/15 scale-90 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-400" />
                   {/* Inner ring */}
-                  <div className="absolute inset-1 rounded-full border border-transparent group-hover:border-[#008A22]/30 transition-all duration-300" />
+                  <div className="absolute inset-1 rounded-full border border-transparent group-hover:border-[#FF6B00]/30 transition-all duration-300" />
                   {/* Icon */}
-                  <Icon className="h-7 w-7 text-slate-400 group-hover:text-[#008A22] transition-colors duration-300" />
+                  <Icon className="h-7 w-7 text-slate-400 group-hover:text-[#FF6B00] transition-colors duration-300" />
                 </div>
 
                 {/* Text block below node */}
                 <div className="absolute top-[48px] -translate-x-1/2 text-center w-[220px] flex flex-col items-center pt-1">
-                  <h3 className="font-extrabold text-[15px] text-[#0F172A] leading-tight mt-1 mb-1.5 group-hover:text-[#008A22] transition-colors duration-300">
+                  <h3 className="font-extrabold text-[15px] text-[#0F172A] leading-tight mt-1 mb-1.5 group-hover:text-[#FF6B00] transition-colors duration-300">
                     {s.title}
                   </h3>
                   <p className="text-[11px] text-slate-500 leading-relaxed font-medium px-1">
@@ -245,20 +255,18 @@ export function Process() {
           <div className="absolute left-[39px] top-6 bottom-6 w-2.5 pointer-events-none z-0">
             <div className="absolute inset-0 bg-slate-900/10 rounded-full blur-[2px]" />
             <div className="absolute inset-0 bg-[#334155] rounded-full" />
-            <div className="absolute inset-[2px] rounded-full mobile-construction-flow" />
+            <div className="absolute inset-[2px] rounded-full mobile-electric-flow" />
             <div className="absolute left-[3px] top-[2px] bottom-[2px] w-[1.5px] bg-white/75 rounded-full" />
           </div>
 
-          {/* Blueprint Clipboard at top */}
+          {/* Meter box at top */}
           <div className="absolute left-[18px] -top-6 pointer-events-none z-10 w-[50px] h-[54px]">
             <svg viewBox="0 0 60 65" className="w-full h-full" fill="none">
-              <rect x="2" y="2" width="56" height="60" rx="8" fill="#334155" stroke="#1E293B" strokeWidth="2" />
-              <rect x="20" y="2" width="20" height="7" rx="1.5" fill="#64748B" stroke="#1E293B" strokeWidth="1.5" />
-              <rect x="8" y="14" width="44" height="42" rx="3" fill="#E2E8F0" />
-              <line x1="15" y1="22" x2="45" y2="22" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
-              <line x1="15" y1="30" x2="40" y2="30" stroke="#94A3B8" strokeWidth="2" strokeLinecap="round" />
-              <line x1="15" y1="38" x2="30" y2="38" stroke="#008A22" strokeWidth="2.5" strokeLinecap="round" />
-              <path d="M 38 40 L 42 44 L 48 36" stroke="#008A22" strokeWidth="2.5" strokeLinecap="round" strokeLinejoin="round" fill="none" />
+              <rect x="5" y="5" width="50" height="55" rx="6" fill="#334155" stroke="#1E293B" strokeWidth="2" />
+              <rect x="10" y="10" width="40" height="15" rx="2" fill="#090D16" />
+              <line x1="15" y1="17" x2="35" y2="17" stroke="#10B981" strokeWidth="1.5" />
+              <rect x="25" y="35" width="10" height="18" rx="1" fill="#0F172A" />
+              <rect x="27" y="32" width="6" height="10" rx="0.5" fill="#FF6B00" />
             </svg>
           </div>
 
@@ -274,19 +282,19 @@ export function Process() {
                 className="relative flex flex-col group text-left"
               >
                 {/* Circle node */}
-                <div className="absolute -left-[54px] top-0 w-12 h-12 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.07)] border border-slate-100 flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-105 group-hover:border-[#008A22]/30">
+                <div className="absolute -left-[54px] top-0 w-12 h-12 rounded-full bg-white shadow-[0_4px_16px_rgba(0,0,0,0.07)] border border-slate-100 flex items-center justify-center z-10 transition-all duration-300 group-hover:scale-105 group-hover:border-[#FF6B00]/30">
                   {/* Step badge */}
-                  <div className="absolute -top-1.5 -right-0.5 w-4 h-4 rounded-full bg-[#008A22] flex items-center justify-center border border-white">
+                  <div className="absolute -top-1.5 -right-0.5 w-4 h-4 rounded-full bg-[#FF6B00] flex items-center justify-center border border-white">
                     <span className="text-white text-[8px] font-black">{i + 1}</span>
                   </div>
-                  <div className="absolute inset-0.5 rounded-full border border-transparent group-hover:border-[#008A22]/40 transition-colors duration-300" />
-                  <div className="absolute -inset-2 rounded-full border border-[#008A22]/20 scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
-                  <Icon className="h-5 w-5 text-slate-400 group-hover:text-[#008A22] transition-colors duration-300" />
+                  <div className="absolute inset-0.5 rounded-full border border-transparent group-hover:border-[#FF6B00]/40 transition-colors duration-300" />
+                  <div className="absolute -inset-2 rounded-full border border-[#FF6B00]/20 scale-75 opacity-0 group-hover:scale-100 group-hover:opacity-100 transition-all duration-300" />
+                  <Icon className="h-5 w-5 text-slate-400 group-hover:text-[#FF6B00] transition-colors duration-300" />
                 </div>
 
                 {/* Content */}
                 <div className="pl-4 py-0.5">
-                  <h3 className="font-extrabold text-base text-[#0F172A] leading-tight mt-0 mb-1.5 group-hover:text-[#008A22] transition-colors duration-300">
+                  <h3 className="font-extrabold text-base text-[#0F172A] leading-tight mt-0 mb-1.5 group-hover:text-[#FF6B00] transition-colors duration-300">
                     {s.title}
                   </h3>
                   <p className="text-xs text-slate-500 leading-relaxed font-medium max-w-sm">

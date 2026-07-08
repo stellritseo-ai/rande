@@ -70,19 +70,19 @@ export interface GalleryPhoto {
   uploadedAt: string;
 }
 
-// ── INITIAL PRE-SEEDS CUSTOMIZED FOR DENVER / ACC CONSTRUCTION ──
+// ── INITIAL PRE-SEEDS CUSTOMIZED FOR MIAMI / R&E ELECTRICAL ──
 export const INITIAL_LEADS: Lead[] = [
   {
     id: "lead-1",
     name: "Marcus Vance",
     email: "marcus.vance@gmail.com",
     phone: "(786) 555-0192",
-    address: "18206 Heron Cove Dr, Denver, CO 33149",
-    projectType: "remodeling",
-    description: "Looking to remodel our old kitchen to support custom cabinets, new marble countertops, and custom carpentry. Needs permits and inspections in Denver.",
+    address: "18206 Heron Cove Dr, Miami, FL 33149",
+    projectType: "panel-upgrades",
+    description: "Looking to upgrade our old 100 Amp panel to 200 Amps to support a new central A/C unit and a backyard hot tub. Needs permits and inspections in Miami Beach.",
     contactTime: "morning",
     status: "new",
-    estimatedValue: 18500,
+    estimatedValue: 3500,
     createdAt: "2026-06-15T09:30:00Z"
   },
   {
@@ -90,12 +90,12 @@ export const INITIAL_LEADS: Lead[] = [
     name: "Sarah Jenkins",
     email: "sarah.j.ev@yahoo.com",
     phone: "(954) 555-8831",
-    address: "704 Beach Dr NE, Colorado Springs, CO 33301",
-    projectType: "driveway",
-    description: "Installation of a new brick paver driveway in our home. The current driveway is concrete. Needs permit.",
+    address: "704 Beach Dr NE, Fort Lauderdale, FL 33301",
+    projectType: "ev-charger",
+    description: "Installation of a Tesla Wall Connector in our home garage. The panel is in the garage, so the run is short (about 5 feet). Needs permit.",
     contactTime: "afternoon",
     status: "contacted",
-    estimatedValue: 7200,
+    estimatedValue: 1200,
     createdAt: "2026-06-14T14:15:00Z"
   },
   {
@@ -103,12 +103,12 @@ export const INITIAL_LEADS: Lead[] = [
     name: "Daniel Alvarez",
     email: "dan_alvarez@outlook.com",
     phone: "(786) 555-4421",
-    address: "9405 Oakwood Dr, Aurora, CO 33156",
-    projectType: "foundation",
-    description: "Wanting an estimate to pour a concrete foundation slab for a new backyard guest house (20x30 ft). Needs permit.",
+    address: "9405 Oakwood Dr, Coral Gables, FL 33156",
+    projectType: "generator",
+    description: "Wanting an estimate to install a Kohler 20kW home standby generator with an automatic transfer switch (ATS). House runs on LP gas.",
     contactTime: "evening",
     status: "proposal_sent",
-    estimatedValue: 12500,
+    estimatedValue: 14500,
     createdAt: "2026-06-12T11:00:00Z"
   },
   {
@@ -116,12 +116,12 @@ export const INITIAL_LEADS: Lead[] = [
     name: "Emily Croft",
     email: "emily.croft@gmail.com",
     phone: "(305) 555-7729",
-    address: "3102 N Highland Ave, Denver, CO 33137",
-    projectType: "home-improvements",
-    description: "Full interior drywall repairs, custom trim carpentry, door installations, and professional painting.",
+    address: "3102 N Highland Ave, Miami, FL 33137",
+    projectType: "wiring-rewiring",
+    description: "Full kitchen electrical renovation. Need dedicated appliance circuits, GFCI outlets, under-cabinet LED lighting, and installation of a new island light fixture.",
     contactTime: "afternoon",
     status: "consultation_scheduled",
-    estimatedValue: 4500,
+    estimatedValue: 8500,
     createdAt: "2026-06-11T16:40:00Z"
   },
   {
@@ -129,13 +129,13 @@ export const INITIAL_LEADS: Lead[] = [
     name: "Amanda Carter",
     email: "amanda.carter@comcast.net",
     phone: "(786) 555-1284",
-    address: "1282 Bayshore Blvd, Boulder, CO 33149",
+    address: "1282 Bayshore Blvd, Key Biscayne, FL 33149",
     projectType: "commercial",
-    description: "Commercial retail build-out. Need drywalls, drop ceiling, commercial flooring, and partition walls.",
+    description: "Commercial build-out. Need panel installation, conduit routing, retail layout lighting, and emergency exit sign installations.",
     contactTime: "morning",
     status: "won",
-    notes: "Contract signed. Foundation permits pulled. Commencing next Tuesday.",
-    estimatedValue: 48000,
+    notes: "Contract signed. Sub-panel permits pulled. Commencing next Tuesday.",
+    estimatedValue: 32000,
     createdAt: "2026-06-08T10:10:00Z"
   },
   {
@@ -143,13 +143,13 @@ export const INITIAL_LEADS: Lead[] = [
     name: "Jonathan Riggs",
     email: "jriggs_investments@gmail.com",
     phone: "(305) 555-9012",
-    address: "4202 NW 74th Ave, Lakewood, CO 33166",
-    projectType: "sidewalk",
-    description: "Concrete sidewalk pouring and pathway curbing in a new retail strip mall.",
+    address: "4202 NW 74th Ave, Doral, FL 33166",
+    projectType: "industrial",
+    description: "High-bay LED lighting retrofit and 3-phase machinery hookups in a new manufacturing warehouse.",
     contactTime: "evening",
     status: "lost",
     notes: "Client chose a competitor that submitted a lower bid.",
-    estimatedValue: 15400,
+    estimatedValue: 54000,
     createdAt: "2026-06-05T15:20:00Z"
   }
 ];
@@ -157,40 +157,40 @@ export const INITIAL_LEADS: Lead[] = [
 export const INITIAL_REVIEWS: Review[] = [
   {
     id: "review-1",
-    title: "Perfect Remodeling - Clean and Professional!",
-    text: "ACC Construction LLC remodeled our kitchen in Denver. They handled permits, arrived early, and walked us through the inspections. Unbelievably neat finishes and carpentry work. Highly recommend!",
+    title: "Perfect Panel Upgrade - Clean and Professional!",
+    text: "R&E Electrical upgraded our home panel in Miami Beach. They handles permits, arrived early, and walked us through the inspections. Unbelievably neat wire work inside the panel cover. Highly recommend!",
     author: "David R.",
-    location: "Denver, CO",
+    location: "Miami, FL",
     rating: 5,
     featured: true,
     createdAt: "2026-05-01T12:00:00Z"
   },
   {
     id: "review-2",
-    title: "Highly Recommend for Driveway Paving",
-    text: "Fast, honest, and competitive quote for my brick paver driveway. The grading was perfect, pavers are aligned correctly, and works perfectly. Excellent work!",
+    title: "Highly Recommend for EV Charger Installs",
+    text: "Fast, honest, and competitive quote for my home Tesla Wall Connector. The job was clean, labeled correctly on the panel, and works perfectly. Excellent work!",
     author: "Lisa M.",
-    location: "Colorado Springs, CO",
+    location: "Fort Lauderdale, FL",
     rating: 5,
     featured: true,
     createdAt: "2026-05-02T12:00:00Z"
   },
   {
     id: "review-3",
-    title: "Concrete Foundation Done Right",
-    text: "Outstanding service. The team poured our guest house foundation slab seamlessly. They took care of everything from grading coordination to final inspections. Exceptional project management.",
+    title: "standby Generator Installation Done Right",
+    text: "Outstanding service. The team installed our standby generator system seamlessly. They took care of everything from LP gas connection coordination to final inspections. Exceptional project management.",
     author: "Marcus T.",
-    location: "Aurora, CO",
+    location: "Coral Gables, FL",
     rating: 5,
     featured: true,
     createdAt: "2026-05-03T12:00:00Z"
   },
   {
     id: "review-4",
-    title: "Honest Contractors - No Surprise Fees",
-    text: "I was quoted for a full home remodel, and they stuck to the quote exactly. No surprise fees, no hidden costs. Cleaned up every single day before leaving. Highly professional team.",
+    title: "Honest Electricians - No Surprise Fees",
+    text: "I was quoted for a full home rewire, and they stuck to the quote exactly. No surprise fees, no hidden costs. Cleaned up every single day before leaving. Highly professional team.",
     author: "Elena P.",
-    location: "Denver, CO",
+    location: "Miami, FL",
     rating: 5,
     featured: true,
     createdAt: "2026-05-04T12:00:00Z"
@@ -206,7 +206,7 @@ export const INITIAL_EMAILS: WebEmail[] = [
     email: "charlotte.horn@gmail.com",
     phone: "786-555-8291",
     service: "EV Charger Installation",
-    message: "Hi, I just bought an electric vehicle and need an estimate to install a Level 2 charger in my garage in Aurora. Thanks!",
+    message: "Hi, I just bought an electric vehicle and need an estimate to install a Level 2 charger in my garage in Coral Gables. Thanks!",
     source: "Contact Page",
     createdAt: "2026-06-16T18:22:00Z"
   }
@@ -247,7 +247,7 @@ async function apiCall<T>(url: string, method: string, body?: any): Promise<T> {
 
   // Attach session token if logged in
   if (typeof window !== "undefined") {
-    const token = localStorage.getItem("accconstruction-session-token");
+    const token = localStorage.getItem("electrical-session-token");
     if (token) {
       headers["Authorization"] = `Bearer ${token}`;
     }
@@ -283,11 +283,11 @@ async function apiCall<T>(url: string, method: string, body?: any): Promise<T> {
 export const getLeads = async (): Promise<Lead[]> => {
   try {
     const leads = await apiCall<Lead[]>("/api/leads", "GET");
-    setStorageItem("accconstruction-leads", leads);
+    setStorageItem("electrical-leads", leads);
     return leads;
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage leads:", err);
-    return getStorageItem<Lead[]>("accconstruction-leads", INITIAL_LEADS);
+    return getStorageItem<Lead[]>("electrical-leads", INITIAL_LEADS);
   }
 };
 
@@ -318,7 +318,7 @@ export const addLead = async (leadData: Omit<Lead, "id" | "status" | "estimatedV
       photos: []
     };
     leads.push(newLead);
-    setStorageItem("accconstruction-leads", leads);
+    setStorageItem("electrical-leads", leads);
     return newLead;
   }
 };
@@ -335,7 +335,7 @@ export const addCustomLead = async (lead: Omit<Lead, "id" | "createdAt">): Promi
       createdAt: new Date().toISOString()
     };
     leads.push(newLead);
-    setStorageItem("accconstruction-leads", leads);
+    setStorageItem("electrical-leads", leads);
     return newLead;
   }
 };
@@ -347,7 +347,7 @@ export const updateLeadStatus = async (id: string, status: Lead["status"]): Prom
     console.warn("MongoDB offline, falling back to local storage:", err);
     const leads = await getLeads();
     const updated = leads.map(l => l.id === id ? { ...l, status } : l);
-    setStorageItem("accconstruction-leads", updated);
+    setStorageItem("electrical-leads", updated);
     return updated;
   }
 };
@@ -359,7 +359,7 @@ export const updateLeadDetails = async (id: string, updates: Partial<Pick<Lead, 
     console.warn("MongoDB offline, falling back to local storage:", err);
     const leads = await getLeads();
     const updated = leads.map(l => l.id === id ? { ...l, ...updates } : l);
-    setStorageItem("accconstruction-leads", updated);
+    setStorageItem("electrical-leads", updated);
     return updated;
   }
 };
@@ -371,7 +371,7 @@ export const deleteLead = async (id: string): Promise<Lead[]> => {
     console.warn("MongoDB offline, falling back to local storage:", err);
     const leads = await getLeads();
     const filtered = leads.filter(l => l.id !== id);
-    setStorageItem("accconstruction-leads", filtered);
+    setStorageItem("electrical-leads", filtered);
     return filtered;
   }
 };
@@ -389,7 +389,7 @@ export const uploadLeadPhoto = async (leadId: string, base64Photo: string): Prom
       }
       return l;
     });
-    setStorageItem("accconstruction-leads", updated);
+    setStorageItem("electrical-leads", updated);
     return updated;
   }
 };
@@ -408,7 +408,7 @@ export const removeLeadPhoto = async (leadId: string, photoIndex: number): Promi
       }
       return l;
     });
-    setStorageItem("accconstruction-leads", updated);
+    setStorageItem("electrical-leads", updated);
     return updated;
   }
 };
@@ -417,11 +417,11 @@ export const removeLeadPhoto = async (leadId: string, photoIndex: number): Promi
 export const getReviews = async (): Promise<Review[]> => {
   try {
     const reviews = await apiCall<Review[]>("/api/reviews", "GET");
-    setStorageItem("accconstruction-reviews", reviews);
+    setStorageItem("electrical-reviews", reviews);
     return reviews;
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage reviews:", err);
-    return getStorageItem<Review[]>("accconstruction-reviews", INITIAL_REVIEWS);
+    return getStorageItem<Review[]>("electrical-reviews", INITIAL_REVIEWS);
   }
 };
 
@@ -443,7 +443,7 @@ export const addReview = async (reviewData: Omit<Review, "id" | "featured" | "cr
       photos
     };
     reviews.unshift(newReview);
-    setStorageItem("accconstruction-reviews", reviews);
+    setStorageItem("electrical-reviews", reviews);
     return newReview;
   }
 };
@@ -455,7 +455,7 @@ export const toggleReviewFeatured = async (id: string): Promise<Review[]> => {
     console.warn("MongoDB offline, falling back to local storage:", err);
     const reviews = await getReviews();
     const updated = reviews.map(r => r.id === id ? { ...r, featured: !r.featured } : r);
-    setStorageItem("accconstruction-reviews", updated);
+    setStorageItem("electrical-reviews", updated);
     return updated;
   }
 };
@@ -467,7 +467,7 @@ export const replyToReview = async (id: string, replyText: string): Promise<Revi
     console.warn("MongoDB offline, falling back to local storage:", err);
     const reviews = await getReviews();
     const updated = reviews.map(r => r.id === id ? { ...r, replyText } : r);
-    setStorageItem("accconstruction-reviews", updated);
+    setStorageItem("electrical-reviews", updated);
     return updated;
   }
 };
@@ -479,7 +479,7 @@ export const deleteReview = async (id: string): Promise<Review[]> => {
     console.warn("MongoDB offline, falling back to local storage:", err);
     const reviews = await getReviews();
     const updated = reviews.filter(r => r.id !== id);
-    setStorageItem("accconstruction-reviews", updated);
+    setStorageItem("electrical-reviews", updated);
     return updated;
   }
 };
@@ -489,11 +489,11 @@ export const getChatSessions = async (): Promise<ChatSession[]> => {
   try {
     const chats = await apiCall<ChatSession[]>("/api/chats?t=" + Date.now(), "GET");
     const sorted = chats.sort((a, b) => new Date(b.lastMessageTime).getTime() - new Date(a.lastMessageTime).getTime());
-    setStorageItem("accconstruction-chats", sorted);
+    setStorageItem("electrical-chats", sorted);
     return sorted;
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage chats:", err);
-    const chats = getStorageItem<ChatSession[]>("accconstruction-chats", INITIAL_CHATS);
+    const chats = getStorageItem<ChatSession[]>("electrical-chats", INITIAL_CHATS);
     return chats.sort((a, b) => new Date(b.lastMessageTime).getTime() - new Date(a.lastMessageTime).getTime());
   }
 };
@@ -505,7 +505,7 @@ export const getChatSessionById = async (sessionId: string): Promise<ChatSession
 
 export const createChatSession = async (
   clientName: string,
-  clientCity: string = "Denver",
+  clientCity: string = "Miami",
   clientEmail?: string,
   clientPhone?: string
 ): Promise<ChatSession> => {
@@ -526,7 +526,7 @@ export const createChatSession = async (
       messages: []
     };
     chats.push(newSession);
-    setStorageItem("accconstruction-chats", chats);
+    setStorageItem("electrical-chats", chats);
     return newSession;
   }
 };
@@ -557,7 +557,7 @@ export const sendChatMessage = async (sessionId: string, sender: "client" | "adm
       }
       return c;
     });
-    setStorageItem("accconstruction-chats", updatedChats);
+    setStorageItem("electrical-chats", updatedChats);
     return updatedSession;
   }
 };
@@ -569,7 +569,7 @@ export const markChatAsRead = async (sessionId: string): Promise<ChatSession[]> 
     console.warn("MongoDB offline, falling back to local storage:", err);
     const chats = await getChatSessions();
     const updated = chats.map(c => c.id === sessionId ? { ...c, unread: false } : c);
-    setStorageItem("accconstruction-chats", updated);
+    setStorageItem("electrical-chats", updated);
     return updated;
   }
 };
@@ -577,13 +577,13 @@ export const markChatAsRead = async (sessionId: string): Promise<ChatSession[]> 
 export const deleteChatSession = async (id: string): Promise<ChatSession[]> => {
   try {
     const chats = await apiCall<ChatSession[]>("/api/chats?id=" + id, "DELETE");
-    setStorageItem("accconstruction-chats", chats);
+    setStorageItem("electrical-chats", chats);
     return chats;
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage:", err);
     const chats = await getChatSessions();
     const filtered = chats.filter(c => c.id !== id);
-    setStorageItem("accconstruction-chats", filtered);
+    setStorageItem("electrical-chats", filtered);
     return filtered;
   }
 };
@@ -593,11 +593,11 @@ export const getWebEmails = async (): Promise<WebEmail[]> => {
   try {
     const emails = await apiCall<WebEmail[]>("/api/emails", "GET");
     const sorted = emails.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
-    setStorageItem("accconstruction-emails", sorted);
+    setStorageItem("electrical-emails", sorted);
     return sorted;
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage emails:", err);
-    const emails = getStorageItem<WebEmail[]>("accconstruction-emails", INITIAL_EMAILS);
+    const emails = getStorageItem<WebEmail[]>("electrical-emails", INITIAL_EMAILS);
     return emails.sort((a, b) => new Date(b.createdAt).getTime() - new Date(a.createdAt).getTime());
   }
 };
@@ -614,7 +614,7 @@ export const addWebEmail = async (emailData: Omit<WebEmail, "id" | "createdAt">)
       createdAt: new Date().toISOString()
     };
     emails.unshift(newEmail);
-    setStorageItem("accconstruction-emails", emails);
+    setStorageItem("electrical-emails", emails);
     return newEmail;
   }
 };
@@ -626,7 +626,7 @@ export const deleteWebEmail = async (id: string): Promise<WebEmail[]> => {
     console.warn("MongoDB offline, falling back to local storage:", err);
     const emails = await getWebEmails();
     const filtered = emails.filter(e => e.id !== id);
-    setStorageItem("accconstruction-emails", filtered);
+    setStorageItem("electrical-emails", filtered);
     return filtered;
   }
 };
@@ -635,23 +635,19 @@ export const deleteWebEmail = async (id: string): Promise<WebEmail[]> => {
 export const getGalleryPhotos = async (): Promise<GalleryPhoto[]> => {
   try {
     const photos = await apiCall<GalleryPhoto[]>("/api/gallery", "GET");
-    setStorageItem("accconstruction-gallery-photos", photos);
+    setStorageItem("electrical-gallery-photos", photos);
     return photos;
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage gallery:", err);
-    return getStorageItem<GalleryPhoto[]>("accconstruction-gallery-photos", [
+    return getStorageItem<GalleryPhoto[]>("electrical-gallery-photos", [
       { id: "photo-1", url: "https://images.unsplash.com/photo-1621905251189-08b45d6a269e", uploadedAt: new Date().toISOString() }
     ]);
   }
 };
 
-export const uploadGalleryPhoto = async (
-  fileOrBase64: string | File,
-  category?: string,
-  metadata?: { title?: string; location?: string; tag?: string }
-): Promise<GalleryPhoto[]> => {
+export const uploadGalleryPhoto = async (fileOrBase64: string | File, category?: string): Promise<GalleryPhoto[]> => {
   try {
-    const folder = `accconstruction/${category && category !== "all" ? category : "gallery"}`;
+    const folder = `electrical/${category && category !== "all" ? category : "gallery"}`;
 
     // Step 1: Get a signed upload token from the server
     const signRes = await apiCall<{ signature: string; timestamp: number; apiKey: string; cloudName: string; folder: string }>(
@@ -665,22 +661,16 @@ export const uploadGalleryPhoto = async (
     formData.append("timestamp", String(signRes.timestamp));
     formData.append("folder", signRes.folder);
 
-    // Determine Cloudinary resource type (image, video, raw)
-    let resourceType = "image";
+    // Accept either a File object (from input) or a base64 string
     if (fileOrBase64 instanceof File) {
-      if (fileOrBase64.type.startsWith("video/") || fileOrBase64.name.endsWith(".mp4") || fileOrBase64.name.endsWith(".mov")) {
-        resourceType = "video";
-      }
-    } else if (typeof fileOrBase64 === "string" && fileOrBase64.startsWith("data:video/")) {
-      resourceType = "video";
+      formData.append("file", fileOrBase64);
+    } else {
+      formData.append("file", fileOrBase64);
     }
-
-    // Append the file (File object or base64 data string)
-    formData.append("file", fileOrBase64);
 
     // Step 3: Upload directly to Cloudinary
     const uploadRes = await fetch(
-      `https://api.cloudinary.com/v1_1/${signRes.cloudName}/${resourceType}/upload`,
+      `https://api.cloudinary.com/v1_1/${signRes.cloudName}/auto/upload`,
       { method: "POST", body: formData }
     );
     if (!uploadRes.ok) {
@@ -691,13 +681,7 @@ export const uploadGalleryPhoto = async (
     const secureUrl: string = uploadData.secure_url;
 
     // Step 4: Save the URL to our database
-    return await apiCall<GalleryPhoto[]>("/api/gallery", "POST", {
-      url: secureUrl,
-      category,
-      title: metadata?.title,
-      location: metadata?.location,
-      tag: metadata?.tag
-    });
+    return await apiCall<GalleryPhoto[]>("/api/gallery", "POST", { url: secureUrl, category });
   } catch (err) {
     console.warn("Gallery upload failed, falling back to local storage:", err);
     const photos = await getGalleryPhotos();
@@ -705,13 +689,10 @@ export const uploadGalleryPhoto = async (
       id: "photo-" + Math.random().toString(36).substr(2, 9),
       url: typeof fileOrBase64 === "string" ? fileOrBase64 : URL.createObjectURL(fileOrBase64),
       category: category || "residential",
-      title: metadata?.title,
-      location: metadata?.location || "Denver, CO",
-      tag: metadata?.tag,
       uploadedAt: new Date().toISOString()
     };
     photos.unshift(newPhoto);
-    setStorageItem("accconstruction-gallery-photos", photos);
+    setStorageItem("electrical-gallery-photos", photos);
     return photos;
   }
 };
@@ -723,7 +704,7 @@ export const removeGalleryPhoto = async (id: string): Promise<GalleryPhoto[]> =>
     console.warn("MongoDB offline, falling back to local storage:", err);
     const photos = await getGalleryPhotos();
     const filtered = photos.filter(p => p.id !== id);
-    setStorageItem("accconstruction-gallery-photos", filtered);
+    setStorageItem("electrical-gallery-photos", filtered);
     return filtered;
   }
 };
@@ -734,19 +715,19 @@ export const loginAdmin = async (username: string, password: string): Promise<{ 
     const res = await apiCall<{ success: boolean; user: any }>("/api/users", "POST", { action: "login", username, password });
     if (res.success && typeof window !== "undefined") {
       const token = "token-" + res.user.id + "-" + Math.random().toString(36).substr(2, 9);
-      localStorage.setItem("accconstruction-session-token", token);
-      localStorage.setItem("accconstruction-session-user", JSON.stringify(res.user));
+      localStorage.setItem("electrical-session-token", token);
+      localStorage.setItem("electrical-session-user", JSON.stringify(res.user));
       return { success: true, token };
     }
     throw new Error("Invalid credentials");
   } catch (err) {
     console.warn("MongoDB offline, checking local storage accounts:", err);
-    const accounts = getStorageItem<any[]>("accconstruction-admin-accounts", [DEFAULT_ADMIN]);
+    const accounts = getStorageItem<any[]>("electrical-admin-accounts", [DEFAULT_ADMIN]);
     const user = accounts.find(a => a.username.toLowerCase() === username.toLowerCase() && a.password === password);
     if (user) {
       const token = "token-" + user.id + "-" + Math.random().toString(36).substr(2, 9);
-      localStorage.setItem("accconstruction-session-token", token);
-      localStorage.setItem("accconstruction-session-user", JSON.stringify({ id: user.id, username: user.username, role: user.role }));
+      localStorage.setItem("electrical-session-token", token);
+      localStorage.setItem("electrical-session-user", JSON.stringify({ id: user.id, username: user.username, role: user.role }));
       return { success: true, token };
     }
     throw new Error("Invalid username or password.");
@@ -755,8 +736,8 @@ export const loginAdmin = async (username: string, password: string): Promise<{ 
 
 export const verifyAdminToken = async (token: string): Promise<{ valid: boolean; id?: string; username?: string; role?: string }> => {
   if (typeof window === "undefined") return { valid: false };
-  const activeToken = localStorage.getItem("accconstruction-session-token");
-  const storedUser = localStorage.getItem("accconstruction-session-user");
+  const activeToken = localStorage.getItem("electrical-session-token");
+  const storedUser = localStorage.getItem("electrical-session-user");
   if (activeToken === token && storedUser) {
     const u = JSON.parse(storedUser);
     return { valid: true, id: u.id, username: u.username, role: u.role };
@@ -769,7 +750,7 @@ export const getPortalUsers = async (): Promise<PortalUser[]> => {
     return await apiCall<PortalUser[]>("/api/users", "GET");
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage:", err);
-    const accounts = getStorageItem<any[]>("accconstruction-admin-accounts", [DEFAULT_ADMIN]);
+    const accounts = getStorageItem<any[]>("electrical-admin-accounts", [DEFAULT_ADMIN]);
     return accounts.map(a => ({ id: a.id, username: a.username, role: a.role }));
   }
 };
@@ -779,7 +760,7 @@ export const createPortalUser = async (username: string, password: string, role:
     return await apiCall<{ success: boolean; id: string; username: string; role: string }>("/api/users", "POST", { action: "create", username, password, role });
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage:", err);
-    const accounts = getStorageItem<any[]>("accconstruction-admin-accounts", [DEFAULT_ADMIN]);
+    const accounts = getStorageItem<any[]>("electrical-admin-accounts", [DEFAULT_ADMIN]);
     if (accounts.some(a => a.username.toLowerCase() === username.toLowerCase())) {
       throw new Error("Username already exists.");
     }
@@ -790,7 +771,7 @@ export const createPortalUser = async (username: string, password: string, role:
       role
     };
     accounts.push(newUser);
-    setStorageItem("accconstruction-admin-accounts", accounts);
+    setStorageItem("electrical-admin-accounts", accounts);
     return { success: true, id: newUser.id, username: newUser.username, role: newUser.role };
   }
 };
@@ -800,9 +781,9 @@ export const deletePortalUser = async (userId: string): Promise<{ success: boole
     return await apiCall<{ success: boolean }>("/api/users", "POST", { action: "delete", userId });
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage:", err);
-    const accounts = getStorageItem<any[]>("accconstruction-admin-accounts", [DEFAULT_ADMIN]);
+    const accounts = getStorageItem<any[]>("electrical-admin-accounts", [DEFAULT_ADMIN]);
     const filtered = accounts.filter(a => a.id !== userId);
-    setStorageItem("accconstruction-admin-accounts", filtered);
+    setStorageItem("electrical-admin-accounts", filtered);
     return { success: true };
   }
 };
@@ -811,19 +792,19 @@ export const updateUserCredentials = async (userId: string, username?: string, p
   try {
     const res = await apiCall<{ success: boolean; username: string }>("/api/users", "POST", { action: "update", userId, username, password });
     if (res.success && typeof window !== "undefined") {
-      const storedUser = localStorage.getItem("accconstruction-session-user");
+      const storedUser = localStorage.getItem("electrical-session-user");
       if (storedUser) {
         const u = JSON.parse(storedUser);
         if (u.id === userId) {
           u.username = res.username;
-          localStorage.setItem("accconstruction-session-user", JSON.stringify(u));
+          localStorage.setItem("electrical-session-user", JSON.stringify(u));
         }
       }
     }
     return res;
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage:", err);
-    const accounts = getStorageItem<any[]>("accconstruction-admin-accounts", [DEFAULT_ADMIN]);
+    const accounts = getStorageItem<any[]>("electrical-admin-accounts", [DEFAULT_ADMIN]);
     let updatedUsername = "";
     const updated = accounts.map(a => {
       if (a.id === userId) {
@@ -836,14 +817,14 @@ export const updateUserCredentials = async (userId: string, username?: string, p
       }
       return a;
     });
-    setStorageItem("accconstruction-admin-accounts", updated);
+    setStorageItem("electrical-admin-accounts", updated);
 
-    const storedUser = localStorage.getItem("accconstruction-session-user");
+    const storedUser = localStorage.getItem("electrical-session-user");
     if (storedUser) {
       const u = JSON.parse(storedUser);
       if (u.id === userId) {
         u.username = updatedUsername;
-        localStorage.setItem("accconstruction-session-user", JSON.stringify(u));
+        localStorage.setItem("electrical-session-user", JSON.stringify(u));
       }
     }
     return { success: true, username: updatedUsername };
@@ -913,10 +894,10 @@ export const getAnalyticsData = (leads: Lead[], reviews: Review[]) => {
   leads.forEach(l => {
     const addressStr = l.address || "";
     const parts = addressStr.split(",");
-    let city = "Denver";
+    let city = "Miami";
     if (parts.length >= 2) {
       const cityPart = parts[parts.length - 2].trim();
-      city = cityPart || "Denver";
+      city = cityPart || "Miami";
     }
     cityCounts[city] = (cityCounts[city] || 0) + 1;
   });
@@ -985,26 +966,26 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
     return await apiCall<SiteSettings>("/api/settings?t=" + Date.now(), "GET");
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage settings:", err);
-    let email = getStorageItem("accconstruction_settings_alertEmail", "leonholley45@gmail.com");
+    let email = getStorageItem("electrical_settings_alertEmail", "Williams@electricalcontractorcorp.com");
     if (email === "revitalizerealestate@gmail.com") {
-      email = "leonholley45@gmail.com";
-      setStorageItem("accconstruction_settings_alertEmail", email);
+      email = "Williams@electricalcontractorcorp.com";
+      setStorageItem("electrical_settings_alertEmail", email);
     }
-    let phone = getStorageItem("accconstruction_settings_officePhone", "(720) 298-7777");
+    let phone = getStorageItem("electrical_settings_officePhone", "(786) 307-5933");
     if (phone === "(813) 323-0291") {
-      phone = "(720) 298-7777";
-      setStorageItem("accconstruction_settings_officePhone", phone);
+      phone = "(786) 307-5933";
+      setStorageItem("electrical_settings_officePhone", phone);
     }
     return {
       alertEmail: email,
       officePhone: phone,
-      smsTemplate: getStorageItem("accconstruction_settings_smsTemplate", "Hi {Name}, thank you for contacting ACC Construction LLC! A construction specialist will contact you during the {Time} to discuss your {Type} project."),
-      emailAlert: getStorageItem("accconstruction_settings_emailAlert", "true") === "true",
-      smsAlert: getStorageItem("accconstruction_settings_smsAlert", "true") === "true",
-      maintenanceMode: getStorageItem("accconstruction_settings_maintenanceMode", "false") === "true",
-      weekdays: getStorageItem("accconstruction_settings_weekdays", "7:00 AM - 7:00 PM"),
-      saturdays: getStorageItem("accconstruction_settings_saturdays", "7:00 AM - 7:00 PM"),
-      sundays: getStorageItem("accconstruction_settings_sundays", "Closed")
+      smsTemplate: getStorageItem("electrical_settings_smsTemplate", "Hi {Name}, thank you for contacting R&E Electrical Contractor Corp! An electrician will contact you during the {Time} to discuss your {Type} project."),
+      emailAlert: getStorageItem("electrical_settings_emailAlert", "true") === "true",
+      smsAlert: getStorageItem("electrical_settings_smsAlert", "true") === "true",
+      maintenanceMode: getStorageItem("electrical_settings_maintenanceMode", "false") === "true",
+      weekdays: getStorageItem("electrical_settings_weekdays", "8:00 AM - 5:00 PM"),
+      saturdays: getStorageItem("electrical_settings_saturdays", "8:00 AM - 5:00 PM"),
+      sundays: getStorageItem("electrical_settings_sundays", "Closed (Emergency 24/7)")
     };
   }
 };
@@ -1015,7 +996,7 @@ export const saveSiteSettings = async (settings: Partial<SiteSettings>): Promise
   } catch (err) {
     console.warn("MongoDB offline, saving to local storage settings:", err);
     Object.entries(settings).forEach(([key, val]) => {
-      setStorageItem("accconstruction_settings_" + key, String(val));
+      setStorageItem("electrical_settings_" + key, String(val));
     });
     return getSiteSettings();
   }

@@ -18,20 +18,72 @@ import { getSiteSettings } from "../lib/leads-store";
 
 function NotFoundComponent() {
   return (
-    <div className="flex min-h-screen items-center justify-center bg-background px-4">
-      <div className="max-w-md text-center">
-        <h1 className="text-7xl font-bold text-foreground">404</h1>
-        <h2 className="mt-4 text-xl font-semibold text-foreground">Page not found</h2>
-        <p className="mt-2 text-sm text-muted-foreground">
-          The page you're looking for doesn't exist or has been moved.
+    <div className="flex min-h-screen items-center justify-center bg-background px-4 py-16">
+      <div className="max-w-xl text-center space-y-6">
+        <div className="inline-flex items-center justify-center w-20 h-20 rounded-full bg-primary/10 text-primary text-3xl font-black mb-2">
+          404
+        </div>
+        <h1 className="text-3xl sm:text-4xl font-extrabold text-foreground tracking-tight">
+          Page Not Found
+        </h1>
+        <p className="text-base text-muted-foreground max-w-md mx-auto leading-relaxed">
+          The page you are looking for doesn't exist or has been relocated. Browse our electrical services or contact our team for immediate assistance.
         </p>
-        <div className="mt-6">
+
+        {/* Quick Links Grid */}
+        <div className="grid grid-cols-2 sm:grid-cols-3 gap-2.5 pt-2 text-left max-w-md mx-auto text-xs font-semibold">
+          <Link
+            to="/services/residential"
+            className="p-2.5 rounded-xl border border-border bg-card hover:border-primary hover:text-primary transition text-center"
+          >
+            Residential
+          </Link>
+          <Link
+            to="/services/commercial"
+            className="p-2.5 rounded-xl border border-border bg-card hover:border-primary hover:text-primary transition text-center"
+          >
+            Commercial
+          </Link>
+          <Link
+            to="/services/industrial"
+            className="p-2.5 rounded-xl border border-border bg-card hover:border-primary hover:text-primary transition text-center"
+          >
+            Industrial
+          </Link>
+          <Link
+            to="/services/panel-upgrades"
+            className="p-2.5 rounded-xl border border-border bg-card hover:border-primary hover:text-primary transition text-center"
+          >
+            Panel Upgrades
+          </Link>
+          <Link
+            to="/services/ev-charger"
+            className="p-2.5 rounded-xl border border-border bg-card hover:border-primary hover:text-primary transition text-center"
+          >
+            EV Chargers
+          </Link>
+          <Link
+            to="/service-areas"
+            className="p-2.5 rounded-xl border border-border bg-card hover:border-primary hover:text-primary transition text-center"
+          >
+            Service Areas
+          </Link>
+        </div>
+
+        {/* Action Buttons */}
+        <div className="pt-4 flex flex-wrap justify-center gap-3">
           <Link
             to="/"
-            className="inline-flex items-center justify-center rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground transition-colors hover:bg-primary/90"
+            className="inline-flex items-center justify-center rounded-xl bg-primary px-5 py-3 text-sm font-bold text-primary-foreground transition-colors hover:bg-primary/90 shadow-sm"
           >
-            Go home
+            Return to Homepage
           </Link>
+          <a
+            href="tel:+17863075933"
+            className="inline-flex items-center justify-center rounded-xl border border-border bg-card px-5 py-3 text-sm font-bold text-foreground transition-colors hover:border-primary hover:text-primary"
+          >
+            24/7 Hotline: (786) 307-5933
+          </a>
         </div>
       </div>
     </div>
@@ -81,17 +133,18 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
     meta: [
       { charSet: "utf-8" },
       { name: "viewport", content: "width=device-width, initial-scale=1" },
-      { title: "R&E Electrical Contractor Corp | Licensed Electricians Miami & South Florida" },
-      { name: "description", content: "Licensed and insured electrical contractors delivering residential, commercial, and industrial services with 17+ years of expert craftsmanship in Miami & South Florida." },
-      { name: "keywords", content: "licensed electrician miami, electrical contractor south florida, emergency electrician miami, commercial electrician miami, residential electrician broward, panel upgrade miami, home ev charger installation florida, backup generator installation" },
+      { title: "Electrical Contractor in Florida | Electrical Contractor Corp" },
+      { name: "description", content: "Licensed & insured electrical contractor serving Florida. Residential, commercial, industrial & 24/7 emergency electrical services. Call (786) 307-5933." },
+      { name: "keywords", content: "electrical contractor Florida, electrician Florida, electrical services Florida, licensed electrician Florida, commercial electrician Florida, residential electrician Florida, 24/7 emergency electrician Florida, panel upgrade Florida, EV charger installation Florida, generator installation Florida" },
       { name: "robots", content: "index, follow" },
-      { name: "author", content: "R&E Electrical Contractor Corp" },
-      { property: "og:title", content: "R&E Electrical Contractor Corp | Licensed Electricians" },
-      { property: "og:description", content: "Powering South Florida homes & businesses with expert electrical solutions." },
+      { name: "author", content: "Electrical Contractor Corp" },
+      { property: "og:title", content: "Electrical Contractor in Florida | Electrical Contractor Corp" },
+      { property: "og:description", content: "Licensed and insured electrical contractor delivering residential, commercial, industrial, and 24/7 emergency services across Florida." },
       { property: "og:type", content: "website" },
-      { property: "og:url", content: "https://www.randeelectrical.com" },
-      { property: "og:image", content: "https://www.randeelectrical.com/assets/logo.png" },
-      { property: "og:site_name", content: "R&E Electrical Contractor Corp" },
+      { property: "og:url", content: "https://electricalcontractorcorp.com" },
+      { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
+      { property: "og:site_name", content: "Electrical Contractor Corp" },
+      { name: "google-site-verification", content: "e-s3WCmdQDJJ0mhTLiX5OjFcSV4yRPThw8kw1kYrmjo" },
       { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [

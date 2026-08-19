@@ -15,13 +15,13 @@ function ProjectsPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://electricalcontractorcorp.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Projects",
-        "item": "https://www.randeelectrical.com/projects"
+        "item": "https://electricalcontractorcorp.com/projects"
       }
     ]
   };
@@ -33,9 +33,9 @@ function ProjectsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <PageHeader
-        eyebrow={t("Projects", "Proyectos")}
-        title={t("Work we're proud of.", "Trabajo del cual estamos orgullosos.")}
-        subtitle={t("A snapshot of recent installations from the R&E Electrical crew.", "Una muestra de las instalaciones recientes del equipo de R&E Electrical.")}
+        eyebrow={t("Projects Portfolio", "Portafolio de Proyectos")}
+        title={t("Completed Electrical Projects in Florida", "Proyectos Eléctricos Completados en Florida")}
+        subtitle={t("A showcase of recent residential, commercial, and industrial electrical installations across Florida.", "Una muestra de instalaciones eléctricas residenciales, comerciales e industriales recientes en Florida.")}
       />
       <Projects />
       <EmergencyCTA />
@@ -46,13 +46,17 @@ function ProjectsPage() {
 export const Route = createFileRoute("/projects")({
   head: () => ({
     meta: [
-      { title: "Featured Projects | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Recent residential, commercial, and industrial electrical projects across Florida." },
-      { property: "og:title", content: "Featured Projects | R&E Electrical Contractor Corp" },
-      { property: "og:description", content: "Hand-picked recent electrical installations." },
+      { title: "Featured Electrical Projects in Florida | Electrical Contractor Corp" },
+      { name: "description", content: "Explore our portfolio of completed residential panel upgrades, commercial office build-outs, and industrial electrical installations across Florida." },
+      { name: "keywords", content: "electrical projects Florida, commercial electrical portfolio Florida, residential panel upgrade projects, EV charger installation photos Florida" },
+      { property: "og:title", content: "Featured Electrical Projects in Florida | Electrical Contractor Corp" },
+      { property: "og:description", content: "Explore recent electrical installations across Florida." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://electricalcontractorcorp.com/projects" },
+      { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/projects" }
+      { rel: "canonical", href: "https://electricalcontractorcorp.com/projects" }
     ],
   }),
   component: ProjectsPage,

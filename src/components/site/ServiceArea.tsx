@@ -1,17 +1,18 @@
 import { useState } from "react";
+import { Link } from "@tanstack/react-router";
 import { motion } from "framer-motion";
-import { MapPin } from "lucide-react";
+import { MapPin, ArrowRight } from "lucide-react";
 
 const areasData = [
-  { name: "Miami", x: "55%", y: "50%", primary: true },
-  { name: "Coral Gables", x: "42%", y: "58%" },
-  { name: "Brickell", x: "58%", y: "48%" },
-  { name: "Doral", x: "32%", y: "42%" },
-  { name: "Wynwood", x: "56%", y: "40%" },
-  { name: "Aventura", x: "72%", y: "22%" },
-  { name: "Pinecrest", x: "38%", y: "72%" },
-  { name: "Miami Beach", x: "68%", y: "38%" },
-  { name: "Hialeah", x: "42%", y: "32%" },
+  { name: "Miami", x: "55%", y: "50%", primary: true, link: "/service-areas/miami-fl" },
+  { name: "Hialeah", x: "42%", y: "32%", primary: true, link: "/service-areas/hialeah-fl" },
+  { name: "Fort Lauderdale", x: "65%", y: "26%", primary: true, link: "/service-areas/fort-lauderdale-fl" },
+  { name: "Coral Gables", x: "42%", y: "58%", link: "/service-areas/miami-fl" },
+  { name: "Brickell", x: "58%", y: "48%", link: "/service-areas/miami-fl" },
+  { name: "Doral", x: "32%", y: "42%", link: "/service-areas/miami-fl" },
+  { name: "Wynwood", x: "56%", y: "40%", link: "/service-areas/miami-fl" },
+  { name: "Aventura", x: "72%", y: "22%", link: "/service-areas/miami-fl" },
+  { name: "Miami Beach", x: "68%", y: "38%", link: "/service-areas/miami-fl" },
 ];
 
 const TinyLightningIcon = () => (
@@ -40,7 +41,7 @@ export function ServiceArea() {
               Proudly Serving The Entire State Of <span className="text-[#FF6B00]">Florida</span>.
             </h2>
             <p className="text-sm sm:text-base text-slate-500 font-medium leading-relaxed max-w-lg mb-8">
-              We provide prompt, dependable electrical solutions across the entire state of Florida — typically dispatched from our local Miami operations center.
+              We provide prompt, dependable electrical solutions across the entire state of Florida — dispatched from our primary operations center in Hialeah & Miami.
             </p>
             
             {/* Premium Capsule Chips */}
@@ -48,11 +49,11 @@ export function ServiceArea() {
               {areasData.map((a) => {
                 const isActive = hoveredArea === a.name;
                 return (
-                  <motion.div
+                  <Link
                     key={a.name}
+                    to={a.link}
                     onMouseEnter={() => setHoveredArea(a.name)}
                     onMouseLeave={() => setHoveredArea(null)}
-                    whileHover={{ scale: 1.03, y: -1 }}
                     className={`flex items-center gap-2 text-xs font-bold uppercase tracking-wider rounded-xl py-2.5 px-4 transition-all duration-300 shadow-sm cursor-pointer border ${
                       isActive
                         ? "bg-[#FF6B00]/10 border-[#FF6B00]/45 text-[#FF6B00] scale-[1.03] -translate-y-0.5 shadow-md shadow-[#FF6B00]/5"
@@ -63,9 +64,18 @@ export function ServiceArea() {
                       isActive ? "text-[#FF6B00]" : "text-[#FF6B00]/75"
                     }`} />
                     {a.name}
-                  </motion.div>
+                  </Link>
                 );
               })}
+            </div>
+
+            <div className="mt-8">
+              <Link
+                to="/service-areas"
+                className="inline-flex items-center gap-2 text-xs font-black uppercase tracking-widest text-[#FF6B00] hover:text-[#E05E00] transition"
+              >
+                View Florida Statewide Coverage Map <ArrowRight className="h-4 w-4" />
+              </Link>
             </div>
           </div>
 
@@ -169,14 +179,17 @@ export function ServiceArea() {
             ))}
 
             {/* Coverage badge */}
-            <div className="absolute bottom-5 left-5 bg-slate-950/75 border border-slate-800/80 backdrop-blur-md text-white rounded-2xl px-4 py-3 select-none z-20">
+            <Link
+              to="/service-areas"
+              className="absolute bottom-5 left-5 bg-slate-950/85 hover:bg-slate-900 border border-slate-800/80 backdrop-blur-md text-white rounded-2xl px-4 py-3 select-none z-20 transition group"
+            >
               <div className="text-[9px] uppercase tracking-widest text-slate-400 font-bold">
                 Service Area
               </div>
-              <div className="font-display font-bold text-sm text-[#FF6B00] mt-0.5">
-                Entire State of Florida
+              <div className="font-display font-bold text-sm text-[#FF6B00] group-hover:text-white transition-colors mt-0.5 flex items-center gap-1.5">
+                Entire State of Florida →
               </div>
-            </div>
+            </Link>
 
           </motion.div>
         </div>

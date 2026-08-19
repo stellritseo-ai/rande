@@ -38,14 +38,14 @@ export function Hero() {
             <span className="flex text-amber-400 gap-0.5">
               {[...Array(5)].map((_, i) => <Star key={i} className="h-3.5 w-3.5 fill-current text-amber-400" />)}
             </span>
-            {t("Trusted Electrical Contractor", "Contratista Eléctrico de Confianza")}
+            {t("Licensed Electrical Contractor · Florida", "Contratista Eléctrico Autorizado · Florida")}
           </span>
-          <h1 className="mt-6 font-display text-[30px] leading-[40px] sm:text-[40px] sm:leading-[52px] md:text-[50px] md:leading-[65px] font-extrabold tracking-tight">
-            {t("Powering Homes & Businesses With ", "Energizando Hogares y Empresas con ")}
-            <span className="gradient-text-orange">{t("Expert Electrical", "Soluciones Eléctricas")}</span> {t("Solutions", "Expertas")}
+          <h1 className="mt-6 font-display text-[30px] leading-[40px] sm:text-[40px] sm:leading-[52px] md:text-[50px] md:leading-[62px] font-extrabold tracking-tight">
+            {t("Professional Electrical Contractor ", "Contratista Eléctrico Profesional ")}
+            <span className="gradient-text-orange">{t("Serving Florida", "en Toda Florida")}</span>
           </h1>
-          <p className="max-w-2xl mt-0 mb-[-10px] text-white text-[15px] sm:text-[17px] leading-relaxed sm:leading-[40px]">
-            {t("Licensed, insured, and experienced electricians delivering residential, commercial and industrial services with unmatched quality and reliability.", "Electricistas autorizados, asegurados y con experiencia que ofrecen servicios residenciales, comerciales e industriales con una calidad y confiabilidad inigualables.")}
+          <p className="max-w-2xl mt-3 mb-1 text-white/95 text-[15px] sm:text-[17px] leading-relaxed sm:leading-[28px] font-medium">
+            {t("State-licensed, fully insured electricians providing residential, commercial, industrial, and 24/7 emergency electrical services with unmatched craftsmanship and safety across Florida.", "Electricistas autorizados y asegurados por el estado que brindan servicios eléctricos residenciales, comerciales, industriales y de emergencia las 24 horas, los 7 días de la semana, con una mano de obra y seguridad incomparables en toda Florida.")}
           </p>
           <div className="mt-7 flex flex-row flex-wrap items-center gap-3 sm:gap-4">
             <Button asChild variant="hero" size="xl">

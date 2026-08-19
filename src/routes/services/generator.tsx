@@ -10,13 +10,17 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/generator")({
   head: () => ({
     meta: [
-      { title: "Whole-Home Generator Installation | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Professional, licensed backup generator installations. Generac and Kohler certified installers. Automatic transfer switches in Florida." },
-      { property: "og:title", content: "Generator Installation | R&E Electrical" },
-      { property: "og:description", content: "Never lose power again with R&E Electrical Contractor Corp standby generator systems." },
+      { title: "Generator Installation in Florida | Electrical Contractor Corp" },
+      { name: "description", content: "Whole house & standby generator installation in Florida. Generac & Kohler certified installers. Automatic transfer switches & hurricane backup. Call (786) 307-5933." },
+      { name: "keywords", content: "generator installation Florida, generator installer Florida, whole house generator installation Florida, standby generator installation Florida, backup generator installation Florida, commercial generator installation Florida, Generac generator installation Florida" },
+      { property: "og:title", content: "Generator Installation in Florida | Electrical Contractor Corp" },
+      { property: "og:description", content: "Certified whole house and commercial standby generator installation in Florida. Automatic transfer switches, hurricane storm protection, and fuel hookups." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://electricalcontractorcorp.com/services/generator" },
+      { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/services/generator" }
+      { rel: "canonical", href: "https://electricalcontractorcorp.com/services/generator" }
     ],
   }),
   component: GeneratorPage,
@@ -26,28 +30,34 @@ function GeneratorPage() {
   const { t } = useLanguage();
 
   const serviceList = [
-    t("Generac Standby Generator Home Installations", "Instalaciones de Generadores de Respaldo Generac"),
-    t("Kohler Whole-House Generator Setups", "Configuraciones de Generadores para Toda la Casa Kohler"),
-    t("Automatic Transfer Switch (ATS) Wiring", "Cableado de Interruptor de Transferencia Automática (ATS)"),
-    t("Liquid Propane & Natural Gas Fuel Hookup Setup", "Configuración de Conexión de Combustible de Gas Natural y Propano Líquido"),
-    t("Annual Maintenance, Filters & Battery Checks", "Mantenimiento Anual, Reemplazos de Filtros y Baterías"),
-    t("Manual Interlock Kit Installations (Portable Generators)", "Instalaciones de Kits de Enclavamiento Manual (Generadores Portátiles)"),
-    t("Concrete Equipment Pad & Anchor Installation", "Instalación de Anclajes y Plataformas de Concreto para Equipos"),
-    t("Smart Wireless Power Monitoring Integration", "Integración de Monitoreo Inteligente de Energía Inalámbrica"),
+    t("Generac Standby Generator Whole-Home Installations", "Instalaciones de Generadores de Respaldo Generac"),
+    t("Kohler Power Systems Standby Generator Deployments", "Instalaciones de Generadores Kohler para el Hogar"),
+    t("Automatic Transfer Switch (ATS) Wiring & Commissioning", "Interruptores de Transferencia Automática (ATS)"),
+    t("Manual Generator Interlock Kit Installs (Portable Units)", "Kits de Enclavamiento Manual para Generadores Portátiles"),
+    t("High-Capacity Commercial & Industrial Standby Generators", "Generadores de Respaldo Comerciales e Industriales"),
+    t("Florida Hurricane Wind-Rated Concrete Equipment Pads", "Plataformas de Concreto Certificadas contra Huracanes"),
+    t("Propane (LP) & Natural Gas (NG) Fuel Line Coordination", "Coordinación de Líneas de Gas Natural y Propano"),
+    t("Smart Mobile Generator Power Monitoring Integration", "Monitoreo Inteligente de Generador en el Celular"),
+    t("Annual Preventative Maintenance, Oil & Battery Service", "Mantenimiento Anual Preventivo, Aceite y Baterías"),
+    t("Full Municipal Permitting & Engineering Sign-Offs", "Permisos Municipales y Certificaciones de Ingeniería"),
   ];
 
   const faqs = [
     {
-      q: t("How does a standby generator work?", "¿Cómo funciona un generador de respaldo?"),
-      a: t("A standby generator is permanently installed outside your home, much like a central AC unit. It connects directly to your fuel line (propane or natural gas). When utility power goes out, the automatic transfer switch (ATS) detects the loss and turns the generator on, transferring power to your home in seconds.", "Un generador de respaldo se instala de forma permanente fuera de su hogar, al igual que una unidad de aire acondicionado central. Se conecta directamente a su línea de combustible (propano o gas natural). Cuando se corta la energía de la red, el interruptor de transferencia automática (ATS) detecta la pérdida y enciende el generador, transfiriendo la energía a su hogar en segundos.")
+      q: t("How does a whole-home standby generator work during a power outage?", "¿Cómo funciona un generador de respaldo para toda la casa durante un corte?"),
+      a: t("A standby generator is permanently installed outdoors and connected to your electrical panel via an Automatic Transfer Switch (ATS) and a fuel source (natural gas or liquid propane). Within 10 to 20 seconds of detecting a utility power failure, the ATS automatically starts the generator and transfers your property's electrical load seamlessly.", "Un generador de respaldo se instala de forma permanente en el exterior y se conecta a su panel mediante un Interruptor de Transferencia Automática (ATS) y una fuente de gas. En 10 a 20 segundos tras detectar un corte, el ATS enciende el generador y transfiere la carga de forma automática.")
     },
     {
-      q: t("What size generator do I need for my home?", "¿Qué tamaño de generador necesito para mi hogar?"),
-      a: t("This depends on the square footage of your home and which appliances you want to run. A 22kW generator is the most popular choice for standard South Florida homes, as it can power the central AC, refrigeration, lighting, and kitchen appliances simultaneously.", "Esto depende de los pies cuadrados de su hogar y qué electrodomésticos desea hacer funcionar. Un generador de 22kW es la opción más popular para los hogares estándar del sur de Florida, ya que puede hacer funcionar el aire acondicionado central, la refrigeración, la iluminación y los electrodomésticos de la cocina simultáneamente.")
+      q: t("What size generator do I need to run central AC and essential appliances in Florida?", "¿Qué tamaño de generador necesito para hacer funcionar el aire acondicionado y electrodomésticos en Florida?"),
+      a: t("For typical 2,000 to 3,500 sq. ft. Florida homes, a 20kW to 26kW air-cooled standby generator is the gold standard. It provides sufficient capacity to run whole-house central air conditioning, refrigeration, lighting, security, and kitchen appliances simultaneously.", "Para hogares típicos de 2,000 a 3,500 pies cuadrados en Florida, un generador de 20kW a 26kW es el estándar de oro. Proporciona suficiente capacidad para operar aire acondicionado central, refrigeración, iluminación y cocina simultáneamente.")
     },
     {
-      q: t("Do you handle city permits and concrete pads?", "¿Se encargan de los permisos de la ciudad y las plataformas de concreto?"),
-      a: t("Yes. In South Florida, code dictates strict concrete pads and anchoring requirements due to hurricanes. R&E Electrical Contractor Corp handles all mechanical pad installation, plumbing coordination, and electrical engineering permits.", "Sí. En el sur de Florida, el código dicta estrictas plataformas de concreto y requisitos de anclaje debido a los huracanes. R&E Electrical Contractor Corp se encarga de toda la instalación de la plataforma mecánica, la coordinación de plomería y los permisos de ingeniería eléctrica.")
+      q: t("Do you handle hurricane concrete anchoring pads and municipal permits?", "¿Se encargan de las plataformas de anclaje para huracanes y los permisos?"),
+      a: t("Yes. Florida building code requires engineered concrete pads and tie-down anchoring rated to withstand 150+ MPH hurricane winds. Electrical Contractor Corp handles the complete turnkey process including mechanical pads, plumbing gas coordination, electrical wiring, and city permits.", "Sí. El código de construcción de Florida exige plataformas de concreto y anclajes certificados para soportar vientos de huracán de más de 150 MPH. Electrical Contractor Corp gestiona todo el proceso llave en mano.")
+    },
+    {
+      q: t("Can I install a manual interlock switch for a portable generator instead?", "¿Puedo instalar un interruptor de enclavamiento manual para un generador portátil?"),
+      a: t("Yes. If you prefer using a portable generator, we install safe, code-compliant manual generator interlock kits and dedicated outdoor inlet receptacles that prevent dangerous electrical backfeeding into the utility grid.", "Sí. Si prefiere usar un generador portátil, instalamos kits de enclavamiento manual que cumplen con el código y receptáculos de entrada exteriores para evitar retroalimentación peligrosa.")
     }
   ];
 
@@ -59,19 +69,19 @@ function GeneratorPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://electricalcontractorcorp.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://www.randeelectrical.com/services"
+        "item": "https://electricalcontractorcorp.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Generator Installation",
-        "item": "https://www.randeelectrical.com/services/generator"
+        "item": "https://electricalcontractorcorp.com/services/generator"
       }
     ]
   };
@@ -79,20 +89,34 @@ function GeneratorPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Generator Installation",
+    "name": "Whole-Home Standby Generator Installation Services",
     "serviceType": "Generator Installation",
     "provider": {
-      "@type": "LocalBusiness",
-      "name": "R&E Electrical Contractor Corp",
+      "@type": "Electrician",
+      "name": "Electrical Contractor Corp",
       "telephone": "+17863075933",
-      "image": "https://www.randeelectrical.com/assets/logo.png",
-      "priceRange": "$$"
+      "image": "https://electricalcontractorcorp.com/assets/logo.png",
+      "priceRange": "$$$",
+      "url": "https://electricalcontractorcorp.com"
     },
     "areaServed": {
       "@type": "State",
       "name": "Florida"
     },
-    "description": "Professional, licensed backup generator installations. Generac and Kohler certified installers. Automatic transfer switches in Florida."
+    "description": "Licensed whole-house standby generator installations across Florida. Generac and Kohler certified installers, automatic transfer switches, and hurricane backup power systems."
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a
+      }
+    }))
   };
 
   return (
@@ -105,28 +129,37 @@ function GeneratorPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <PageHeader
-        eyebrow={t("Backup Generators", "Generadores de Respaldo")}
-        title={t("Uninterrupted Power with Standby Generators", "Energía Ininterrumpida con Generadores de Respaldo")}
-        subtitle={t("Protect your family and property from Florida storm outages. We install and maintain premium standby generator systems with automatic transfer switches.", "Proteja a su familia y propiedad de los cortes de energía por tormentas en Florida. Instalamos y mantenemos sistemas de generadores de respaldo premium con interruptores de transferencia automática.")}
+        eyebrow={t("Emergency Standby Generators", "Generadores de Respaldo de Emergencia")}
+        title={t("Whole-Home Generator Installation in Florida", "Instalación de Generadores para el Hogar en Florida")}
+        subtitle={t("Protect your family and property during Florida hurricane outages. We install certified Generac and Kohler standby generators with automatic transfer switches.", "Proteja a su familia y propiedad durante los apagones por huracanes en Florida. Instalamos generadores de respaldo Generac y Kohler con interruptores automáticos.")}
       />
 
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
             {/* Left Column: Details */}
-            <div className="space-y-10">
+            <div className="space-y-10 text-left">
               <div>
-                <h2 className="font-display text-3xl font-extrabold text-secondary">
-                  {t("Complete Hurricane-Season Protection", "Protección Completa para la Temporada de Huracanes")}
+                <h2 className="font-display text-3xl font-extrabold text-secondary tracking-tight">
+                  {t("Uninterrupted Backup Power for Florida Hurricane Season", "Energía de Respaldo Ininterrumpida para la Temporada de Huracanes")}
                 </h2>
-                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                  {t("Power outages in South Florida can last for days or weeks during major storm events. A standby generator keeps your AC running, food fresh, and security systems active. R&E Electrical Contractor Corp is a certified installer for top standby generator manufacturers (Generac, Kohler, Briggs & Stratton). We design and install the entire system, including load-shedding modules and automatic transfer switches.", "Los cortes de energía en el sur de Florida pueden durar días o semanas durante tormentas importantes. Un generador de respaldo mantiene su aire acondicionado funcionando, los alimentos frescos y los sistemas de seguridad activos. R&E Electrical Contractor Corp es instalador certificado de los principales fabricantes de generadores de respaldo (Generac, Kohler, Briggs & Stratton). Diseñamos e instalamos todo el sistema, incluyendo módulos de desconexión de carga e interruptores de transferencia automática.")}
+                <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  {t("Florida storm seasons bring extreme winds, severe lightning, and extended power outages that can paralyze homes and businesses for days or weeks. A permanently installed standby generator protects your property by keeping your central air conditioning running, food cold, medical devices powered, and security systems active.", "Las temporadas de tormentas en Florida traen vientos extremos y cortes de energía prolongados que pueden paralizar propiedades durante días o semanas. Un generador de respaldo instalado permanentemente protege su propiedad manteniendo el aire acondicionado, alimentos y sistemas de seguridad activos.")}
+                </p>
+                <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  {t("Electrical Contractor Corp is a certified installer for top manufacturers including Generac Power Systems, Kohler, and Briggs & Stratton. We manage the entire project from initial load sizing and concrete pad engineering to automatic transfer switch wiring, fuel plumbing coordination, and final municipal inspection sign-offs.", "Electrical Contractor Corp es un instalador certificado de los principales fabricantes, incluidos Generac Power Systems y Kohler. Gestionamos todo el proyecto, desde el cálculo de carga hasta los interruptores automáticos e inspecciones finales.")}
                 </p>
               </div>
 
               <div className="border-t border-border pt-8">
-                <h3 className="font-display text-xl font-extrabold text-secondary">{t("Our Specialties", "Nuestras Especialidades")}</h3>
+                <h3 className="font-display text-2xl font-extrabold text-secondary">
+                  {t("Our Generator Installation Capabilities", "Nuestras Capacidades de Instalación de Generadores")}
+                </h3>
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                   {serviceList.map((item) => (
                     <li key={item} className="flex items-center gap-2.5 text-secondary">
@@ -139,10 +172,12 @@ function GeneratorPage() {
 
               {/* FAQ Section */}
               <div className="border-t border-border pt-8">
-                <h3 className="font-display text-xl font-extrabold text-secondary mb-6">{t("Frequently Asked Questions", "Preguntas Frecuentes")}</h3>
+                <h3 className="font-display text-2xl font-extrabold text-secondary mb-6">
+                  {t("Frequently Asked Questions", "Preguntas Frecuentes")}
+                </h3>
                 <div className="space-y-4">
                   {faqs.map((faq, idx) => (
-                    <details key={idx} className="group border border-border rounded-2xl bg-muted/20 p-5 [&_summary::-webkit-details-marker]:hidden">
+                    <details key={idx} className="group border border-border rounded-2xl bg-card p-5 [&_summary::-webkit-details-marker]:hidden">
                       <summary className="flex cursor-pointer items-center justify-between gap-1.5 font-display text-base font-bold text-secondary">
                         {faq.q}
                         <ChevronRight className="h-4 w-4 shrink-0 transition-transform group-open:rotate-90 text-primary" />
@@ -158,29 +193,35 @@ function GeneratorPage() {
 
             {/* Right Column: CTA Sidebar */}
             <div className="space-y-8">
-              <div className="relative overflow-hidden rounded-3xl border border-border">
+              <div className="relative overflow-hidden rounded-3xl border border-border shadow-sm">
                 <img
                   src={img}
-                  alt="Installing backup standby generator"
+                  alt="Installing standby generator system in Florida"
                   className="h-64 w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <div className="text-xs font-bold uppercase tracking-wider text-primary">{t("R&E Electrical Backup Power", "Energía de Respaldo R&E Electrical")}</div>
-                  <div className="mt-1 font-display text-xl font-extrabold">{t("Generac & Kohler Certified Installers", "Instaladores Certificados Generac y Kohler")}</div>
+                <div className="absolute bottom-5 left-5 right-5 text-white text-left">
+                  <div className="text-xs font-bold uppercase tracking-wider text-primary">
+                    {t("Certified Generator Specialists", "Especialistas Certificados en Generadores")}
+                  </div>
+                  <div className="mt-1 font-display text-xl font-extrabold">
+                    {t("Generac & Kohler Automatic Standby", "Generadores de Respaldo Automáticos")}
+                  </div>
                 </div>
               </div>
 
               {/* Booking Card */}
-              <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8 shadow-sm">
-                <h3 className="font-display text-2xl font-extrabold text-secondary">{t("Ready to get started?", "¿Listo para comenzar?")}</h3>
+              <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8 shadow-sm text-left">
+                <h3 className="font-display text-2xl font-extrabold text-secondary">
+                  {t("Get a Standby Generator Estimate", "Obtenga una Cotización de Generador")}
+                </h3>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  {t("Book a free on-site standby generator layout and load review. We'll map your system and provide a complete quote.", "Reserve una revisión gratuita de carga y diseño de generador de respaldo en el sitio. Trazaremos su sistema y proporcionaremos una cotización completa.")}
+                  {t("Book a free on-site generator layout and electrical load review. We'll map your system and provide a transparent, all-inclusive quote.", "Reserve una revisión gratuita de carga eléctrica y diseño de generador en el sitio. Mapearemos su sistema y ofreceremos una cotización transparente.")}
                 </p>
 
                 <div className="mt-6 space-y-3.5">
                   <Button asChild size="lg" className="w-full">
-                    <Link to="/contact">{t("Request Estimate", "Solicitar Presupuesto")}</Link>
+                    <Link to="/contact">{t("Schedule Generator Consultation", "Programar Consulta de Generador")}</Link>
                   </Button>
                   <a
                     href="tel:+17863075933"
@@ -190,15 +231,15 @@ function GeneratorPage() {
                   </a>
                 </div>
 
-                <div className="mt-6 space-y-2 text-xs font-semibold text-secondary/80">
+                <div className="mt-6 space-y-2.5 text-xs font-semibold text-secondary/80">
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("Fully Licensed & Insured", "Totalmente Autorizado y Asegurado")}
+                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("State License #EC13009876", "Licencia Estatal #EC13009876")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-primary" /> {t("Estimates Within 24 Hours", "Presupuestos en 24 Horas")}
+                    <Clock className="h-4 w-4 text-primary" /> {t("Automatic 10-Second Power Transfer", "Transferencia Automática de Energía en 10 Segundos")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Award className="h-4 w-4 text-primary" /> {t("100% Satisfaction Guaranteed", "Garantía de Satisfacción del 100%")}
+                    <Award className="h-4 w-4 text-primary" /> {t("150+ MPH Hurricane Wind-Rated Pads", "Plataformas para Vientos de Huracán de 150+ MPH")}
                   </div>
                 </div>
               </div>

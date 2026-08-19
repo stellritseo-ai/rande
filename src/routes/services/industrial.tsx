@@ -10,13 +10,17 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/industrial")({
   head: () => ({
     meta: [
-      { title: "Industrial Electrical Services | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Professional, licensed industrial electrical installations, 3-phase power distribution, motor controls, and heavy machinery hookups across South Florida." },
-      { property: "og:title", content: "Industrial Electrical Services | R&E Electrical" },
-      { property: "og:description", content: "Licensed industrial electrical solutions for South Florida." },
+      { title: "Industrial Electrical Contractor in Florida | Electrical Contractor Corp" },
+      { name: "description", content: "Licensed industrial electrical contractor in Florida. 3-phase power distribution, motor controls, machinery wiring & high-voltage systems. Call (786) 307-5933." },
+      { name: "keywords", content: "industrial electrical contractor Florida, industrial electrician Florida, industrial electrical services Florida, industrial electrical installation Florida, industrial wiring contractor Florida, 3-phase power installation Florida, high voltage electrical contractor Florida" },
+      { property: "og:title", content: "Industrial Electrical Contractor in Florida | Electrical Contractor Corp" },
+      { property: "og:description", content: "State-licensed industrial electrical engineering, 3-phase distribution, high-voltage equipment hookups, and PLC automation across Florida." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://electricalcontractorcorp.com/services/industrial" },
+      { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/services/industrial" }
+      { rel: "canonical", href: "https://electricalcontractorcorp.com/services/industrial" }
     ],
   }),
   component: IndustrialPage,
@@ -26,28 +30,34 @@ function IndustrialPage() {
   const { t } = useLanguage();
 
   const serviceList = [
-    t("Three-Phase Power Distribution Wiring", "Cableado de Distribución de Energía Trifásica"),
-    t("Heavy Industrial Machinery & Equipment Hookups", "Conexiones de Maquinaria y Equipos Industriales Pesados"),
-    t("Motor Control Center (MCC) Setups & Repairs", "Instalaciones y Reparaciones de Centros de Control de Motores (MCC)"),
-    t("High-Voltage Conduit Runs & Cable Tray Installs", "Instalaciones de Bandejas de Cables y Conductos de Alto Voltaje"),
-    t("Facility Electrical Load Testing & Audits", "Pruebas y Auditorías de Carga Eléctrica de Instalaciones"),
-    t("Industrial Backup Generator & Transfer Systems", "Sistemas de Transferencia y Generadores de Respaldo Industriales"),
-    t("Transformer Installation & Step-Down Wiring", "Instalación de Transformadores y Cableado Reductor"),
-    t("Hazardous Location Explosion-Proof Wiring", "Cableado a Prueba de Explosiones en Ubicaciones Peligrosas"),
+    t("Three-Phase Power Distribution (480V / 208V / 240V)", "Distribución de Energía Trifásica (480V / 208V / 240V)"),
+    t("Heavy Industrial Machinery Hookups & Feeder Cables", "Conexiones de Maquinaria Industrial Pesada y Alimentadores"),
+    t("Motor Control Centers (MCC) & Variable Frequency Drives (VFD)", "Centros de Control de Motores (MCC) y Variadores (VFD)"),
+    t("High-Voltage Conduit Runs & Rigid Cable Tray Installs", "Conductos de Alto Voltaje y Bandejas Rígidas"),
+    t("Step-Down Transformers & Industrial Switchgear", "Transformadores Reductores y Cuadros Eléctricos"),
+    t("Hazardous Location Class I, II, III Explosion-Proof Wiring", "Cableado a Prueba de Explosiones en Áreas Peligrosas"),
+    t("Facility Electrical Load Testing & Harmonic Power Analysis", "Pruebas de Carga de Instalaciones y Análisis de Armónicos"),
+    t("Automated Emergency Standby Power & Paralleling Switchgear", "Generadores de Emergencia y Tableros en Paralelo"),
+    t("Industrial Automation, PLC Wiring & Control Panels", "Automatización Industrial, Cableado PLC y Paneles"),
+    t("FPL Utility Engineering Coordination for Primary Service", "Coordinación de Ingeniería Eléctrica con FPL"),
   ];
 
   const faqs = [
     {
-      q: t("What is the difference between single-phase and three-phase power?", "¿Cuál es la diferencia entre la energía monofásica y trifásica?"),
-      a: t("Single-phase is common for residential homes (120/240V). Three-phase uses three active wires, delivering steadier power levels and higher capacity, which is essential for heavy industrial motors, compressors, and manufacturing equipment.", "La monofásica es común para hogares residenciales (120/240V). La trifásica utiliza tres cables activos, ofreciendo niveles de energía más constantes y mayor capacidad, lo cual es esencial para motores industriales pesados, compresores y equipos de fabricación.")
+      q: t("What voltage systems and phases do your industrial electricians work on?", "¿En qué sistemas de voltaje y fases trabajan sus electricistas industriales?"),
+      a: t("We work on standard commercial single-phase (120/240V) as well as heavy industrial three-phase systems (208Y/120V, 480Y/277V, and medium-voltage primary distribution up to 13.8kV), including step-down transformers and switchgear.", "Trabajamos en sistemas residenciales monofásicos (120/240V) y en sistemas industriales trifásicos pesados (208Y/120V, 480Y/277V y distribución primaria de media tensión hasta 13.8kV), incluidos transformadores reductores y tableros.")
     },
     {
-      q: t("Do you coordinate with utility providers like FPL for service upgrades?", "¿Coordinan con proveedores de servicios públicos como FPL para actualizaciones de servicios?"),
-      a: t("Yes. We manage full utility engineering coordination with Florida Power & Light to upgrade transformer vaults, high-amp CT cabinets, and main switchgear systems safely.", "Sí. Gestionamos la coordinación completa de ingeniería de servicios públicos con Florida Power & Light para actualizar bóvedas de transformadores, gabinetes de CT de alto amperaje y sistemas de tableros de distribución principales de manera segura.")
+      q: t("How do you manage shutdown windows for industrial manufacturing facilities?", "¿Cómo gestionan las ventanas de parada en plantas de manufactura?"),
+      a: t("We plan plant shutdowns with meticulous timeline coordination. Our industrial crews work around-the-clock during planned plant turnarounds, holiday shutdowns, and off-peak shifts to complete major switchgear swaps and conduit installations with zero disruption to active production runs.", "Planificamos las paradas de planta con una coordinación meticulosa. Nuestros equipos trabajan las 24 horas durante paradas programadas y turnos nocturnos para completar cambios de tableros sin interrumpir la producción.")
     },
     {
-      q: t("Do you offer industrial backup generator integration?", "¿Ofrecen integración de generadores de respaldo industriales?"),
-      a: t("Yes. We install high-capacity backup generator systems and automatic transfer switches to ensure continuous facility operations during utility failure.", "Sí. Instalamos sistemas de generadores de respaldo de alta capacidad e interruptores de transferencia automática para asegurar la operación continua de la instalación durante fallas de servicios públicos.")
+      q: t("Are your technicians certified for hazardous and explosion-proof environments?", "¿Están certificados para entornos peligrosos y a prueba de explosiones?"),
+      a: t("Yes. We specialize in National Electrical Code (NEC) Class I (flammable gases), Class II (combustible dusts), and Class III (ignitible fibers) classified environments using explosion-proof fittings, seals, and rigid threaded conduit systems.", "Sí. Nos especializamos en entornos clasificados por el Código Eléctrico Nacional (NEC) Clase I, Clase II y Clase III utilizando accesorios a prueba de explosiones y conductos roscados rígidos.")
+    },
+    {
+      q: t("Do you coordinate high-amp industrial service upgrades with Florida Power & Light?", "¿Coordinan aumentos de capacidad industrial con Florida Power & Light?"),
+      a: t("Yes. We coordinate directly with FPL industrial engineering teams for primary service drops, CT metering cabinets, pad-mounted transformer sizing, and fault current calculations.", "Sí. Coordinamos directamente con los equipos de ingeniería de FPL para acometidas principales, gabinetes de medición CT, transformadores y cálculos de corriente de falla.")
     }
   ];
 
@@ -59,19 +69,19 @@ function IndustrialPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://electricalcontractorcorp.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Services",
-        "item": "https://www.randeelectrical.com/services"
+        "item": "https://electricalcontractorcorp.com/services"
       },
       {
         "@type": "ListItem",
         "position": 3,
         "name": "Industrial Electrical",
-        "item": "https://www.randeelectrical.com/services/industrial"
+        "item": "https://electricalcontractorcorp.com/services/industrial"
       }
     ]
   };
@@ -79,20 +89,34 @@ function IndustrialPage() {
   const serviceSchema = {
     "@context": "https://schema.org",
     "@type": "Service",
-    "name": "Industrial Electrical Services",
-    "serviceType": "Industrial Electrical Services",
+    "name": "Industrial Electrical Contracting Services",
+    "serviceType": "Industrial Electrical Contractor",
     "provider": {
-      "@type": "LocalBusiness",
-      "name": "R&E Electrical Contractor Corp",
+      "@type": "Electrician",
+      "name": "Electrical Contractor Corp",
       "telephone": "+17863075933",
-      "image": "https://www.randeelectrical.com/assets/logo.png",
-      "priceRange": "$$"
+      "image": "https://electricalcontractorcorp.com/assets/logo.png",
+      "priceRange": "$$$",
+      "url": "https://electricalcontractorcorp.com"
     },
     "areaServed": {
       "@type": "State",
       "name": "Florida"
     },
-    "description": "Professional, licensed industrial electrical installations, 3-phase power distribution, motor controls, and heavy machinery hookups across South Florida."
+    "description": "Licensed industrial electrical contractor in Florida specializing in 3-phase power distribution, motor control centers, machinery hookups, and high-voltage power engineering."
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a
+      }
+    }))
   };
 
   return (
@@ -105,28 +129,37 @@ function IndustrialPage() {
         type="application/ld+json"
         dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
       />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <PageHeader
-        eyebrow={t("Industrial Services", "Servicios Industriales")}
-        title={t("Heavy-Duty Power for Industrial Facilities", "Energía de Alta Potencia para Instalaciones Industriales")}
-        subtitle={t("Keep your production lines running. Our expert industrial electricians deploy high-voltage systems, machinery hookups, and controls safely.", "Mantenga sus líneas de producción en funcionamiento. Nuestros electricistas industriales expertos despliegan sistemas de alto voltaje, conexiones de maquinaria y controles de forma segura.")}
+        eyebrow={t("Industrial Electrical Engineering", "Ingeniería Eléctrica Industrial")}
+        title={t("Heavy-Duty Industrial Electrical Contractor in Florida", "Contratista Eléctrico Industrial de Alta Capacidad en Florida")}
+        subtitle={t("Delivering 3-phase power distribution, motor controls, machinery hookups, and high-voltage infrastructure across Florida manufacturing plants and logistics facilities.", "Distribución trifásica, controles de motores, conexiones de maquinaria e infraestructura de alto voltaje para plantas de manufactura y centros logísticos en Florida.")}
       />
 
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
             {/* Left Column: Details */}
-            <div className="space-y-10">
+            <div className="space-y-10 text-left">
               <div>
-                <h2 className="font-display text-3xl font-extrabold text-secondary">
-                  {t("Specialized Industrial Electrical Engineering", "Ingeniería Eléctrica Industrial Especializada")}
+                <h2 className="font-display text-3xl font-extrabold text-secondary tracking-tight">
+                  {t("Precision High-Voltage Industrial Power Systems", "Sistemas Eléctricos Industriales de Alta Tensión y Precisión")}
                 </h2>
-                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                  {t("Industrial environments demand heavy-duty, highly resilient electrical systems. R&E Electrical Contractor Corp's industrial electricians possess specialized training in 3-phase power, motor controls, PLC cabinets, and classified wiring for dust/vapor environments. We minimize downtime by planning installations with surgical precision and conducting detailed diagnostic testing.", "Los entornos industriales requieren sistemas eléctricos de alta potencia y gran resiliencia. Los electricistas industriales de R&E Electrical Contractor Corp poseen capacitación especializada en energía trifásica, controles de motores, gabinetes de PLC y cableado clasificado para entornos de polvo y vapor. Minimizamos el tiempo de inactividad planificando las instalaciones con precisión quirúrgica y realizando pruebas de diagnóstico detalladas.")}
+                <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  {t("Industrial manufacturing facilities, warehouses, logistics distribution centers, and processing plants require resilient electrical infrastructures engineered for continuous high-load operations. Electrical Contractor Corp provides industrial electrical contracting designed to maximize uptime, optimize power factor efficiency, and protect high-value capital equipment.", "Las plantas industriales, centros de distribución logística e instalaciones de procesamiento requieren infraestructuras eléctricas diseñadas para operaciones continuas de alta carga. Electrical Contractor Corp ofrece contratación eléctrica industrial para maximizar el tiempo de actividad y proteger equipos de alto valor.")}
+                </p>
+                <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  {t("Our master electricians possess specialized expertise in 480V 3-phase electrical switchboards, motor control centers (MCC), variable frequency drive (VFD) integration, and explosion-proof hazardous wiring. We perform thermal imaging inspections and load balancing to keep your operations compliant with OSHA, NFPA 70E, and NEC codes.", "Nuestros maestros electricistas poseen experiencia especializada en tableros trifásicos de 480V, centros de control de motores (MCC), variadores de frecuencia (VFD) y cableado a prueba de explosiones.")}
                 </p>
               </div>
 
               <div className="border-t border-border pt-8">
-                <h3 className="font-display text-xl font-extrabold text-secondary">{t("Our Specialties", "Nuestras Especialidades")}</h3>
+                <h3 className="font-display text-2xl font-extrabold text-secondary">
+                  {t("Industrial Capabilities & Scope", "Capacidades y Alcance Industrial")}
+                </h3>
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                   {serviceList.map((item) => (
                     <li key={item} className="flex items-center gap-2.5 text-secondary">
@@ -139,10 +172,12 @@ function IndustrialPage() {
 
               {/* FAQ Section */}
               <div className="border-t border-border pt-8">
-                <h3 className="font-display text-xl font-extrabold text-secondary mb-6">{t("Frequently Asked Questions", "Preguntas Frecuentes")}</h3>
+                <h3 className="font-display text-2xl font-extrabold text-secondary mb-6">
+                  {t("Frequently Asked Questions", "Preguntas Frecuentes")}
+                </h3>
                 <div className="space-y-4">
                   {faqs.map((faq, idx) => (
-                    <details key={idx} className="group border border-border rounded-2xl bg-muted/20 p-5 [&_summary::-webkit-details-marker]:hidden">
+                    <details key={idx} className="group border border-border rounded-2xl bg-card p-5 [&_summary::-webkit-details-marker]:hidden">
                       <summary className="flex cursor-pointer items-center justify-between gap-1.5 font-display text-base font-bold text-secondary">
                         {faq.q}
                         <ChevronRight className="h-4 w-4 shrink-0 transition-transform group-open:rotate-90 text-primary" />
@@ -158,29 +193,35 @@ function IndustrialPage() {
 
             {/* Right Column: CTA Sidebar */}
             <div className="space-y-8">
-              <div className="relative overflow-hidden rounded-3xl border border-border">
+              <div className="relative overflow-hidden rounded-3xl border border-border shadow-sm">
                 <img
                   src={img}
-                  alt="Industrial machinery electrical systems"
+                  alt="Industrial 3-phase machinery electrical installation"
                   className="h-64 w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <div className="text-xs font-bold uppercase tracking-wider text-primary">{t("R&E Electrical Industrial", "R&E Electrical Industrial")}</div>
-                  <div className="mt-1 font-display text-xl font-extrabold">{t("3-Phase & High-Voltage Systems", "Sistemas Trifásicos y de Alto Voltaje")}</div>
+                <div className="absolute bottom-5 left-5 right-5 text-white text-left">
+                  <div className="text-xs font-bold uppercase tracking-wider text-primary">
+                    {t("Florida Industrial Contractors", "Contratistas Industriales de Florida")}
+                  </div>
+                  <div className="mt-1 font-display text-xl font-extrabold">
+                    {t("Heavy-Duty Power Distribution & Controls", "Distribución de Potencia Pesada y Controles")}
+                  </div>
                 </div>
               </div>
 
               {/* Booking Card */}
-              <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8 shadow-sm">
-                <h3 className="font-display text-2xl font-extrabold text-secondary">{t("Ready to get started?", "¿Listo para comenzar?")}</h3>
+              <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8 shadow-sm text-left">
+                <h3 className="font-display text-2xl font-extrabold text-secondary">
+                  {t("Schedule an Industrial Facility Audit", "Programe una Auditoría de Planta Industrial")}
+                </h3>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  {t("Book an industrial electrical system assessment. We will review your layouts or single-line drawings.", "Reserve una evaluación del sistema eléctrico industrial. Revisaremos sus diseños o dibujos unifilares.")}
+                  {t("Our engineering crew reviews single-line drawings, machinery load requirements, and shutdown schedules to provide an itemized project bid.", "Nuestro equipo revisa diagramas unifilares, cargas de maquinaria y cronogramas de parada para proporcionar una cotización detallada.")}
                 </p>
 
                 <div className="mt-6 space-y-3.5">
                   <Button asChild size="lg" className="w-full">
-                    <Link to="/contact">{t("Request Proposal", "Solicitar Propuesta")}</Link>
+                    <Link to="/contact">{t("Request Industrial Proposal", "Solicitar Propuesta Industrial")}</Link>
                   </Button>
                   <a
                     href="tel:+17863075933"
@@ -190,15 +231,15 @@ function IndustrialPage() {
                   </a>
                 </div>
 
-                <div className="mt-6 space-y-2 text-xs font-semibold text-secondary/80">
+                <div className="mt-6 space-y-2.5 text-xs font-semibold text-secondary/80">
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("Fully Licensed & Insured", "Totalmente Autorizado y Asegurado")}
+                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("OSHA & NFPA 70E Safety Compliant", "Cumplimiento de Seguridad OSHA y NFPA 70E")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-primary" /> {t("Estimates Within 24 Hours", "Presupuestos en 24 Horas")}
+                    <Clock className="h-4 w-4 text-primary" /> {t("Turnaround & Plant Shutdown Specialists", "Especialistas en Paradas de Planta")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Award className="h-4 w-4 text-primary" /> {t("100% Satisfaction Guaranteed", "Garantía de Satisfacción del 100%")}
+                    <Award className="h-4 w-4 text-primary" /> {t("State License #EC13009876", "Licencia Estatal #EC13009876")}
                   </div>
                 </div>
               </div>

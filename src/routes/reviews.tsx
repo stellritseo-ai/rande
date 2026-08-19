@@ -15,13 +15,13 @@ function ReviewsPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://electricalcontractorcorp.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Reviews",
-        "item": "https://www.randeelectrical.com/reviews"
+        "item": "https://electricalcontractorcorp.com/reviews"
       }
     ]
   };
@@ -33,9 +33,9 @@ function ReviewsPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <PageHeader
-        eyebrow={t("Reviews", "Opiniones")}
-        title={t("Trusted by 300+ homes & businesses.", "Con la confianza de más de 300 hogares y empresas.")}
-        subtitle={t("See what our customers say about the R&E Electrical Contractor Corp experience.", "Vea lo que dicen nuestros clientes sobre la experiencia con R&E Electrical Contractor Corp.")}
+        eyebrow={t("Client Testimonials", "Testimonios de Clientes")}
+        title={t("Trusted by Homes & Businesses Across Florida", "Con la Confianza de Hogares y Empresas en Toda Florida")}
+        subtitle={t("Read verified customer reviews and feedback for Electrical Contractor Corp's residential, commercial, and emergency electrical services.", "Lea reseñas verificadas de clientes para los servicios eléctricos residenciales, comerciales y de emergencia de Electrical Contractor Corp.")}
       />
       <Testimonials isGrid={true} />
       <EmergencyCTA />
@@ -46,13 +46,17 @@ function ReviewsPage() {
 export const Route = createFileRoute("/reviews")({
   head: () => ({
     meta: [
-      { title: "Customer Reviews | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Read 300+ five-star reviews from R&E Electrical Contractor Corp's residential and commercial electrical clients." },
-      { property: "og:title", content: "Customer Reviews | R&E Electrical Contractor Corp" },
-      { property: "og:description", content: "4.9 average rating from 300+ customers." },
+      { title: "Customer Reviews & Ratings | Electrical Contractor Corp" },
+      { name: "description", content: "Read verified customer reviews and ratings for Electrical Contractor Corp. Trusted residential, commercial & emergency electricians in Florida. Call (786) 307-5933." },
+      { name: "keywords", content: "electrician reviews Florida, electrical contractor reviews Miami, top rated electrician Florida, trusted electricians Hialeah" },
+      { property: "og:title", content: "Customer Reviews & Ratings | Electrical Contractor Corp" },
+      { property: "og:description", content: "Verified five-star reviews from residential and commercial electrical clients in Florida." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://electricalcontractorcorp.com/reviews" },
+      { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/reviews" }
+      { rel: "canonical", href: "https://electricalcontractorcorp.com/reviews" }
     ],
   }),
   component: ReviewsPage,

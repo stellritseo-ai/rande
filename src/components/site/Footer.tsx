@@ -45,20 +45,25 @@ export function Footer() {
     { label: t("Home", "Inicio"), href: "/" },
     { label: t("About Us", "Sobre Nosotros"), href: "/about" },
     { label: t("Our Services", "Nuestros Servicios"), href: "/services" },
-    { label: t("Featured Projects", "Proyectos Destacados"), href: "/projects" },
+    { label: t("Service Areas", "Áreas de Servicio"), href: "/service-areas" },
+    { label: t("Miami, FL Electrician", "Electricista en Miami, FL"), href: "/service-areas/miami-fl" },
+    { label: t("Hialeah, FL Electrician", "Electricista en Hialeah, FL"), href: "/service-areas/hialeah-fl" },
+    { label: t("Fort Lauderdale Electrician", "Electricista en Fort Lauderdale"), href: "/service-areas/fort-lauderdale-fl" },
     { label: t("Client Reviews", "Opiniones de Clientes"), href: "/reviews" },
-    { label: t("Apply For a Job", "Postularse para un Trabajo"), href: "/careers" },
-    { label: t("Get In Touch", "Ponerse en Contacto"), href: "/contact" },
+    { label: t("Free Estimate", "Presupuesto Gratis"), href: "/contact" },
   ];
 
   const servicesLinks = [
     { label: t("Residential Electrical", "Electricidad Residencial"), href: "/services/residential" },
     { label: t("Commercial Electrical", "Electricidad Comercial"), href: "/services/commercial" },
     { label: t("Industrial Electrical", "Electricidad Industrial"), href: "/services/industrial" },
-    { label: t("CCTV Camera Installation", "Instalación de Cámaras CCTV"), href: "/services/cctv-camera" },
-    { label: t("Panel Upgrades", "Actualizaciones de Panel"), href: "/services/panel-upgrades" },
+    { label: t("24/7 Emergency Service", "Servicio de Emergencia 24/7"), href: "/services/emergency" },
+    { label: t("Panel Upgrades (200A/400A)", "Actualizaciones de Panel (200A/400A)"), href: "/services/panel-upgrades" },
     { label: t("EV Charger Installation", "Instalación de Cargador EV"), href: "/services/ev-charger" },
-    { label: t("Generator Services", "Servicios de Generadores"), href: "/services/generator" },
+    { label: t("Standby Generators", "Generadores de Respaldo"), href: "/services/generator" },
+    { label: t("Fire Alarm Systems", "Sistemas de Alarma contra Incendios"), href: "/services/fire-alarm" },
+    { label: t("CCTV & Security Cameras", "CCTV y Cámaras de Seguridad"), href: "/services/cctv-camera" },
+    { label: t("New Construction", "Nuevas Construcciones"), href: "/services/new-construction-electrical" },
   ];
 
   return (

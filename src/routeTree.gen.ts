@@ -11,6 +11,7 @@
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
 import { Route as ReviewsRouteImport } from './routes/reviews'
 import { Route as ProjectsRouteImport } from './routes/projects'
 import { Route as ContactRouteImport } from './routes/contact'
@@ -18,17 +19,23 @@ import { Route as CareersRouteImport } from './routes/careers'
 import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
 import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServiceAreasIndexRouteImport } from './routes/service-areas/index'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
 import { Route as ServicesWiringRewiringRouteImport } from './routes/services/wiring-rewiring'
 import { Route as ServicesSecuritySystemsRouteImport } from './routes/services/security-systems'
 import { Route as ServicesResidentialRouteImport } from './routes/services/residential'
 import { Route as ServicesPanelUpgradesRouteImport } from './routes/services/panel-upgrades'
+import { Route as ServicesNewConstructionElectricalRouteImport } from './routes/services/new-construction-electrical'
 import { Route as ServicesIndustrialRouteImport } from './routes/services/industrial'
 import { Route as ServicesGeneratorRouteImport } from './routes/services/generator'
+import { Route as ServicesFireAlarmRouteImport } from './routes/services/fire-alarm'
 import { Route as ServicesEvChargerRouteImport } from './routes/services/ev-charger'
 import { Route as ServicesEmergencyRouteImport } from './routes/services/emergency'
 import { Route as ServicesCommercialRouteImport } from './routes/services/commercial'
 import { Route as ServicesCctvCameraRouteImport } from './routes/services/cctv-camera'
+import { Route as ServiceAreasMiamiFlRouteImport } from './routes/service-areas/miami-fl'
+import { Route as ServiceAreasHialeahFlRouteImport } from './routes/service-areas/hialeah-fl'
+import { Route as ServiceAreasFortLauderdaleFlRouteImport } from './routes/service-areas/fort-lauderdale-fl'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard/login'
 
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
@@ -39,6 +46,11 @@ const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
 const ServicesRoute = ServicesRouteImport.update({
   id: '/services',
   path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ReviewsRoute = ReviewsRouteImport.update({
@@ -76,6 +88,11 @@ const ServicesIndexRoute = ServicesIndexRouteImport.update({
   path: '/',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServiceAreasIndexRoute = ServiceAreasIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
@@ -101,6 +118,12 @@ const ServicesPanelUpgradesRoute = ServicesPanelUpgradesRouteImport.update({
   path: '/panel-upgrades',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServicesNewConstructionElectricalRoute =
+  ServicesNewConstructionElectricalRouteImport.update({
+    id: '/new-construction-electrical',
+    path: '/new-construction-electrical',
+    getParentRoute: () => ServicesRoute,
+  } as any)
 const ServicesIndustrialRoute = ServicesIndustrialRouteImport.update({
   id: '/industrial',
   path: '/industrial',
@@ -109,6 +132,11 @@ const ServicesIndustrialRoute = ServicesIndustrialRouteImport.update({
 const ServicesGeneratorRoute = ServicesGeneratorRouteImport.update({
   id: '/generator',
   path: '/generator',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesFireAlarmRoute = ServicesFireAlarmRouteImport.update({
+  id: '/fire-alarm',
+  path: '/fire-alarm',
   getParentRoute: () => ServicesRoute,
 } as any)
 const ServicesEvChargerRoute = ServicesEvChargerRouteImport.update({
@@ -131,6 +159,22 @@ const ServicesCctvCameraRoute = ServicesCctvCameraRouteImport.update({
   path: '/cctv-camera',
   getParentRoute: () => ServicesRoute,
 } as any)
+const ServiceAreasMiamiFlRoute = ServiceAreasMiamiFlRouteImport.update({
+  id: '/miami-fl',
+  path: '/miami-fl',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasHialeahFlRoute = ServiceAreasHialeahFlRouteImport.update({
+  id: '/hialeah-fl',
+  path: '/hialeah-fl',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasFortLauderdaleFlRoute =
+  ServiceAreasFortLauderdaleFlRouteImport.update({
+    id: '/fort-lauderdale-fl',
+    path: '/fort-lauderdale-fl',
+    getParentRoute: () => ServiceAreasRoute,
+  } as any)
 const DashboardLoginRoute = DashboardLoginRouteImport.update({
   id: '/dashboard/login',
   path: '/dashboard/login',
@@ -144,20 +188,27 @@ export interface FileRoutesByFullPath {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
+  '/service-areas': typeof ServiceAreasRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/service-areas/fort-lauderdale-fl': typeof ServiceAreasFortLauderdaleFlRoute
+  '/service-areas/hialeah-fl': typeof ServiceAreasHialeahFlRoute
+  '/service-areas/miami-fl': typeof ServiceAreasMiamiFlRoute
   '/services/cctv-camera': typeof ServicesCctvCameraRoute
   '/services/commercial': typeof ServicesCommercialRoute
   '/services/emergency': typeof ServicesEmergencyRoute
   '/services/ev-charger': typeof ServicesEvChargerRoute
+  '/services/fire-alarm': typeof ServicesFireAlarmRoute
   '/services/generator': typeof ServicesGeneratorRoute
   '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/new-construction-electrical': typeof ServicesNewConstructionElectricalRoute
   '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
   '/services/residential': typeof ServicesResidentialRoute
   '/services/security-systems': typeof ServicesSecuritySystemsRoute
   '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/service-areas/': typeof ServiceAreasIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRoutesByTo {
@@ -169,17 +220,23 @@ export interface FileRoutesByTo {
   '/reviews': typeof ReviewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/service-areas/fort-lauderdale-fl': typeof ServiceAreasFortLauderdaleFlRoute
+  '/service-areas/hialeah-fl': typeof ServiceAreasHialeahFlRoute
+  '/service-areas/miami-fl': typeof ServiceAreasMiamiFlRoute
   '/services/cctv-camera': typeof ServicesCctvCameraRoute
   '/services/commercial': typeof ServicesCommercialRoute
   '/services/emergency': typeof ServicesEmergencyRoute
   '/services/ev-charger': typeof ServicesEvChargerRoute
+  '/services/fire-alarm': typeof ServicesFireAlarmRoute
   '/services/generator': typeof ServicesGeneratorRoute
   '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/new-construction-electrical': typeof ServicesNewConstructionElectricalRoute
   '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
   '/services/residential': typeof ServicesResidentialRoute
   '/services/security-systems': typeof ServicesSecuritySystemsRoute
   '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
   '/dashboard': typeof DashboardIndexRoute
+  '/service-areas': typeof ServiceAreasIndexRoute
   '/services': typeof ServicesIndexRoute
 }
 export interface FileRoutesById {
@@ -190,20 +247,27 @@ export interface FileRoutesById {
   '/contact': typeof ContactRoute
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
+  '/service-areas': typeof ServiceAreasRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
   '/dashboard/login': typeof DashboardLoginRoute
+  '/service-areas/fort-lauderdale-fl': typeof ServiceAreasFortLauderdaleFlRoute
+  '/service-areas/hialeah-fl': typeof ServiceAreasHialeahFlRoute
+  '/service-areas/miami-fl': typeof ServiceAreasMiamiFlRoute
   '/services/cctv-camera': typeof ServicesCctvCameraRoute
   '/services/commercial': typeof ServicesCommercialRoute
   '/services/emergency': typeof ServicesEmergencyRoute
   '/services/ev-charger': typeof ServicesEvChargerRoute
+  '/services/fire-alarm': typeof ServicesFireAlarmRoute
   '/services/generator': typeof ServicesGeneratorRoute
   '/services/industrial': typeof ServicesIndustrialRoute
+  '/services/new-construction-electrical': typeof ServicesNewConstructionElectricalRoute
   '/services/panel-upgrades': typeof ServicesPanelUpgradesRoute
   '/services/residential': typeof ServicesResidentialRoute
   '/services/security-systems': typeof ServicesSecuritySystemsRoute
   '/services/wiring-rewiring': typeof ServicesWiringRewiringRoute
   '/dashboard/': typeof DashboardIndexRoute
+  '/service-areas/': typeof ServiceAreasIndexRoute
   '/services/': typeof ServicesIndexRoute
 }
 export interface FileRouteTypes {
@@ -215,20 +279,27 @@ export interface FileRouteTypes {
     | '/contact'
     | '/projects'
     | '/reviews'
+    | '/service-areas'
     | '/services'
     | '/sitemap.xml'
     | '/dashboard/login'
+    | '/service-areas/fort-lauderdale-fl'
+    | '/service-areas/hialeah-fl'
+    | '/service-areas/miami-fl'
     | '/services/cctv-camera'
     | '/services/commercial'
     | '/services/emergency'
     | '/services/ev-charger'
+    | '/services/fire-alarm'
     | '/services/generator'
     | '/services/industrial'
+    | '/services/new-construction-electrical'
     | '/services/panel-upgrades'
     | '/services/residential'
     | '/services/security-systems'
     | '/services/wiring-rewiring'
     | '/dashboard/'
+    | '/service-areas/'
     | '/services/'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -240,17 +311,23 @@ export interface FileRouteTypes {
     | '/reviews'
     | '/sitemap.xml'
     | '/dashboard/login'
+    | '/service-areas/fort-lauderdale-fl'
+    | '/service-areas/hialeah-fl'
+    | '/service-areas/miami-fl'
     | '/services/cctv-camera'
     | '/services/commercial'
     | '/services/emergency'
     | '/services/ev-charger'
+    | '/services/fire-alarm'
     | '/services/generator'
     | '/services/industrial'
+    | '/services/new-construction-electrical'
     | '/services/panel-upgrades'
     | '/services/residential'
     | '/services/security-systems'
     | '/services/wiring-rewiring'
     | '/dashboard'
+    | '/service-areas'
     | '/services'
   id:
     | '__root__'
@@ -260,20 +337,27 @@ export interface FileRouteTypes {
     | '/contact'
     | '/projects'
     | '/reviews'
+    | '/service-areas'
     | '/services'
     | '/sitemap.xml'
     | '/dashboard/login'
+    | '/service-areas/fort-lauderdale-fl'
+    | '/service-areas/hialeah-fl'
+    | '/service-areas/miami-fl'
     | '/services/cctv-camera'
     | '/services/commercial'
     | '/services/emergency'
     | '/services/ev-charger'
+    | '/services/fire-alarm'
     | '/services/generator'
     | '/services/industrial'
+    | '/services/new-construction-electrical'
     | '/services/panel-upgrades'
     | '/services/residential'
     | '/services/security-systems'
     | '/services/wiring-rewiring'
     | '/dashboard/'
+    | '/service-areas/'
     | '/services/'
   fileRoutesById: FileRoutesById
 }
@@ -284,6 +368,7 @@ export interface RootRouteChildren {
   ContactRoute: typeof ContactRoute
   ProjectsRoute: typeof ProjectsRoute
   ReviewsRoute: typeof ReviewsRoute
+  ServiceAreasRoute: typeof ServiceAreasRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
   DashboardLoginRoute: typeof DashboardLoginRoute
@@ -304,6 +389,13 @@ declare module '@tanstack/react-router' {
       path: '/services'
       fullPath: '/services'
       preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/reviews': {
@@ -355,6 +447,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesIndexRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/service-areas/': {
+      id: '/service-areas/'
+      path: '/'
+      fullPath: '/service-areas/'
+      preLoaderRoute: typeof ServiceAreasIndexRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
     '/dashboard/': {
       id: '/dashboard/'
       path: '/dashboard'
@@ -390,6 +489,13 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesPanelUpgradesRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/services/new-construction-electrical': {
+      id: '/services/new-construction-electrical'
+      path: '/new-construction-electrical'
+      fullPath: '/services/new-construction-electrical'
+      preLoaderRoute: typeof ServicesNewConstructionElectricalRouteImport
+      parentRoute: typeof ServicesRoute
+    }
     '/services/industrial': {
       id: '/services/industrial'
       path: '/industrial'
@@ -402,6 +508,13 @@ declare module '@tanstack/react-router' {
       path: '/generator'
       fullPath: '/services/generator'
       preLoaderRoute: typeof ServicesGeneratorRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/fire-alarm': {
+      id: '/services/fire-alarm'
+      path: '/fire-alarm'
+      fullPath: '/services/fire-alarm'
+      preLoaderRoute: typeof ServicesFireAlarmRouteImport
       parentRoute: typeof ServicesRoute
     }
     '/services/ev-charger': {
@@ -432,6 +545,27 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServicesCctvCameraRouteImport
       parentRoute: typeof ServicesRoute
     }
+    '/service-areas/miami-fl': {
+      id: '/service-areas/miami-fl'
+      path: '/miami-fl'
+      fullPath: '/service-areas/miami-fl'
+      preLoaderRoute: typeof ServiceAreasMiamiFlRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/hialeah-fl': {
+      id: '/service-areas/hialeah-fl'
+      path: '/hialeah-fl'
+      fullPath: '/service-areas/hialeah-fl'
+      preLoaderRoute: typeof ServiceAreasHialeahFlRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/fort-lauderdale-fl': {
+      id: '/service-areas/fort-lauderdale-fl'
+      path: '/fort-lauderdale-fl'
+      fullPath: '/service-areas/fort-lauderdale-fl'
+      preLoaderRoute: typeof ServiceAreasFortLauderdaleFlRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
     '/dashboard/login': {
       id: '/dashboard/login'
       path: '/dashboard/login'
@@ -442,13 +576,33 @@ declare module '@tanstack/react-router' {
   }
 }
 
+interface ServiceAreasRouteChildren {
+  ServiceAreasFortLauderdaleFlRoute: typeof ServiceAreasFortLauderdaleFlRoute
+  ServiceAreasHialeahFlRoute: typeof ServiceAreasHialeahFlRoute
+  ServiceAreasMiamiFlRoute: typeof ServiceAreasMiamiFlRoute
+  ServiceAreasIndexRoute: typeof ServiceAreasIndexRoute
+}
+
+const ServiceAreasRouteChildren: ServiceAreasRouteChildren = {
+  ServiceAreasFortLauderdaleFlRoute: ServiceAreasFortLauderdaleFlRoute,
+  ServiceAreasHialeahFlRoute: ServiceAreasHialeahFlRoute,
+  ServiceAreasMiamiFlRoute: ServiceAreasMiamiFlRoute,
+  ServiceAreasIndexRoute: ServiceAreasIndexRoute,
+}
+
+const ServiceAreasRouteWithChildren = ServiceAreasRoute._addFileChildren(
+  ServiceAreasRouteChildren,
+)
+
 interface ServicesRouteChildren {
   ServicesCctvCameraRoute: typeof ServicesCctvCameraRoute
   ServicesCommercialRoute: typeof ServicesCommercialRoute
   ServicesEmergencyRoute: typeof ServicesEmergencyRoute
   ServicesEvChargerRoute: typeof ServicesEvChargerRoute
+  ServicesFireAlarmRoute: typeof ServicesFireAlarmRoute
   ServicesGeneratorRoute: typeof ServicesGeneratorRoute
   ServicesIndustrialRoute: typeof ServicesIndustrialRoute
+  ServicesNewConstructionElectricalRoute: typeof ServicesNewConstructionElectricalRoute
   ServicesPanelUpgradesRoute: typeof ServicesPanelUpgradesRoute
   ServicesResidentialRoute: typeof ServicesResidentialRoute
   ServicesSecuritySystemsRoute: typeof ServicesSecuritySystemsRoute
@@ -461,8 +615,11 @@ const ServicesRouteChildren: ServicesRouteChildren = {
   ServicesCommercialRoute: ServicesCommercialRoute,
   ServicesEmergencyRoute: ServicesEmergencyRoute,
   ServicesEvChargerRoute: ServicesEvChargerRoute,
+  ServicesFireAlarmRoute: ServicesFireAlarmRoute,
   ServicesGeneratorRoute: ServicesGeneratorRoute,
   ServicesIndustrialRoute: ServicesIndustrialRoute,
+  ServicesNewConstructionElectricalRoute:
+    ServicesNewConstructionElectricalRoute,
   ServicesPanelUpgradesRoute: ServicesPanelUpgradesRoute,
   ServicesResidentialRoute: ServicesResidentialRoute,
   ServicesSecuritySystemsRoute: ServicesSecuritySystemsRoute,
@@ -481,6 +638,7 @@ const rootRouteChildren: RootRouteChildren = {
   ContactRoute: ContactRoute,
   ProjectsRoute: ProjectsRoute,
   ReviewsRoute: ReviewsRoute,
+  ServiceAreasRoute: ServiceAreasRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
   DashboardLoginRoute: DashboardLoginRoute,

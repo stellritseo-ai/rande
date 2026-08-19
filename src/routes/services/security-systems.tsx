@@ -10,13 +10,17 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/security-systems")({
   head: () => ({
     meta: [
-      { title: "Security Systems & Low-Voltage Wiring | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Professional, licensed security camera wiring, smart doorbells, access control systems, and low-voltage electrical solutions in Florida." },
-      { property: "og:title", content: "Security Systems & Low-Voltage | R&E Electrical" },
-      { property: "og:description", content: "Expert commercial and residential low-voltage cabling solutions." },
+      { title: "Security Systems & Low-Voltage Wiring in Florida | Electrical Contractor Corp" },
+      { name: "description", content: "Licensed low-voltage security wiring in Florida. Access control, Cat6 cabling, intercoms & commercial security systems. Call (786) 307-5933." },
+      { name: "keywords", content: "security systems low voltage Florida, commercial security systems Florida, access control system installation Florida, structured low voltage cabling Florida, Cat6 network cabling Florida, magnetic lock wiring" },
+      { property: "og:title", content: "Security Systems & Low-Voltage Wiring in Florida | Electrical Contractor Corp" },
+      { property: "og:description", content: "Licensed low-voltage electrical engineering, commercial access control, structured Cat6 network cabling, and smart security integrations in Florida." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://electricalcontractorcorp.com/services/security-systems" },
+      { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/services/security-systems" }
+      { rel: "canonical", href: "https://electricalcontractorcorp.com/services/security-systems" }
     ],
   }),
   component: SecurityPage,
@@ -26,55 +30,136 @@ function SecurityPage() {
   const { t } = useLanguage();
 
   const serviceList = [
-    t("CCTV Security Camera Low-Voltage Cabling (IP/Coax)", "Cableado de Bajo Voltaje de Cámaras de Seguridad CCTV (IP/Coaxial)"),
-    t("Access Control Card Readers & Magnetic Lock Wiring", "Cableado de Lectores de Tarjetas de Control de Acceso y Cerraduras Magnéticas"),
-    t("Cat6 & Fiber Optic Network Structure Cabling", "Cableado de Red Estructurada Cat6 y Fibra Óptica"),
-    t("Smart Video Doorbells & Intercom Integrations", "Integraciones de Intercomunicadores y Timbres con Video Inteligente"),
-    t("Commercial Fire Alarm Control Conduit Systems", "Sistemas de Conductos de Control de Alarma de Incendio Comercial"),
-    t("Whole-Home & Office Wi-Fi Access Point Wiring", "Cableado de Puntos de Acceso Wi-Fi para Todo el Hogar y la Oficina"),
-    t("Low-Voltage Landscape Lighting Control Systems", "Sistemas de Control de Iluminación de Paisaje de Bajo Voltaje"),
-    t("Ceiling Cable Tray & J-Hook Wire Routing Systems", "Sistemas de Enrutamiento de Cables con Ganchos en J y Bandejas de Cables"),
+    t("Commercial Access Control, Card Readers & Keypad Systems", "Control de Acceso Comercial, Lectores de Tarjetas y Teclados"),
+    t("Magnetic Door Lock (Maglock) & Electric Strike Low-Voltage Wiring", "Cerraduras Magnéticas y Cerraduras Eléctricas"),
+    t("Structured Cat6, Cat6A & Fiber Optic Network Cabling", "Cableado de Red Estructurado Cat6, Cat6A y Fibra Óptica"),
+    t("Smart Video Intercom Systems & Touchscreen Door Entry", "Intercomunicadores con Video y Entrada con Pantalla Táctil"),
+    t("Commercial Fire-Stop Penetration & Plenum Ceiling Conduits", "Sellado Cortafuegos y Conductos Plenum en Cielorrasos"),
+    t("Server Rack Patch Panels, Cable Trays & J-Hook Routing", "Racks de Servidores, Paneles de Parcheo y Bandejas"),
+    t("Whole-Home & Commercial Wi-Fi Access Point (WAP) Cabling", "Cableado de Puntos de Acceso Wi-Fi (WAP)"),
+    t("Low-Voltage Landscape & Architectural Lighting Controls", "Controles de Iluminación Arquitectónica de Bajo Voltaje"),
+    t("Intrusion Alarm Sensor Wiring & Motion Detector Networks", "Cableado de Sensores de Alarma y Detectores de Movimiento"),
+    t("Complete Low-Voltage Municipal Permitting & Code Compliance", "Permisos Municipales y Cumplimiento de Bajo Voltaje"),
   ];
 
   const faqs = [
     {
-      q: t("Do you supply the cameras and locks?", "¿Suministran las cámaras y cerraduras?"),
-      a: t("We can both supply enterprise-grade surveillance equipment or professionally wire and install customer-provided smart locks and cameras (like Ring, Nest, or Ubiquiti).", "Podemos suministrar equipos de vigilancia de nivel empresarial o cablear e instalar profesionalmente cerraduras y cámaras inteligentes proporcionadas por el cliente (como Ring, Nest o Ubiquiti).")
+      q: t("What is the difference between line voltage and low-voltage electrical work?", "¿Cuál es la diferencia entre voltaje de línea y bajo voltaje?"),
+      a: t("Line voltage operates at standard 120V to 480V for power and lighting. Low-voltage operates under 50V (typically 12V, 24V, or 48V PoE) and is used for security sensors, structured network cabling, access control systems, and intercoms. Both require licensed electrical installation to prevent fire hazards and code violations.", "El voltaje de línea opera de 120V a 480V para energía e iluminación. El bajo voltaje opera a menos de 50V (12V, 24V o 48V PoE) y se utiliza para seguridad, cableado de red y control de acceso.")
     },
     {
-      q: t("Why is professional low-voltage wiring better than wireless?", "¿Por qué es mejor el cableado de bajo voltaje profesional que el inalámbrico?"),
-      a: t("Wireless systems suffer from interference, batteries that require regular recharging, and signal loss through walls. Hardwired systems (using PoE or dedicated power lines) are completely reliable and require almost zero maintenance.", "Los sistemas inalámbricos sufren de interferencias, baterías que requieren recarga regular y pérdida de señal a través de las paredes. Los sistemas cableados (que usan PoE o líneas de energía dedicadas) son completamente confiables y requieren casi cero mantenimiento.")
+      q: t("Do access control systems require emergency battery backups and fire alarm tie-ins?", "¿Los sistemas de control de acceso requieren baterías de respaldo e integración con alarmas?"),
+      a: t("Yes. Florida Life Safety Code (NFPA 101) mandates that magnetic door locks automatically unlock upon fire alarm activation to allow safe emergency egress. Our licensed electricians ensure all access control systems integrate seamlessly with fire alarm relays and backup power supplies.", "Sí. El Código de Seguridad Humana de Florida exige que las cerraduras magnéticas se desbloqueen automáticamente tras activarse la alarma de incendio para permitir la evacuación segura.")
     },
     {
-      q: t("Is low-voltage wiring subject to permitting?", "¿El cableado de bajo voltaje está sujeto a permisos?"),
-      a: t("Yes, in many South Florida municipalities, low-voltage installations (especially for commercial properties) require specific permits and inspections to verify proper fire-stopping in walls and ceilings.", "Sí, en muchos municipios del sur de Florida, las instalaciones de bajo voltaje (especialmente para propiedades comerciales) requieren permisos y inspecciones específicos para verificar el cortafuegos adecuado en paredes y techos.")
+      q: t("Can you install structured Cat6 cabling for our corporate office or warehouse?", "¿Pueden instalar cableado Cat6 estructurado para nuestra oficina o almacén?"),
+      a: t("Yes. We install complete structured cabling grids with patch panels, cable management racks, and tested wall jacks that provide Gigabit and 10-Gigabit data throughput for modern office networks.", "Sí. Instalamos redes de cableado estructurado con paneles de parcheo y racks de servidores que proporcionan velocidades Gigabit y 10-Gigabit.")
+    },
+    {
+      q: t("Do low-voltage installations require city building permits in Florida?", "¿Las instalaciones de bajo voltaje requieren permisos municipales en Florida?"),
+      a: t("Yes. Most Florida municipalities require low-voltage permits and inspections to verify proper plenum-rated wire usage, conduit support, and fire-stopping at wall penetrations.", "Sí. La mayoría de los municipios de Florida requieren permisos de bajo voltaje para verificar el uso de cables clasificados plenum y cortafuegos.")
     }
   ];
 
+  const breadcrumbSchema = {
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://electricalcontractorcorp.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": "Services",
+        "item": "https://electricalcontractorcorp.com/services"
+      },
+      {
+        "@type": "ListItem",
+        "position": 3,
+        "name": "Security Systems & Low-Voltage",
+        "item": "https://electricalcontractorcorp.com/services/security-systems"
+      }
+    ]
+  };
+
+  const serviceSchema = {
+    "@context": "https://schema.org",
+    "@type": "Service",
+    "name": "Low-Voltage Security Systems & Cabling Services",
+    "serviceType": "Low-Voltage Electrical Contractor",
+    "provider": {
+      "@type": "Electrician",
+      "name": "Electrical Contractor Corp",
+      "telephone": "+17863075933",
+      "image": "https://electricalcontractorcorp.com/assets/logo.png",
+      "priceRange": "$$",
+      "url": "https://electricalcontractorcorp.com"
+    },
+    "areaServed": {
+      "@type": "State",
+      "name": "Florida"
+    },
+    "description": "Licensed low-voltage electrical contractor in Florida. Commercial access control systems, structured Cat6 network cabling, maglocks, and smart security integrations."
+  };
+
+  const faqSchema = {
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": faqs.map((f) => ({
+      "@type": "Question",
+      "name": f.q,
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": f.a
+      }
+    }))
+  };
+
   return (
     <>
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(breadcrumbSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(serviceSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }}
+      />
       <PageHeader
-        eyebrow={t("Security & Low Voltage", "Seguridad y Bajo Voltaje")}
-        title={t("Securing Your Property with Reliable Wiring", "Protegiendo su Propiedad con Cableado Confiable")}
-        subtitle={t("Protect your family or assets. We deploy enterprise-grade security cabling, network structures, and access control systems with professional, clean routing.", "Proteja a su familia o activos. Desplegamos cableado de seguridad de nivel empresarial, estructuras de red y sistemas de control de acceso con un enrutamiento profesional y limpio.")}
+        eyebrow={t("Low-Voltage & Access Control", "Bajo Voltaje y Control de Acceso")}
+        title={t("Security Systems & Low-Voltage Wiring in Florida", "Sistemas de Seguridad y Cableado de Bajo Voltaje en Florida")}
+        subtitle={t("Secure your commercial building or residence with enterprise access control, structured Cat6 cabling, and smart video intercom networks.", "Proteja su edificio o residencia con control de acceso empresarial, cableado estructurado Cat6 e intercomunicadores con video.")}
       />
 
       <section className="py-20 bg-background">
         <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
           <div className="grid gap-12 lg:grid-cols-[1.2fr_0.8fr] lg:gap-20">
             {/* Left Column: Details */}
-            <div className="space-y-10">
+            <div className="space-y-10 text-left">
               <div>
-                <h2 className="font-display text-3xl font-extrabold text-secondary">
-                  {t("High-Performance Cabling for Security & Networks", "Cableado de Alto Rendimiento para Seguridad y Redes")}
+                <h2 className="font-display text-3xl font-extrabold text-secondary tracking-tight">
+                  {t("Enterprise Access Control & Structured Infrastructure", "Control de Acceso Empresarial e Infraestructura Estructurada")}
                 </h2>
-                <p className="mt-4 text-lg text-muted-foreground leading-relaxed">
-                  {t("Modern security and home/business automation rely on steady, hardwired connections. R&E Electrical Contractor Corp's low-voltage technicians run structured cabling (Cat6, PoE, and alarm lines) that ensures peak performance for your smart cameras, security sensors, network access points, and access panels. We run cables neatly behind drywall, in attics, or through conduits, and install proper firewall fire-stopping.", "La seguridad moderna y la automatización del hogar/negocio dependen de conexiones cableadas estables. Los técnicos de bajo voltaje de R&E Electrical Contractor Corp instalan cableado estructurado (Cat6, PoE y líneas de alarma) que garantiza el máximo rendimiento de sus cámaras inteligentes, sensores de seguridad, puntos de acceso a la red y paneles de acceso. Pasamos los cables ordenadamente detrás del panel de yeso, en áticos o a través de conductos, e instalamos los cortafuegos adecuados.")}
+                <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  {t("Modern commercial facilities and high-end residential properties require sophisticated low-voltage electrical systems. Electrical Contractor Corp designs and installs clean, high-performance cabling architectures for access control, automated card readers, magnetic door locks, and high-speed data networks.", "Las instalaciones comerciales modernas y residencias de alto nivel requieren sistemas eléctricos de bajo voltaje sofisticados. Electrical Contractor Corp diseña e instala cableado de alto rendimiento para control de acceso, lectores de tarjetas y redes de datos.")}
+                </p>
+                <p className="mt-4 text-base sm:text-lg text-muted-foreground leading-relaxed">
+                  {t("We route plenum-rated Cat6 and fiber optic cables neatly using J-hooks, cable trays, and conduits, applying certified fire-stop sealants at all firewall penetrations to maintain total Life Safety Code compliance.", "Instalamos cables Cat6 clasificados plenum y fibra óptica utilizando ganchos en J y bandejas de cables, aplicando selladores cortafuegos certificados.")}
                 </p>
               </div>
 
               <div className="border-t border-border pt-8">
-                <h3 className="font-display text-xl font-extrabold text-secondary">{t("Our Specialties", "Nuestras Especialidades")}</h3>
+                <h3 className="font-display text-2xl font-extrabold text-secondary">
+                  {t("Our Low-Voltage Specialties", "Nuestras Especialidades de Bajo Voltaje")}
+                </h3>
                 <ul className="mt-5 grid gap-3 sm:grid-cols-2">
                   {serviceList.map((item) => (
                     <li key={item} className="flex items-center gap-2.5 text-secondary">
@@ -87,10 +172,12 @@ function SecurityPage() {
 
               {/* FAQ Section */}
               <div className="border-t border-border pt-8">
-                <h3 className="font-display text-xl font-extrabold text-secondary mb-6">{t("Frequently Asked Questions", "Preguntas Frecuentes")}</h3>
+                <h3 className="font-display text-2xl font-extrabold text-secondary mb-6">
+                  {t("Frequently Asked Questions", "Preguntas Frecuentes")}
+                </h3>
                 <div className="space-y-4">
                   {faqs.map((faq, idx) => (
-                    <details key={idx} className="group border border-border rounded-2xl bg-muted/20 p-5 [&_summary::-webkit-details-marker]:hidden">
+                    <details key={idx} className="group border border-border rounded-2xl bg-card p-5 [&_summary::-webkit-details-marker]:hidden">
                       <summary className="flex cursor-pointer items-center justify-between gap-1.5 font-display text-base font-bold text-secondary">
                         {faq.q}
                         <ChevronRight className="h-4 w-4 shrink-0 transition-transform group-open:rotate-90 text-primary" />
@@ -106,29 +193,35 @@ function SecurityPage() {
 
             {/* Right Column: CTA Sidebar */}
             <div className="space-y-8">
-              <div className="relative overflow-hidden rounded-3xl border border-border">
+              <div className="relative overflow-hidden rounded-3xl border border-border shadow-sm">
                 <img
                   src={img}
-                  alt="Security cameras and wiring installation"
+                  alt="Low-voltage security wiring and access control installation"
                   className="h-64 w-full object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-                <div className="absolute bottom-5 left-5 right-5 text-white">
-                  <div className="text-xs font-bold uppercase tracking-wider text-primary">{t("R&E Low-Voltage", "Bajo Voltaje R&E")}</div>
-                  <div className="mt-1 font-display text-xl font-extrabold">{t("Cabling, Security, & Ethernet", "Cableado, Seguridad y Ethernet")}</div>
+                <div className="absolute bottom-5 left-5 right-5 text-white text-left">
+                  <div className="text-xs font-bold uppercase tracking-wider text-primary">
+                    {t("Low-Voltage Contractors", "Contratistas de Bajo Voltaje")}
+                  </div>
+                  <div className="mt-1 font-display text-xl font-extrabold">
+                    {t("Access Control, Cat6 & Security Wiring", "Control de Acceso, Cat6 y Cableado de Seguridad")}
+                  </div>
                 </div>
               </div>
 
               {/* Booking Card */}
-              <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8 shadow-sm">
-                <h3 className="font-display text-2xl font-extrabold text-secondary">{t("Ready to get started?", "¿Listo para comenzar?")}</h3>
+              <div className="rounded-3xl border border-primary/20 bg-primary/5 p-8 shadow-sm text-left">
+                <h3 className="font-display text-2xl font-extrabold text-secondary">
+                  {t("Request a Low-Voltage Consultation", "Solicite una Consulta de Bajo Voltaje")}
+                </h3>
                 <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
-                  {t("Book a security layout review or ethernet cabling diagnostic. We'll map your requirements and quote.", "Reserve una revisión del diseño de seguridad o un diagnóstico de cableado de Ethernet. Mapearemos sus requisitos y realizaremos una cotización.")}
+                  {t("Schedule an on-site property walkthrough to map access control points, server rack locations, and network drops.", "Programe un recorrido por la propiedad para mapear puntos de acceso, racks de servidores y puntos de red.")}
                 </p>
 
                 <div className="mt-6 space-y-3.5">
                   <Button asChild size="lg" className="w-full">
-                    <Link to="/contact">{t("Request Estimate", "Solicitar Presupuesto")}</Link>
+                    <Link to="/contact">{t("Get Free Estimate", "Obtener Presupuesto Gratis")}</Link>
                   </Button>
                   <a
                     href="tel:+17863075933"
@@ -138,15 +231,15 @@ function SecurityPage() {
                   </a>
                 </div>
 
-                <div className="mt-6 space-y-2 text-xs font-semibold text-secondary/80">
+                <div className="mt-6 space-y-2.5 text-xs font-semibold text-secondary/80">
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("Fully Licensed & Insured", "Totalmente Autorizado y Asegurado")}
+                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("State License #EC13009876", "Licencia Estatal #EC13009876")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Clock className="h-4 w-4 text-primary" /> {t("Estimates Within 24 Hours", "Presupuestos en 24 Horas")}
+                    <Clock className="h-4 w-4 text-primary" /> {t("NFPA Life Safety Fire Alarm Integrations", "Integraciones de Seguridad NFPA con Alarma")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Award className="h-4 w-4 text-primary" /> {t("100% Satisfaction Guaranteed", "Garantía de Satisfacción del 100%")}
+                    <Award className="h-4 w-4 text-primary" /> {t("Clean, Concealed Architectural Routing", "Enrutamiento Oculto y Limpio")}
                   </div>
                 </div>
               </div>

@@ -16,23 +16,24 @@ export function Header() {
     { to: "/", label: t("Home", "Inicio") },
     { to: "/about", label: t("About Us", "Sobre Nosotros") },
     { to: "/services", label: t("Services", "Servicios") },
+    { to: "/service-areas", label: t("Service Areas", "Áreas de Servicio") },
     { to: "/projects", label: t("Projects", "Proyectos") },
     { to: "/reviews", label: t("Reviews", "Opiniones") },
     { to: "/contact", label: t("Free Estimate", "Presupuesto Gratis") },
-    { to: "/careers", label: t("Apply For a Job", "Postularse para un Trabajo") },
     { to: "/contact", label: t("Contact Us", "Contáctenos") },
   ];
 
   const serviceLinks = [
-    { to: "/services/commercial", l: t("New Construction Electrical", "Electricidad de Nuevas Construcciones"), desc: t("Commercial & residential system design & installations", "Diseño e instalaciones de sistemas comerciales y residenciales"), icon: Building2 },
-    { to: "/services/wiring-rewiring", l: t("Fire Alarm Systems", "Sistemas de Alarma contra Incendios"), desc: t("Safety-certified design & low-voltage wiring", "Diseño con certificación de seguridad y cableado de bajo voltaje"), icon: ShieldAlert },
-    { to: "/services/security-systems", l: t("Internet & Security Cameras", "Internet y Cámaras de Seguridad"), desc: t("Structured ethernet cabling & surveillance setups", "Cableado estructurado de ethernet y configuraciones de vigilancia"), icon: Cable },
-    { to: "/services/cctv-camera", l: t("CCTV Camera Install & Repair", "Instalación y Reparación de Cámaras CCTV"), desc: t("Premium HD surveillance, DVR setups & security diagnostics", "Vigilancia HD premium, configuraciones de DVR y diagnóstico de seguridad"), icon: Video },
     { to: "/services/residential", l: t("Residential Electrical", "Electricidad Residencial"), desc: t("Expert home wiring, panels & custom lighting", "Cableado de casa experto, paneles y iluminación personalizada"), icon: Home },
-    { to: "/services/panel-upgrades", l: t("Panel Upgrades", "Actualizaciones de Panel"), desc: t("Modernize breaker boxes & electrical capacity", "Modernice cajas de disyuntores y capacidad eléctrica"), icon: Zap },
-    { to: "/services/ev-charger", l: t("EV Charger Installation", "Instalación de Cargador EV"), desc: t("Level 2 home & commercial charging ports", "Puertos de carga de nivel 2 para hogares y comercios"), icon: BatteryCharging },
-    { to: "/services/generator", l: t("Generator Installation", "Instalación de Generadores"), desc: t("Backup power & automatic transfer switches", "Energía de respaldo e interruptores de transferencia automática"), icon: AlertTriangle },
+    { to: "/services/commercial", l: t("Commercial Electrical", "Electricidad Comercial"), desc: t("Office build-outs, retail lighting & 3-phase power", "Remodelaciones de oficina, iluminación comercial y trifásica"), icon: Building2 },
     { to: "/services/industrial", l: t("Industrial Electrical", "Electricidad Industrial"), desc: t("Heavy machinery, phase power & controls", "Maquinaria pesada, potencia de fase y controles"), icon: Factory },
+    { to: "/services/panel-upgrades", l: t("Panel Upgrades", "Actualizaciones de Panel"), desc: t("Modernize breaker boxes & electrical capacity (200A/400A)", "Modernice cajas de disyuntores y capacidad (200A/400A)"), icon: Zap },
+    { to: "/services/ev-charger", l: t("EV Charger Installation", "Instalación de Cargador EV"), desc: t("Level 2 home & commercial charging ports (Tesla/Universal)", "Puertos de carga de nivel 2 para hogares y comercios"), icon: BatteryCharging },
+    { to: "/services/generator", l: t("Generator Installation", "Instalación de Generadores"), desc: t("Whole-home standby backup power & transfer switches", "Energía de respaldo para toda la casa e interruptores"), icon: AlertTriangle },
+    { to: "/services/fire-alarm", l: t("Fire Alarm Systems", "Sistemas de Alarma contra Incendios"), desc: t("Safety-certified installation, conduits & inspections", "Instalación con certificación de seguridad y conductos"), icon: ShieldAlert },
+    { to: "/services/cctv-camera", l: t("CCTV Camera Install & Repair", "Instalación y Reparación de Cámaras CCTV"), desc: t("Premium 4K HD surveillance, NVR setups & diagnostics", "Vigilancia 4K HD premium, NVR y diagnósticos"), icon: Video },
+    { to: "/services/new-construction-electrical", l: t("New Construction Electrical", "Electricidad de Nuevas Construcciones"), desc: t("Ground-up electrical design, blueprints & rough-ins", "Diseño eléctrico desde cero, planos y cableado inicial"), icon: Building2 },
+    { to: "/services/wiring-rewiring", l: t("Wiring & Rewiring", "Cableado y Re-cableado"), desc: t("Copper structural rewiring & aluminum mitigation", "Recableado estructural de cobre y mitigación de aluminio"), icon: Cable },
   ];
 
   const [scrolled, setScrolled] = useState(false);

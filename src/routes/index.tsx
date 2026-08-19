@@ -12,48 +12,128 @@ import { ServiceArea } from "@/components/site/ServiceArea";
 import { GetInTouch } from "@/components/site/GetInTouch";
 import { Process } from "@/components/site/Process";
 import { EmergencyCTA } from "@/components/site/EmergencyCTA";
-// import { Estimate } from "@/components/site/Estimate";
-// import { CTASection } from "@/components/site/CTASection";
 import { Toaster } from "@/components/ui/sonner";
 
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Licensed Electrician Miami & South Florida | R&E Electrical" },
-      { name: "description", content: "Need a reliable electrician in Miami or South Florida? R&E Electrical Contractor Corp is licensed & insured. Call (786) 307-5933 for 24/7 emergency service, commercial wiring, panel upgrades, and EV charger installs." },
-      { name: "keywords", content: "miami electrician, emergency electrician miami, residential electrician broward, commercial electrician south florida, panel upgrade miami, ev charger install miami, generator services florida" },
-      { property: "og:title", content: "Licensed Electrician Miami & South Florida | R&E Electrical" },
-      { property: "og:description", content: "R&E Electrical Contractor Corp: 24/7 electrical repairs, commercial projects, panel upgrades, and Level 2 EV charging setup in Florida." },
+      { title: "Electrical Contractor in Florida | Electrical Contractor Corp" },
+      { name: "description", content: "Licensed & insured electrical contractor serving Florida. Residential, commercial, industrial & 24/7 emergency electrical services. Call (786) 307-5933." },
+      { name: "keywords", content: "electrical contractor Florida, electrician Florida, electrical services Florida, licensed electrician Florida, commercial electrical contractor Florida, residential electrician Florida, 24/7 emergency electrician Florida, electrical company Florida" },
+      { property: "og:title", content: "Electrical Contractor in Florida | Electrical Contractor Corp" },
+      { property: "og:description", content: "Licensed & insured electrical contractor serving Florida. Residential, commercial, industrial & 24/7 emergency electrical services. Call (786) 307-5933." },
+      { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
+      { name: "google-site-verification", content: "e-s3WCmdQDJJ0mhTLiX5OjFcSV4yRPThw8kw1kYrmjo" },
+      { name: "twitter:card", content: "summary_large_image" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/" }
+      { rel: "canonical", href: "https://electricalcontractorcorp.com/" }
     ],
   }),
   component: Index,
 });
 
 function Index() {
-  const schema = {
+  const localBusinessSchema = {
     "@context": "https://schema.org",
     "@type": "Electrician",
-    "name": "R&E Electrical Contractor Corp",
-    "image": "https://www.randeelectrical.com/assets/logo.png",
-    "@id": "https://www.randeelectrical.com/#organization",
-    "url": "https://www.randeelectrical.com",
+    "@id": "https://electricalcontractorcorp.com/#organization",
+    "name": "Electrical Contractor Corp",
+    "alternateName": "R&E Electrical Contractor Corp",
+    "image": "https://electricalcontractorcorp.com/assets/logo.png",
+    "url": "https://electricalcontractorcorp.com",
     "telephone": "+17863075933",
+    "email": "Williams@electricalcontractorcorp.com",
     "priceRange": "$$",
+    "description": "State-licensed and insured electrical contractor providing residential, commercial, industrial, and 24/7 emergency electrical services throughout the state of Florida.",
     "address": {
       "@type": "PostalAddress",
-      "streetAddress": "Serving Miami-Dade and Broward Counties",
-      "addressLocality": "Miami",
+      "streetAddress": "18730 NW 77 TH CT",
+      "addressLocality": "Hialeah",
       "addressRegion": "FL",
-      "postalCode": "33101",
+      "postalCode": "33015",
       "addressCountry": "US"
     },
     "geo": {
       "@type": "GeoCoordinates",
-      "latitude": "25.7617",
-      "longitude": "-80.1918"
+      "latitude": "25.9427",
+      "longitude": "-80.3245"
+    },
+    "areaServed": [
+      {
+        "@type": "State",
+        "name": "Florida"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Miami-Dade County"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Broward County"
+      }
+    ],
+    "hasOfferCatalog": {
+      "@type": "OfferCatalog",
+      "name": "Electrical Services",
+      "itemListElement": [
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Residential Electrical Services",
+            "url": "https://electricalcontractorcorp.com/services/residential"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Commercial Electrical Services",
+            "url": "https://electricalcontractorcorp.com/services/commercial"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Industrial Electrical Services",
+            "url": "https://electricalcontractorcorp.com/services/industrial"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "24/7 Emergency Electrical Services",
+            "url": "https://electricalcontractorcorp.com/services/emergency"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Electrical Panel Upgrades",
+            "url": "https://electricalcontractorcorp.com/services/panel-upgrades"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "EV Charger Installation",
+            "url": "https://electricalcontractorcorp.com/services/ev-charger"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Backup Generator Installation",
+            "url": "https://electricalcontractorcorp.com/services/generator"
+          }
+        }
+      ]
     },
     "openingHoursSpecification": {
       "@type": "OpeningHoursSpecification",
@@ -69,11 +149,26 @@ function Index() {
     ]
   };
 
+  const websiteSchema = {
+    "@context": "https://schema.org",
+    "@type": "WebSite",
+    "@id": "https://electricalcontractorcorp.com/#website",
+    "url": "https://electricalcontractorcorp.com",
+    "name": "Electrical Contractor Corp",
+    "publisher": {
+      "@id": "https://electricalcontractorcorp.com/#organization"
+    }
+  };
+
   return (
     <SiteLayout>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
       />
       <Hero />
       <TrustBar />
@@ -87,8 +182,6 @@ function Index() {
       <ContactIllustrationSection />
       <ServiceArea />
       <GetInTouch />
-      {/* <Estimate /> */}
-      {/* <CTASection /> */}
       <Toaster />
     </SiteLayout>
   );

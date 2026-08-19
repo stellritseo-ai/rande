@@ -15,13 +15,13 @@ function CareersPage() {
         "@type": "ListItem",
         "position": 1,
         "name": "Home",
-        "item": "https://www.randeelectrical.com/"
+        "item": "https://electricalcontractorcorp.com/"
       },
       {
         "@type": "ListItem",
         "position": 2,
         "name": "Careers",
-        "item": "https://www.randeelectrical.com/careers"
+        "item": "https://electricalcontractorcorp.com/careers"
       }
     ]
   };
@@ -33,9 +33,9 @@ function CareersPage() {
         dangerouslySetInnerHTML={{ __html: JSON.stringify(schema) }}
       />
       <PageHeader
-        eyebrow={t("Careers", "Carreras")}
-        title={t("Join the R&E Electrical Crew", "Únase al Equipo de R&E Electrical")}
-        subtitle={t("We are always hiring talented electricians, journeymen, and helpers in Florida.", "Siempre estamos contratando electricistas talentosos, jornaleros y ayudantes en Florida.")}
+        eyebrow={t("Careers & Hiring", "Carreras y Contratación")}
+        title={t("Join Our Electrical Team in Florida", "Únase a Nuestro Equipo Eléctrico en Florida")}
+        subtitle={t("We are actively hiring licensed journeyman electricians, apprentices, and low-voltage technicians across Florida. Competitive pay, benefits, and career growth.", "Estamos contratando activamente electricistas certificados, aprendices y técnicos de bajo voltaje en Florida.")}
       />
       <Careers />
       <EmergencyCTA />
@@ -46,13 +46,17 @@ function CareersPage() {
 export const Route = createFileRoute("/careers")({
   head: () => ({
     meta: [
-      { title: "Careers & Job Openings | R&E Electrical Contractor Corp" },
-      { name: "description", content: "Apply for electrician jobs, journeyman positions, and apprenticeships at Florida's trusted contractor. Competitive pay & premium benefits." },
-      { property: "og:title", content: "Careers | R&E Electrical Contractor Corp" },
-      { property: "og:description", content: "Join our licensed electrical crew in South Florida." },
+      { title: "Electrician Careers & Jobs in Florida | Electrical Contractor Corp" },
+      { name: "description", content: "Apply for electrician jobs, journeyman positions & apprenticeships at Electrical Contractor Corp. Competitive wages, health benefits & steady Florida work." },
+      { name: "keywords", content: "electrician jobs Florida, electrical contractor hiring Miami, apprentice electrician jobs Hialeah, journeyman electrician careers Florida" },
+      { property: "og:title", content: "Electrician Careers & Jobs in Florida | Electrical Contractor Corp" },
+      { property: "og:description", content: "Join our licensed electrical crew in Florida. Competitive compensation and steady career growth." },
+      { property: "og:type", content: "website" },
+      { property: "og:url", content: "https://electricalcontractorcorp.com/careers" },
+      { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
     ],
     links: [
-      { rel: "canonical", href: "https://www.randeelectrical.com/careers" }
+      { rel: "canonical", href: "https://electricalcontractorcorp.com/careers" }
     ],
   }),
   component: CareersPage,

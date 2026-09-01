@@ -49,7 +49,9 @@ export function Footer() {
     { label: t("Miami, FL Electrician", "Electricista en Miami, FL"), href: "/service-areas/miami-fl" },
     { label: t("Hialeah, FL Electrician", "Electricista en Hialeah, FL"), href: "/service-areas/hialeah-fl" },
     { label: t("Fort Lauderdale Electrician", "Electricista en Fort Lauderdale"), href: "/service-areas/fort-lauderdale-fl" },
+    { label: t("Featured Projects", "Proyectos Destacados"), href: "/projects" },
     { label: t("Client Reviews", "Opiniones de Clientes"), href: "/reviews" },
+    { label: t("Careers / Hiring", "Carreras / Empleos"), href: "/careers" },
     { label: t("Free Estimate", "Presupuesto Gratis"), href: "/contact" },
   ];
 

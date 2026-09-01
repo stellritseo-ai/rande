@@ -19,7 +19,7 @@ export function Header() {
     { to: "/service-areas", label: t("Service Areas", "Áreas de Servicio") },
     { to: "/projects", label: t("Projects", "Proyectos") },
     { to: "/reviews", label: t("Reviews", "Opiniones") },
-    { to: "/contact", label: t("Free Estimate", "Presupuesto Gratis") },
+    { to: "/careers", label: t("Careers", "Carreras") },
     { to: "/contact", label: t("Contact Us", "Contáctenos") },
   ];
 

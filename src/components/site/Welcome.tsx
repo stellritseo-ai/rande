@@ -1,4 +1,4 @@
-import { ArrowRight } from "lucide-react";
+import { ArrowRight, FileUp } from "lucide-react";
 import { Link } from "@tanstack/react-router";
 import welcomeImg from "@/assets/welcome-img.png";
 import topIcon from "@/assets/topicon.png";
@@ -27,10 +27,12 @@ export function Welcome() {
   const { t } = useLanguage();
 
   const checklistPoints = [
-    t("New construction and residential remodeling", "Construcción nueva y remodelación residencial"),
-    t("New construction and commercial remodeling such as buildings", "Construcción nueva y remodelación comercial como edificios"),
-    t("Restaurants, offices, shopping centers, hotels, clinics (with electrical permits)", "Restaurantes, oficinas, centros comerciales, hoteles, clínicas (con permisos eléctricos)"),
-    t("Service Area: Entire state of Florida", "Área de Servicio: Todo el estado de Florida"),
+    t("New construction and hotel remodeling projects across Florida", "Proyectos de nueva construcción y remodelación de hoteles en Florida"),
+    t("Multifamily residential buildings, condos, and high-density developments", "Edificios residenciales multifamiliares, condominios y desarrollos"),
+    t("Restaurants, commercial kitchens, retail, and shopping centers", "Restaurantes, cocinas comerciales, comercios y centros comerciales"),
+    t("Schools, educational campuses, and institutional facilities", "Escuelas, campus educativos e instalaciones institucionales"),
+    t("Dental and medical clinics with specialized healthcare electrical", "Clínicas dentales y médicas con electricidad de grado hospitalario"),
+    t("Secondary focus: residential fire alarm, low-voltage, and service upgrades", "Enfoque secundario: alarmas de incendio residencial, bajo voltaje y mejoras"),
   ];
 
   return (
@@ -43,17 +45,22 @@ export function Welcome() {
           {/* Left Column: Copy & Checklist */}
           <div className="animate-fade-up flex flex-col items-start text-left">
             <div className="flex items-center gap-1 text-[11px] font-black uppercase tracking-widest text-[#0F172A]">
-              <TinyLightningIcon /> {t("About Us", "Sobre Nosotros")} <TinyLightningIcon />
+              <TinyLightningIcon /> {t("Florida Commercial Electrical Contractor", "Contratista Eléctrico Comercial de Florida")} <TinyLightningIcon />
             </div>
+            
             <h2 className="mt-4 font-display text-[26px] sm:text-[30px] lg:text-[33px] leading-[1.35] font-extrabold text-[#0F172A]">
-              {t("Best Electrical Company In", "La Mejor Compañía Eléctrica en")}<br className="hidden md:inline" /> {t("Miami. Residential & Commercial ", "Miami. Servicio Residencial y Comercial ")}
-              <span className="text-[#FF6B00]">{t("Electrical", "Eléctrico")}</span> {t("Service", " ")}
+              {t("Florida Commercial & ", "Contratista de Construcción ")}<br className="hidden md:inline" />
+              <span className="text-[#FF6B00]">{t("Electrical Construction", "Eléctrica y Comercial")}</span> {t("Contractor", "en Florida")}
             </h2>
-            <p className="font-medium text-black mt-[13px] mb-[-15px] text-[14px] sm:text-[15px] leading-relaxed sm:leading-[32px]">
-              {t("We have been offering a wide range of electrical services to residential, commercial and industrial customers across Miami, FL and its surrounding areas since 2009. We provide a high quality service no matter the size of the project.", "Hemos estado ofreciendo una amplia gama de servicios eléctricos a clientes residenciales, comerciales e industriales en Miami, FL y sus áreas circundantes desde 2009. Brindamos un servicio de alta calidad sin importar el tamaño del proyecto.")}
+            
+            <p className="font-medium text-slate-700 mt-[13px] mb-[4px] text-[14px] sm:text-[15px] leading-relaxed sm:leading-[30px]">
+              {t(
+                "Operating under State Certified License #EC 13008942, R&E Electrical Contractor Corp provides General Contractors, developers, and facility managers with master-level commercial electrical execution. From complex ground-up hospitality builds to multifamily and healthcare clinics, we deliver on time and strictly to code.",
+                "Bajo la Licencia Certificada Estatal #EC 13008942, R&E Electrical Contractor Corp ofrece a Contratistas Generales, desarrolladores y administradores de propiedades ejecución eléctrica comercial de primer nivel. Desde obras hoteleras desde cero hasta multifamiliares y clínicas de salud, cumplimos a tiempo y bajo normativa estricta."
+              )}
             </p>
 
-            <ul className="mt-6 space-y-4">
+            <ul className="mt-5 space-y-3">
               {checklistPoints.map((point) => (
                 <li key={point} className="flex items-start gap-3.5 text-slate-800 font-bold text-sm leading-snug">
                   <PointingHandIcon />
@@ -62,11 +69,19 @@ export function Welcome() {
               ))}
             </ul>
 
-            <Button asChild variant="hero" size="lg" className="mt-8 font-extrabold rounded-full px-8 bg-[#FF6B00] hover:bg-[#E05E00] shadow-[0_10px_25px_-5px_rgba(255,107,0,0.4)]">
-              <Link to="/about">
-                {t("Read More", "Leer Más")} <span className="ml-1 text-sm font-black">≫</span>
-              </Link>
-            </Button>
+            <div className="mt-8 flex flex-wrap items-center gap-3 sm:gap-4">
+              <Button asChild variant="hero" size="lg" className="font-extrabold rounded-full px-7 bg-[#FF6B00] hover:bg-[#E05E00] shadow-[0_10px_25px_-5px_rgba(255,107,0,0.4)]">
+                <Link to="/submit-plans" className="flex items-center gap-2">
+                  <FileUp className="h-4 w-4" />
+                  <span>{t("Submit Plans for Bid", "Presentar Planos para Licitación")}</span>
+                </Link>
+              </Button>
+              <Button asChild variant="outline" size="lg" className="rounded-full px-6 border-slate-300 text-slate-800 hover:border-[#FF6B00] hover:text-[#FF6B00]">
+                <Link to="/about">
+                  {t("Read More About R&E", "Conozca Más de R&E")} <span className="ml-1 text-sm font-black">≫</span>
+                </Link>
+              </Button>
+            </div>
           </div>
 
           {/* Middle Column: Lightning Bolt Image – hidden on mobile/tablet */}
@@ -76,7 +91,7 @@ export function Welcome() {
             <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-96 h-96 rounded-full bg-[#FF6B00]/10 blur-3xl -z-10 animate-pulse transition-all duration-1000 ease-out group-hover:scale-125 group-hover:bg-[#FF6B00]/20" />
             <img
               src={welcomeImg}
-              alt="Professional electrician working on breaker panel board"
+              alt="Florida licensed commercial electrician and electrical construction contractor"
               className="w-full h-full object-contain object-center animate-welcome-float transition-all duration-700 ease-out group-hover:brightness-105"
             />
           </div>
@@ -93,10 +108,10 @@ export function Welcome() {
                   <Counter end={600} suffix="+" />
                 </span>
                 <span className="text-xs lg:text-sm font-extrabold text-[#0F172A] tracking-tight leading-tight mt-1.5 lg:mt-2.5">
-                  {t("Successful Projects", "Proyectos Exitosos")}
+                  {t("Commercial & Multi Projects", "Proyectos Comerciales")}
                 </span>
                 <span className="text-[10px] lg:text-[11px] font-semibold text-gray-400 mt-0.5 lg:mt-1">
-                  {t("Amazing Project Done", "Proyectos Realizados")}
+                  {t("Delivered Across Florida", "Entregados en Toda Florida")}
                 </span>
               </div>
             </div>
@@ -109,10 +124,10 @@ export function Welcome() {
                   <Counter end={17} suffix="+" />
                 </span>
                 <span className="text-xs lg:text-sm font-extrabold text-[#0F172A] tracking-tight leading-tight mt-1.5 lg:mt-2.5">
-                  {t("Years Of Experience", "Años de Experiencia")}
+                  {t("Years In Industry", "Años de Trayectoria")}
                 </span>
                 <span className="text-[10px] lg:text-[11px] font-semibold text-gray-400 mt-0.5 lg:mt-1">
-                  {t("Quality Electrical Services", "Servicios de Calidad")}
+                  {t("State Certified EC 13008942", "Certificación Estatal EC 13008942")}
                 </span>
               </div>
             </div>
@@ -127,10 +142,10 @@ export function Welcome() {
                   <Counter end={50} suffix="+" />
                 </span>
                 <span className="text-xs lg:text-sm font-extrabold text-[#0F172A] tracking-tight leading-tight mt-1.5 lg:mt-2.5">
-                  {t("Experienced Staff", "Personal Experto")}
+                  {t("Master Electricians & Crew", "Maestros Electricistas")}
                 </span>
                 <span className="text-[10px] lg:text-[11px] font-semibold text-gray-400 mt-0.5 lg:mt-1">
-                  {t("Expert Electrician", "Electricistas Expertos")}
+                  {t("Bonded & Insured Team", "Equipo Afianzado y Asegurado")}
                 </span>
               </div>
             </div>

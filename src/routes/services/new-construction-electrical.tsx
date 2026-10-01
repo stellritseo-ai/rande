@@ -30,15 +30,15 @@ function NewConstructionPage() {
   const { t } = useLanguage();
 
   const serviceList = [
+    t("New Construction & Hotel Remodeling Blueprints", "Planos de Nueva Construcción y Remodelación Hotelera"),
+    t("Multifamily Residential High-Density Distribution", "Distribución de Alta Densidad para Multifamiliares"),
+    t("Restaurant, School & Medical Clinic Power Infrastructure", "Infraestructura para Restaurantes, Escuelas y Clínicas"),
     t("Complete Electrical Blueprint Design & Value Engineering", "Diseño de Planos Eléctricos e Ingeniería de Valor"),
     t("Underground Conduit Trenching & Primary Service Risers", "Zanjeo de Conductos Subterráneos y Acometidas Principales"),
     t("Commercial & Multi-Family Main Distribution Switchboards", "Tableros de Distribución Eléctrica Principal"),
     t("Phase-1 Rough-In Wiring, Conduit Bending & Outlet Boxes", "Cableado de Fase 1 (Rough-In) y Cajas de Salida"),
-    t("Architectural Recessed, Track & High-Bay Lighting Systems", "Sistemas de Iluminación Arquitectónica y High-Bay"),
     t("Dedicated HVAC, Chiller & Heavy Equipment Power Hookups", "Conexiones Dedicadas para HVAC y Equipos Pesados"),
     t("Low-Voltage Structured Cabling, Fire Alarm & Security Rough-In", "Cableado de Bajo Voltaje, Alarma de Incendio y Seguridad"),
-    t("Florida Power & Light (FPL) Transformer Vault Coordination", "Coordinación de Bóvedas de Transformadores con FPL"),
-    t("Phase-2 Trim-Out, Fixture Hanging & Device Installation", "Fase 2 (Trim-Out), Montaje de Luminarias y Dispositivos"),
     t("Full Municipal Pre-Pour, Rough-In & Final Inspection Sign-Offs", "Inspecciones Municipales: Pre-Vaciado, Rough-In y Final"),
   ];
 
@@ -219,9 +219,15 @@ function NewConstructionPage() {
                   {t("Upload your project plans or schedule a pre-construction consultation with our lead estimator. We provide itemized, competitive bids.", "Cargue los planos de su proyecto o programe una consulta de preconstrucción con nuestro estimador principal.")}
                 </p>
 
-                <div className="mt-6 space-y-3.5">
-                  <Button asChild size="lg" className="w-full">
-                    <Link to="/contact">{t("Submit Project Plans", "Enviar Planos del Proyecto")}</Link>
+                <div className="mt-6 space-y-3">
+                  <Link
+                    to="/submit-plans"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white font-black text-xs uppercase tracking-wider py-3.5 px-4 rounded-full shadow-md transition"
+                  >
+                    {t("SUBMIT PLANS FOR BID", "PRESENTAR PLANOS PARA LICITACIÓN")}
+                  </Link>
+                  <Button asChild size="lg" variant="outline" className="w-full">
+                    <Link to="/contact">{t("Request a Bid", "Solicitar una Licitación")}</Link>
                   </Button>
                   <a
                     href="tel:+17863075933"
@@ -233,7 +239,7 @@ function NewConstructionPage() {
 
                 <div className="mt-6 space-y-2.5 text-xs font-semibold text-secondary/80">
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("State License #EC13009876", "Licencia Estatal #EC13009876")}
+                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("State License #EC 13008942", "Licencia Estatal #EC 13008942")}
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="h-4 w-4 text-primary" /> {t("Dedicated Phased Project Management", "Gestión de Proyecto Dedicada por Fases")}

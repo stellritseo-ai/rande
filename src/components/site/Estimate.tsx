@@ -25,7 +25,7 @@ export function Estimate() {
     const msg = (form.querySelector("#msg") as HTMLTextAreaElement)?.value || "";
 
     try {
-      // 1. Save to MongoDB database
+      // Save to database & trigger real-time Zoho email notification
       await addWebEmail({
         name,
         phone,
@@ -35,29 +35,9 @@ export function Estimate() {
         source: "Free Estimate Page"
       });
 
-      // 2. Email backup forwarding
-      const response = await fetch("https://formsubmit.co/ajax/Williams@electricalcontractorcorp.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Name: name,
-          Phone: phone,
-          Email: email,
-          "Service Needed": service || "General Inquiry",
-          Message: msg
-        })
-      });
-
-      if (response.ok) {
-        toast.success(t("Thanks! We'll be in touch within 24 hours.", "¡Gracias! Nos pondremos en contacto dentro de las 24 horas."));
-        form.reset();
-        setService("");
-      } else {
-        toast.error(t("Submission failed. Please try again.", "Error en el envío. Por favor, inténtelo de nuevo."));
-      }
+      toast.success(t("Thanks! We'll be in touch within 24 hours.", "¡Gracias! Nos pondremos en contacto dentro de las 24 horas."));
+      form.reset();
+      setService("");
     } catch (err) {
       toast.error(t("Connection error. Please try again.", "Error de conexión. Por favor, inténtelo de nuevo."));
     } finally {
@@ -66,7 +46,7 @@ export function Estimate() {
   };
 
   return (
-    <section id="contact" className="section-padding">
+    <section id="contact" className="section-padding bg-slate-50/60 border-t border-slate-200/80">
       <div className="mx-auto max-w-7xl px-4 sm:px-6 lg:px-8">
         <div className="mx-auto max-w-3xl text-center">
           <span className="inline-flex rounded-full bg-primary/10 px-4 py-1.5 text-xs font-bold uppercase tracking-wider text-primary">{t("Free Estimate", "Presupuesto Gratis")}</span>
@@ -91,13 +71,19 @@ export function Estimate() {
                   <Select value={service} onValueChange={setService}>
                     <SelectTrigger id="service" className="h-11"><SelectValue placeholder={t("Select a service", "Seleccione un servicio")} /></SelectTrigger>
                     <SelectContent>
-                      <SelectItem value="residential">{t("Residential Electrical", "Eléctrico Residencial")}</SelectItem>
-                      <SelectItem value="commercial">{t("Commercial Electrical", "Eléctrico Comercial")}</SelectItem>
-                      <SelectItem value="industrial">{t("Industrial Electrical", "Eléctrico Industrial")}</SelectItem>
-                      <SelectItem value="panel">{t("Panel Upgrade", "Actualización de Panel")}</SelectItem>
-                      <SelectItem value="ev">{t("EV Charger", "Cargador EV")}</SelectItem>
-                      <SelectItem value="generator">{t("Generator", "Generador")}</SelectItem>
-                      <SelectItem value="emergency">{t("Emergency Service", "Servicio de Emergencia")}</SelectItem>
+                      <SelectItem value="commercial-construction">{t("Commercial Construction & Build-Outs", "Construcción Comercial y Remodelaciones")}</SelectItem>
+                      <SelectItem value="new-construction-hotel">{t("New Construction & Hotel Remodeling", "Construcción Nueva y Remodelación Hotelera")}</SelectItem>
+                      <SelectItem value="multifamily">{t("Multifamily Residential Buildings", "Edificios Residenciales Multifamiliares")}</SelectItem>
+                      <SelectItem value="restaurants">{t("Restaurants & Commercial Kitchens", "Restaurantes y Cocinas Comerciales")}</SelectItem>
+                      <SelectItem value="schools">{t("Schools & Educational Facilities", "Escuelas e Instalaciones Educativas")}</SelectItem>
+                      <SelectItem value="dental-medical">{t("Dental & Medical Clinics", "Clínicas Dentales y Médicas")}</SelectItem>
+                      <SelectItem value="industrial">{t("Industrial & Warehouse Facilities", "Instalaciones Industriales y Almacenes")}</SelectItem>
+                      <SelectItem value="fire-alarm-low-voltage">{t("Fire Alarm & Low-Voltage Systems", "Alarmas contra Incendios y Bajo Voltaje")}</SelectItem>
+                      <SelectItem value="residential">{t("Residential Electrical Services", "Electricidad Residencial")}</SelectItem>
+                      <SelectItem value="panel">{t("Panel & Switchboard Upgrades", "Actualizaciones de Tableros")}</SelectItem>
+                      <SelectItem value="generator">{t("Backup Generator Installation", "Instalación de Generadores")}</SelectItem>
+                      <SelectItem value="ev">{t("EV Charger Stations", "Estaciones de Carga EV")}</SelectItem>
+                      <SelectItem value="emergency">{t("24/7 Emergency Dispatch", "Despacho de Emergencia 24/7")}</SelectItem>
                     </SelectContent>
                   </Select>
                 </Field>

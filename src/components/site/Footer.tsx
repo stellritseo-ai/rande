@@ -43,6 +43,7 @@ export function Footer() {
 
   const quickLinks = [
     { label: t("Home", "Inicio"), href: "/" },
+    { label: t("Submit Plans for Bid", "Presentar Planos para Licitación"), href: "/submit-plans" },
     { label: t("About Us", "Sobre Nosotros"), href: "/about" },
     { label: t("Our Services", "Nuestros Servicios"), href: "/services" },
     { label: t("Service Areas", "Áreas de Servicio"), href: "/service-areas" },
@@ -51,7 +52,6 @@ export function Footer() {
     { label: t("Fort Lauderdale Electrician", "Electricista en Fort Lauderdale"), href: "/service-areas/fort-lauderdale-fl" },
     { label: t("Featured Projects", "Proyectos Destacados"), href: "/projects" },
     { label: t("Client Reviews", "Opiniones de Clientes"), href: "/reviews" },
-    { label: t("Careers / Hiring", "Carreras / Empleos"), href: "/careers" },
     { label: t("Free Estimate", "Presupuesto Gratis"), href: "/contact" },
   ];
 
@@ -114,15 +114,15 @@ export function Footer() {
             <div className="mt-8 flex flex-wrap gap-2 select-none">
               <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                License #EC13009876
+                License #EC 13008942
               </div>
               <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                {t("Licensed & Insured", "Con Licencia y Seguro")}
+                {t("State Certified Electrical Contractor", "Contratista Certificado Estatal")}
               </div>
               <div className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest">
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
-                {t("Miami-Dade Service", "Servicio en Miami-Dade")}
+                {t("Licensed, Bonded & Insured", "Con Licencia, Fianza y Seguro")}
               </div>
             </div>
           </div>
@@ -233,7 +233,7 @@ export function Footer() {
 
           <div className="flex items-center gap-6">
             <p className="text-xs text-slate-500 font-semibold hidden sm:block">
-              License #EC13009876 · {t("Licensed, Bonded & Insured", "Con Licencia, Fianza y Seguro")}
+              License #EC 13008942 · {t("State Certified · Licensed, Bonded & Insured", "Certificado Estatal · Con Licencia, Fianza y Seguro")}
             </p>
 
             <motion.button

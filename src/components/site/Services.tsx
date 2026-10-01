@@ -1,5 +1,20 @@
 import { Link } from "@tanstack/react-router";
-import { ArrowRight, Battery, Bolt, Building2, Cable, Home, Plug, ShieldAlert, Video, Wrench, Zap } from "lucide-react";
+import { 
+  ArrowRight, 
+  Battery, 
+  Bolt, 
+  Building2, 
+  Cable, 
+  Home, 
+  Plug, 
+  ShieldAlert, 
+  Video, 
+  Wrench, 
+  Zap,
+  Hotel,
+  Activity,
+  Utensils
+} from "lucide-react";
 import resImg from "@/assets/service-residential.jpg";
 import comImg from "@/assets/service-commercial.jpg";
 import indImg from "@/assets/service-industrial.jpg";
@@ -32,7 +47,7 @@ function CardContent({ s }: { s: { icon: any; title: string; desc: string; image
       />
 
       {/* Gradient — stronger on hover */}
-      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/35 to-transparent group-hover:from-black/95 group-hover:via-black/80 group-hover:to-black/20 transition-all duration-500" />
+      <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/40 to-transparent group-hover:from-black/95 group-hover:via-black/80 group-hover:to-black/20 transition-all duration-500" />
 
       {/* Orange accent line at bottom */}
       <div className="absolute bottom-0 left-0 right-0 h-[3px] bg-gradient-to-r from-[#FF6B00] via-[#FF8533] to-[#FF6B00] opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
@@ -44,7 +59,7 @@ function CardContent({ s }: { s: { icon: any; title: string; desc: string; image
 
       {/* Content */}
       <div className="absolute inset-0 p-5 flex flex-col justify-end z-10">
-        <div className="transition-all duration-500 group-hover:-translate-y-2">
+        <div className="transition-all duration-500 group-hover:-translate-y-2 text-left">
           <h3 className="text-sm sm:text-[15px] font-extrabold text-white leading-tight uppercase tracking-wide">
             {s.title}
           </h3>
@@ -76,17 +91,99 @@ export function Services() {
   const { t } = useLanguage();
 
   const services = [
-    { icon: Home,        title: t("Residential Electrical", "Electricidad Residencial"),      desc: t("Whole-home wiring, lighting setups, smart controls, and safety diagnostics.", "Cableado para todo el hogar, configuraciones de iluminación, controles inteligentes y diagnósticos de seguridad."), image: resImg, to: "/services/residential" },
-    { icon: Building2,   title: t("Commercial Electrical", "Electricidad Comercial"),         desc: t("Office build-outs, tenant improvements, retail lighting, and 3-phase power.", "Remodelaciones de oficina, mejoras de inquilinos, iluminación comercial y trifásica."), image: comImg, to: "/services/commercial" },
-    { icon: Bolt,        title: t("Industrial Electrical", "Electricidad Industrial"),       desc: t("Heavy-duty power distribution, equipment hookups, and phase controls.", "Distribución de energía de servicio pesado, conexiones de equipos y controles de fase."), image: indImg, to: "/services/industrial" },
-    { icon: Wrench,      title: t("24/7 Emergency Service", "Servicio de Emergencia 24/7"),      desc: t("Rapid dispatch for power outages, sparking breaker boxes, and hazards.", "Despacho rápido para cortes de energía, cajas con chispas y peligros."), image: indImg, to: "/services/emergency" },
-    { icon: Zap,         title: t("Panel Upgrades", "Actualizaciones de Panel"),              desc: t("Modernize circuit breaker panels to 200A or 400A capacity safely.", "Modernice los paneles de disyuntores a una capacidad de 200A o 400A de forma segura."), image: panImg, to: "/services/panel-upgrades" },
-    { icon: Plug,        title: t("EV Charger Installation", "Instalación de Cargador EV"),     desc: t("Level 2 home chargers and commercial EV charging stations.", "Cargadores domésticos de nivel 2 e instalaciones de estaciones de carga de EV comerciales."), image: evImg,  to: "/services/ev-charger" },
-    { icon: Battery,     title: t("Generator Installation", "Instalación de Generadores"),      desc: t("Whole-home standby generator installations with automatic transfer switches.", "Instalaciones de generadores de respaldo con interruptores de transferencia automática."), image: genImg, to: "/services/generator" },
-    { icon: ShieldAlert, title: t("Fire Alarm Systems", "Sistemas de Alarma contra Incendios"),          desc: t("Safety-certified design, low-voltage wiring, code compliance, and testing.", "Diseño con certificación de seguridad, cableado de bajo voltaje, cumplimiento de códigos y pruebas."), image: panImg, to: "/services/fire-alarm" },
-    { icon: Video,       title: t("CCTV Camera Installation", "Instalación de Cámaras CCTV"), desc: t("Premium 4K HD surveillance, NVR setups, IP camera repairs & remote apps.", "Vigilancia 4K HD premium, configuraciones de NVR, reparaciones de cámaras IP y aplicaciones remotas."), image: cctvImg, to: "/services/cctv-camera" },
-    { icon: Building2,   title: t("New Construction Electrical", "Electricidad de Nuevas Construcciones"), desc: t("Ground-up blueprints, rough-ins, panel boards, and final code inspections.", "Planos desde cero, cableado preliminar, tableros y auditorías de código."), image: comImg, to: "/services/new-construction-electrical" },
-    { icon: Cable,       title: t("Wiring & Rewiring", "Cableado y Re-cableado"),             desc: t("Whole-home copper structural rewiring and aluminum wire hazard mitigations.", "Recableado estructural de cobre para todo el hogar y mitigación de peligros de aluminio."), image: resImg, to: "/services/wiring-rewiring" },
+    // Top 3 Commercial & Construction cards
+    { 
+      icon: Building2, 
+      title: t("Commercial Electrical", "Electricidad Comercial"), 
+      desc: t("Tenant build-outs, multifamily housing, retail lighting, 3-phase switchboards, and full NEC compliance.", "Remodelaciones de oficina, edificios multifamiliares, comercio, trifásica y cumplimiento NEC."), 
+      image: comImg, 
+      to: "/services/commercial" 
+    },
+    { 
+      icon: Building2, 
+      title: t("New Construction Electrical", "Nuevas Construcciones"), 
+      desc: t("Ground-up engineering, underground conduit, primary risers, blueprints, rough-ins, and final code sign-offs.", "Ingeniería desde cero, conductos subterráneos, acometidas, planos, rough-in e inspecciones."), 
+      image: comImg, 
+      to: "/services/new-construction-electrical" 
+    },
+    { 
+      icon: Hotel, 
+      title: t("Hospitality & Hotel Remodeling", "Hotelería y Remodelación de Hoteles"), 
+      desc: t("Comprehensive hotel renovations, guest room power, resort lighting, and commercial generator backup systems.", "Renovación integral de hoteles, energía en habitaciones, iluminación de resorts y generadores."), 
+      image: indImg, 
+      to: "/services/commercial" 
+    },
+    // Secondary & specialty capabilities
+    { 
+      icon: ShieldAlert, 
+      title: t("Fire Alarm Systems", "Sistemas de Alarma contra Incendios"), 
+      desc: t("Life-safety certified design, low-voltage conduit, central panels, and Fire Marshal inspection approvals.", "Diseño con certificación de seguridad, tuberías de bajo voltaje, paneles y aprobación de bomberos."), 
+      image: panImg, 
+      to: "/services/fire-alarm" 
+    },
+    { 
+      icon: Bolt, 
+      title: t("Industrial Electrical", "Electricidad Industrial"), 
+      desc: t("Heavy manufacturing power distribution, MCC motor controls, high-voltage transformers, and plant maintenance.", "Distribución para manufactura pesada, centros de control de motores y mantenimiento."), 
+      image: indImg, 
+      to: "/services/industrial" 
+    },
+    { 
+      icon: Activity, 
+      title: t("Medical & Dental Clinics", "Clínicas Médicas y Dentales"), 
+      desc: t("NFPA 99 healthcare compliant electrical, isolated ground lines, imaging rooms, and clinical equipment circuits.", "Electricidad bajo norma NFPA 99, tierras aisladas, salas de rayos X y equipos clínicos."), 
+      image: comImg, 
+      to: "/services/commercial" 
+    },
+    { 
+      icon: Utensils, 
+      title: t("Restaurant & Kitchen Power", "Restaurantes y Cocinas Comerciales"), 
+      desc: t("High-amperage kitchen equipment, walk-in cooler circuits, Ansul exhaust interlocks, and dining illumination.", "Equipos de cocina de alto amperaje, cuartos fríos, interbloqueo de campanas e iluminación."), 
+      image: indImg, 
+      to: "/services/commercial" 
+    },
+    { 
+      icon: Zap, 
+      title: t("Panel Upgrades & Switchgear", "Actualizaciones de Tableros"), 
+      desc: t("Modernize circuit breaker panels and commercial main switchboards from 200A to 2000A capacity safely.", "Modernice paneles de disyuntores y tableros comerciales principales de 200A a 2000A."), 
+      image: panImg, 
+      to: "/services/panel-upgrades" 
+    },
+    { 
+      icon: Plug, 
+      title: t("EV Charger Stations", "Estaciones de Carga EV"), 
+      desc: t("Commercial fleet charging hubs, multi-family parking lot ports, and Level 2 installations.", "Hubs de carga para flotas comerciales, estacionamientos multifamiliares e instalaciones Nivel 2."), 
+      image: evImg, 
+      to: "/services/ev-charger" 
+    },
+    { 
+      icon: Battery, 
+      title: t("Commercial Backup Generators", "Generadores de Respaldo Comerciales"), 
+      desc: t("High-capacity automatic transfer switches, hurricane emergency backup, and continuous critical power.", "Interruptores de transferencia automática, respaldo ante huracanes y energía ininterrumpida."), 
+      image: genImg, 
+      to: "/services/generator" 
+    },
+    { 
+      icon: Home, 
+      title: t("Residential Electrical", "Electricidad Residencial"), 
+      desc: t("High-end residential wiring, architectural lighting, safety diagnostics, and whole-home rewiring.", "Cableado residencial de alta gama, iluminación arquitectónica, diagnósticos y recableado."), 
+      image: resImg, 
+      to: "/services/residential" 
+    },
+    { 
+      icon: Video, 
+      title: t("CCTV & Low-Voltage Systems", "Cámaras CCTV y Bajo Voltaje"), 
+      desc: t("Structured data cabling, 4K security camera surveillance, and NVR enterprise networks.", "Cableado estructurado de datos, videovigilancia 4K y redes empresariales NVR."), 
+      image: cctvImg, 
+      to: "/services/cctv-camera" 
+    },
+    { 
+      icon: Wrench, 
+      title: t("24/7 Emergency Dispatch", "Servicio de Emergencia 24/7"), 
+      desc: t("Immediate master electrician response for commercial power failures, hazards, and blown transformers.", "Respuesta inmediata para cortes comerciales, riesgos eléctricos y transformadores dañados."), 
+      image: indImg, 
+      to: "/services/emergency" 
+    },
   ];
 
   const topItems   = services.slice(0, 3);
@@ -110,18 +207,18 @@ export function Services() {
             {/* Eyebrow badge */}
             <span className="inline-flex items-center gap-2 bg-[#FF6B00]/10 border border-[#FF6B00]/20 text-[#FF6B00] rounded-full px-5 py-1.5 text-[11px] font-black uppercase tracking-widest mb-5 w-fit">
               <svg className="w-3 h-3 fill-[#FF6B00]" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
-              {t("Our Services", "Nuestros Servicios")}
+              {t("Commercial & Construction Services", "Servicios Comerciales y de Construcción")}
               <svg className="w-3 h-3 fill-[#FF6B00]" viewBox="0 0 24 24"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
             </span>
 
             {/* Heading */}
             <h2
               className="text-neutral-900 tracking-tight leading-[1.2] font-extrabold"
-              style={{ fontSize: "clamp(28px, 4vw, 42px)" }}
+              style={{ fontSize: "29px", marginTop: "-12px", marginBottom: "-8px" }}
             >
-              {t("Full-Spectrum ", "Soluciones ")}
-              <span className="text-[#FF6B00]">{t("Electrical", "Eléctricas")}</span>{" "}
-              {t("Solutions", "Completas")}
+              {t("Florida Commercial & ", "Soluciones Eléctricas ")}
+              <span className="text-[#FF6B00]">{t("Construction Electrical", "Comerciales")}</span>{" "}
+              {t("Solutions", "Integrales")}
             </h2>
 
             {/* Divider accent */}
@@ -130,13 +227,23 @@ export function Services() {
               <div className="h-[2px] w-4 bg-[#FF6B00]/40 rounded-full" />
             </div>
 
-            <p className="text-slate-500 text-sm md:text-[15px] leading-[28px] font-medium max-w-[95%]">
-              {t("One licensed team. Every job — from a single outlet to a 50,000 sqft facility. High-quality electrical work with guaranteed safety and performance across Miami & South Florida.", "Un equipo autorizado. Cada trabajo, desde un solo tomacorriente hasta una instalación de 50,000 pies cuadrados. Trabajo eléctrico de alta calidad con seguridad y rendimiento garantizados en todo Miami y el sur de Florida.")}
+            <p
+              className="text-slate-600 text-sm md:text-[15px] leading-[28px] font-medium max-w-[95%]"
+              style={{ marginTop: "-11px", marginBottom: "-20px" }}
+            >
+              {t(
+                "Operating under License #EC 13008942, we specialize in major commercial projects, multifamily buildings, hotels, and new construction across Florida. Master electricians delivering precision line-item bids and on-time project milestones.",
+                "Bajo la Licencia #EC 13008942, nos especializamos en grandes proyectos comerciales, edificios multifamiliares, hoteles y nuevas construcciones en Florida. Maestros electricistas con presupuestos precisos y entrega puntual."
+              )}
             </p>
 
             {/* Trust row */}
-            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[12px] font-bold text-slate-600">
-              {[t("Licensed & Insured", "Con Licencia y Seguro"), t("24/7 Emergency", "Emergencia 24/7"), t("Free Estimates", "Presupuestos Gratis")].map((itemText) => (
+            <div className="mt-6 flex flex-wrap gap-x-5 gap-y-2 text-[12px] font-bold text-slate-700">
+              {[
+                t("License #EC 13008942", "Licencia #EC 13008942"),
+                t("Bonded & $2M Insured", "Afianzado y Asegurado $2M"),
+                t("Bid Turnarounds 24–48h", "Presupuestos en 24–48h"),
+              ].map((itemText) => (
                 <span key={itemText} className="flex items-center gap-1.5">
                   <span className="w-1.5 h-1.5 rounded-full bg-[#FF6B00]" />
                   {itemText}
@@ -144,12 +251,18 @@ export function Services() {
               ))}
             </div>
 
-            <div className="mt-7">
+            <div className="mt-7 flex flex-wrap items-center gap-3">
+              <Link
+                to="/submit-plans"
+                className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white rounded-full px-6 py-3.5 text-[12px] font-black uppercase tracking-wider shadow-[0_10px_25px_-5px_rgba(255,107,0,0.35)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+              >
+                {t("Submit Plans for Bid", "Presentar Planos para Licitación")} <ArrowRight className="h-4 w-4" />
+              </Link>
               <Link
                 to="/services"
-                className="inline-flex items-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white rounded-full px-7 py-3.5 text-[13px] font-black uppercase tracking-wider shadow-[0_10px_25px_-5px_rgba(255,107,0,0.35)] transition-all duration-300 hover:scale-[1.02] active:scale-[0.98]"
+                className="inline-flex items-center gap-2 border border-slate-300 hover:border-[#FF6B00] text-slate-800 hover:text-[#FF6B00] rounded-full px-5 py-3.5 text-[12px] font-bold uppercase tracking-wider transition-all duration-300"
               >
-                {t("View All Services", "Ver Todos los Servicios")} <ArrowRight className="h-4 w-4" />
+                {t("All Services", "Todos los Servicios")}
               </Link>
             </div>
           </motion.div>
@@ -177,13 +290,13 @@ export function Services() {
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true, margin: "-80px" }}
           transition={{ duration: 0.75, delay: 0.15, ease: "easeOut" }}
-          className="mt-6 relative"
+          className="mt-8 relative"
         >
           {/* Section divider with label */}
           <div className="flex items-center gap-4 mb-5">
             <div className="h-px flex-1 bg-slate-200" />
-            <span className="text-[10px] font-black uppercase tracking-widest text-slate-400 whitespace-nowrap">
-              {t("More Services", "Más Servicios")}
+            <span className="text-[10px] font-black uppercase tracking-widest text-slate-500 whitespace-nowrap">
+              {t("Specialized Commercial, Healthcare & Residential Services", "Servicios Especializados Comerciales, de Salud y Residenciales")}
             </span>
             <div className="h-px flex-1 bg-slate-200" />
           </div>

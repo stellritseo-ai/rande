@@ -233,7 +233,7 @@ function FireAlarmPage() {
 
                 <div className="mt-6 space-y-2.5 text-xs font-semibold text-secondary/80">
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("State Certified License #EC13009876", "Licencia Estatal #EC13009876")}
+                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("State Certified License #EC 13008942", "Licencia Estatal #EC 13008942")}
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="h-4 w-4 text-primary" /> {t("Annual Inspection & Decal Certification", "Inspección Anual y Certificación")}

@@ -239,7 +239,7 @@ function IndustrialPage() {
                     <Clock className="h-4 w-4 text-primary" /> {t("Turnaround & Plant Shutdown Specialists", "Especialistas en Paradas de Planta")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Award className="h-4 w-4 text-primary" /> {t("State License #EC13009876", "Licencia Estatal #EC13009876")}
+                    <Award className="h-4 w-4 text-primary" /> {t("State License #EC 13008942", "Licencia Estatal #EC 13008942")}
                   </div>
                 </div>
               </div>

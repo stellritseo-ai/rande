@@ -49,7 +49,7 @@ function ResidentialPage() {
     },
     {
       q: t("Are your residential electricians licensed and insured in Florida?", "¿Están sus electricistas residenciales autorizados y asegurados en Florida?"),
-      a: t("Yes. Electrical Contractor Corp operates under Florida State Certified Electrical Contractor License #EC13009876. Every technician is background-checked, drug-tested, and fully insured with $2M general liability and workers' compensation.", "Sí. Electrical Contractor Corp opera bajo la Licencia de Contratista Eléctrico Certificado del Estado de Florida #EC13009876. Cada técnico es sometido a verificación de antecedentes y cuenta con seguro completo.")
+      a: t("Yes. Electrical Contractor Corp operates under Florida State Certified Electrical Contractor License #EC 13008942. Every technician is background-checked, drug-tested, and fully insured with $2M general liability and workers' compensation.", "Sí. Electrical Contractor Corp opera bajo la Licencia de Contratista Eléctrico Certificado del Estado de Florida #EC 13008942. Cada técnico es sometido a verificación de antecedentes y cuenta con seguro completo.")
     },
     {
       q: t("Do you provide free upfront estimates for home electrical repairs?", "¿Proporcionan presupuestos iniciales gratuitos para reparaciones eléctricas del hogar?"),
@@ -233,7 +233,7 @@ function ResidentialPage() {
 
                 <div className="mt-6 space-y-2.5 text-xs font-semibold text-secondary/80">
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("State Certified License #EC13009876", "Licencia Certificada Estatal #EC13009876")}
+                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("State Certified License #EC 13008942", "Licencia Certificada Estatal #EC 13008942")}
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="h-4 w-4 text-primary" /> {t("Fast Estimates & Same-Day Service", "Presupuestos Rápidos y Servicio el Mismo Día")}

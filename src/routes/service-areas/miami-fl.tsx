@@ -57,7 +57,7 @@ function MiamiServiceAreaPage() {
     },
     {
       q: t("Are your electricians licensed and insured in Miami, FL?", "¿Están sus electricistas autorizados y asegurados en Miami, FL?"),
-      a: t("Yes. We hold an active State Certified Electrical Contractor License (#EC13009876) with $2M general liability insurance and workers' compensation coverage, ensuring full legal and financial protection.", "Sí. Poseemos una Licencia de Contratista Eléctrico Certificado del Estado (#EC13009876) con un seguro de responsabilidad civil de $2M y compensación laboral.")
+      a: t("Yes. We hold an active State Certified Electrical Contractor License (#EC 13008942) with $2M general liability insurance and workers' compensation coverage, ensuring full legal and financial protection.", "Sí. Poseemos una Licencia de Contratista Eléctrico Certificado del Estado (#EC 13008942) con un seguro de responsabilidad civil de $2M y compensación laboral.")
     }
   ];
 
@@ -263,7 +263,7 @@ function MiamiServiceAreaPage() {
 
                 <div className="mt-6 space-y-2.5 text-xs font-semibold text-secondary/80">
                   <div className="flex items-center gap-2">
-                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("State Certified License #EC13009876", "Licencia Estatal #EC13009876")}
+                    <ShieldCheck className="h-4 w-4 text-primary" /> {t("State Certified License #EC 13008942", "Licencia Estatal #EC 13008942")}
                   </div>
                   <div className="flex items-center gap-2">
                     <Clock className="h-4 w-4 text-primary" /> {t("60-Min Emergency Response in Miami", "Respuesta de Emergencia en 60 Minutos en Miami")}

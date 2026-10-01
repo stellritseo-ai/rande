@@ -32,7 +32,7 @@ export function Careers() {
     const msg = (form.querySelector("#app-msg") as HTMLTextAreaElement)?.value || "";
 
     try {
-      // 1. Save to MongoDB database
+      // Save to database & trigger real-time Zoho email notification
       await addWebEmail({
         name,
         phone,
@@ -42,33 +42,11 @@ export function Careers() {
         source: "Careers Form"
       });
 
-      // 2. Email backup
-      const response = await fetch("https://formsubmit.co/ajax/Williams@electricalcontractorcorp.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Name: name,
-          Phone: phone,
-          Email: email,
-          "Position of Interest": job || "General Application",
-          "Years of Experience": exp || "Not Specified",
-          "License Status": license || "Not Specified",
-          Message: msg
-        })
-      });
-
-      if (response.ok) {
-        toast.success(t("Application received! We'll review your details and contact you soon.", "¡Solicitud recibida! Revisaremos sus datos y nos pondremos en contacto pronto."));
-        form.reset();
-        setJob("");
-        setExp("");
-        setLicense("");
-      } else {
-        toast.error(t("Submission failed. Please try again.", "Error en el envío. Por favor, inténtelo de nuevo."));
-      }
+      toast.success(t("Application received! We'll review your details and contact you soon.", "¡Solicitud recibida! Revisaremos sus datos y nos pondremos en contacto pronto."));
+      form.reset();
+      setJob("");
+      setExp("");
+      setLicense("");
     } catch (err) {
       toast.error(t("Connection error. Please try again.", "Error de conexión. Por favor, inténtelo de nuevo."));
     } finally {

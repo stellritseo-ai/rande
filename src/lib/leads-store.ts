@@ -966,9 +966,9 @@ export const getSiteSettings = async (): Promise<SiteSettings> => {
     return await apiCall<SiteSettings>("/api/settings?t=" + Date.now(), "GET");
   } catch (err) {
     console.warn("MongoDB offline, falling back to local storage settings:", err);
-    let email = getStorageItem("electrical_settings_alertEmail", "Williams@electricalcontractorcorp.com");
-    if (email === "revitalizerealestate@gmail.com") {
-      email = "Williams@electricalcontractorcorp.com";
+    let email = getStorageItem("electrical_settings_alertEmail", "eva@stellrit.com");
+    if (email === "revitalizerealestate@gmail.com" || email === "Williams@electricalcontractorcorp.com") {
+      email = "eva@stellrit.com";
       setStorageItem("electrical_settings_alertEmail", email);
     }
     let phone = getStorageItem("electrical_settings_officePhone", "(786) 307-5933");

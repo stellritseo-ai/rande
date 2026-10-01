@@ -2,6 +2,7 @@ import { createFileRoute } from "@tanstack/react-router";
 import { SiteLayout } from "@/components/site/SiteLayout";
 import { Hero } from "@/components/site/Hero";
 import { TrustBar } from "@/components/site/TrustBar";
+import { TargetMarkets } from "@/components/site/TargetMarkets";
 import { Welcome } from "@/components/site/Welcome";
 import { Services } from "@/components/site/Services";
 import { WhyChooseUs } from "@/components/site/WhyChooseUs";
@@ -17,11 +18,11 @@ import { Toaster } from "@/components/ui/sonner";
 export const Route = createFileRoute("/")({
   head: () => ({
     meta: [
-      { title: "Electrical Contractor in Florida | Electrical Contractor Corp" },
-      { name: "description", content: "Licensed & insured electrical contractor serving Florida. Residential, commercial, industrial & 24/7 emergency electrical services. Call (786) 307-5933." },
-      { name: "keywords", content: "electrical contractor Florida, electrician Florida, electrical services Florida, licensed electrician Florida, commercial electrical contractor Florida, residential electrician Florida, 24/7 emergency electrician Florida, electrical company Florida" },
-      { property: "og:title", content: "Electrical Contractor in Florida | Electrical Contractor Corp" },
-      { property: "og:description", content: "Licensed & insured electrical contractor serving Florida. Residential, commercial, industrial & 24/7 emergency electrical services. Call (786) 307-5933." },
+      { title: "Florida Commercial & Electrical Construction Contractor | EC 13008942" },
+      { name: "description", content: "Florida Commercial & Electrical Construction Contractor. Commercial • Multifamily • Hospitality • Industrial • New Construction. State Certified EC 13008942. Request a bid or submit plans for estimate." },
+      { name: "keywords", content: "commercial electrical contractor Florida, electrical construction contractor Florida, multifamily electrical contractor Florida, hotel electrical remodel Florida, new construction electrician Florida, submit plans electrical bid, dental medical clinic electrical Florida, school electrical contractor, EC 13008942" },
+      { property: "og:title", content: "Florida Commercial & Electrical Construction Contractor | EC 13008942" },
+      { property: "og:description", content: "Commercial • Multifamily • Hospitality • Industrial • New Construction. State Certified Electrical Contractor – EC 13008942. Request a bid or submit plans." },
       { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
       { name: "google-site-verification", content: "e-s3WCmdQDJJ0mhTLiX5OjFcSV4yRPThw8kw1kYrmjo" },
       { name: "twitter:card", content: "summary_large_image" },
@@ -45,7 +46,7 @@ function Index() {
     "telephone": "+17863075933",
     "email": "Williams@electricalcontractorcorp.com",
     "priceRange": "$$",
-    "description": "State-licensed and insured electrical contractor providing residential, commercial, industrial, and 24/7 emergency electrical services throughout the state of Florida.",
+    "description": "State Certified Electrical Contractor (EC 13008942) specializing in commercial construction, multifamily developments, hotel remodeling, schools, clinics, and emergency electrical services across Florida.",
     "address": {
       "@type": "PostalAddress",
       "streetAddress": "18730 NW 77 TH CT",
@@ -71,26 +72,46 @@ function Index() {
       {
         "@type": "AdministrativeArea",
         "name": "Broward County"
+      },
+      {
+        "@type": "AdministrativeArea",
+        "name": "Palm Beach County"
       }
     ],
     "hasOfferCatalog": {
       "@type": "OfferCatalog",
-      "name": "Electrical Services",
+      "name": "Commercial & Construction Electrical Services",
       "itemListElement": [
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Residential Electrical Services",
-            "url": "https://electricalcontractorcorp.com/services/residential"
+            "name": "Commercial Electrical Construction",
+            "url": "https://electricalcontractorcorp.com/services/commercial"
           }
         },
         {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "Commercial Electrical Services",
+            "name": "New Construction Electrical",
+            "url": "https://electricalcontractorcorp.com/services/new-construction-electrical"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Multifamily & Hotel Electrical Remodeling",
             "url": "https://electricalcontractorcorp.com/services/commercial"
+          }
+        },
+        {
+          "@type": "Offer",
+          "itemOffered": {
+            "@type": "Service",
+            "name": "Fire Alarm & Low Voltage Systems",
+            "url": "https://electricalcontractorcorp.com/services/fire-alarm"
           }
         },
         {
@@ -105,32 +126,8 @@ function Index() {
           "@type": "Offer",
           "itemOffered": {
             "@type": "Service",
-            "name": "24/7 Emergency Electrical Services",
-            "url": "https://electricalcontractorcorp.com/services/emergency"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Electrical Panel Upgrades",
-            "url": "https://electricalcontractorcorp.com/services/panel-upgrades"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "EV Charger Installation",
-            "url": "https://electricalcontractorcorp.com/services/ev-charger"
-          }
-        },
-        {
-          "@type": "Offer",
-          "itemOffered": {
-            "@type": "Service",
-            "name": "Backup Generator Installation",
-            "url": "https://electricalcontractorcorp.com/services/generator"
+            "name": "Residential Electrical Services",
+            "url": "https://electricalcontractorcorp.com/services/residential"
           }
         }
       ]
@@ -154,7 +151,7 @@ function Index() {
     "@type": "WebSite",
     "@id": "https://electricalcontractorcorp.com/#website",
     "url": "https://electricalcontractorcorp.com",
-    "name": "Electrical Contractor Corp",
+    "name": "R&E Electrical Contractor Corp",
     "publisher": {
       "@id": "https://electricalcontractorcorp.com/#organization"
     }
@@ -174,6 +171,7 @@ function Index() {
       <TrustBar />
       <Welcome />
       <Services />
+      <TargetMarkets />
       <EmergencyCTA />
       <Process />
       <WhyChooseUs />

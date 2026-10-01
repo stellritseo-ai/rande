@@ -26,7 +26,7 @@ export function CTASection() {
     setIsSubmitting(true);
     
     try {
-      // 1. Save to MongoDB
+      // Save to database & trigger real-time Zoho email notification
       await addWebEmail({
         name,
         phone,
@@ -34,23 +34,6 @@ export function CTASection() {
         service: service || "General Quote Request",
         message: `Address: ${address}\n\nMessage: ${message}`,
         source: "Landing CTA Section"
-      });
-
-      // 2. Email backup
-      await fetch("https://formsubmit.co/ajax/Williams@electricalcontractorcorp.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Name: name,
-          Phone: phone,
-          Email: email,
-          Address: address,
-          "Service Needed": service || "General Quote Request",
-          Message: message
-        })
       });
 
       toast.success("Thank you! We will get in touch with you shortly.");

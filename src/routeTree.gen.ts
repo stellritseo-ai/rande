@@ -9,6 +9,7 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
+import { Route as SubmitPlansRouteImport } from './routes/submit-plans'
 import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
 import { Route as ServicesRouteImport } from './routes/services'
 import { Route as ServiceAreasRouteImport } from './routes/service-areas'
@@ -38,6 +39,11 @@ import { Route as ServiceAreasHialeahFlRouteImport } from './routes/service-area
 import { Route as ServiceAreasFortLauderdaleFlRouteImport } from './routes/service-areas/fort-lauderdale-fl'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard/login'
 
+const SubmitPlansRoute = SubmitPlansRouteImport.update({
+  id: '/submit-plans',
+  path: '/submit-plans',
+  getParentRoute: () => rootRouteImport,
+} as any)
 const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
   id: '/sitemap.xml',
   path: '/sitemap.xml',
@@ -191,6 +197,7 @@ export interface FileRoutesByFullPath {
   '/service-areas': typeof ServiceAreasRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/submit-plans': typeof SubmitPlansRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/service-areas/fort-lauderdale-fl': typeof ServiceAreasFortLauderdaleFlRoute
   '/service-areas/hialeah-fl': typeof ServiceAreasHialeahFlRoute
@@ -219,6 +226,7 @@ export interface FileRoutesByTo {
   '/projects': typeof ProjectsRoute
   '/reviews': typeof ReviewsRoute
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/submit-plans': typeof SubmitPlansRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/service-areas/fort-lauderdale-fl': typeof ServiceAreasFortLauderdaleFlRoute
   '/service-areas/hialeah-fl': typeof ServiceAreasHialeahFlRoute
@@ -250,6 +258,7 @@ export interface FileRoutesById {
   '/service-areas': typeof ServiceAreasRouteWithChildren
   '/services': typeof ServicesRouteWithChildren
   '/sitemap.xml': typeof SitemapDotxmlRoute
+  '/submit-plans': typeof SubmitPlansRoute
   '/dashboard/login': typeof DashboardLoginRoute
   '/service-areas/fort-lauderdale-fl': typeof ServiceAreasFortLauderdaleFlRoute
   '/service-areas/hialeah-fl': typeof ServiceAreasHialeahFlRoute
@@ -282,6 +291,7 @@ export interface FileRouteTypes {
     | '/service-areas'
     | '/services'
     | '/sitemap.xml'
+    | '/submit-plans'
     | '/dashboard/login'
     | '/service-areas/fort-lauderdale-fl'
     | '/service-areas/hialeah-fl'
@@ -310,6 +320,7 @@ export interface FileRouteTypes {
     | '/projects'
     | '/reviews'
     | '/sitemap.xml'
+    | '/submit-plans'
     | '/dashboard/login'
     | '/service-areas/fort-lauderdale-fl'
     | '/service-areas/hialeah-fl'
@@ -340,6 +351,7 @@ export interface FileRouteTypes {
     | '/service-areas'
     | '/services'
     | '/sitemap.xml'
+    | '/submit-plans'
     | '/dashboard/login'
     | '/service-areas/fort-lauderdale-fl'
     | '/service-areas/hialeah-fl'
@@ -371,12 +383,20 @@ export interface RootRouteChildren {
   ServiceAreasRoute: typeof ServiceAreasRouteWithChildren
   ServicesRoute: typeof ServicesRouteWithChildren
   SitemapDotxmlRoute: typeof SitemapDotxmlRoute
+  SubmitPlansRoute: typeof SubmitPlansRoute
   DashboardLoginRoute: typeof DashboardLoginRoute
   DashboardIndexRoute: typeof DashboardIndexRoute
 }
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
+    '/submit-plans': {
+      id: '/submit-plans'
+      path: '/submit-plans'
+      fullPath: '/submit-plans'
+      preLoaderRoute: typeof SubmitPlansRouteImport
+      parentRoute: typeof rootRouteImport
+    }
     '/sitemap.xml': {
       id: '/sitemap.xml'
       path: '/sitemap.xml'
@@ -641,6 +661,7 @@ const rootRouteChildren: RootRouteChildren = {
   ServiceAreasRoute: ServiceAreasRouteWithChildren,
   ServicesRoute: ServicesRouteWithChildren,
   SitemapDotxmlRoute: SitemapDotxmlRoute,
+  SubmitPlansRoute: SubmitPlansRoute,
   DashboardLoginRoute: DashboardLoginRoute,
   DashboardIndexRoute: DashboardIndexRoute,
 }

@@ -33,7 +33,7 @@ export function GetInTouch() {
     const msg = (form.querySelector("textarea[name='message']") as HTMLTextAreaElement)?.value || "";
 
     try {
-      // 1. Save to MongoDB
+      // Save to database & trigger real-time Zoho email notification
       await addWebEmail({
         name,
         phone,
@@ -43,27 +43,9 @@ export function GetInTouch() {
         source: "Landing Get-In-Touch Form"
       });
 
-      // 2. Formsubmit backup
-      const response = await fetch("https://formsubmit.co/ajax/Williams@electricalcontractorcorp.com", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-          "Accept": "application/json"
-        },
-        body: JSON.stringify({
-          Name: name,
-          Phone: phone,
-          Email: email,
-          "Service Needed": service || "General Inquiry",
-          Message: msg
-        })
-      });
-
-      if (response.ok) {
-        setSubmitted(true);
-      }
+      setSubmitted(true);
     } catch (err) {
-      // Fallback fallback on failure
+      // Fallback on failure
       setSubmitted(true);
     } finally {
       setSubmitting(false);

@@ -38,6 +38,7 @@ import {
 
 import { uploadToCloudinary, deleteFromCloudinary } from "./cloudinary.server.js";
 import { hashPassword, verifyPassword } from "./crypto.server.js";
+import { sendSubmissionEmail, sendChatNotificationEmail } from "./email-service.server.js";
 
 const DEFAULT_ADMIN = {
   id: "admin-1",
@@ -101,6 +102,20 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
             photos: []
           };
           const saved = await dbAddLead(newLead);
+
+          try {
+            await sendSubmissionEmail({
+              name: newLead.name,
+              email: newLead.email,
+              phone: newLead.phone,
+              service: newLead.projectType,
+              message: `${newLead.description || ""}\nAddress: ${newLead.address || ""}\nPreferred Contact Time: ${newLead.contactTime || ""}`,
+              source: "Public Leads Form"
+            });
+          } catch (emailErr) {
+            console.error("Failed to dispatch Zoho SMTP lead email:", emailErr);
+          }
+
           return jsonResponse(saved);
         }
       }
@@ -229,6 +244,20 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           console.error("Failed to create form submission notification:", err);
         }
 
+        // Send real-time email notification via Zoho SMTP
+        try {
+          await sendSubmissionEmail({
+            name: newEmail.name,
+            email: newEmail.email,
+            phone: newEmail.phone,
+            service: newEmail.service,
+            message: newEmail.message,
+            source: newEmail.source
+          });
+        } catch (emailErr) {
+          console.error("Failed to dispatch Zoho SMTP email notification:", emailErr);
+        }
+
         return jsonResponse(saved);
       }
       if (method === "DELETE") {
@@ -344,37 +373,17 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
           };
           await dbSaveChatSession(updatedSession);
 
-          // If this is the first client message, send an email notification to Williams@electricalcontractorcorp.com
+          // If this is the first client message, send an email notification to eva@stellrit.com via Zoho SMTP
           if (isFirstMessage && body.sender === "client") {
             try {
-              console.log("📨 Sending first-text email notification to Williams@electricalcontractorcorp.com...");
-              const emailPayload = {
-                _subject: `New Live Chat Started by ${session.clientName} (R&E Electrical)`,
-                "Client Name": session.clientName,
-                "Client City": session.clientCity || "Miami",
-                "Client Phone": session.clientPhone || "Not provided",
-                "Client Email": session.clientEmail || "Not provided",
-                "First Message": body.text,
-                "Sent At": newMsg.timestamp,
-                "Platform": "R&E Electrical Contractor Corp Portal"
-              };
-
-              // Make asynchronous call to formsubmit.co
-              fetch("https://formsubmit.co/ajax/Williams@electricalcontractorcorp.com", {
-                method: "POST",
-                headers: {
-                  "Content-Type": "application/json",
-                  "Accept": "application/json"
-                },
-                body: JSON.stringify(emailPayload)
-              }).then(res => {
-                if (res.ok) {
-                  console.log("✅ Email notification sent successfully to Williams@electricalcontractorcorp.com via FormSubmit");
-                } else {
-                  console.warn("⚠️ FormSubmit returned non-ok status:", res.status);
-                }
-              }).catch(err => {
-                console.error("❌ Failed to send email via FormSubmit:", err);
+              console.log("📨 Sending first-text email notification to eva@stellrit.com via Zoho SMTP...");
+              await sendChatNotificationEmail({
+                clientName: session.clientName,
+                clientCity: session.clientCity || "Miami",
+                clientPhone: session.clientPhone,
+                clientEmail: session.clientEmail,
+                message: body.text,
+                timestamp: newMsg.timestamp
               });
             } catch (err) {
               console.error("Failed to construct/send first-text email notification:", err);
@@ -561,7 +570,7 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
     // ── /api/settings ──
     if (pathname === "/api/settings") {
       const defaultSettings = {
-        alertEmail: "Williams@electricalcontractorcorp.com",
+        alertEmail: process.env.NOTIFICATION_EMAIL || "eva@stellrit.com",
         officePhone: "(786) 307-5933",
         smsTemplate: "Hi {Name}, thank you for contacting R&E Electrical Contractor Corp! An electrician will contact you during the {Time} to discuss your {Type} project.",
         emailAlert: true,

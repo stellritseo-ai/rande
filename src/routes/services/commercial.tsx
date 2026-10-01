@@ -30,15 +30,15 @@ function CommercialPage() {
   const { t } = useLanguage();
 
   const serviceList = [
+    t("New Construction & Hotel Remodeling Projects", "Proyectos de Nueva Construcción y Remodelación Hotelera"),
+    t("Multifamily Residential Buildings & Apartments", "Edificios Residenciales Multifamiliares y Apartamentos"),
+    t("Restaurants & Commercial Kitchen Infrastructure", "Infraestructura para Restaurantes y Cocinas Comerciales"),
+    t("Schools & Educational Facilities", "Escuelas e Instalaciones Educativas"),
+    t("Dental & Medical Clinics (NFPA 99 Healthcare Grade)", "Clínicas Dentales y Médicas (Grado Salud NFPA 99)"),
     t("Commercial Office Build-Outs & Tenant Improvements", "Remodelaciones de Oficinas y Mejoras de Inquilinos"),
-    t("Retail Store LED Display & High-Bay Accent Lighting", "Iluminación LED y Acentos para Tiendas Minoristas"),
     t("3-Phase Electrical Switchboard & Panel Board Upgrades", "Tableros de Distribución Eléctrica Trifásica"),
     t("Emergency Exit Lighting & Life Safety Battery Units", "Iluminación de Salida de Emergencia y Baterías de Respaldo"),
-    t("Dedicated Power Circuits for Heavy Commercial Machinery", "Circuitos Dedicados para Maquinaria Comercial"),
     t("Commercial EV Fleet Charging Station Infrastructure", "Estaciones de Carga de EV para Flotas Comerciales"),
-    t("Preventative Electrical Maintenance & Thermal Imaging Audits", "Mantenimiento Preventivo y Termografía Infrarroja"),
-    t("Commercial Standby Backup Generator Integration", "Integración de Generadores de Respaldo Comerciales"),
-    t("Data Center, Server Room & Low-Voltage Cable Trays", "Centros de Datos, Salas de Servidores y Bandejas de Cables"),
     t("Complete NEC Code Violations Correction & Permitting", "Corrección de Violaciones del Código NEC y Permisos"),
   ];
 
@@ -219,9 +219,15 @@ function CommercialPage() {
                   {t("Submit your blueprints or schedule a commercial facility walk-through. We provide detailed line-item bids and project timelines.", "Envíe sus planos o programe un recorrido por la instalación comercial. Ofrecemos cotizaciones detalladas y cronogramas de proyecto.")}
                 </p>
 
-                <div className="mt-6 space-y-3.5">
-                  <Button asChild size="lg" className="w-full">
-                    <Link to="/contact">{t("Request Proposal / Bid", "Solicitar Propuesta / Cotización")}</Link>
+                <div className="mt-6 space-y-3">
+                  <Link
+                    to="/submit-plans"
+                    className="w-full inline-flex items-center justify-center gap-2 bg-[#FF6B00] hover:bg-[#E05E00] text-white font-black text-xs uppercase tracking-wider py-3.5 px-4 rounded-full shadow-md transition"
+                  >
+                    {t("SUBMIT PLANS FOR BID", "PRESENTAR PLANOS PARA LICITACIÓN")}
+                  </Link>
+                  <Button asChild size="lg" variant="outline" className="w-full">
+                    <Link to="/contact">{t("Request a Bid", "Solicitar una Licitación")}</Link>
                   </Button>
                   <a
                     href="tel:+17863075933"
@@ -239,7 +245,7 @@ function CommercialPage() {
                     <Clock className="h-4 w-4 text-primary" /> {t("Off-Hours & Weekend Scheduling Available", "Disponibilidad Fuera de Horario y Fines de Semana")}
                   </div>
                   <div className="flex items-center gap-2">
-                    <Award className="h-4 w-4 text-primary" /> {t("State License #EC13009876", "Licencia Estatal #EC13009876")}
+                    <Award className="h-4 w-4 text-primary" /> {t("State License #EC 13008942", "Licencia Estatal #EC 13008942")}
                   </div>
                 </div>
               </div>

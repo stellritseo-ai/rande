@@ -5,7 +5,7 @@
 > **Primary Market:** Florida (Statewide)  
 > **Primary Positioning:** *Proudly Serving The Entire State Of Florida*  
 > **Primary Local Hubs:** Miami-Dade County (Hialeah HQ, Miami, Doral, Coral Gables) & Broward County (Fort Lauderdale)  
-> **State License:** EC13009876  
+> **State License:** EC 13008942  
 > **Emergency Dispatch:** (786) 307-5933 | 24/7 Rapid Response  
 
 ---
@@ -299,7 +299,7 @@ To ensure zero keyword cannibalization across the domain, each high-value keywor
 | `/service-areas/miami-fl` | `electrical contractor Miami FL` | `electrician Miami FL`, `commercial electrician Miami FL`, `emergency electrician Miami FL` |
 | `/service-areas/hialeah-fl` | `electrical contractor Hialeah FL` | `electrician Hialeah FL`, `commercial electrician Hialeah FL`, `industrial electrician Hialeah FL` |
 | `/service-areas/fort-lauderdale-fl` | `electrician Fort Lauderdale FL` | `electrical contractor Fort Lauderdale`, `commercial electrician Fort Lauderdale`, `Broward County electrician` |
-| `/about` | `about electrical contractor corp` | `licensed master electrician Florida`, `Florida electrical license EC13009876`, `experienced Florida electricians` |
+| `/about` | `about electrical contractor corp` | `licensed master electrician Florida`, `Florida electrical license EC 13008942`, `experienced Florida electricians` |
 | `/contact` | `free electrical estimate Florida` | `contact electrical contractor Florida`, `hire electrician Florida`, `request electrical quote` |
 | `/projects` | `electrical contractor projects Florida` | `commercial electrical portfolio Florida`, `residential electrical installations Florida`, `completed electrical work` |
 | `/reviews` | `electrical contractor corp reviews` | `electrician reviews Florida`, `licensed electrician customer ratings`, `South Florida electrician testimonials` |
@@ -315,7 +315,7 @@ Every page incorporates semantic topical entities within proper HTML hierarchy:
 - **Geographic Entities:** `Florida`, `Miami-Dade County`, `Broward County`, `Hialeah`, `Miami`, `Fort Lauderdale`, `Doral`, `Coral Gables`, `Brickell`, `Aventura`, `Miami Beach`.
 
 ### E-E-A-T Trust Signals
-- Verified Florida License: **State Certified Electrical Contractor License #EC13009876**
+- Verified Florida License: **State Certified Electrical Contractor License #EC 13008942**
 - Fully Insured & Bonded ($2,000,000 General Liability + Workers Comp)
 - Real Physical Address: **18730 NW 77 TH CT, Hialeah FL 33015**
 - Real Contact Phone: **(786) 307-5933**

@@ -220,7 +220,7 @@ function DashboardPage() {
   const [isViewingEmail, setIsViewingEmail] = useState(false);
 
   // Portal & Site Config States
-  const [alertEmail, setAlertEmail] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_alertEmail") : null) || "Williams@electricalcontractorcorp.com");
+  const [alertEmail, setAlertEmail] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_alertEmail") : null) || "eva@stellrit.com");
   const [officePhone, setOfficePhone] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_officePhone") : null) || "(786) 307-5933");
   const [smsTemplate, setSmsTemplate] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_smsTemplate") : null) || "Hi {Name}, thank you for contacting R&E Electrical Contractor Corp! An electrician will contact you during the {Time} to discuss your {Type} project.");
   const [emailAlert, setEmailAlert] = useState(() => (typeof window !== "undefined" ? localStorage.getItem("electrical_settings_emailAlert") !== "false" : true));

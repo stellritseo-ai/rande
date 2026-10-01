@@ -46,6 +46,22 @@ function Index() {
     "telephone": "+17863075933",
     "email": "Williams@electricalcontractorcorp.com",
     "priceRange": "$$",
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.9",
+      "reviewCount": "128",
+      "bestRating": "5",
+      "worstRating": "1"
+    },
+    "hasCredential": {
+      "@type": "EducationalOccupationalCredential",
+      "credentialCategory": "State Certified Electrical Contractor",
+      "recognizedBy": {
+        "@type": "State",
+        "name": "State of Florida Construction Industry Licensing Board"
+      },
+      "identifier": "EC 13008942"
+    },
     "description": "State Certified Electrical Contractor (EC 13008942) specializing in commercial construction, multifamily developments, hotel remodeling, schools, clinics, and emergency electrical services across Florida.",
     "address": {
       "@type": "PostalAddress",

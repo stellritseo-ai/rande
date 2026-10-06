@@ -8,6 +8,7 @@ import {
 import { cn } from "@/lib/utils";
 import logoImg from "@/assets/logo.png";
 import { useLanguage } from "@/hooks/useLanguage";
+import { BbbIcon } from "@/components/icons/BbbIcon";
 
 export function Header() {
   const { language, setLanguage, t } = useLanguage();
@@ -171,6 +172,9 @@ export function Header() {
             </a>
             <a href="https://www.instagram.com/randeelectricalcontractorcrop/" target="_blank" rel="noopener noreferrer" aria-label="Instagram" className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-[#FF6B00] hover:border-[#FF6B00] transition">
               <Instagram className="h-3.5 w-3.5" />
+            </a>
+            <a href="https://www.bbb.org/us/fl/hialeah/profile/electrician/r-e-electrical-contractor-0633-92050505" target="_blank" rel="noopener noreferrer" aria-label="Better Business Bureau Profile" title="BBB Profile - R&E Electrical Contractor" className="w-8 h-8 rounded-full border border-gray-300 flex items-center justify-center text-gray-600 hover:text-[#005A9C] hover:border-[#005A9C] transition">
+              <BbbIcon className="h-3.5 w-3.5" />
             </a>
           </div>
         </div>
@@ -415,6 +419,38 @@ export function Header() {
               );
             })}
           </nav>
+
+          {/* Mobile Social Links */}
+          <div className="mt-6 pt-4 border-t border-slate-100 flex items-center justify-center gap-3">
+            <a
+              href="https://www.facebook.com/electricalcontractorcrop"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Facebook"
+              className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#FF6B00] hover:border-[#FF6B00] transition"
+            >
+              <Facebook className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.instagram.com/randeelectricalcontractorcrop/"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Instagram"
+              className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#FF6B00] hover:border-[#FF6B00] transition"
+            >
+              <Instagram className="h-4 w-4" />
+            </a>
+            <a
+              href="https://www.bbb.org/us/fl/hialeah/profile/electrician/r-e-electrical-contractor-0633-92050505"
+              target="_blank"
+              rel="noopener noreferrer"
+              aria-label="Better Business Bureau Profile"
+              title="BBB Profile - R&E Electrical Contractor"
+              className="w-9 h-9 rounded-full border border-gray-200 flex items-center justify-center text-gray-600 hover:text-[#005A9C] hover:border-[#005A9C] transition"
+            >
+              <BbbIcon className="h-4 w-4" />
+            </a>
+          </div>
         </div>
       </div>
     </header>

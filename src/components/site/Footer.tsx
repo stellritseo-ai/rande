@@ -8,6 +8,7 @@ import {
 import logoImg from "@/assets/logo.png";
 import { Link } from "@tanstack/react-router";
 import { useLanguage } from "@/hooks/useLanguage";
+import { BbbIcon } from "@/components/icons/BbbIcon";
 
 // Inline SVG Social Icons for maximum reliability
 const FacebookIcon = (props: React.SVGProps<SVGSVGElement>) => (
@@ -35,6 +36,7 @@ const LinkedinIcon = (props: React.SVGProps<SVGSVGElement>) => (
 const socials = [
   { icon: FacebookIcon, href: "https://www.facebook.com/electricalcontractorcrop", label: "Facebook" },
   { icon: InstagramIcon, href: "https://www.instagram.com/randeelectricalcontractorcrop/", label: "Instagram" },
+  { icon: BbbIcon, href: "https://www.bbb.org/us/fl/hialeah/profile/electrician/r-e-electrical-contractor-0633-92050505", label: "Better Business Bureau Profile" },
   { icon: LinkedinIcon, href: "#", label: "LinkedIn" },
 ];
 
@@ -102,6 +104,8 @@ export function Footer() {
                   whileHover={{ y: -4, scale: 1.05, backgroundColor: "rgba(255, 107, 0, 0.15)", borderColor: "rgba(255, 107, 0, 0.3)" }}
                   whileTap={{ scale: 0.95 }}
                   href={href}
+                  target={href.startsWith("http") ? "_blank" : undefined}
+                  rel={href.startsWith("http") ? "noopener noreferrer" : undefined}
                   aria-label={label}
                   className="grid place-items-center h-10 w-10 rounded-xl bg-slate-900/60 border border-slate-800 text-slate-400 hover:text-white transition-colors shadow-sm"
                 >
@@ -124,6 +128,16 @@ export function Footer() {
                 <span className="h-1.5 w-1.5 rounded-full bg-emerald-500 animate-pulse" />
                 {t("Licensed, Bonded & Insured", "Con Licencia, Fianza y Seguro")}
               </div>
+              <a
+                href="https://www.bbb.org/us/fl/hialeah/profile/electrician/r-e-electrical-contractor-0633-92050505"
+                target="_blank"
+                rel="noopener noreferrer"
+                aria-label="Better Business Bureau Profile"
+                className="flex items-center gap-2 bg-slate-900/40 border border-slate-800/80 hover:border-[#005A9C] hover:text-white transition-colors rounded-xl px-3 py-2 text-[10px] font-bold text-slate-400 uppercase tracking-widest group"
+              >
+                <BbbIcon className="h-3.5 w-3.5 text-[#005A9C] group-hover:scale-110 transition-transform" />
+                <span>BBB Profile</span>
+              </a>
             </div>
           </div>
 

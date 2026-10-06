@@ -47,7 +47,12 @@ function AboutPage() {
         "addressRegion": "FL",
         "postalCode": "33015",
         "addressCountry": "US"
-      }
+      },
+      "sameAs": [
+        "https://www.facebook.com/electricalcontractorcrop",
+        "https://www.instagram.com/randeelectricalcontractorcrop/",
+        "https://www.bbb.org/us/fl/hialeah/profile/electrician/r-e-electrical-contractor-0633-92050505"
+      ]
     }
   };
 

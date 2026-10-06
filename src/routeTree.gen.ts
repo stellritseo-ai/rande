@@ -9,74 +9,39 @@
 // Additionally, you should also exclude this file from your linter and/or formatter to prevent it from being checked or modified.
 
 import { Route as rootRouteImport } from './routes/__root'
-import { Route as SubmitPlansRouteImport } from './routes/submit-plans'
-import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
-import { Route as ServicesRouteImport } from './routes/services'
-import { Route as ServiceAreasRouteImport } from './routes/service-areas'
-import { Route as ReviewsRouteImport } from './routes/reviews'
-import { Route as ProjectsRouteImport } from './routes/projects'
-import { Route as ContactRouteImport } from './routes/contact'
-import { Route as CareersRouteImport } from './routes/careers'
-import { Route as AboutRouteImport } from './routes/about'
 import { Route as IndexRouteImport } from './routes/index'
-import { Route as ServicesIndexRouteImport } from './routes/services/index'
-import { Route as ServiceAreasIndexRouteImport } from './routes/service-areas/index'
+import { Route as AboutRouteImport } from './routes/about'
+import { Route as CareersRouteImport } from './routes/careers'
+import { Route as ContactRouteImport } from './routes/contact'
+import { Route as ProjectsRouteImport } from './routes/projects'
+import { Route as ReviewsRouteImport } from './routes/reviews'
+import { Route as ServiceAreasRouteImport } from './routes/service-areas'
+import { Route as ServicesRouteImport } from './routes/services'
+import { Route as SitemapDotxmlRouteImport } from './routes/sitemap[.]xml'
+import { Route as SubmitPlansRouteImport } from './routes/submit-plans'
 import { Route as DashboardIndexRouteImport } from './routes/dashboard/index'
-import { Route as ServicesWiringRewiringRouteImport } from './routes/services/wiring-rewiring'
-import { Route as ServicesSecuritySystemsRouteImport } from './routes/services/security-systems'
-import { Route as ServicesResidentialRouteImport } from './routes/services/residential'
-import { Route as ServicesPanelUpgradesRouteImport } from './routes/services/panel-upgrades'
-import { Route as ServicesNewConstructionElectricalRouteImport } from './routes/services/new-construction-electrical'
-import { Route as ServicesIndustrialRouteImport } from './routes/services/industrial'
-import { Route as ServicesGeneratorRouteImport } from './routes/services/generator'
-import { Route as ServicesFireAlarmRouteImport } from './routes/services/fire-alarm'
-import { Route as ServicesEvChargerRouteImport } from './routes/services/ev-charger'
-import { Route as ServicesEmergencyRouteImport } from './routes/services/emergency'
-import { Route as ServicesCommercialRouteImport } from './routes/services/commercial'
-import { Route as ServicesCctvCameraRouteImport } from './routes/services/cctv-camera'
-import { Route as ServiceAreasMiamiFlRouteImport } from './routes/service-areas/miami-fl'
-import { Route as ServiceAreasHialeahFlRouteImport } from './routes/service-areas/hialeah-fl'
-import { Route as ServiceAreasFortLauderdaleFlRouteImport } from './routes/service-areas/fort-lauderdale-fl'
 import { Route as DashboardLoginRouteImport } from './routes/dashboard/login'
+import { Route as ServiceAreasIndexRouteImport } from './routes/service-areas/index'
+import { Route as ServiceAreasFortLauderdaleFlRouteImport } from './routes/service-areas/fort-lauderdale-fl'
+import { Route as ServiceAreasHialeahFlRouteImport } from './routes/service-areas/hialeah-fl'
+import { Route as ServiceAreasMiamiFlRouteImport } from './routes/service-areas/miami-fl'
+import { Route as ServicesIndexRouteImport } from './routes/services/index'
+import { Route as ServicesCctvCameraRouteImport } from './routes/services/cctv-camera'
+import { Route as ServicesCommercialRouteImport } from './routes/services/commercial'
+import { Route as ServicesEmergencyRouteImport } from './routes/services/emergency'
+import { Route as ServicesEvChargerRouteImport } from './routes/services/ev-charger'
+import { Route as ServicesFireAlarmRouteImport } from './routes/services/fire-alarm'
+import { Route as ServicesGeneratorRouteImport } from './routes/services/generator'
+import { Route as ServicesIndustrialRouteImport } from './routes/services/industrial'
+import { Route as ServicesNewConstructionElectricalRouteImport } from './routes/services/new-construction-electrical'
+import { Route as ServicesPanelUpgradesRouteImport } from './routes/services/panel-upgrades'
+import { Route as ServicesResidentialRouteImport } from './routes/services/residential'
+import { Route as ServicesSecuritySystemsRouteImport } from './routes/services/security-systems'
+import { Route as ServicesWiringRewiringRouteImport } from './routes/services/wiring-rewiring'
 
-const SubmitPlansRoute = SubmitPlansRouteImport.update({
-  id: '/submit-plans',
-  path: '/submit-plans',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
-  id: '/sitemap.xml',
-  path: '/sitemap.xml',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServicesRoute = ServicesRouteImport.update({
-  id: '/services',
-  path: '/services',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ServiceAreasRoute = ServiceAreasRouteImport.update({
-  id: '/service-areas',
-  path: '/service-areas',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ReviewsRoute = ReviewsRouteImport.update({
-  id: '/reviews',
-  path: '/reviews',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ProjectsRoute = ProjectsRouteImport.update({
-  id: '/projects',
-  path: '/projects',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const ContactRoute = ContactRouteImport.update({
-  id: '/contact',
-  path: '/contact',
-  getParentRoute: () => rootRouteImport,
-} as any)
-const CareersRoute = CareersRouteImport.update({
-  id: '/careers',
-  path: '/careers',
+const IndexRoute = IndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => rootRouteImport,
 } as any)
 const AboutRoute = AboutRouteImport.update({
@@ -84,95 +49,59 @@ const AboutRoute = AboutRouteImport.update({
   path: '/about',
   getParentRoute: () => rootRouteImport,
 } as any)
-const IndexRoute = IndexRouteImport.update({
-  id: '/',
-  path: '/',
+const CareersRoute = CareersRouteImport.update({
+  id: '/careers',
+  path: '/careers',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesIndexRoute = ServicesIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ServicesRoute,
+const ContactRoute = ContactRouteImport.update({
+  id: '/contact',
+  path: '/contact',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const ServiceAreasIndexRoute = ServiceAreasIndexRouteImport.update({
-  id: '/',
-  path: '/',
-  getParentRoute: () => ServiceAreasRoute,
+const ProjectsRoute = ProjectsRouteImport.update({
+  id: '/projects',
+  path: '/projects',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ReviewsRoute = ReviewsRouteImport.update({
+  id: '/reviews',
+  path: '/reviews',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServiceAreasRoute = ServiceAreasRouteImport.update({
+  id: '/service-areas',
+  path: '/service-areas',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const ServicesRoute = ServicesRouteImport.update({
+  id: '/services',
+  path: '/services',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SitemapDotxmlRoute = SitemapDotxmlRouteImport.update({
+  id: '/sitemap.xml',
+  path: '/sitemap.xml',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const SubmitPlansRoute = SubmitPlansRouteImport.update({
+  id: '/submit-plans',
+  path: '/submit-plans',
+  getParentRoute: () => rootRouteImport,
 } as any)
 const DashboardIndexRoute = DashboardIndexRouteImport.update({
   id: '/dashboard/',
   path: '/dashboard/',
   getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesWiringRewiringRoute = ServicesWiringRewiringRouteImport.update({
-  id: '/wiring-rewiring',
-  path: '/wiring-rewiring',
-  getParentRoute: () => ServicesRoute,
+const DashboardLoginRoute = DashboardLoginRouteImport.update({
+  id: '/dashboard/login',
+  path: '/dashboard/login',
+  getParentRoute: () => rootRouteImport,
 } as any)
-const ServicesSecuritySystemsRoute = ServicesSecuritySystemsRouteImport.update({
-  id: '/security-systems',
-  path: '/security-systems',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesResidentialRoute = ServicesResidentialRouteImport.update({
-  id: '/residential',
-  path: '/residential',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesPanelUpgradesRoute = ServicesPanelUpgradesRouteImport.update({
-  id: '/panel-upgrades',
-  path: '/panel-upgrades',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesNewConstructionElectricalRoute =
-  ServicesNewConstructionElectricalRouteImport.update({
-    id: '/new-construction-electrical',
-    path: '/new-construction-electrical',
-    getParentRoute: () => ServicesRoute,
-  } as any)
-const ServicesIndustrialRoute = ServicesIndustrialRouteImport.update({
-  id: '/industrial',
-  path: '/industrial',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesGeneratorRoute = ServicesGeneratorRouteImport.update({
-  id: '/generator',
-  path: '/generator',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesFireAlarmRoute = ServicesFireAlarmRouteImport.update({
-  id: '/fire-alarm',
-  path: '/fire-alarm',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesEvChargerRoute = ServicesEvChargerRouteImport.update({
-  id: '/ev-charger',
-  path: '/ev-charger',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesEmergencyRoute = ServicesEmergencyRouteImport.update({
-  id: '/emergency',
-  path: '/emergency',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesCommercialRoute = ServicesCommercialRouteImport.update({
-  id: '/commercial',
-  path: '/commercial',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServicesCctvCameraRoute = ServicesCctvCameraRouteImport.update({
-  id: '/cctv-camera',
-  path: '/cctv-camera',
-  getParentRoute: () => ServicesRoute,
-} as any)
-const ServiceAreasMiamiFlRoute = ServiceAreasMiamiFlRouteImport.update({
-  id: '/miami-fl',
-  path: '/miami-fl',
-  getParentRoute: () => ServiceAreasRoute,
-} as any)
-const ServiceAreasHialeahFlRoute = ServiceAreasHialeahFlRouteImport.update({
-  id: '/hialeah-fl',
-  path: '/hialeah-fl',
+const ServiceAreasIndexRoute = ServiceAreasIndexRouteImport.update({
+  id: '/',
+  path: '/',
   getParentRoute: () => ServiceAreasRoute,
 } as any)
 const ServiceAreasFortLauderdaleFlRoute =
@@ -181,10 +110,81 @@ const ServiceAreasFortLauderdaleFlRoute =
     path: '/fort-lauderdale-fl',
     getParentRoute: () => ServiceAreasRoute,
   } as any)
-const DashboardLoginRoute = DashboardLoginRouteImport.update({
-  id: '/dashboard/login',
-  path: '/dashboard/login',
-  getParentRoute: () => rootRouteImport,
+const ServiceAreasHialeahFlRoute = ServiceAreasHialeahFlRouteImport.update({
+  id: '/hialeah-fl',
+  path: '/hialeah-fl',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServiceAreasMiamiFlRoute = ServiceAreasMiamiFlRouteImport.update({
+  id: '/miami-fl',
+  path: '/miami-fl',
+  getParentRoute: () => ServiceAreasRoute,
+} as any)
+const ServicesIndexRoute = ServicesIndexRouteImport.update({
+  id: '/',
+  path: '/',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesCctvCameraRoute = ServicesCctvCameraRouteImport.update({
+  id: '/cctv-camera',
+  path: '/cctv-camera',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesCommercialRoute = ServicesCommercialRouteImport.update({
+  id: '/commercial',
+  path: '/commercial',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesEmergencyRoute = ServicesEmergencyRouteImport.update({
+  id: '/emergency',
+  path: '/emergency',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesEvChargerRoute = ServicesEvChargerRouteImport.update({
+  id: '/ev-charger',
+  path: '/ev-charger',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesFireAlarmRoute = ServicesFireAlarmRouteImport.update({
+  id: '/fire-alarm',
+  path: '/fire-alarm',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesGeneratorRoute = ServicesGeneratorRouteImport.update({
+  id: '/generator',
+  path: '/generator',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesIndustrialRoute = ServicesIndustrialRouteImport.update({
+  id: '/industrial',
+  path: '/industrial',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesNewConstructionElectricalRoute =
+  ServicesNewConstructionElectricalRouteImport.update({
+    id: '/new-construction-electrical',
+    path: '/new-construction-electrical',
+    getParentRoute: () => ServicesRoute,
+  } as any)
+const ServicesPanelUpgradesRoute = ServicesPanelUpgradesRouteImport.update({
+  id: '/panel-upgrades',
+  path: '/panel-upgrades',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesResidentialRoute = ServicesResidentialRouteImport.update({
+  id: '/residential',
+  path: '/residential',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesSecuritySystemsRoute = ServicesSecuritySystemsRouteImport.update({
+  id: '/security-systems',
+  path: '/security-systems',
+  getParentRoute: () => ServicesRoute,
+} as any)
+const ServicesWiringRewiringRoute = ServicesWiringRewiringRouteImport.update({
+  id: '/wiring-rewiring',
+  path: '/wiring-rewiring',
+  getParentRoute: () => ServicesRoute,
 } as any)
 
 export interface FileRoutesByFullPath {
@@ -390,60 +390,11 @@ export interface RootRouteChildren {
 
 declare module '@tanstack/react-router' {
   interface FileRoutesByPath {
-    '/submit-plans': {
-      id: '/submit-plans'
-      path: '/submit-plans'
-      fullPath: '/submit-plans'
-      preLoaderRoute: typeof SubmitPlansRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/sitemap.xml': {
-      id: '/sitemap.xml'
-      path: '/sitemap.xml'
-      fullPath: '/sitemap.xml'
-      preLoaderRoute: typeof SitemapDotxmlRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/services': {
-      id: '/services'
-      path: '/services'
-      fullPath: '/services'
-      preLoaderRoute: typeof ServicesRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/service-areas': {
-      id: '/service-areas'
-      path: '/service-areas'
-      fullPath: '/service-areas'
-      preLoaderRoute: typeof ServiceAreasRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/reviews': {
-      id: '/reviews'
-      path: '/reviews'
-      fullPath: '/reviews'
-      preLoaderRoute: typeof ReviewsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/projects': {
-      id: '/projects'
-      path: '/projects'
-      fullPath: '/projects'
-      preLoaderRoute: typeof ProjectsRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/contact': {
-      id: '/contact'
-      path: '/contact'
-      fullPath: '/contact'
-      preLoaderRoute: typeof ContactRouteImport
-      parentRoute: typeof rootRouteImport
-    }
-    '/careers': {
-      id: '/careers'
-      path: '/careers'
-      fullPath: '/careers'
-      preLoaderRoute: typeof CareersRouteImport
+    '/': {
+      id: '/'
+      path: '/'
+      fullPath: '/'
+      preLoaderRoute: typeof IndexRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/about': {
@@ -453,26 +404,61 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof AboutRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/': {
-      id: '/'
-      path: '/'
-      fullPath: '/'
-      preLoaderRoute: typeof IndexRouteImport
+    '/careers': {
+      id: '/careers'
+      path: '/careers'
+      fullPath: '/careers'
+      preLoaderRoute: typeof CareersRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/': {
-      id: '/services/'
-      path: '/'
-      fullPath: '/services/'
-      preLoaderRoute: typeof ServicesIndexRouteImport
-      parentRoute: typeof ServicesRoute
+    '/contact': {
+      id: '/contact'
+      path: '/contact'
+      fullPath: '/contact'
+      preLoaderRoute: typeof ContactRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/service-areas/': {
-      id: '/service-areas/'
-      path: '/'
-      fullPath: '/service-areas/'
-      preLoaderRoute: typeof ServiceAreasIndexRouteImport
-      parentRoute: typeof ServiceAreasRoute
+    '/projects': {
+      id: '/projects'
+      path: '/projects'
+      fullPath: '/projects'
+      preLoaderRoute: typeof ProjectsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/reviews': {
+      id: '/reviews'
+      path: '/reviews'
+      fullPath: '/reviews'
+      preLoaderRoute: typeof ReviewsRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/service-areas': {
+      id: '/service-areas'
+      path: '/service-areas'
+      fullPath: '/service-areas'
+      preLoaderRoute: typeof ServiceAreasRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/services': {
+      id: '/services'
+      path: '/services'
+      fullPath: '/services'
+      preLoaderRoute: typeof ServicesRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/sitemap.xml': {
+      id: '/sitemap.xml'
+      path: '/sitemap.xml'
+      fullPath: '/sitemap.xml'
+      preLoaderRoute: typeof SitemapDotxmlRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/submit-plans': {
+      id: '/submit-plans'
+      path: '/submit-plans'
+      fullPath: '/submit-plans'
+      preLoaderRoute: typeof SubmitPlansRouteImport
+      parentRoute: typeof rootRouteImport
     }
     '/dashboard/': {
       id: '/dashboard/'
@@ -481,102 +467,18 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof DashboardIndexRouteImport
       parentRoute: typeof rootRouteImport
     }
-    '/services/wiring-rewiring': {
-      id: '/services/wiring-rewiring'
-      path: '/wiring-rewiring'
-      fullPath: '/services/wiring-rewiring'
-      preLoaderRoute: typeof ServicesWiringRewiringRouteImport
-      parentRoute: typeof ServicesRoute
+    '/dashboard/login': {
+      id: '/dashboard/login'
+      path: '/dashboard/login'
+      fullPath: '/dashboard/login'
+      preLoaderRoute: typeof DashboardLoginRouteImport
+      parentRoute: typeof rootRouteImport
     }
-    '/services/security-systems': {
-      id: '/services/security-systems'
-      path: '/security-systems'
-      fullPath: '/services/security-systems'
-      preLoaderRoute: typeof ServicesSecuritySystemsRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/residential': {
-      id: '/services/residential'
-      path: '/residential'
-      fullPath: '/services/residential'
-      preLoaderRoute: typeof ServicesResidentialRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/panel-upgrades': {
-      id: '/services/panel-upgrades'
-      path: '/panel-upgrades'
-      fullPath: '/services/panel-upgrades'
-      preLoaderRoute: typeof ServicesPanelUpgradesRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/new-construction-electrical': {
-      id: '/services/new-construction-electrical'
-      path: '/new-construction-electrical'
-      fullPath: '/services/new-construction-electrical'
-      preLoaderRoute: typeof ServicesNewConstructionElectricalRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/industrial': {
-      id: '/services/industrial'
-      path: '/industrial'
-      fullPath: '/services/industrial'
-      preLoaderRoute: typeof ServicesIndustrialRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/generator': {
-      id: '/services/generator'
-      path: '/generator'
-      fullPath: '/services/generator'
-      preLoaderRoute: typeof ServicesGeneratorRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/fire-alarm': {
-      id: '/services/fire-alarm'
-      path: '/fire-alarm'
-      fullPath: '/services/fire-alarm'
-      preLoaderRoute: typeof ServicesFireAlarmRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/ev-charger': {
-      id: '/services/ev-charger'
-      path: '/ev-charger'
-      fullPath: '/services/ev-charger'
-      preLoaderRoute: typeof ServicesEvChargerRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/emergency': {
-      id: '/services/emergency'
-      path: '/emergency'
-      fullPath: '/services/emergency'
-      preLoaderRoute: typeof ServicesEmergencyRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/commercial': {
-      id: '/services/commercial'
-      path: '/commercial'
-      fullPath: '/services/commercial'
-      preLoaderRoute: typeof ServicesCommercialRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/services/cctv-camera': {
-      id: '/services/cctv-camera'
-      path: '/cctv-camera'
-      fullPath: '/services/cctv-camera'
-      preLoaderRoute: typeof ServicesCctvCameraRouteImport
-      parentRoute: typeof ServicesRoute
-    }
-    '/service-areas/miami-fl': {
-      id: '/service-areas/miami-fl'
-      path: '/miami-fl'
-      fullPath: '/service-areas/miami-fl'
-      preLoaderRoute: typeof ServiceAreasMiamiFlRouteImport
-      parentRoute: typeof ServiceAreasRoute
-    }
-    '/service-areas/hialeah-fl': {
-      id: '/service-areas/hialeah-fl'
-      path: '/hialeah-fl'
-      fullPath: '/service-areas/hialeah-fl'
-      preLoaderRoute: typeof ServiceAreasHialeahFlRouteImport
+    '/service-areas/': {
+      id: '/service-areas/'
+      path: '/'
+      fullPath: '/service-areas/'
+      preLoaderRoute: typeof ServiceAreasIndexRouteImport
       parentRoute: typeof ServiceAreasRoute
     }
     '/service-areas/fort-lauderdale-fl': {
@@ -586,12 +488,110 @@ declare module '@tanstack/react-router' {
       preLoaderRoute: typeof ServiceAreasFortLauderdaleFlRouteImport
       parentRoute: typeof ServiceAreasRoute
     }
-    '/dashboard/login': {
-      id: '/dashboard/login'
-      path: '/dashboard/login'
-      fullPath: '/dashboard/login'
-      preLoaderRoute: typeof DashboardLoginRouteImport
-      parentRoute: typeof rootRouteImport
+    '/service-areas/hialeah-fl': {
+      id: '/service-areas/hialeah-fl'
+      path: '/hialeah-fl'
+      fullPath: '/service-areas/hialeah-fl'
+      preLoaderRoute: typeof ServiceAreasHialeahFlRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/service-areas/miami-fl': {
+      id: '/service-areas/miami-fl'
+      path: '/miami-fl'
+      fullPath: '/service-areas/miami-fl'
+      preLoaderRoute: typeof ServiceAreasMiamiFlRouteImport
+      parentRoute: typeof ServiceAreasRoute
+    }
+    '/services/': {
+      id: '/services/'
+      path: '/'
+      fullPath: '/services/'
+      preLoaderRoute: typeof ServicesIndexRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/cctv-camera': {
+      id: '/services/cctv-camera'
+      path: '/cctv-camera'
+      fullPath: '/services/cctv-camera'
+      preLoaderRoute: typeof ServicesCctvCameraRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/commercial': {
+      id: '/services/commercial'
+      path: '/commercial'
+      fullPath: '/services/commercial'
+      preLoaderRoute: typeof ServicesCommercialRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/emergency': {
+      id: '/services/emergency'
+      path: '/emergency'
+      fullPath: '/services/emergency'
+      preLoaderRoute: typeof ServicesEmergencyRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/ev-charger': {
+      id: '/services/ev-charger'
+      path: '/ev-charger'
+      fullPath: '/services/ev-charger'
+      preLoaderRoute: typeof ServicesEvChargerRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/fire-alarm': {
+      id: '/services/fire-alarm'
+      path: '/fire-alarm'
+      fullPath: '/services/fire-alarm'
+      preLoaderRoute: typeof ServicesFireAlarmRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/generator': {
+      id: '/services/generator'
+      path: '/generator'
+      fullPath: '/services/generator'
+      preLoaderRoute: typeof ServicesGeneratorRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/industrial': {
+      id: '/services/industrial'
+      path: '/industrial'
+      fullPath: '/services/industrial'
+      preLoaderRoute: typeof ServicesIndustrialRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/new-construction-electrical': {
+      id: '/services/new-construction-electrical'
+      path: '/new-construction-electrical'
+      fullPath: '/services/new-construction-electrical'
+      preLoaderRoute: typeof ServicesNewConstructionElectricalRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/panel-upgrades': {
+      id: '/services/panel-upgrades'
+      path: '/panel-upgrades'
+      fullPath: '/services/panel-upgrades'
+      preLoaderRoute: typeof ServicesPanelUpgradesRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/residential': {
+      id: '/services/residential'
+      path: '/residential'
+      fullPath: '/services/residential'
+      preLoaderRoute: typeof ServicesResidentialRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/security-systems': {
+      id: '/services/security-systems'
+      path: '/security-systems'
+      fullPath: '/services/security-systems'
+      preLoaderRoute: typeof ServicesSecuritySystemsRouteImport
+      parentRoute: typeof ServicesRoute
+    }
+    '/services/wiring-rewiring': {
+      id: '/services/wiring-rewiring'
+      path: '/wiring-rewiring'
+      fullPath: '/services/wiring-rewiring'
+      preLoaderRoute: typeof ServicesWiringRewiringRouteImport
+      parentRoute: typeof ServicesRoute
     }
   }
 }

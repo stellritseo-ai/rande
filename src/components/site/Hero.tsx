@@ -34,11 +34,11 @@ export function Hero() {
 
       <div className="mx-auto max-w-7xl px-4 pb-14 pt-12 sm:px-6 sm:pb-20 lg:px-8 lg:pt-24 w-full flex justify-start">
         <div className="animate-fade-up text-white flex flex-col items-start text-left max-w-3xl">
-          
+
           {/* State Certified License Badge */}
           <div className="inline-flex items-center gap-2 rounded-full border border-[#FF6B00]/30 bg-[#FF6B00]/15 px-4 py-2 text-xs font-bold tracking-wide backdrop-blur-md text-[#FF8533]">
             <ShieldCheck className="h-4 w-4 text-[#FF6B00]" />
-            <span>{t("State Certified Electrical Contractor – EC 13008942", "Contratista Eléctrico Certificado Estatal – EC 13008942")}</span>
+            <span>{t("State Certified Commercial & Electrical Construction Contractor – EC 13008942", "Contratista Eléctrico Certificado Estatal – EC 13008942")}</span>
           </div>
 
           {/* Main Headline */}
@@ -93,19 +93,19 @@ export function Hero() {
           {/* Trust points */}
           <div className="mt-8 flex flex-wrap items-center gap-x-5 gap-y-2.5 text-xs sm:text-sm text-white/90 font-medium">
             <span className="inline-flex items-center gap-2">
-              <ShieldCheck className="h-4.5 w-4.5 text-[#FF6B00]" /> 
+              <ShieldCheck className="h-4.5 w-4.5 text-[#FF6B00]" />
               {t("License EC 13008942", "Licencia EC 13008942")}
             </span>
             <span className="inline-flex items-center gap-2">
-              <BadgeCheck className="h-4.5 w-4.5 text-[#FF6B00]" /> 
+              <BadgeCheck className="h-4.5 w-4.5 text-[#FF6B00]" />
               {t("Fully Bonded & $2M Insured", "Totalmente Afianzado y $2M en Seguro")}
             </span>
             <span className="inline-flex items-center gap-2">
-              <HardHat className="h-4.5 w-4.5 text-[#FF6B00]" /> 
+              <HardHat className="h-4.5 w-4.5 text-[#FF6B00]" />
               {t("Fast Plan Takeoffs (24–48h)", "Estimación Rápida de Planos (24–48h)")}
             </span>
             <span className="inline-flex items-center gap-2">
-              <Award className="h-4.5 w-4.5 text-[#FF6B00]" /> 
+              <Award className="h-4.5 w-4.5 text-[#FF6B00]" />
               {t("Statewide Florida Execution", "Ejecución en Toda Florida")}
             </span>
           </div>

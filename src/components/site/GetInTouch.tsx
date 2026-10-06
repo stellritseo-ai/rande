@@ -122,7 +122,7 @@ export function GetInTouch() {
             <div className="relative mt-10 pt-6 border-t border-white/10 flex items-center gap-3">
               <ShieldCheck className="h-5 w-5 text-[#FF6B00] shrink-0" />
               <span className="text-[10px] uppercase font-bold tracking-wider text-white/70">
-                Licensed &amp; Insured Electrical Contractor
+                Licensed &amp; Insured Electrical Contractor · EC 13008942
               </span>
             </div>
           </motion.div>

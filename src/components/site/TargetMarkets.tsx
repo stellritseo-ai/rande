@@ -121,8 +121,8 @@ export function TargetMarkets() {
             className="font-display font-extrabold text-[#0F172A] tracking-tight leading-tight sm:whitespace-nowrap"
             style={{ fontSize: "42px", marginTop: "-6px", marginBottom: "-15px" }}
           >
-            {t("Built for Florida's ", "Diseñado para los Proyectos ")}
-            <span className="text-[#FF6B00]">{t("Most Demanding Sectors", "Más Exigentes de Florida")}</span>
+            <span className="text-[#FF6B00]">{t("Multifamily & Hospitality", "Multifamiliar y Hotelería")}</span>{" "}
+            {t("Electrical Services", "Servicios Eléctricos")}
           </h2>
 
           <p

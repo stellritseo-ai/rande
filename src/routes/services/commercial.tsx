@@ -10,11 +10,11 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/commercial")({
   head: () => ({
     meta: [
-      { title: "Commercial Electrical Contractor in Florida | Electrical Contractor Corp" },
-      { name: "description", content: "Licensed commercial electrical contractor in Florida. Office build-outs, retail lighting, 3-phase power & tenant improvements. Call (786) 307-5933." },
-      { name: "keywords", content: "commercial electrical contractor Florida, commercial electrician Florida, commercial electrical services Florida, commercial wiring contractor Florida, commercial electrical installation Florida, commercial lighting contractor Florida, commercial panel upgrade Florida" },
-      { property: "og:title", content: "Commercial Electrical Contractor in Florida | Electrical Contractor Corp" },
-      { property: "og:description", content: "State-certified commercial electrical contractor for office build-outs, retail facilities, tenant improvements, and 3-phase power across Florida." },
+      { title: "Commercial Electrical Contractor in Florida | R&E Electrical Contractor Corp" },
+      { name: "description", content: "Florida Commercial Electrical Contractor (EC 13008942). Tenant build-outs, 3-phase switchgear, hotels, multifamily, restaurants & medical clinics. Call (786) 307-5933." },
+      { name: "keywords", content: "commercial electrical contractor Florida, commercial electrician Florida, commercial electrical construction Florida, commercial wiring contractor Florida, commercial electrical installation Florida, commercial lighting contractor Florida, commercial panel upgrade Florida, EC 13008942" },
+      { property: "og:title", content: "Commercial Electrical Contractor in Florida | R&E Electrical Contractor Corp" },
+      { property: "og:description", content: "Florida Commercial Electrical Contractor. Tenant improvements, 3-phase power, multifamily, hospitality, retail & healthcare facilities. State Certified EC 13008942." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://electricalcontractorcorp.com/services/commercial" },
       { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
@@ -135,8 +135,8 @@ function CommercialPage() {
       />
       <PageHeader
         eyebrow={t("Commercial Electrical Contractor", "Contratista Eléctrico Comercial")}
-        title={t("Premier Commercial Electrical Contractor in Florida", "Contratista Eléctrico Comercial Líder en Florida")}
-        subtitle={t("Delivering scalable, code-compliant electrical systems for corporate offices, retail spaces, restaurants, and commercial facilities across Florida.", "Sistemas eléctricos escalables y conformes con el código para oficinas corporativas, comercios, restaurantes e instalaciones en Florida.")}
+        title={t("Commercial Electrical Contractor in Florida", "Contratista Eléctrico Comercial en Florida")}
+        subtitle={t("Delivering scalable, code-compliant electrical systems for corporate offices, retail spaces, restaurants, hotels, multifamily communities, and healthcare facilities across Florida.", "Sistemas eléctricos escalables y conformes con el código para oficinas corporativas, comercios, restaurantes, hoteles, multifamiliares e instalaciones de salud en Florida.")}
       />
 
       <section className="py-20 bg-background">

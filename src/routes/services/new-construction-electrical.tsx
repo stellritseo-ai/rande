@@ -10,11 +10,11 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/new-construction-electrical")({
   head: () => ({
     meta: [
-      { title: "New Construction Electrical Contractor in Florida | Electrical Contractor Corp" },
-      { name: "description", content: "State-certified new construction electrical contractor in Florida. Commercial & residential ground-up builds, blueprints, rough-ins & inspections. Call (786) 307-5933." },
-      { name: "keywords", content: "new construction electrical contractor Florida, new construction electrician Florida, new construction electrical services Florida, electrical contractor for new construction Florida, commercial new construction electrician Florida, residential new construction electrician Florida" },
-      { property: "og:title", content: "New Construction Electrical Contractor in Florida | Electrical Contractor Corp" },
-      { property: "og:description", content: "State-certified electrical contractor for ground-up commercial buildings, multi-family developments, and luxury custom homes across Florida." },
+      { title: "New Construction Electrical Contractor Florida | R&E Electrical Contractor Corp" },
+      { name: "description", content: "State Certified new construction electrical contractor in Florida (EC 13008942). Preconstruction planning, blueprints, takeoffs, underground & inspections. Call (786) 307-5933." },
+      { name: "keywords", content: "new construction electrical contractor Florida, new construction electrician Florida, commercial new construction electrician Florida, blueprint takeoff electrical Florida, underground electrical conduit Florida, EC 13008942" },
+      { property: "og:title", content: "New Construction Electrical Contractor Florida | R&E Electrical Contractor Corp" },
+      { property: "og:description", content: "State-certified electrical contractor for ground-up commercial buildings, multi-family developments, and luxury custom builds across Florida." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://electricalcontractorcorp.com/services/new-construction-electrical" },
       { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },

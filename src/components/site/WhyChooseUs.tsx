@@ -45,7 +45,7 @@ export function WhyChooseUs() {
               </div>
 
               <h2 className="leading-[1.2] text-neutral-900 tracking-tight font-extrabold text-[24px] sm:text-[31px] capitalize mt-[-10px] mb-[10px]">
-                {t("The standard for ", "El estándar para un ")}<span className="text-[#FF6B00]">{t("premium", "servicio")}</span>{t(" electrical service.", " eléctrico premium.")}
+                {t("Why Florida Contractors ", "¿Por Qué los Contratistas de Florida ")}<span className="text-[#FF6B00]">{t("Choose Us", "Nos Eligen")}</span>
               </h2>
 
               {/* Description */}

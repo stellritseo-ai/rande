@@ -216,9 +216,8 @@ export function Services() {
               className="text-neutral-900 tracking-tight leading-[1.2] font-extrabold"
               style={{ fontSize: "29px", marginTop: "-12px", marginBottom: "-8px" }}
             >
-              {t("Florida Commercial & ", "Soluciones Eléctricas ")}
-              <span className="text-[#FF6B00]">{t("Construction Electrical", "Comerciales")}</span>{" "}
-              {t("Solutions", "Integrales")}
+              <span className="text-[#FF6B00]">{t("Commercial Electrical Services", "Servicios Eléctricos Comerciales")}</span>{" "}
+              {t("Across Florida", "en Toda Florida")}
             </h2>
 
             {/* Divider accent */}

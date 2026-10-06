@@ -197,7 +197,7 @@ function SubmitPlansPage() {
       <PageHeader
         variant="light"
         eyebrow={t("General Contractors & Developers Plan Room", "Recepción de Planos para Contratistas y Desarrolladores")}
-        title={t("Submit Plans for Bid", "Presentar Planos para Licitación")}
+        title={t("Commercial Electrical Estimating & Plan Takeoffs in Florida", "Estimación Eléctrica Comercial y Desglose de Planos en Florida")}
         subtitle={t("State Certified Electrical Contractor – EC 13008942. Comprehensive line-item takeoffs, value engineering, and competitive commercial bids returned within 24–48 hours across Florida.", "Contratista Eléctrico Certificado Estatal – EC 13008942. Presupuestos detallados, ingeniería de valor y ofertas competitivas en 24–48 horas en toda Florida.")}
       />
 
@@ -334,10 +334,10 @@ function SubmitPlansPage() {
 export const Route = createFileRoute("/submit-plans")({
   head: () => ({
     meta: [
-      { title: "Submit Plans for Bid | Commercial Electrical Estimating | EC 13008942" },
-      { name: "description", content: "General Contractors & Developers: Submit architectural electrical plans for 24-48h line-item takeoffs. State Certified Electrical Contractor EC 13008942. Call (786) 307-5933." },
-      { name: "keywords", content: "submit plans for bid electrical, commercial electrical bid Florida, electrical blueprint takeoff, general contractor electrical sub Florida, hotel electrical bid, multifamily electrical contractor, EC 13008942" },
-      { property: "og:title", content: "Submit Plans for Bid | Commercial Electrical Estimating | EC 13008942" },
+      { title: "Commercial Electrical Estimating & Plan Takeoffs Florida | R&E Electrical Contractor Corp" },
+      { name: "description", content: "Submit blueprints for commercial electrical estimating in Florida. Line-item takeoffs, value engineering & 24-48h turnaround. State Certified EC 13008942. Call (786) 307-5933." },
+      { name: "keywords", content: "commercial electrical estimating Florida, electrical plan takeoff Florida, commercial electrical bid Florida, electrical blueprint takeoff, electrical estimating services, line item takeoff electrical, commercial electrical sub Florida, EC 13008942" },
+      { property: "og:title", content: "Commercial Electrical Estimating & Plan Takeoffs Florida | R&E Electrical Contractor Corp" },
       { property: "og:description", content: "Submit PDF plans for commercial electrical takeoffs. New construction, hotels, multifamily, restaurants, schools, and clinics across Florida." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://electricalcontractorcorp.com/submit-plans" },

@@ -10,11 +10,11 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/industrial")({
   head: () => ({
     meta: [
-      { title: "Industrial Electrical Contractor in Florida | Electrical Contractor Corp" },
-      { name: "description", content: "Licensed industrial electrical contractor in Florida. 3-phase power distribution, motor controls, machinery wiring & high-voltage systems. Call (786) 307-5933." },
-      { name: "keywords", content: "industrial electrical contractor Florida, industrial electrician Florida, industrial electrical services Florida, industrial electrical installation Florida, industrial wiring contractor Florida, 3-phase power installation Florida, high voltage electrical contractor Florida" },
-      { property: "og:title", content: "Industrial Electrical Contractor in Florida | Electrical Contractor Corp" },
-      { property: "og:description", content: "State-licensed industrial electrical engineering, 3-phase distribution, high-voltage equipment hookups, and PLC automation across Florida." },
+      { title: "Industrial Electrical Contractor Florida | R&E Electrical Contractor Corp" },
+      { name: "description", content: "State Certified industrial electrical contractor in Florida (EC 13008942). 3-phase power, MCC motor controls, machinery wiring, switchgear & maintenance. Call (786) 307-5933." },
+      { name: "keywords", content: "industrial electrical contractor Florida, industrial electrician Florida, 3 phase power installation Florida, motor control center MCC Florida, warehouse electrical contractor Florida, industrial switchgear Florida, EC 13008942" },
+      { property: "og:title", content: "Industrial Electrical Contractor Florida | R&E Electrical Contractor Corp" },
+      { property: "og:description", content: "State Certified industrial electrical contractor in Florida. 3-phase power, MCC motor controls, machinery hookups, and high-voltage systems." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://electricalcontractorcorp.com/services/industrial" },
       { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
@@ -135,8 +135,8 @@ function IndustrialPage() {
       />
       <PageHeader
         eyebrow={t("Industrial Electrical Engineering", "Ingeniería Eléctrica Industrial")}
-        title={t("Heavy-Duty Industrial Electrical Contractor in Florida", "Contratista Eléctrico Industrial de Alta Capacidad en Florida")}
-        subtitle={t("Delivering 3-phase power distribution, motor controls, machinery hookups, and high-voltage infrastructure across Florida manufacturing plants and logistics facilities.", "Distribución trifásica, controles de motores, conexiones de maquinaria e infraestructura de alto voltaje para plantas de manufactura y centros logísticos en Florida.")}
+        title={t("Industrial Electrical Contractor in Florida", "Contratista Eléctrico Industrial en Florida")}
+        subtitle={t("Delivering 3-phase power distribution, MCC motor controls, heavy machinery hookups, switchgear, and industrial infrastructure across Florida manufacturing and logistics facilities.", "Distribución trifásica, controles de motores MCC, conexiones de maquinaria pesada, tableros e infraestructura industrial en Florida.")}
       />
 
       <section className="py-20 bg-background">

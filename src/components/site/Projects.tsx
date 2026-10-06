@@ -175,10 +175,10 @@ export function Projects({ isLanding = false }: { isLanding?: boolean }) {
               className="text-slate-900 tracking-tight leading-[1.1]"
               style={{ textTransform: "capitalize", fontWeight: 800, fontSize: "40px", marginTop: "-11px", marginBottom: "8px" }}
             >
-              {t("Work we're ", "Trabajo del cual estamos ")}
               <span className="text-transparent bg-clip-text bg-gradient-to-r from-[#FF6B00] to-[#E05E00]">
-                {t("proud of", "orgullosos")}
-              </span>
+                {t("Featured Electrical Projects", "Proyectos Eléctricos Destacados")}
+              </span>{" "}
+              {t("Across Florida", "en Toda Florida")}
             </h2>
             <p 
               className="text-slate-500 text-base leading-relaxed"

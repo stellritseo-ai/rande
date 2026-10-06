@@ -10,11 +10,11 @@ import { useLanguage } from "@/hooks/useLanguage";
 export const Route = createFileRoute("/services/fire-alarm")({
   head: () => ({
     meta: [
-      { title: "Fire Alarm Installation & Systems in Florida | Electrical Contractor Corp" },
-      { name: "description", content: "Licensed fire alarm contractor in Florida. Commercial fire alarm systems, control panels, conduit installation, testing & code compliance. Call (786) 307-5933." },
-      { name: "keywords", content: "fire alarm installation Florida, fire alarm contractor Florida, fire alarm systems Florida, commercial fire alarm installation Florida, fire alarm service Florida, fire alarm inspection Florida" },
-      { property: "og:title", content: "Fire Alarm Installation & Systems in Florida | Electrical Contractor Corp" },
-      { property: "og:description", content: "State-licensed commercial fire alarm installation, control panel wiring, safety testing, and local Fire Marshal certification across Florida." },
+      { title: "Commercial Fire Alarm Systems & Installation Florida | R&E Electrical Contractor Corp" },
+      { name: "description", content: "State Certified commercial fire alarm contractor in Florida (EC 13008942). Life safety panels, conduit, low-voltage wiring & Fire Marshal approvals. Call (786) 307-5933." },
+      { name: "keywords", content: "commercial fire alarm installation Florida, fire alarm contractor Florida, fire alarm systems Florida, fire alarm inspection Florida, life safety systems Florida, EC 13008942" },
+      { property: "og:title", content: "Commercial Fire Alarm Systems & Installation Florida | R&E Electrical Contractor Corp" },
+      { property: "og:description", content: "State Certified commercial fire alarm installation, control panel wiring, safety testing, and local Fire Marshal certification across Florida." },
       { property: "og:type", content: "website" },
       { property: "og:url", content: "https://electricalcontractorcorp.com/services/fire-alarm" },
       { property: "og:image", content: "https://electricalcontractorcorp.com/assets/logo.png" },
@@ -135,8 +135,8 @@ function FireAlarmPage() {
       />
       <PageHeader
         eyebrow={t("Life Safety & Code Compliance", "Seguridad Humana y Cumplimiento de Códigos")}
-        title={t("Commercial Fire Alarm Installation & Systems in Florida", "Instalación de Alarmas contra Incendios en Florida")}
-        subtitle={t("Protect lives and maintain full municipal code compliance. Certified fire alarm wiring, control panels, annual testing, and Fire Marshal sign-offs.", "Proteja vidas y mantenga el cumplimiento de los códigos municipales. Cableado certificado de alarmas, tableros de control y pruebas anuales.")}
+        title={t("Commercial Fire Alarm Systems & Life Safety in Florida", "Sistemas Comerciales de Alarma contra Incendios en Florida")}
+        subtitle={t("Protect lives and maintain full municipal code compliance. Certified fire alarm wiring, control panels, annual testing, and Fire Marshal sign-offs across Florida.", "Proteja vidas y mantenga el cumplimiento de los códigos municipales. Cableado certificado de alarmas, tableros de control y pruebas anuales en Florida.")}
       />
 
       <section className="py-20 bg-background">

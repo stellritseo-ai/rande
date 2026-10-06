@@ -49,8 +49,8 @@ export function Welcome() {
             </div>
             
             <h2 className="mt-4 font-display text-[26px] sm:text-[30px] lg:text-[33px] leading-[1.35] font-extrabold text-[#0F172A]">
-              {t("Florida Commercial & ", "Contratista de Construcción ")}<br className="hidden md:inline" />
-              <span className="text-[#FF6B00]">{t("Electrical Construction", "Eléctrica y Comercial")}</span> {t("Contractor", "en Florida")}
+              {t("Electrical Services for ", "Servicios Eléctricos para ")}<br className="hidden md:inline" />
+              <span className="text-[#FF6B00]">{t("General Contractors & Developers", "Contratistas Generales y Desarrolladores")}</span>
             </h2>
             
             <p className="font-medium text-slate-700 mt-[13px] mb-[4px] text-[14px] sm:text-[15px] leading-relaxed sm:leading-[30px]">

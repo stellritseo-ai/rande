@@ -43,9 +43,8 @@ export function Hero() {
 
           {/* Main Headline */}
           <h1 className="mt-5 font-display text-[32px] leading-[40px] sm:text-[48px] sm:leading-[55px] font-extrabold tracking-tight">
-            {t("Florida Commercial & ", "Contratista de Construcción ")}
-            <span className="gradient-text-orange">{t("Electrical Construction", "Eléctrica y Comercial")}</span>{" "}
-            {t("Contractor", "en Florida")}
+            <span className="gradient-text-orange">{t("Commercial Electrical Contractor", "Contratista Eléctrico Comercial")}</span>{" "}
+            {t("in Florida", "en Florida")}
           </h1>
 
           {/* Core Target Market Positioning Sub-line */}

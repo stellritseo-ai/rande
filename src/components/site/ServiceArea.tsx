@@ -38,7 +38,7 @@ export function ServiceArea() {
               className="text-[#0F172A] leading-tight tracking-tight"
               style={{ fontSize: "40px", fontWeight: 800, marginBottom: "10px" }}
             >
-              Proudly Serving The Entire State Of <span className="text-[#FF6B00]">Florida</span>.
+              Florida Commercial <span className="text-[#FF6B00]">Service Areas</span>
             </h2>
             <p className="text-sm sm:text-base text-slate-500 font-medium leading-relaxed max-w-lg mb-8">
               We provide prompt, dependable electrical solutions across the entire state of Florida — dispatched from our primary operations center in Hialeah & Miami.

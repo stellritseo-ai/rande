@@ -61,7 +61,7 @@ export function GetInTouch() {
             <TinyLightningIcon /> Get In Touch <TinyLightningIcon />
           </span>
           <h2 className="text-3xl lg:text-[40px] font-extrabold text-[#0F172A] leading-tight mt-[-10px] mb-[5px] tracking-tight capitalize">
-            Get your <span className="text-[#FF6B00]">free estimate</span> today.
+            Request a <span className="text-[#FF6B00]">Commercial Electrical Bid</span>
           </h2>
           <p className="text-sm sm:text-base text-slate-500 font-medium leading-relaxed max-w-lg mx-auto">
             Tell us about your electrical service needs or project details — replies within one hour.

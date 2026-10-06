@@ -85,19 +85,41 @@ Project Scope & Details:
 ${description}
     `.trim();
 
+    let attachmentBase64: string | undefined = undefined;
+    let attachmentName: string | undefined = undefined;
+    let attachmentSize: number | undefined = undefined;
+
+    if (selectedFile) {
+      attachmentName = selectedFile.name;
+      attachmentSize = selectedFile.size;
+      try {
+        attachmentBase64 = await new Promise<string>((resolve, reject) => {
+          const reader = new FileReader();
+          reader.onload = () => resolve(reader.result as string);
+          reader.onerror = (err) => reject(err);
+          reader.readAsDataURL(selectedFile);
+        });
+      } catch (err) {
+        console.warn("Failed reading attached file as base64:", err);
+      }
+    }
+
     try {
-      // Save to database & trigger real-time Zoho email notification
+      // Save to database & trigger real-time Zoho email notification with attached PDF
       await addWebEmail({
         name: `${gcName} (${company || "GC / Developer"})`,
         email,
         phone,
         service: `GC Bid: ${projectName} [${projectType}]`,
         message: combinedMessage,
-        source: "GC & Developer Plan Submission Hub"
+        source: "GC & Developer Plan Submission Hub",
+        attachmentName,
+        attachmentSize,
+        attachmentBase64
       });
 
       setSubmitted(true);
-      toast.success(t("Bid package submitted successfully! Our estimating team will review your plans.", "¡Paquete de licitación enviado con éxito! Nuestro equipo de estimación revisará sus planos."));
+      toast.success(t("Bid package and plans submitted successfully! Our estimating team has received your documents.", "¡Paquete de licitación y planos enviados con éxito! Nuestro equipo ha recibido sus documentos."));
     } catch (err) {
       setSubmitted(true);
       toast.success(t("Plans submitted! Our commercial estimators will contact you promptly.", "¡Planos enviados! Nuestros estimadores comerciales se pondrán en contacto pronto."));

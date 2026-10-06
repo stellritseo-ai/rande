@@ -7,6 +7,10 @@ export interface SubmissionEmailPayload {
   service?: string;
   message?: string;
   source?: string;
+  attachmentUrl?: string;
+  attachmentName?: string;
+  attachmentSize?: number;
+  attachmentBase64?: string;
   details?: Record<string, string | number | undefined>;
 }
 
@@ -178,6 +182,24 @@ export async function sendSubmissionEmail(payload: SubmissionEmailPayload): Prom
         <div style="background-color: #f8fafc; border: 1px solid #e2e8f0; border-left: 4px solid #ff6b00; border-radius: 8px; padding: 18px; color: #1e293b; font-size: 14px; white-space: pre-wrap; word-break: break-word;">${payload.message || "No additional message provided."}</div>
       </div>
 
+      <!-- Attached Blueprint / Plan Set -->
+      ${payload.attachmentName ? `
+      <div style="margin-bottom: 28px; background-color: #fff7ed; border: 1.5px solid #fed7aa; border-radius: 10px; padding: 18px 20px;">
+        <div style="margin-bottom: 8px;">
+          <span style="display: inline-block; background-color: #ff6b00; color: #ffffff; padding: 3px 10px; border-radius: 6px; font-size: 11px; font-weight: 800; text-transform: uppercase; letter-spacing: 0.5px;">Attached Plan Set / PDF Blueprint</span>
+        </div>
+        <h4 style="margin: 4px 0 6px 0; color: #0f172a; font-size: 16px; font-weight: 800;">📄 ${payload.attachmentName}</h4>
+        <p style="margin: 0 0 14px 0; color: #7c2d12; font-size: 13px; font-weight: 500;">
+          ${payload.attachmentSize ? (payload.attachmentSize / (1024 * 1024)).toFixed(2) + " MB • " : ""}Attached to this email and accessible in your admin dashboard.
+        </p>
+        ${payload.attachmentUrl ? `
+        <a href="${payload.attachmentUrl}" target="_blank" style="display: inline-block; background-color: #ff6b00; color: #ffffff; text-decoration: none; padding: 10px 22px; border-radius: 8px; font-size: 13px; font-weight: 700;">
+          Download / View Attached PDF Plans →
+        </a>
+        ` : ""}
+      </div>
+      ` : ""}
+
       <!-- Dashboard Link -->
       <div style="text-align: center; padding-top: 10px; border-top: 1px solid #e2e8f0;">
         <p style="color: #64748b; font-size: 13px; margin-bottom: 14px;">This submission has also been logged in your live admin dashboard.</p>
@@ -211,11 +233,32 @@ Source: ${payload.source || "Website"}
 
 Message / Details:
 ${payload.message || "None"}
-
+${payload.attachmentName ? `\nAttached Plan: ${payload.attachmentName} (${payload.attachmentUrl || "Attached to email"})\n` : ""}
 --------------------------------------------------------
 Delivered to: ${recipient}
 View in Dashboard: https://electricalcontractorcorp.com/dashboard?tab=emails
     `.trim();
+
+    // Prepare attachments for nodemailer
+    const attachments: Array<{ filename: string; content?: Buffer; path?: string; contentType?: string }> = [];
+
+    if (payload.attachmentName) {
+      if (payload.attachmentBase64) {
+        const base64Data = payload.attachmentBase64.includes(",")
+          ? payload.attachmentBase64.split(",")[1]
+          : payload.attachmentBase64;
+        attachments.push({
+          filename: payload.attachmentName,
+          content: Buffer.from(base64Data, "base64"),
+          contentType: payload.attachmentName.toLowerCase().endsWith(".pdf") ? "application/pdf" : undefined
+        });
+      } else if (payload.attachmentUrl && payload.attachmentUrl.startsWith("http")) {
+        attachments.push({
+          filename: payload.attachmentName,
+          path: payload.attachmentUrl
+        });
+      }
+    }
 
     const info = await transporter.sendMail({
       from: `"R&E Electrical Leads" <${SENDER_EMAIL}>`,
@@ -223,7 +266,8 @@ View in Dashboard: https://electricalcontractorcorp.com/dashboard?tab=emails
       replyTo: payload.email || undefined,
       subject,
       text: textContent,
-      html: htmlContent
+      html: htmlContent,
+      attachments: attachments.length > 0 ? attachments : undefined
     });
 
     console.log(`✅ [Zoho SMTP] Submission email delivered successfully to ${recipient}. MessageId: ${info.messageId}`);

@@ -43,7 +43,9 @@ import {
   Layers,
   Play,
   CheckSquare,
-  Check
+  Check,
+  Download,
+  Paperclip
 } from "lucide-react";
 
 import {
@@ -1713,6 +1715,15 @@ function DashboardPage() {
                           <td className="p-4 pl-6">
                             <div className="font-bold text-slate-800">{email.name}</div>
                             <div className="text-xs text-slate-400 mt-0.5">{email.email} · {email.phone}</div>
+                            {email.attachmentName && (
+                              <div className="inline-flex items-center gap-1.5 text-[11px] font-bold text-orange-600 bg-orange-50 border border-orange-200/80 px-2.5 py-0.5 rounded-full mt-1.5">
+                                <Paperclip className="w-3 h-3 text-[#FF6B00]" />
+                                <span className="truncate max-w-[200px]">{email.attachmentName}</span>
+                                {email.attachmentSize && (
+                                  <span className="text-[10px] text-slate-400 font-medium">({(email.attachmentSize / (1024 * 1024)).toFixed(1)} MB)</span>
+                                )}
+                              </div>
+                            )}
                           </td>
                           <td className="p-4 font-semibold text-slate-800 truncate max-w-[120px]">
                             {email.service || "General Inquiry"}
@@ -1724,6 +1735,19 @@ function DashboardPage() {
                             {new Date(email.createdAt).toLocaleString()}
                           </td>
                           <td className="p-4 pr-6 text-right space-x-1.5 whitespace-nowrap">
+                            {email.attachmentUrl && (
+                              <a
+                                href={email.attachmentUrl}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                download={email.attachmentName}
+                                title={`Download/View Plan: ${email.attachmentName || 'PDF'}`}
+                                onClick={(e) => e.stopPropagation()}
+                                className="p-1.5 bg-orange-50 hover:bg-orange-100 border border-orange-200 rounded-lg text-[#FF6B00] transition inline-flex items-center"
+                              >
+                                <Download className="w-3.5 h-3.5" />
+                              </a>
+                            )}
                             <button
                               onClick={() => {
                                 setSelectedEmail(email);
@@ -2626,6 +2650,38 @@ function DashboardPage() {
                   <span className="text-[9px] font-bold text-slate-400 uppercase tracking-wide block">Inquiry Message Scope</span>
                   <p className="text-slate-700 font-medium leading-relaxed mt-1.5 text-sm whitespace-pre-wrap">{selectedEmail.message || "No message content."}</p>
                 </div>
+
+                {/* Attached Blueprint / Plan Set */}
+                {selectedEmail.attachmentName && (
+                  <div className="col-span-2 bg-gradient-to-r from-orange-50/80 to-amber-50/60 border border-orange-200 p-4 rounded-xl">
+                    <div className="flex items-center justify-between gap-3">
+                      <div className="flex items-center gap-3 min-w-0">
+                        <div className="w-10 h-10 rounded-xl bg-[#FF6B00] text-white flex items-center justify-center shrink-0 shadow-xs">
+                          <FileText className="w-5 h-5" />
+                        </div>
+                        <div className="min-w-0">
+                          <span className="text-[9px] font-extrabold text-[#FF6B00] uppercase tracking-wide block">Attached Blueprint / Plan Set</span>
+                          <p className="font-bold text-slate-900 text-sm truncate">{selectedEmail.attachmentName}</p>
+                          {selectedEmail.attachmentSize && (
+                            <span className="text-[10px] text-slate-500 font-medium">{(selectedEmail.attachmentSize / (1024 * 1024)).toFixed(2)} MB</span>
+                          )}
+                        </div>
+                      </div>
+                      {selectedEmail.attachmentUrl && (
+                        <a
+                          href={selectedEmail.attachmentUrl}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          download={selectedEmail.attachmentName}
+                          className="inline-flex items-center gap-1.5 bg-[#FF6B00] hover:bg-[#E05E00] text-white text-xs font-bold px-3.5 py-2 rounded-xl transition shadow-xs shrink-0 cursor-pointer"
+                        >
+                          <Download className="w-3.5 h-3.5" />
+                          <span>View / Download</span>
+                        </a>
+                      )}
+                    </div>
+                  </div>
+                )}
               </div>
             </div>
 

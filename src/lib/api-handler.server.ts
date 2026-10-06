@@ -211,8 +211,19 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
       }
       if (method === "POST") {
         const body = await request.json();
+
+        let attachmentUrl = body.emailData?.attachmentUrl;
+        if (!attachmentUrl && body.emailData?.attachmentBase64) {
+          try {
+            attachmentUrl = await uploadToCloudinary(body.emailData.attachmentBase64, "electrical/plans");
+          } catch (uploadErr) {
+            console.error("Cloudinary plan upload failed, retaining base64 attachment:", uploadErr);
+          }
+        }
+
         const newEmail = {
           ...body.emailData,
+          attachmentUrl: attachmentUrl || body.emailData?.attachmentUrl,
           id: "email-" + Math.random().toString(36).substr(2, 9),
           createdAt: new Date().toISOString()
         };
@@ -222,8 +233,8 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
         try {
           const notification = await dbAddNotification({
             type: "form_submission",
-            title: "New Form Submission",
-            message: `Submission from ${newEmail.name} for ${newEmail.service || "General Inquiry"}`,
+            title: newEmail.attachmentName ? "New Plan / Blueprint Submission" : "New Form Submission",
+            message: `Submission from ${newEmail.name} for ${newEmail.service || "General Inquiry"}${newEmail.attachmentName ? ` (Attached: ${newEmail.attachmentName})` : ""}`,
             link: "/dashboard?tab=emails",
             metadata: {
               name: newEmail.name,
@@ -231,7 +242,10 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
               phone: newEmail.phone,
               service: newEmail.service,
               message: newEmail.message,
-              source: newEmail.source
+              source: newEmail.source,
+              attachmentUrl: newEmail.attachmentUrl,
+              attachmentName: newEmail.attachmentName,
+              attachmentSize: newEmail.attachmentSize
             }
           });
 
@@ -252,7 +266,11 @@ export async function handleApiRequest(request: Request): Promise<Response | nul
             phone: newEmail.phone,
             service: newEmail.service,
             message: newEmail.message,
-            source: newEmail.source
+            source: newEmail.source,
+            attachmentUrl: newEmail.attachmentUrl,
+            attachmentName: newEmail.attachmentName,
+            attachmentSize: newEmail.attachmentSize,
+            attachmentBase64: body.emailData?.attachmentBase64
           });
         } catch (emailErr) {
           console.error("Failed to dispatch Zoho SMTP email notification:", emailErr);

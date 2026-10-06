@@ -36,6 +36,10 @@ export interface WebEmail {
   message?: string;
   source?: string;
   createdAt: string;
+  attachmentUrl?: string;
+  attachmentName?: string;
+  attachmentSize?: number;
+  attachmentBase64?: string;
 }
 
 export interface ChatMessage {
